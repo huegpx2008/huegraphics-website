@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const navItems = [
   { label: "Services", href: "/#services" },
@@ -12,7 +13,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-navy/90 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-10">
-        <a href="/" className="flex items-center gap-3 text-white">
+        <Link href="/" className="flex items-center gap-3 text-white">
           <span className="grid h-12 w-12 place-items-center overflow-hidden rounded-xl border border-accent/45 bg-card p-1.5 shadow-glow">
             <Image
               src="/images/logo.png"
@@ -26,16 +27,16 @@ export function Header() {
           <span className="hidden text-base font-extrabold tracking-wide text-white sm:inline sm:text-lg">
             Hue Graphics
           </span>
-        </a>
+        </Link>
         <nav aria-label="Main navigation" className="hidden items-center gap-7 lg:flex">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="text-sm font-semibold text-white/68 transition hover:text-white"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="flex items-center gap-2 sm:gap-3">
@@ -45,12 +46,12 @@ export function Header() {
           >
             Pay Invoice
           </a>
-          <a
+          <Link
             href="/#quote"
             className="rounded-xl bg-accent px-4 py-2.5 text-sm font-extrabold text-white shadow-glow transition hover:bg-[#2a86d8] sm:px-5"
           >
             Request a Quote
-          </a>
+          </Link>
         </div>
       </div>
     </header>

@@ -146,7 +146,7 @@ export default function AboutPage() {
                 message, build their brand, and make a lasting impression.
               </p>
               <blockquote className="mt-8 border-l-4 border-accent pl-5 text-xl font-black leading-8 text-white">
-                "The first quality that is needed is audacity."
+                &ldquo;The first quality that is needed is audacity.&rdquo;
               </blockquote>
               <p className="mt-8 text-white">
                 Thank you for supporting our family business and being part of

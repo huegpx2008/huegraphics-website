@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   "Screen Printing",
@@ -53,9 +54,9 @@ export function Footer() {
             </p>
             <div className="mt-4 grid gap-2 text-sm text-[#b9c7d6]">
               {services.map((service) => (
-                <a key={service} href="/#services" className="transition hover:text-white">
+                <Link key={service} href="/#services" className="transition hover:text-white">
                   {service}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -64,16 +65,16 @@ export function Footer() {
               Company
             </p>
             <div className="mt-4 grid gap-2 text-sm text-[#b9c7d6]">
-              <a href="/about" className="transition hover:text-white">Our Story</a>
-              <a href="/#work" className="transition hover:text-white">Portfolio</a>
-              <a href="/#contact" className="transition hover:text-white">Contact</a>
+              <Link href="/about" className="transition hover:text-white">Our Story</Link>
+              <Link href="/#work" className="transition hover:text-white">Portfolio</Link>
+              <Link href="/#contact" className="transition hover:text-white">Contact</Link>
             </div>
-            <a
+            <Link
               href="/#resources"
               className="mt-6 inline-flex rounded-lg border border-white/18 px-5 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
             >
               Customer portal
-            </a>
+            </Link>
           </div>
         </div>
         <div className="border-t border-white/10 px-6 py-4 text-center text-xs text-white/44 sm:px-8 lg:px-10">
