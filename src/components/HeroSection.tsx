@@ -75,32 +75,3 @@ export function HeroSection() {
     </section>
   );
 }
-        </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="#work"
-            className="rounded-full bg-accent px-6 py-3 text-center text-sm font-bold text-white transition hover:bg-accent/85"
-          >
-            View Work
-          </a>
-          <a
-            href="#services"
-            className="rounded-full border border-white/18 px-6 py-3 text-center text-sm font-bold text-white transition hover:border-accent/60 hover:bg-white/5"
-          >
-            Explore Services
-          </a>
-        </div>
-      </div>
-      <div className="glow-card overflow-hidden p-3">
-        <Image
-          src="/images/placeholder-hero.svg"
-          alt="Abstract placeholder brand artwork"
-          width={900}
-          height={680}
-          priority
-          className="h-auto w-full rounded-xl"
-        />
-      </div>
-    </section>
-  );
-}
