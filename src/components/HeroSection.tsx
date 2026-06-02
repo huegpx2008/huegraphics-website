@@ -35,8 +35,8 @@ export function HeroSection() {
             <span className="block text-accent">Printing.</span>
           </h1>
           <p className="mt-7 max-w-xl text-lg font-semibold leading-8 text-white/82 sm:text-xl">
-            Built in Bethlehem, Georgia with in-house equipment, disciplined
-            production, and finish quality made for real-world use.
+            Built locally. Produced professionally. Delivered with pride.
+            Quality apparel, signs, graphics, and print—all under one roof.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a

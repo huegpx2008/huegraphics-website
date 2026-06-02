@@ -21,7 +21,7 @@ const services = [
   {
     title: "DTF Transfers",
     description: "Vibrant full-color transfers for flexible runs, detailed artwork, and fast repeat orders.",
-    image: "/images/service-dtf-transfers.png",
+    image: "/images/dtf-main2.png",
     icon: "DTF",
   },
   {

@@ -1,115 +1,82 @@
-"use client";
-
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import { readdirSync } from "node:fs";
+import path from "node:path";
+import { WorkImageSlideshow } from "./WorkImageSlideshow";
 
 type WorkItem = {
   id: string;
   title: string;
   category: string;
-  image: string;
+  imageFolder?: string;
+  images: string[];
   permalink?: string;
-  isExternal?: boolean;
 };
 
-const fallbackProjects: WorkItem[] = [
-  {
-    id: "team-apparel",
-    title: "Team Apparel",
-    category: "Screen Printing",
-    image: "/images/screen-print.png",
-  },
-  {
-    id: "embroidered-gear",
-    title: "Embroidered Gear",
-    category: "Embroidery",
-    image: "/images/emb.png",
-  },
-  {
-    id: "vehicle-graphics",
-    title: "Vehicle Graphics",
-    category: "Fleet Branding",
-    image: "/images/truck-2.png",
-  },
-  {
-    id: "outdoor-banners",
-    title: "Outdoor Banners",
-    category: "Signs & Banners",
-    image: "/images/banners.png",
-  },
-  {
-    id: "transfer-prints",
-    title: "Transfer Prints",
-    category: "DTF Transfers",
-    image: "/images/service-dtf-transfers.png",
-  },
-  {
-    id: "print-essentials",
-    title: "Print Essentials",
-    category: "Business Printing",
-    image: "/images/service-business-printing.png",
-  },
-];
+const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 
-function InstagramImage({ item }: { item: WorkItem }) {
-  if (item.isExternal) {
-    return (
-      <img
-        src={item.image}
-        alt=""
-        className="h-full w-full object-cover opacity-86 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
-      />
-    );
+function getPublicImageFolder(folder: string, fallback: string[]) {
+  const folderPath = path.join(process.cwd(), "public", "images", folder);
+
+  try {
+    const images = readdirSync(folderPath)
+      .filter((file) => imageExtensions.has(path.extname(file).toLowerCase()))
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+      .map((file) => `/images/${folder}/${encodeURIComponent(file)}`);
+
+    return images.length ? images : fallback;
+  } catch {
+    return fallback;
   }
+}
 
-  return (
-    <Image
-      src={item.image}
-      alt=""
-      fill
-      sizes="(min-width: 1280px) 20vw, (min-width: 768px) 50vw, 100vw"
-      className="object-cover opacity-86 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
-    />
-  );
+function getRecentWorkProjects(): WorkItem[] {
+  return [
+    {
+      id: "team-apparel",
+      title: "Custom Printed Apparel",
+      category: "Screen Printing",
+      imageFolder: "screen-printing",
+      images: getPublicImageFolder("screen-printing", [
+        "/images/screen-print1.jpg",
+        "/images/cpa.jpg",
+      ]),
+    },
+    {
+      id: "embroidered-gear",
+      title: "Embroidered Gear",
+      category: "Embroidery",
+      imageFolder: "emb",
+      images: getPublicImageFolder("emb", ["/images/emb.png"]),
+    },
+    {
+      id: "vehicle-graphics",
+      title: "Vehicle Graphics",
+      category: "Fleet Branding",
+      imageFolder: "vehicle-graphics",
+      images: getPublicImageFolder("vehicle-graphics", ["/images/truck-2.png"]),
+    },
+    {
+      id: "outdoor-banners",
+      title: "Outdoor Banners",
+      category: "Signs & Banners",
+      images: ["/images/banners.png"],
+    },
+    {
+      id: "transfer-prints",
+      title: "Transfer Prints",
+      category: "DTF Transfers",
+      images: ["/images/dtf-main2.png"],
+    },
+    {
+      id: "print-essentials",
+      title: "Print Essentials",
+      category: "Business Printing",
+      images: ["/images/service-business-printing.png"],
+    },
+  ];
 }
 
 export function RecentWorkSection() {
-  const [items, setItems] = useState<WorkItem[]>(fallbackProjects);
-  const [usesInstagram, setUsesInstagram] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function loadInstagramFeed() {
-      try {
-        const response = await fetch("/api/instagram");
-        if (!response.ok) return;
-
-        const payload = (await response.json()) as {
-          configured?: boolean;
-          items?: Array<Omit<WorkItem, "isExternal">>;
-        };
-
-        if (!cancelled && payload.items?.length) {
-          setItems(
-            payload.items.map((item) => ({
-              ...item,
-              isExternal: true,
-            }))
-          );
-          setUsesInstagram(Boolean(payload.configured));
-        }
-      } catch {
-        // Keep curated fallback projects when Instagram is unavailable.
-      }
-    }
-
-    loadInstagramFeed();
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const recentWorkProjects = getRecentWorkProjects();
 
   return (
     <section id="work" className="bg-[#050b14] px-5 py-8 sm:px-8 lg:px-10">
@@ -121,25 +88,27 @@ export function RecentWorkSection() {
           </h2>
           <div className="mt-7 h-1 w-16 rounded-full bg-accent" />
           <p className="mt-7 text-sm leading-7 text-[#b9c7d6]">
-            {usesInstagram
-              ? "Latest project photos pulled from Instagram, with the same polished layout and quick access to the original posts."
-              : "A curated project grid is shown now. Add the Instagram token and this section will automatically pull recent posts."}
+            A look at recent Hue Graphics projects from the shop floor. Follow
+            along on Instagram to see more day-to-day work.
           </p>
           <a
-            href="https://www.instagram.com/huegraphics/"
+            href="https://www.instagram.com/huegpx"
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-flex rounded-lg bg-accent px-6 py-3 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8]"
+            className="mt-8 inline-flex whitespace-nowrap rounded-lg bg-accent px-6 py-3 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8]"
           >
-            View on Instagram -&gt;
+            Follow on Instagram
           </a>
         </div>
         <div className="grid gap-px bg-white/12 sm:grid-cols-2 xl:grid-cols-3">
-          {items.map((item) => {
+          {recentWorkProjects.map((item) => {
             const content = (
               <>
                 <div className="relative aspect-[1.42] overflow-hidden bg-[#101b2c]">
-                  <InstagramImage item={item} />
+                  <WorkImageSlideshow
+                    imageFolder={item.imageFolder}
+                    images={item.images}
+                  />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(8,17,31,0.92)_100%)]" />
                 </div>
                 <div className="p-5">

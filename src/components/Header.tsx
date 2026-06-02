@@ -40,7 +40,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2 sm:gap-3">
           <a
-            href="/#resources"
+            href="https://pay.hue.graphics/payinvoice"
             className="hidden rounded-xl border border-white/14 bg-white/[0.03] px-4 py-2.5 text-sm font-bold text-white/82 transition hover:border-accent/55 hover:bg-accent/10 sm:inline-flex"
           >
             Pay Invoice

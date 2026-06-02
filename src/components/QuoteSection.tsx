@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 const interestOptions = [
   "Apparel",
@@ -12,32 +12,51 @@ const interestOptions = [
 ];
 
 export function QuoteSection() {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  const [fileNames, setFileNames] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{
+    message: string;
+    type: "error" | "success";
+  } | null>(null);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const form = event.currentTarget;
     const data = new FormData(form);
-    const files = data.getAll("files").filter((file) => file instanceof File && file.name);
-    const fileNames = files.map((file) => (file as File).name).join(", ");
 
-    const body = [
-      `Name: ${data.get("name") ?? ""}`,
-      `Email: ${data.get("email") ?? ""}`,
-      `Phone: ${data.get("phone") ?? ""}`,
-      `Interested in: ${data.get("interest") ?? ""}`,
-      "",
-      "Project details:",
-      `${data.get("details") ?? ""}`,
-      "",
-      "Other notes:",
-      `${data.get("notes") ?? ""}`,
-      "",
-      fileNames ? `Files selected: ${fileNames}` : "Files selected: None",
-    ].join("\n");
+    setIsSubmitting(true);
+    setStatus(null);
 
-    window.location.href = `mailto:jason@huegraphics.cc?subject=${encodeURIComponent(
-      "Quote Request"
-    )}&body=${encodeURIComponent(body)}`;
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        body: data,
+      });
+
+      const payload = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(payload.error || "Unable to send quote request.");
+      }
+
+      form.reset();
+      setFileNames([]);
+      setStatus({
+        message: "Thanks. Your quote request has been sent.",
+        type: "success",
+      });
+    } catch (error) {
+      setStatus({
+        message:
+          error instanceof Error
+            ? error.message
+            : "Unable to send quote request.",
+        type: "error",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -54,6 +73,44 @@ export function QuoteSection() {
             anything else we need to get pricing started.
           </p>
         </div>
+        {status?.type === "success" ? (
+          <div className="relative overflow-hidden bg-[#08111f] p-6 sm:p-8 lg:p-10">
+            <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-accent/18 blur-3xl" />
+            <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:48px_48px]" />
+            <div className="relative flex min-h-[520px] flex-col items-start justify-center">
+              <div className="grid h-20 w-20 place-items-center rounded-2xl border border-accent/45 bg-accent/15 text-4xl font-black text-accent shadow-[0_0_42px_rgba(31,115,190,0.34)]">
+                OK
+              </div>
+              <p className="mt-8 text-xs font-black uppercase tracking-[0.22em] text-accent">
+                Quote request received
+              </p>
+              <h3 className="mt-4 max-w-xl font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.92] tracking-tight text-white sm:text-6xl">
+                Your project is on the shop board.
+              </h3>
+              <p className="mt-6 max-w-xl text-base leading-8 text-[#b9c7d6]">
+                Your project details made it through. We will review the specs,
+                files, and timeline, then get back to you with the next steps.
+              </p>
+              <div className="mt-8 rounded-lg border border-white/14 bg-white/[0.04] p-5">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-white/52">
+                  What happens next
+                </p>
+                <p className="mt-2 text-sm leading-7 text-white/76">
+                  A real person checks the request, not a robot queue. If we
+                  need artwork clarification, quantities, or sizing details,
+                  we will reach out.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setStatus(null)}
+                className="mt-8 rounded-lg bg-accent px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8]"
+              >
+                Send another quote
+              </button>
+            </div>
+          </div>
+        ) : (
         <form onSubmit={handleSubmit} className="bg-[#08111f] p-6 sm:p-8 lg:p-10">
           <div className="grid gap-4 sm:grid-cols-2">
             <input
@@ -81,7 +138,7 @@ export function QuoteSection() {
               className="rounded-lg border border-white/14 bg-[#0b1728] px-4 py-4 text-sm text-white outline-none transition focus:border-accent"
             >
               <option value="" disabled>
-                I'm interested in*
+                Service needed*
               </option>
               {interestOptions.map((option) => (
                 <option key={option} value={option}>
@@ -93,7 +150,7 @@ export function QuoteSection() {
           <textarea
             name="details"
             required
-            placeholder="I'm interested in*"
+            placeholder="Project details*"
             rows={6}
             className="mt-4 w-full rounded-lg border border-white/14 bg-white/[0.04] px-4 py-4 text-sm text-white outline-none transition placeholder:text-[#b9c7d6]/70 focus:border-accent"
           />
@@ -108,20 +165,46 @@ export function QuoteSection() {
               <label className="inline-flex cursor-pointer items-center gap-3 text-sm font-bold text-[#b9c7d6] transition hover:text-white">
                 <span className="text-lg text-accent">+</span>
                 Attach Files
-                <input name="files" type="file" multiple className="sr-only" />
+                <input
+                  name="files"
+                  type="file"
+                  multiple
+                  className="sr-only"
+                  onChange={(event) =>
+                    setFileNames(
+                      Array.from(event.currentTarget.files || []).map(
+                        (file) => file.name
+                      )
+                    )
+                  }
+                />
               </label>
               <p className="mt-2 text-xs leading-5 text-white/42">
-                File names are added to your quote email.
+                JPG, PNG, PDF, SVG, ZIP, and common artwork files.
               </p>
+              {fileNames.length > 0 ? (
+                <p className="mt-2 max-w-md text-xs leading-5 text-white/60">
+                  {fileNames.join(", ")}
+                </p>
+              ) : null}
             </div>
             <button
               type="submit"
+              disabled={isSubmitting}
               className="rounded-lg bg-accent px-8 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8]"
             >
-              Send -&gt;
+              {isSubmitting ? "Sending..." : "Send ->"}
             </button>
           </div>
+          {status ? (
+            <p
+              className="mt-5 rounded-lg border border-red-400/35 bg-red-500/10 px-4 py-3 text-sm font-bold text-red-100"
+            >
+              {status.message}
+            </p>
+          ) : null}
         </form>
+        )}
       </div>
     </section>
   );
