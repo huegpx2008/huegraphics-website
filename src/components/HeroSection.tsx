@@ -2,43 +2,41 @@ import Image from "next/image";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-svh overflow-hidden bg-navy pt-28">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(31,115,190,0.24),transparent_28rem),linear-gradient(135deg,rgba(8,17,31,0.96),rgba(8,17,31,0.78)_48%,rgba(8,17,31,0.94))]" />
-      <div className="absolute inset-x-0 top-20 h-px bg-gradient-to-r from-transparent via-accent/45 to-transparent" />
-      <div className="section-shell relative grid min-h-[calc(100svh-7rem)] items-center gap-10 py-10 lg:grid-cols-[0.92fr_1.08fr] lg:py-16">
-        <div className="max-w-2xl">
-          <p className="eyebrow">Built for brands, crews, and teams</p>
-          <h1 className="mt-5 text-5xl font-black leading-[0.95] text-white sm:text-6xl lg:text-7xl xl:text-8xl">
+    <section className="hero-shell relative isolate min-h-[calc(100svh-73px)] overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_16%_18%,rgba(31,115,190,0.2),transparent_28rem),linear-gradient(135deg,rgba(8,17,31,0.98),rgba(8,17,31,0.86)_48%,rgba(17,27,46,0.96))]" />
+      <div className="absolute left-1/2 top-0 -z-10 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
+      <div className="absolute inset-0 -z-10 opacity-[0.16] [background-image:linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:44px_44px]" />
+      <div className="absolute right-0 top-24 -z-10 h-80 w-1/2 bg-[radial-gradient(ellipse_at_center,rgba(31,115,190,0.2),transparent_68%)] blur-2xl" />
+      <div className="mx-auto grid min-h-[calc(100svh-73px)] w-full max-w-7xl items-center gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10 lg:py-16">
+        <div className="max-w-2xl pt-2 lg:pt-0">
+          <p className="eyebrow">Custom production for crews, fleets, and brands</p>
+          <h1 className="mt-5 text-[clamp(3.2rem,9vw,7.7rem)] font-black leading-[0.86] tracking-normal text-white">
             Custom Apparel.
-            <span className="block text-white/90">Signs.</span>
-            <span className="block text-accent">Printing.</span>
+            <span className="block text-white/92">Signs.</span>
+            <span className="block text-white/76">Printing.</span>
           </h1>
-          <p className="mt-7 text-xl font-semibold text-white sm:text-2xl">
-            Built in Bethlehem, Georgia.
-          </p>
-          <p className="mt-5 max-w-xl text-base leading-8 text-white/70 sm:text-lg">
-            Premium placeholder copy for a workshop-led creative partner,
-            combining production discipline with polished visual execution.
+          <p className="mt-7 max-w-xl text-xl font-semibold leading-8 text-white/78 sm:text-2xl">
+            Serving Northeast Georgia Since 2013.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#quote"
-              className="rounded-full bg-accent px-7 py-4 text-center text-sm font-black text-white shadow-glow transition hover:bg-accent/85"
+              href="#contact"
+              className="rounded-xl bg-accent px-6 py-4 text-center text-sm font-extrabold uppercase tracking-wide text-white shadow-glow transition hover:bg-[#2a86d8]"
             >
               Request a Quote
             </a>
             <a
-              href="#portfolio"
-              className="rounded-full border border-white/18 px-7 py-4 text-center text-sm font-black text-white transition hover:border-accent/60 hover:bg-white/5"
+              href="#work"
+              className="rounded-xl border border-white/16 bg-white/[0.04] px-6 py-4 text-center text-sm font-extrabold uppercase tracking-wide text-white transition hover:border-accent/60 hover:bg-accent/10"
             >
               View Our Work
             </a>
           </div>
-          <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">
-            {["Apparel", "Signage", "Print"].map((item) => (
+          <div className="mt-10 grid max-w-lg grid-cols-3 gap-3">
+            {["Apparel", "Vehicle + Site", "Print Runs"].map((item) => (
               <div
                 key={item}
-                className="rounded-2xl border border-accent/20 bg-card/55 px-4 py-3 text-center text-xs font-bold uppercase tracking-[0.14em] text-white/70 shadow-glow"
+                className="rounded-xl border border-white/10 bg-card/65 px-3 py-3 text-center text-xs font-bold uppercase tracking-wide text-white/68"
               >
                 {item}
               </div>
@@ -46,29 +44,41 @@ export function HeroSection() {
           </div>
         </div>
         <div className="relative">
-          <div className="absolute -inset-4 rounded-[2rem] border border-accent/20 bg-accent/5 blur-2xl" />
-          <div className="glow-card relative overflow-hidden rounded-[2rem] p-2">
-            <div className="relative aspect-[4/3] min-h-[360px] overflow-hidden rounded-[1.45rem] sm:min-h-[470px] lg:min-h-[590px]">
-              <Image
-                src="/images/placeholder-workshop.svg"
-                alt="Industrial workshop placeholder for Hue Graphics production"
-                fill
-                priority
-                sizes="(min-width: 1024px) 54vw, 100vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/35 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-navy/55 via-transparent to-navy/18" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/12 bg-navy/70 p-4 backdrop-blur-md sm:bottom-7 sm:left-7 sm:right-auto sm:w-80 sm:p-5">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
-                  Quote-ready production
-                </p>
-                <p className="mt-2 text-sm leading-6 text-white/75">
-                  Placeholder visual system for apparel, signs, and print
-                  workflows.
-                </p>
+          <div className="absolute -inset-5 rounded-[2rem] bg-accent/18 blur-3xl" />
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-accent/30 bg-card shadow-[0_28px_90px_rgba(0,0,0,0.38),0_0_45px_rgba(31,115,190,0.2)]">
+            <div className="absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(8,17,31,0.18),rgba(8,17,31,0.04)_42%,rgba(8,17,31,0.62)),linear-gradient(0deg,rgba(8,17,31,0.8),transparent_42%)]" />
+            <Image
+              src="/images/placeholder-hero.svg"
+              alt="Industrial production placeholder showing screen printing, embroidery, and sign production"
+              width={960}
+              height={760}
+              priority
+              className="aspect-[1.05/1] h-auto w-full object-cover"
+            />
+            <div className="absolute bottom-5 left-5 right-5 z-20 rounded-2xl border border-white/12 bg-navy/72 p-4 shadow-2xl backdrop-blur-md sm:bottom-7 sm:left-7 sm:right-7 sm:p-5">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.22em] text-accent">
+                    Shop Floor Ready
+                  </p>
+                  <p className="mt-2 text-lg font-extrabold text-white sm:text-xl">
+                    Screen print, embroidery, signs, and print.
+                  </p>
+                </div>
+                <div className="hidden rounded-xl border border-accent/35 bg-accent/12 px-4 py-3 text-right sm:block">
+                  <p className="text-2xl font-black text-white">HG</p>
+                  <p className="text-[0.62rem] font-bold uppercase tracking-widest text-white/52">
+                    Bethlehem
+                  </p>
+                </div>
               </div>
             </div>
+          </div>
+          <div className="pointer-events-none absolute right-5 top-5 rounded-2xl border border-white/12 bg-navy/68 px-4 py-3 shadow-2xl backdrop-blur-md">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/54">
+              Production Bay
+            </p>
+            <p className="mt-1 text-sm font-black text-white">Built clean. Finished tough.</p>
           </div>
         </div>
       </div>
