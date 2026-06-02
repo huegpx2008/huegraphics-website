@@ -43,7 +43,7 @@ export function StorySection() {
               Visit us
             </p>
             <p className="mt-2 text-lg font-black text-white">
-              741 Harry McCarty Road
+              741 Harry McCarty Road, Suite 101
             </p>
             <p className="text-sm leading-6 text-[#b9c7d6]">
               Bethlehem, Georgia 30620

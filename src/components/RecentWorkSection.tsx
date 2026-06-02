@@ -58,7 +58,8 @@ function getRecentWorkProjects(): WorkItem[] {
       id: "outdoor-banners",
       title: "Outdoor Banners",
       category: "Signs & Banners",
-      images: ["/images/banners.png"],
+      imageFolder: "sign-banners",
+      images: getPublicImageFolder("sign-banners", ["/images/banners.png"]),
     },
     {
       id: "transfer-prints",

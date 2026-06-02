@@ -34,7 +34,7 @@ export function Footer() {
               Contact us
             </p>
             <div className="mt-4 space-y-2 text-sm leading-6 text-[#b9c7d6]">
-              <p>741 Harry McCarty Road</p>
+              <p>741 Harry McCarty Road, Suite 101</p>
               <p>Bethlehem, GA 30620</p>
               <p>
                 <a href="tel:17708673520" className="transition hover:text-white">

@@ -2,7 +2,12 @@ import { readdirSync } from "node:fs";
 import path from "node:path";
 import { NextRequest, NextResponse } from "next/server";
 
-const allowedFolders = new Set(["screen-printing", "emb", "vehicle-graphics"]);
+const allowedFolders = new Set([
+  "screen-printing",
+  "emb",
+  "vehicle-graphics",
+  "sign-banners",
+]);
 const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 
 function getPublicImageFolder(folder: string) {

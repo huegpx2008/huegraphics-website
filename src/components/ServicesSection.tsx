@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const productionVideos = ["/images/video-1.mp4", "/images/video-2.mp4"];
@@ -11,6 +12,7 @@ const services = [
     description: "High-quality custom shirts, hoodies, team gear, and event apparel with a 24-piece minimum.",
     image: "/images/screen-print.png",
     icon: "SP",
+    href: "/screen-printing",
   },
   {
     title: "Embroidery",
@@ -131,13 +133,23 @@ export function ServicesSection() {
                 <p className="mt-3 text-sm leading-6 text-[#b9c7d6]">
                   {service.description}
                 </p>
-                <a
-                  href="#contact"
-                  aria-label={`Request a quote for ${service.title}`}
-                  className="mt-5 inline-flex text-lg font-black text-accent transition group-hover:translate-x-1 group-hover:text-white"
-                >
-                  -&gt;
-                </a>
+                {service.href ? (
+                  <Link
+                    href={service.href}
+                    aria-label={`Learn more about ${service.title}`}
+                    className="mt-5 inline-flex text-lg font-black text-accent transition group-hover:translate-x-1 group-hover:text-white"
+                  >
+                    -&gt;
+                  </Link>
+                ) : (
+                  <a
+                    href="#contact"
+                    aria-label={`Request a quote for ${service.title}`}
+                    className="mt-5 inline-flex text-lg font-black text-accent transition group-hover:translate-x-1 group-hover:text-white"
+                  >
+                    -&gt;
+                  </a>
+                )}
               </div>
             </article>
           ))}
