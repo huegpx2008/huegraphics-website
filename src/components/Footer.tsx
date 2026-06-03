@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const services = [
-  "Screen Printing",
-  "Embroidery",
-  "DTF Transfers",
-  "Signs & Banners",
-  "Vehicle Graphics",
-  "Business Printing",
+  { label: "Screen Printing", href: "/#services" },
+  { label: "Embroidery", href: "/embroidery" },
+  { label: "DTF Transfers", href: "/dtf-transfers" },
+  { label: "Signs & Banners", href: "/signs-banners" },
+  { label: "Vehicle Graphics", href: "/vehicle-graphics" },
+  { label: "Business Printing", href: "/business-printing" },
 ];
 
 export function Footer() {
@@ -54,8 +54,8 @@ export function Footer() {
             </p>
             <div className="mt-4 grid gap-2 text-sm text-[#b9c7d6]">
               {services.map((service) => (
-                <Link key={service} href="/#services" className="transition hover:text-white">
-                  {service}
+                <Link key={service.label} href={service.href} className="transition hover:text-white">
+                  {service.label}
                 </Link>
               ))}
             </div>

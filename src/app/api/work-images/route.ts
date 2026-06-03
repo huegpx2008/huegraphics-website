@@ -3,8 +3,10 @@ import path from "node:path";
 import { NextRequest, NextResponse } from "next/server";
 
 const allowedFolders = new Set([
-  "screen-printing",
+  "business-printing",
+  "dtf",
   "emb",
+  "screen-printing",
   "vehicle-graphics",
   "sign-banners",
 ]);

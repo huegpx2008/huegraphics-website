@@ -19,30 +19,35 @@ const services = [
     description: "Polished stitching for polos, hats, jackets, uniforms, and premium branded apparel.",
     image: "/images/emb.png",
     icon: "EM",
+    href: "/embroidery",
   },
   {
     title: "DTF Transfers",
     description: "Vibrant full-color transfers for flexible runs, detailed artwork, and fast repeat orders.",
     image: "/images/dtf-main2.png",
     icon: "DTF",
+    href: "/dtf-transfers",
   },
   {
     title: "Signs & Banners",
     description: "Indoor and outdoor signs, banners, decals, yard signs, and storefront graphics.",
     image: "/images/banners.png",
     icon: "SG",
+    href: "/signs-banners",
   },
   {
     title: "Vehicle Graphics",
     description: "Turn fleet vehicles, trailers, and work trucks into clean mobile brand impressions.",
     image: "/images/truck-2.png",
     icon: "VG",
+    href: "/vehicle-graphics",
   },
   {
     title: "Business Printing",
     description: "Business cards, postcards, forms, stickers, and everyday print pieces for your team.",
     image: "/images/service-business-printing.png",
     icon: "BP",
+    href: "/business-printing",
   },
 ];
 
@@ -143,7 +148,7 @@ export function ServicesSection() {
                   </Link>
                 ) : (
                   <a
-                    href="#contact"
+                    href="/#quote"
                     aria-label={`Request a quote for ${service.title}`}
                     className="mt-5 inline-flex text-lg font-black text-accent transition group-hover:translate-x-1 group-hover:text-white"
                   >

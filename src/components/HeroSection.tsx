@@ -4,7 +4,7 @@ export function HeroSection() {
   return (
     <section className="hero-shell relative isolate min-h-[calc(100svh-73px)] overflow-hidden bg-[#03070d]">
       <Image
-        src="/images/press.png"
+        src="/images/press-h.png"
         alt="Industrial screen printing press on the Hue Graphics production floor"
         fill
         priority
