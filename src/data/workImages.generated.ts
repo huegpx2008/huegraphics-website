@@ -1,6 +1,9 @@
 export const workImagesByFolder = {
   "business-printing": [],
   "dtf": [
+    "/images/dtf/2026-06-03%2009.25.54.jpg",
+    "/images/dtf/2026-06-03%2009.26.18.jpg",
+    "/images/dtf/DTF-main.jpg",
     "/images/dtf/dtf-main2.png",
     "/images/dtf/service-dtf-transfers.png"
   ],
@@ -34,6 +37,9 @@ export const workImagesByFolder = {
     "/images/screen-printing/screen-print1.jpg"
   ],
   "sign-banners": [
+    "/images/sign-banners/2026-06-03%2009.22.35.jpg",
+    "/images/sign-banners/2026-06-03%2009.25.18.jpg",
+    "/images/sign-banners/2026-06-03%2009.25.40.jpg",
     "/images/sign-banners/95525961_3022025347820545_5557957864531689472_n.jpg",
     "/images/sign-banners/618657266_18555735766009873_133435053101636559_n.jpg",
     "/images/sign-banners/639531227_18569535229009873_1734010140289635921_n.jpg",
