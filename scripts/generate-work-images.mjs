@@ -13,6 +13,7 @@ const folders = [
 const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 const root = process.cwd();
 const outputPath = path.join(root, "src", "data", "workImages.generated.ts");
+const homeOutputPath = path.join(root, "src", "data", "homeWorkImages.generated.ts");
 
 async function readImages(folder) {
   const folderPath = path.join(root, "public", "images", folder);
@@ -42,3 +43,12 @@ const content = `export const workImagesByFolder = ${JSON.stringify(
 
 await mkdir(path.dirname(outputPath), { recursive: true });
 await writeFile(outputPath, content);
+
+const homeImages = await readImages("all-photos");
+const homeContent = `export const homeWorkImages = ${JSON.stringify(
+  homeImages,
+  null,
+  2
+)} as const;\n`;
+
+await writeFile(homeOutputPath, homeContent);

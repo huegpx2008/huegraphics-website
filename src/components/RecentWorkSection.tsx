@@ -1,91 +1,29 @@
-import {
-  workImagesByFolder,
-  type WorkImageFolder,
-} from "@/data/workImages.generated";
-import { WorkImageSlideshow } from "./WorkImageSlideshow";
+import { homeWorkImages } from "@/data/homeWorkImages.generated";
+import { HomePhotoWall } from "./HomePhotoWall";
 
-type WorkItem = {
-  id: string;
-  title: string;
-  category: string;
-  imageFolder?: WorkImageFolder;
-  images: string[];
-  permalink?: string;
-};
-
-function getWorkImages(folder: WorkImageFolder, fallback: string[]) {
-  const images = workImagesByFolder[folder];
-
-  return images.length ? [...images] : fallback;
-}
-
-function getRecentWorkProjects(): WorkItem[] {
-  return [
-    {
-      id: "team-apparel",
-      title: "Custom Printed Apparel",
-      category: "Screen Printing",
-      imageFolder: "screen-printing",
-      images: getWorkImages("screen-printing", [
-        "/images/screen-print1.jpg",
-        "/images/cpa.jpg",
-      ]),
-    },
-    {
-      id: "embroidered-gear",
-      title: "Embroidered Gear",
-      category: "Embroidery",
-      imageFolder: "emb",
-      images: getWorkImages("emb", ["/images/emb.png"]),
-    },
-    {
-      id: "vehicle-graphics",
-      title: "Vehicle Graphics",
-      category: "Fleet Branding",
-      imageFolder: "vehicle-graphics",
-      images: getWorkImages("vehicle-graphics", ["/images/truck-2.png"]),
-    },
-    {
-      id: "outdoor-banners",
-      title: "Outdoor Banners",
-      category: "Signs & Banners",
-      imageFolder: "sign-banners",
-      images: getWorkImages("sign-banners", ["/images/banners.png"]),
-    },
-    {
-      id: "transfer-prints",
-      title: "Transfer Prints",
-      category: "DTF Transfers",
-      imageFolder: "dtf",
-      images: getWorkImages("dtf", ["/images/dtf-main2.png"]),
-    },
-    {
-      id: "print-essentials",
-      title: "Print Essentials",
-      category: "Business Printing",
-      imageFolder: "business-printing",
-      images: getWorkImages("business-printing", [
-        "/images/service-business-printing.png",
-      ]),
-    },
-  ];
-}
+const fallbackImages = [
+  "/images/screen-printing/cpa.jpg",
+  "/images/emb/emb.png",
+  "/images/vehicle-graphics/truck-graphics.jpg",
+  "/images/sign-banners/signs1.jpg",
+  "/images/dtf/dtf-main2.png",
+  "/images/service-business-printing.png",
+];
 
 export function RecentWorkSection() {
-  const recentWorkProjects = getRecentWorkProjects();
-
   return (
     <section id="work" className="bg-[#050b14] px-5 py-8 sm:px-8 lg:px-10">
       <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-[0.38fr_1fr]">
         <div className="bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8">
-          <p className="eyebrow">Our recent work</p>
+          <p className="eyebrow">Work through the years</p>
           <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
             Real projects. Real results.
           </h2>
           <div className="mt-7 h-1 w-16 rounded-full bg-accent" />
           <p className="mt-7 text-sm leading-7 text-[#b9c7d6]">
-            A look at recent Hue Graphics projects from the shop floor. Follow
-            along on Instagram to see more day-to-day work.
+            A look back at years of Hue Graphics projects from the shop floor,
+            job sites, and finished installs. For the newest work, follow along
+            on Instagram.
           </p>
           <a
             href="https://www.instagram.com/huegpx"
@@ -96,47 +34,7 @@ export function RecentWorkSection() {
             Follow on Instagram
           </a>
         </div>
-        <div className="grid gap-px bg-white/12 sm:grid-cols-2 xl:grid-cols-3">
-          {recentWorkProjects.map((item) => {
-            const content = (
-              <>
-                <div className="relative aspect-[1.42] overflow-hidden bg-[#101b2c]">
-                  <WorkImageSlideshow
-                    imageFolder={item.imageFolder}
-                    images={item.images}
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(8,17,31,0.92)_100%)]" />
-                </div>
-                <div className="p-5">
-                  <h3 className="line-clamp-2 text-base font-black uppercase tracking-wide text-white">
-                    {item.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-[#b9c7d6]">{item.category}</p>
-                </div>
-              </>
-            );
-
-            if (item.permalink) {
-              return (
-                <a
-                  key={item.id}
-                  href={item.permalink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group bg-[#08111f]"
-                >
-                  {content}
-                </a>
-              );
-            }
-
-            return (
-              <article key={item.id} className="group bg-[#08111f]">
-                {content}
-              </article>
-            );
-          })}
-        </div>
+        <HomePhotoWall images={homeWorkImages} fallbackImages={fallbackImages} />
       </div>
     </section>
   );
