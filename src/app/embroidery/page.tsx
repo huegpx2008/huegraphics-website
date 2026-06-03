@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -57,12 +58,12 @@ export default function EmbroideryPage() {
               produced with careful setup, clean stitching, and practical
               guidance before your order goes into production.
             </p>
-            <a
+            <Link
               href="/#quote"
               className="mt-9 inline-flex rounded-lg bg-accent px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
             >
               Request embroidery pricing -&gt;
-            </a>
+            </Link>
           </div>
         </section>
 

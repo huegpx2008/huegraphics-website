@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 type RandomImageGalleryProps = {
@@ -78,10 +79,12 @@ export function RandomImageGallery({ folder, fallbackImages }: RandomImageGaller
     <div className="grid gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 sm:grid-cols-2 lg:grid-cols-3">
       {visibleImages.map((image, index) => (
         <div key={`${image}-${index}`} className="relative aspect-square bg-[#101b2c]">
-          <img
+          <Image
             src={image}
             alt=""
-            className="h-full w-full object-cover opacity-92 transition duration-700"
+            fill
+            sizes="(min-width: 1024px) 26vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover opacity-92 transition duration-700"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,rgba(8,17,31,0.68))]" />
         </div>

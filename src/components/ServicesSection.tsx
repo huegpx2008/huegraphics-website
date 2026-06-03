@@ -147,13 +147,13 @@ export function ServicesSection() {
                     -&gt;
                   </Link>
                 ) : (
-                  <a
+                  <Link
                     href="/#quote"
                     aria-label={`Request a quote for ${service.title}`}
                     className="mt-5 inline-flex text-lg font-black text-accent transition group-hover:translate-x-1 group-hover:text-white"
                   >
                     -&gt;
-                  </a>
+                  </Link>
                 )}
               </div>
             </article>
