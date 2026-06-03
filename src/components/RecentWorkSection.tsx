@@ -1,31 +1,22 @@
-import { readdirSync } from "node:fs";
-import path from "node:path";
+import {
+  workImagesByFolder,
+  type WorkImageFolder,
+} from "@/data/workImages.generated";
 import { WorkImageSlideshow } from "./WorkImageSlideshow";
 
 type WorkItem = {
   id: string;
   title: string;
   category: string;
-  imageFolder?: string;
+  imageFolder?: WorkImageFolder;
   images: string[];
   permalink?: string;
 };
 
-const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
+function getWorkImages(folder: WorkImageFolder, fallback: string[]) {
+  const images = workImagesByFolder[folder];
 
-function getPublicImageFolder(folder: string, fallback: string[]) {
-  const folderPath = path.join(process.cwd(), "public", "images", folder);
-
-  try {
-    const images = readdirSync(folderPath)
-      .filter((file) => imageExtensions.has(path.extname(file).toLowerCase()))
-      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-      .map((file) => `/images/${folder}/${encodeURIComponent(file)}`);
-
-    return images.length ? images : fallback;
-  } catch {
-    return fallback;
-  }
+  return images.length ? [...images] : fallback;
 }
 
 function getRecentWorkProjects(): WorkItem[] {
@@ -35,7 +26,7 @@ function getRecentWorkProjects(): WorkItem[] {
       title: "Custom Printed Apparel",
       category: "Screen Printing",
       imageFolder: "screen-printing",
-      images: getPublicImageFolder("screen-printing", [
+      images: getWorkImages("screen-printing", [
         "/images/screen-print1.jpg",
         "/images/cpa.jpg",
       ]),
@@ -45,33 +36,37 @@ function getRecentWorkProjects(): WorkItem[] {
       title: "Embroidered Gear",
       category: "Embroidery",
       imageFolder: "emb",
-      images: getPublicImageFolder("emb", ["/images/emb.png"]),
+      images: getWorkImages("emb", ["/images/emb.png"]),
     },
     {
       id: "vehicle-graphics",
       title: "Vehicle Graphics",
       category: "Fleet Branding",
       imageFolder: "vehicle-graphics",
-      images: getPublicImageFolder("vehicle-graphics", ["/images/truck-2.png"]),
+      images: getWorkImages("vehicle-graphics", ["/images/truck-2.png"]),
     },
     {
       id: "outdoor-banners",
       title: "Outdoor Banners",
       category: "Signs & Banners",
       imageFolder: "sign-banners",
-      images: getPublicImageFolder("sign-banners", ["/images/banners.png"]),
+      images: getWorkImages("sign-banners", ["/images/banners.png"]),
     },
     {
       id: "transfer-prints",
       title: "Transfer Prints",
       category: "DTF Transfers",
-      images: ["/images/dtf-main2.png"],
+      imageFolder: "dtf",
+      images: getWorkImages("dtf", ["/images/dtf-main2.png"]),
     },
     {
       id: "print-essentials",
       title: "Print Essentials",
       category: "Business Printing",
-      images: ["/images/service-business-printing.png"],
+      imageFolder: "business-printing",
+      images: getWorkImages("business-printing", [
+        "/images/service-business-printing.png",
+      ]),
     },
   ];
 }

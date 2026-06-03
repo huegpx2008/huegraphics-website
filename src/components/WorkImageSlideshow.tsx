@@ -2,9 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import {
+  workImagesByFolder,
+  type WorkImageFolder,
+} from "@/data/workImages.generated";
 
 type WorkImageSlideshowProps = {
-  imageFolder?: string;
+  imageFolder?: WorkImageFolder;
   images: string[];
 };
 
@@ -13,42 +17,12 @@ export function WorkImageSlideshow({ imageFolder, images }: WorkImageSlideshowPr
   const [slideImages, setSlideImages] = useState(images);
 
   useEffect(() => {
-    if (!imageFolder) {
-      setSlideImages(images);
-    }
+    const generatedImages = imageFolder ? workImagesByFolder[imageFolder] : [];
+    const nextImages = generatedImages.length ? [...generatedImages] : images;
+
+    setSlideImages(nextImages);
+    setActiveIndex((current) => (current >= nextImages.length ? 0 : current));
   }, [imageFolder, images]);
-
-  useEffect(() => {
-    if (!imageFolder) return;
-
-    let cancelled = false;
-
-    async function loadImages() {
-      try {
-        const response = await fetch(`/api/work-images?folder=${imageFolder}`);
-        if (!response.ok) return;
-
-        const payload = (await response.json()) as { images?: string[] };
-
-        if (!cancelled && payload.images?.length) {
-          setSlideImages(payload.images);
-          setActiveIndex((current) =>
-            current >= payload.images!.length ? 0 : current
-          );
-        }
-      } catch {
-        // Keep the initial server-provided images if the folder cannot be read.
-      }
-    }
-
-    loadImages();
-    const interval = window.setInterval(loadImages, 10000);
-
-    return () => {
-      cancelled = true;
-      window.clearInterval(interval);
-    };
-  }, [imageFolder]);
 
   useEffect(() => {
     if (slideImages.length <= 1) return;

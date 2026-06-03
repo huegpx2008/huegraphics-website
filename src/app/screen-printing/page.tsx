@@ -1,28 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { readdirSync } from "node:fs";
-import path from "node:path";
 import { CTASection } from "@/components/CTASection";
 import { EarlyLoopVideo } from "@/components/EarlyLoopVideo";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { QuoteSection } from "@/components/QuoteSection";
+import { workImagesByFolder } from "@/data/workImages.generated";
 
-const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
-
-function getScreenPrintingImages() {
-  const folder = "screen-printing";
-  const folderPath = path.join(process.cwd(), "public", "images", folder);
-
-  try {
-    return readdirSync(folderPath)
-      .filter((file) => imageExtensions.has(path.extname(file).toLowerCase()))
-      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-      .map((file) => `/images/${folder}/${encodeURIComponent(file)}`);
-  } catch {
-    return ["/images/screen-print.png"];
-  }
-}
+const screenPrintingImages = workImagesByFolder["screen-printing"].length
+  ? [...workImagesByFolder["screen-printing"]]
+  : ["/images/screen-print.png"];
 
 const highlights = [
   "24-piece minimum per order/design",
@@ -65,8 +52,7 @@ const faqs = [
 ];
 
 export default function ScreenPrintingPage() {
-  const images = getScreenPrintingImages();
-  const galleryImages = images.slice(0, 10);
+  const galleryImages = screenPrintingImages.slice(0, 10);
 
   return (
     <>

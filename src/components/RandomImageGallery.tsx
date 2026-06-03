@@ -2,14 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import {
+  workImagesByFolder,
+  type WorkImageFolder,
+} from "@/data/workImages.generated";
 
 type RandomImageGalleryProps = {
-  folder:
-    | "business-printing"
-    | "dtf"
-    | "emb"
-    | "sign-banners"
-    | "vehicle-graphics";
+  folder: WorkImageFolder;
   fallbackImages: string[];
 };
 
@@ -29,30 +28,11 @@ export function RandomImageGallery({ folder, fallbackImages }: RandomImageGaller
   const [visibleImages, setVisibleImages] = useState(fallbackImages.slice(0, 6));
 
   useEffect(() => {
-    let cancelled = false;
+    const generatedImages = workImagesByFolder[folder];
+    const images = generatedImages.length ? [...generatedImages] : fallbackImages;
 
-    async function loadImages() {
-      try {
-        const response = await fetch(`/api/work-images?folder=${folder}`);
-        if (!response.ok) return;
-
-        const payload = (await response.json()) as { images?: string[] };
-        const images = payload.images?.length ? payload.images : fallbackImages;
-
-        if (!cancelled) {
-          setAllImages(images);
-          setVisibleImages(shuffleImages(images).slice(0, 6));
-        }
-      } catch {
-        // Keep fallback images if the dynamic folder listing is unavailable.
-      }
-    }
-
-    loadImages();
-
-    return () => {
-      cancelled = true;
-    };
+    setAllImages(images);
+    setVisibleImages(shuffleImages(images).slice(0, 6));
   }, [fallbackImages, folder]);
 
   useEffect(() => {
