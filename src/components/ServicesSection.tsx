@@ -119,7 +119,12 @@ export function ServicesSection() {
 
         <div className="grid gap-px bg-white/12 p-px sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {services.map((service) => (
-            <article key={service.title} className="group bg-[#08111f]">
+            <Link
+              key={service.title}
+              href={service.href || "/request-a-quote"}
+              aria-label={`Learn more about ${service.title}`}
+              className="group block bg-[#08111f]"
+            >
               <div className="relative aspect-[4/3] overflow-hidden bg-[#101b2c]">
                 <Image
                   src={service.image}
@@ -140,25 +145,11 @@ export function ServicesSection() {
                 <p className="mt-3 text-sm leading-6 text-[#b9c7d6]">
                   {service.description}
                 </p>
-                {service.href ? (
-                  <Link
-                    href={service.href}
-                    aria-label={`Learn more about ${service.title}`}
-                    className="mt-5 inline-flex text-lg font-black text-accent transition group-hover:translate-x-1 group-hover:text-white"
-                  >
-                    -&gt;
-                  </Link>
-                ) : (
-                  <Link
-                    href="/request-a-quote"
-                    aria-label={`Request a quote for ${service.title}`}
-                    className="mt-5 inline-flex text-lg font-black text-accent transition group-hover:translate-x-1 group-hover:text-white"
-                  >
-                    -&gt;
-                  </Link>
-                )}
+                <span className="mt-5 inline-flex text-lg font-black text-accent transition group-hover:translate-x-1 group-hover:text-white">
+                  -&gt;
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

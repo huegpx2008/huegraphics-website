@@ -1,4 +1,5 @@
 export const homeWorkImages = [
+  "/images/all-photos/20260603_092235.jpg",
   "/images/all-photos/17841504697009873.jpg",
   "/images/all-photos/17841507904009873.jpg",
   "/images/all-photos/17841537355009873.jpg",

@@ -105,6 +105,43 @@ export default function VehicleGraphicsPage() {
         </section>
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
+          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-2">
+            {[
+              {
+                src: "/images/printer-1.mp4",
+                label: "Printing vehicle graphics",
+              },
+              {
+                src: "/images/vehicle-1.mp4",
+                label: "Stripping and prep for fresh install",
+              },
+            ].map((video) => (
+              <div
+                key={video.src}
+                className="relative min-h-[340px] overflow-hidden bg-[#020814] sm:min-h-[440px]"
+              >
+                <video
+                  className="absolute inset-0 h-full w-full scale-105 object-cover object-center opacity-80 mix-blend-screen brightness-75 contrast-125 saturate-150"
+                  src={video.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(31,140,255,0.34),transparent_38%),linear-gradient(90deg,rgba(2,8,20,0.84),rgba(4,16,34,0.24)_48%,rgba(2,8,20,0.86)),linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.72))]" />
+                <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:52px_52px]" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/80 to-transparent" />
+                <div className="absolute bottom-5 left-5 rounded-lg border border-white/16 bg-black/44 px-4 py-3 text-xs font-black uppercase tracking-[0.18em] text-white backdrop-blur-md">
+                  {video.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="px-5 py-8 sm:px-8 lg:px-10">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div className="rounded-xl border border-white/18 bg-[#08111f] p-6 sm:p-8">
               <p className="eyebrow">Why it works</p>

@@ -64,3 +64,101 @@ img {
     transform: translateX(-50%);
   }
 }
+
+@keyframes artworkDraw {
+  0%,
+  100% {
+    transform: rotate(-8deg) scale(0.9);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: rotate(6deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes approvalPing {
+  0% {
+    transform: scale(0.75);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes proofSlide {
+  0%,
+  100% {
+    transform: translateX(-18px);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: translateX(10px);
+    opacity: 1;
+  }
+}
+
+@keyframes printPass {
+  0%,
+  100% {
+    transform: translateX(-40%);
+  }
+
+  50% {
+    transform: translateX(260%);
+  }
+}
+
+@keyframes processPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes squeegeePass {
+  0%,
+  100% {
+    transform: translateX(-35%) translateY(-50%);
+  }
+
+  50% {
+    transform: translateX(430%) translateY(-50%);
+  }
+}
+
+@keyframes inkReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.4;
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 0.95;
+  }
+}
+
+@keyframes burnFlash {
+  0% {
+    opacity: 0;
+  }
+
+  15%,
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

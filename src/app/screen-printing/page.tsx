@@ -4,6 +4,7 @@ import { CTASection } from "@/components/CTASection";
 import { EarlyLoopVideo } from "@/components/EarlyLoopVideo";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { InkColorExplorer } from "@/components/InkColorExplorer";
 import { QuoteSection } from "@/components/QuoteSection";
 import { workImagesByFolder } from "@/data/workImages.generated";
 import { createSeoMetadata } from "@/lib/seo";
@@ -56,6 +57,24 @@ const faqs = [
     question: "Can I print on both sides?",
     answer:
       "Yes. Screen printing can be done on the front, back, sleeve, or other approved print locations, with up to four colors per side.",
+  },
+];
+
+const processSteps = [
+  {
+    title: "Artwork",
+    text: "Send vector files when possible, or send what you have and we will help review it.",
+    visual: "artwork",
+  },
+  {
+    title: "Approval",
+    text: "You receive a proof before production so details can be checked first.",
+    visual: "approval",
+  },
+  {
+    title: "Production",
+    text: "After approval, most screen printing orders run in about 7-10 business days.",
+    visual: "production",
   },
 ];
 
@@ -131,6 +150,23 @@ export default function ScreenPrintingPage() {
           </div>
         </section>
 
+        <section className="bg-[#050b14] px-5 pt-8 sm:px-8 lg:px-10">
+          <div className="mx-auto flex max-w-7xl flex-wrap gap-3">
+            <Link
+              href="/screen-printing"
+              className="rounded-lg bg-accent px-5 py-3 text-xs font-black uppercase tracking-wide text-white shadow-[0_14px_30px_rgba(31,115,190,0.22)]"
+            >
+              Screen printing overview
+            </Link>
+            <Link
+              href="/screen-printing/color-guide"
+              className="rounded-lg border border-white/18 bg-white/[0.04] px-5 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
+            >
+              Ink & shirt color guide
+            </Link>
+          </div>
+        </section>
+
         <section className="px-5 py-8 sm:px-8 lg:px-10">
           <div className="mx-auto grid max-w-7xl overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-[0.78fr_1.22fr]">
             <div className="bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8 lg:p-10">
@@ -171,23 +207,59 @@ export default function ScreenPrintingPage() {
               </p>
             </div>
             <div className="grid gap-px bg-white/12 sm:grid-cols-3">
-              {[
-                ["Artwork", "Send vector files when possible, or send what you have and we will help review it."],
-                ["Approval", "You receive a proof before production so details can be checked first."],
-                ["Production", "After approval, most screen printing orders run in about 7-10 business days."],
-              ].map(([title, text]) => (
-                <article key={title} className="bg-[#08111f] p-6 sm:p-7">
+              {processSteps.map((step, index) => (
+                <article
+                  key={step.title}
+                  className="relative min-h-[360px] overflow-hidden bg-[#08111f] p-6 sm:p-7"
+                >
+                  <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:38px_38px]" />
+                  <div className="relative h-40 overflow-hidden rounded-lg border border-white/12 bg-[#101b2c]">
+                    {step.visual === "artwork" ? (
+                      <div className="absolute inset-0 p-5">
+                        <div className="h-full rounded border border-dashed border-accent/45 bg-white/[0.03]">
+                          <div className="mx-auto mt-8 h-12 w-32 animate-[artworkDraw_3.4s_ease-in-out_infinite] rounded-full border-[10px] border-white/80 border-r-accent" />
+                          <div className="mx-auto mt-5 h-2 w-24 animate-[processPulse_1.8s_ease-in-out_infinite] rounded-full bg-accent" />
+                        </div>
+                      </div>
+                    ) : null}
+                    {step.visual === "approval" ? (
+                      <div className="absolute inset-0 grid place-items-center">
+                        <div className="relative h-24 w-24">
+                          <div className="absolute inset-0 animate-[approvalPing_2.2s_ease-out_infinite] rounded-full border border-accent/70" />
+                          <div className="absolute inset-3 grid place-items-center rounded-full border border-accent/60 bg-accent/14 text-4xl font-black text-white">
+                            OK
+                          </div>
+                          <div className="absolute -right-8 top-1/2 h-px w-16 animate-[proofSlide_2.2s_ease-in-out_infinite] bg-accent" />
+                        </div>
+                      </div>
+                    ) : null}
+                    {step.visual === "production" ? (
+                      <div className="absolute inset-0 p-5">
+                        <div className="relative h-full overflow-hidden rounded bg-white/[0.04]">
+                          <div className="absolute left-5 right-5 top-7 h-8 rounded-full bg-white/84" />
+                          <div className="absolute left-8 right-8 top-16 h-10 rounded-lg bg-accent/90" />
+                          <div className="absolute left-0 top-11 h-8 w-24 animate-[printPass_2.4s_ease-in-out_infinite] rounded-r bg-black/72 shadow-[0_0_28px_rgba(31,115,190,0.42)]" />
+                          <div className="absolute bottom-5 left-5 right-5 h-2 animate-[processPulse_1.4s_ease-in-out_infinite] rounded-full bg-accent" />
+                        </div>
+                      </div>
+                    ) : null}
+                    <div className="absolute left-4 top-4 rounded bg-black/44 px-2 py-1 text-[0.65rem] font-black uppercase tracking-[0.18em] text-accent">
+                      Step 0{index + 1}
+                    </div>
+                  </div>
                   <h3 className="text-lg font-black uppercase tracking-wide text-white">
-                    {title}
+                    {step.title}
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-[#b9c7d6]">
-                    {text}
+                    {step.text}
                   </p>
                 </article>
               ))}
             </div>
           </div>
         </section>
+
+        <InkColorExplorer />
 
         {galleryImages.length > 0 ? (
           <section className="px-5 py-8 sm:px-8 lg:px-10">

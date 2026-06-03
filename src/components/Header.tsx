@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { LogoEasterEgg } from "./LogoEasterEgg";
 
 const navItems = [
   { label: "Services", href: "/services" },
@@ -13,21 +13,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-navy/90 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-5 py-3 sm:px-8 lg:px-10">
-        <Link href="/" className="flex items-center gap-3 text-white">
-          <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-xl border border-accent/45 bg-card p-1.5 shadow-glow sm:h-12 sm:w-12">
-            <Image
-              src="/images/logo.png"
-              alt="Hue Graphics"
-              width={80}
-              height={80}
-              priority
-              className="h-full w-full object-contain"
-            />
-          </span>
-          <span className="hidden text-base font-extrabold tracking-wide text-white sm:inline sm:text-lg">
-            Hue Graphics
-          </span>
-        </Link>
+        <LogoEasterEgg />
         <nav aria-label="Main navigation" className="hidden items-center gap-7 lg:flex">
           {navItems.map((item) => (
             <Link
