@@ -22,9 +22,9 @@ const services = [
     href: "/embroidery",
   },
   {
-    title: "DTF Transfers",
+    title: "DTF Transfers & DTG",
     description: "Vibrant full-color transfers for flexible runs, detailed artwork, and fast repeat orders.",
-    image: "/images/dtf-main2.png",
+    image: "/images/dtf/dtf-main5.png",
     icon: "DTF",
     href: "/dtf-transfers",
   },

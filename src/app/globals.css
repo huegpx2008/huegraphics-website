@@ -54,3 +54,13 @@ img {
     @apply text-xs font-black uppercase tracking-[0.18em] text-accent sm:text-sm;
   }
 }
+
+@keyframes portfolioRail {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}

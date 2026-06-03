@@ -5,6 +5,9 @@ export const workImagesByFolder = {
     "/images/dtf/2026-06-03%2009.26.18.jpg",
     "/images/dtf/DTF-main.jpg",
     "/images/dtf/dtf-main2.png",
+    "/images/dtf/dtf-main3.jpg",
+    "/images/dtf/dtf-main4.jpg",
+    "/images/dtf/dtf-main5.png",
     "/images/dtf/service-dtf-transfers.png"
   ],
   "emb": [

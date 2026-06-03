@@ -24,9 +24,9 @@ export function Footer() {
               className="h-auto w-24 object-contain"
             />
             <div className="mt-5 flex gap-3 text-sm font-black text-white/72">
-              <a href="#" className="transition hover:text-accent">FB</a>
-              <a href="#" className="transition hover:text-accent">IG</a>
-              <a href="#" className="transition hover:text-accent">YT</a>
+              <a href="https://www.facebook.com/huegpx" target="_blank" rel="noreferrer" className="transition hover:text-accent">FB</a>
+              <a href="https://www.instagram.com/huegpx" target="_blank" rel="noreferrer" className="transition hover:text-accent">IG</a>
+              <a href="https://www.google.com/search?q=Hue+Graphics+Bethlehem+GA" target="_blank" rel="noreferrer" className="transition hover:text-accent">GO</a>
             </div>
           </div>
           <div>
@@ -39,6 +39,11 @@ export function Footer() {
               <p>
                 <a href="tel:17708673520" className="transition hover:text-white">
                   (770) 867-3520
+                </a>
+              </p>
+              <p>
+                <a href="tel:16782388913" className="transition hover:text-white">
+                  Office Mobile: (678) 238-8913
                 </a>
               </p>
               <p>
@@ -66,8 +71,8 @@ export function Footer() {
             </p>
             <div className="mt-4 grid gap-2 text-sm text-[#b9c7d6]">
               <Link href="/about" className="transition hover:text-white">Our Story</Link>
-              <Link href="/#work" className="transition hover:text-white">Portfolio</Link>
-              <Link href="/#contact" className="transition hover:text-white">Contact</Link>
+              <Link href="/portfolio" className="transition hover:text-white">Portfolio</Link>
+              <Link href="/contact" className="transition hover:text-white">Contact</Link>
             </div>
             <Link
               href="/#resources"
