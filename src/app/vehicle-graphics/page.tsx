@@ -4,6 +4,14 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
+import { createSeoMetadata } from "@/lib/seo";
+
+export const metadata = createSeoMetadata({
+  title: "Vehicle Graphics in Bethlehem, GA | Truck & Fleet Lettering",
+  description:
+    "Commercial vehicle graphics, truck lettering, trailer decals, magnets, DOT numbers, and fleet branding for Georgia businesses in Bethlehem, Barrow County, Winder, Auburn, and Northeast Georgia.",
+  path: "/vehicle-graphics",
+});
 
 const products = [
   "Vehicle lettering",
@@ -58,10 +66,11 @@ export default function VehicleGraphicsPage() {
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#d6e3f0]">
               Professional vehicle lettering, decals, magnets, and commercial
-              graphics for trucks, vans, trailers, and service vehicles.
+              graphics for trucks, vans, trailers, and service vehicles across
+              Bethlehem, Winder, Auburn, Barrow County, and Northeast Georgia.
             </p>
             <Link
-              href="/#quote"
+              href="/request-a-quote"
               className="mt-9 inline-flex rounded-lg bg-accent px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
             >
               Request vehicle pricing -&gt;

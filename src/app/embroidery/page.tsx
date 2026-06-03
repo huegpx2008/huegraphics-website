@@ -4,6 +4,14 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
+import { createSeoMetadata } from "@/lib/seo";
+
+export const metadata = createSeoMetadata({
+  title: "Embroidery in Bethlehem, GA | Hats, Polos & Branded Apparel",
+  description:
+    "Professional embroidery for polos, hats, jackets, workwear, uniforms, and branded apparel for businesses, schools, teams, and organizations across Bethlehem, Barrow County, Winder, Auburn, and Northeast Georgia.",
+  path: "/embroidery",
+});
 
 const products = [
   "Polos",
@@ -56,10 +64,11 @@ export default function EmbroideryPage() {
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#d6e3f0]">
               Polos, hats, jackets, bags, uniforms, and branded apparel
               produced with careful setup, clean stitching, and practical
-              guidance before your order goes into production.
+              guidance for customers across Bethlehem, Barrow County, and
+              Northeast Georgia before your order goes into production.
             </p>
             <Link
-              href="/#quote"
+              href="/request-a-quote"
               className="mt-9 inline-flex rounded-lg bg-accent px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
             >
               Request embroidery pricing -&gt;

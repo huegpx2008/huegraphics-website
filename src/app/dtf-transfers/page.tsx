@@ -4,6 +4,14 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
+import { createSeoMetadata } from "@/lib/seo";
+
+export const metadata = createSeoMetadata({
+  title: "DTF Transfers & DTG Printing in Bethlehem, GA",
+  description:
+    "Full-color DTF transfers and DTG printing for detailed logos, team shirts, events, staff apparel, and custom merch in Bethlehem, Barrow County, Winder, Auburn, and Northeast Georgia.",
+  path: "/dtf-transfers",
+});
 
 const products = [
   "Full-color transfers",
@@ -56,10 +64,11 @@ export default function DtfTransfersPage() {
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#d6e3f0]">
               DTF transfers are a strong option for colorful logos, detailed
               artwork, team orders, short runs, and jobs that need clean prints
-              without overbuilding the production setup.
+              without overbuilding the production setup for local schools,
+              churches, teams, and businesses in Northeast Georgia.
             </p>
             <Link
-              href="/#quote"
+              href="/request-a-quote"
               className="mt-9 inline-flex rounded-lg bg-accent px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
             >
               Request DTF pricing -&gt;

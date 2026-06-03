@@ -35,18 +35,19 @@ export function HeroSection() {
             <span className="block text-accent">Printing.</span>
           </h1>
           <p className="mt-7 max-w-xl text-lg font-semibold leading-8 text-white/82 sm:text-xl">
-            Built locally. Produced professionally. Delivered with pride.
+            Built locally in Bethlehem, GA. Produced professionally for Barrow
+            County and Northeast Georgia.
             Quality apparel, signs, graphics, and print—all under one roof.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="#quote"
+              href="/request-a-quote"
               className="rounded-lg bg-accent px-7 py-4 text-center text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
             >
               Request a Quote -&gt;
             </a>
             <a
-              href="#work"
+              href="/portfolio"
               className="rounded-lg border border-white/28 bg-black/28 px-7 py-4 text-center text-sm font-black uppercase tracking-wide text-white backdrop-blur-sm transition hover:border-accent/70 hover:bg-accent/10"
             >
               View Our Work -&gt;

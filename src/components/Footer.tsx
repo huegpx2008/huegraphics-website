@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const services = [
-  { label: "Screen Printing", href: "/#services" },
+  { label: "Screen Printing", href: "/screen-printing" },
   { label: "Embroidery", href: "/embroidery" },
   { label: "DTF Transfers", href: "/dtf-transfers" },
   { label: "Signs & Banners", href: "/signs-banners" },

@@ -4,6 +4,14 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
+import { createSeoMetadata } from "@/lib/seo";
+
+export const metadata = createSeoMetadata({
+  title: "Signs & Banners in Bethlehem, GA | Yard Signs, Decals & Displays",
+  description:
+    "Custom signs, banners, yard signs, decals, storefront graphics, and event signage for Bethlehem, Barrow County, Winder, Auburn, Monroe, Braselton, and Northeast Georgia.",
+  path: "/signs-banners",
+});
 
 const products = [
   "Vinyl banners",
@@ -61,10 +69,12 @@ export default function SignsBannersPage() {
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#d6e3f0]">
               From quick yard signs to durable outdoor banners and custom
               storefront graphics, Hue Graphics helps you get noticed with clean
-              production and practical material recommendations.
+              production and practical material recommendations across
+              Bethlehem, Barrow County, and nearby Northeast Georgia
+              communities.
             </p>
             <Link
-              href="/#quote"
+              href="/request-a-quote"
               className="mt-9 inline-flex rounded-lg bg-accent px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
             >
               Request sign pricing -&gt;

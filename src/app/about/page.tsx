@@ -2,6 +2,14 @@ import Image from "next/image";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { createSeoMetadata } from "@/lib/seo";
+
+export const metadata = createSeoMetadata({
+  title: "About Hue Graphics & Apparel, LLC | Family-Owned Print Shop",
+  description:
+    "Learn the story behind Hue Graphics & Apparel, LLC, a family-owned print shop founded in 2013 and now serving Bethlehem, Barrow County, Auburn, Winder, and Northeast Georgia.",
+  path: "/about",
+});
 
 const milestones = [
   {

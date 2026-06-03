@@ -4,6 +4,14 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
+import { createSeoMetadata } from "@/lib/seo";
+
+export const metadata = createSeoMetadata({
+  title: "Business Printing in Bethlehem, GA | Cards, Flyers, Forms & Stickers",
+  description:
+    "Business cards, flyers, postcards, NCR forms, stickers, labels, and everyday print pieces for businesses, schools, churches, teams, and events across Bethlehem, Barrow County, and Northeast Georgia.",
+  path: "/business-printing",
+});
 
 const products = [
   "Business cards",
@@ -56,10 +64,11 @@ export default function BusinessPrintingPage() {
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#d6e3f0]">
               Business cards, postcards, flyers, forms, stickers, and branded
               paper goods produced with clean layouts, practical material
-              guidance, and the same customer service Hue is known for.
+              guidance, and the same customer service Hue is known for in
+              Bethlehem, Barrow County, and Northeast Georgia.
             </p>
             <Link
-              href="/#quote"
+              href="/request-a-quote"
               className="mt-9 inline-flex rounded-lg bg-accent px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
             >
               Request print pricing -&gt;

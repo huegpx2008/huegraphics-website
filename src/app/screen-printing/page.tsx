@@ -6,6 +6,14 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { QuoteSection } from "@/components/QuoteSection";
 import { workImagesByFolder } from "@/data/workImages.generated";
+import { createSeoMetadata } from "@/lib/seo";
+
+export const metadata = createSeoMetadata({
+  title: "Screen Printing in Bethlehem, GA | Custom Shirts & Apparel",
+  description:
+    "Custom screen printing for shirts, hoodies, team apparel, school orders, events, churches, and Georgia businesses in Bethlehem, Barrow County, Auburn, Winder, and Northeast Georgia.",
+  path: "/screen-printing",
+});
 
 const screenPrintingImages = workImagesByFolder["screen-printing"].length
   ? [...workImagesByFolder["screen-printing"]]
@@ -84,11 +92,13 @@ export default function ScreenPrintingPage() {
               </h1>
               <p className="mt-7 max-w-2xl text-lg font-semibold leading-8 text-white/82 sm:text-xl">
                 Durable prints for businesses, schools, crews, events, and
-                organizations that need apparel people actually want to wear.
+                organizations in Bethlehem, Barrow County, Winder, Auburn, and
+                Northeast Georgia that need apparel people actually want to
+                wear.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/#quote"
+                  href="/request-a-quote"
                   className="rounded-lg bg-accent px-7 py-4 text-center text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
                 >
                   Request a quote
@@ -190,7 +200,7 @@ export default function ScreenPrintingPage() {
                   </h2>
                 </div>
                 <Link
-                  href="/#work"
+                  href="/portfolio"
                   className="text-sm font-black uppercase tracking-wide text-accent transition hover:text-white"
                 >
                   View more work

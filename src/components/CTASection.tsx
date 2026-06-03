@@ -12,7 +12,7 @@ export function CTASection() {
             </p>
           </div>
           <a
-            href="#quote"
+            href="/request-a-quote"
             className="inline-flex w-fit rounded-lg bg-white/12 px-7 py-4 text-sm font-black uppercase tracking-wide text-white ring-1 ring-white/18 transition hover:bg-white/20"
           >
             Request a quote -&gt;

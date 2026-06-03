@@ -4,6 +4,14 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { QuoteSection } from "@/components/QuoteSection";
+import { createSeoMetadata } from "@/lib/seo";
+
+export const metadata = createSeoMetadata({
+  title: "Contact Hue Graphics | Bethlehem, GA Print Shop",
+  description:
+    "Contact Hue Graphics & Apparel, LLC in Bethlehem, GA for screen printing, signs, banners, embroidery, DTF transfers, vehicle graphics, business printing, directions, hours, and quote requests.",
+  path: "/contact",
+});
 
 const address = "741 Harry McCarty Rd, Suite 101, Bethlehem, GA 30620";
 const directionsUrl =

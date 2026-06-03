@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "About", href: "/about" },
   { label: "Resources", href: "/#resources" },
@@ -47,7 +47,14 @@ export function Header() {
             Pay Invoice
           </a>
           <Link
-            href="/#quote"
+            href="/quote-app"
+            className="inline-flex rounded-xl border border-accent/45 bg-accent/10 px-3 py-2.5 text-xs font-extrabold text-white transition hover:border-accent hover:bg-accent/18 sm:px-4 sm:text-sm"
+          >
+            <span className="sm:hidden">Beta App</span>
+            <span className="hidden sm:inline">BETA Quote App</span>
+          </Link>
+          <Link
+            href="/request-a-quote"
             className="rounded-xl bg-accent px-3 py-2.5 text-xs font-extrabold text-white shadow-glow transition hover:bg-[#2a86d8] sm:px-5 sm:text-sm"
           >
             Request Quote

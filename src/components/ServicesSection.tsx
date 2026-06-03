@@ -67,11 +67,13 @@ export function ServicesSection() {
           <div className="max-w-2xl lg:justify-self-end">
             <p className="text-base leading-7 text-white/76">
               From one shirt to thousands, Hue Graphics helps businesses,
-              schools, teams, and organizations stand out with durable apparel,
-              signs, vehicle graphics, and business print essentials.
+              schools, churches, teams, and organizations in Bethlehem, Barrow
+              County, Auburn, Winder, and Northeast Georgia stand out with
+              durable apparel, signs, vehicle graphics, and business print
+              essentials.
             </p>
             <a
-              href="#contact"
+              href="/services"
               className="mt-5 inline-flex text-sm font-black uppercase tracking-wide text-accent transition hover:text-white"
             >
               View all services -&gt;
@@ -148,7 +150,7 @@ export function ServicesSection() {
                   </Link>
                 ) : (
                   <Link
-                    href="/#quote"
+                    href="/request-a-quote"
                     aria-label={`Request a quote for ${service.title}`}
                     className="mt-5 inline-flex text-lg font-black text-accent transition group-hover:translate-x-1 group-hover:text-white"
                   >
