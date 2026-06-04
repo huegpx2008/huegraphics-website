@@ -36,13 +36,31 @@ type ScreenprintEstimate = {
   averagePricePerShirt?: number | string;
   totalGarments?: number | string;
   currency?: string;
+  price?: {
+    retail?: number | string;
+    each?: number | string;
+  };
+  summary?: {
+    totalQuantity?: number | string;
+    lineItems?: {
+      style?: string;
+      productName?: string;
+      title?: string;
+      color?: string;
+      quantity?: number | string;
+      sizes?: Record<string, number>;
+      sizeQty?: Record<string, number>;
+    }[];
+  };
   lineItems?: {
     style?: string;
+    productName?: string;
     title?: string;
     color?: string;
     sizeQty?: Record<string, number>;
     sizes?: Record<string, number>;
     totalQty?: number | string;
+    quantity?: number | string;
   }[];
   warnings?: string[];
   error?: {
@@ -75,7 +93,7 @@ function getTotalQuantity(sizeQty: Record<SizeName, string>) {
 }
 
 function getGarmentSummary(estimate: ScreenprintEstimate, fallback: string) {
-  const line = estimate.lineItems?.[0];
+  const line = estimate.summary?.lineItems?.[0] ?? estimate.lineItems?.[0];
 
   if (!line) {
     return fallback;
@@ -88,7 +106,9 @@ function getGarmentSummary(estimate: ScreenprintEstimate, fallback: string) {
       .map(([size, quantity]) => `${size}: ${quantity}`)
       .join(", ") || "No sizes returned";
 
-  return `${line.style || "Style"} ${line.title ? `- ${line.title}` : ""} - ${
+  const productName = line.productName ?? line.title;
+
+  return `${line.style || "Style"} ${productName ? `- ${productName}` : ""} - ${
     line.color || "Color"
   } - ${sizeText}`;
 }
@@ -205,7 +225,10 @@ export function ScreenPrintEstimator() {
     }
   }
 
-  const totalQuantity = estimate?.totalGarments ?? getTotalQuantity(sizeQty);
+  const totalQuantity =
+    estimate?.summary?.totalQuantity ??
+    estimate?.totalGarments ??
+    getTotalQuantity(sizeQty);
   const fallbackSummary = `${selectedStyle.style} - ${selectedStyle.title} - ${color}`;
 
   return (
@@ -349,12 +372,17 @@ export function ScreenPrintEstimator() {
                     Estimated total
                   </p>
                   <p className="mt-2 text-4xl font-black text-[#07111f]">
-                    {formatPrice(estimate.retail, estimate.currency)}
+                    {formatPrice(
+                      estimate.price?.retail ?? estimate.retail,
+                      estimate.currency,
+                    )}
                   </p>
                   <p className="mt-2 text-sm font-black uppercase tracking-wide text-[#52677d]">
                     Estimated price each:{" "}
                     {formatPrice(
-                      estimate.averagePricePerShirt ?? estimate.each,
+                      estimate.price?.each ??
+                        estimate.averagePricePerShirt ??
+                        estimate.each,
                       estimate.currency,
                     )}
                   </p>
