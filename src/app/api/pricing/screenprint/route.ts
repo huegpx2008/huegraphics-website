@@ -24,7 +24,7 @@ export async function POST(request: Request) {
           error: {
             message:
               (await response.text()) ||
-              "The screen printing pricing API returned an unexpected response.",
+              "We could not load this screen printing estimate right now. Please try again or request a quote.",
           },
         };
 
