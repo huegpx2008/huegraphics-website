@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BannerEstimator } from "@/components/BannerEstimator";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
+import { SignQuoteBuilder } from "@/components/SignQuoteBuilder";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
@@ -109,7 +109,7 @@ export default function SignsBannersPage() {
           </div>
         </section>
 
-        <BannerEstimator />
+        <SignQuoteBuilder />
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.7fr_1.3fr]">
