@@ -30,7 +30,7 @@ const faqs = [
 function ColorDot({ color }: { color: string }) {
   return (
     <span
-      className="h-10 w-10 rounded-full border border-white/20 shadow-[0_10px_24px_rgba(0,0,0,0.26)]"
+      className="h-10 w-10 rounded-full border border-black/20 shadow-[0_10px_24px_rgba(0,0,0,0.18)]"
       style={{ backgroundColor: color }}
     />
   );
@@ -59,7 +59,7 @@ function MockShirt({
   label: string;
 }) {
   return (
-    <div className="rounded-xl border border-white/14 bg-white/[0.035] p-5">
+    <div className="rounded-sm border border-black/10 bg-[#f4f8fc] p-5">
       <div
         className="relative mx-auto h-56 max-w-[17rem] overflow-hidden rounded-[2.25rem_2.25rem_1.5rem_1.5rem] border border-white/14 shadow-[0_22px_60px_rgba(0,0,0,0.34)]"
         style={{ backgroundColor: color }}
@@ -76,7 +76,7 @@ function MockShirt({
           ))}
         </div>
       </div>
-      <p className="mt-5 text-center text-sm font-black uppercase tracking-wide text-white">
+      <p className="mt-5 text-center text-sm font-black uppercase tracking-wide text-[#07111f]">
         {label}
       </p>
     </div>
@@ -87,18 +87,18 @@ export default function ScreenPrintingColorGuidePage() {
   return (
     <>
       <Header />
-      <main className="bg-[#050b14]">
+      <main className="bg-[#f4f8fc]">
         <section className="relative isolate overflow-hidden px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_20%,rgba(31,115,190,0.22),transparent_28rem),linear-gradient(180deg,#08111f,#050b14)]" />
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_20%,rgba(31,115,190,0.16),transparent_28rem),linear-gradient(180deg,#ffffff,#f4f8fc)]" />
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
               <p className="eyebrow">Screen printing education</p>
-              <h1 className="mt-5 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
+              <h1 className="mt-5 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.9] text-[#07111f] sm:text-7xl">
                 Understanding ink colors & shirt colors.
               </h1>
             </div>
             <div>
-              <p className="text-lg leading-8 text-[#b9c7d6]">
+              <p className="text-lg leading-8 text-[#314154]">
                 Not sure how your project will print? Contact us and we&apos;ll
                 be happy to help.
               </p>
@@ -113,21 +113,21 @@ export default function ScreenPrintingColorGuidePage() {
         </section>
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
-          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-[0.34fr_1fr]">
-            <div className="bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8">
+          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.34fr_1fr]">
+            <div className="bg-white p-6 sm:p-8">
               <p className="eyebrow">Color count</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
                 How screen printing colors are counted.
               </h2>
-              <p className="mt-6 text-sm leading-7 text-[#b9c7d6]">
+              <p className="mt-6 text-sm leading-7 text-[#314154]">
                 Each ink color usually needs its own screen. More colors can
                 mean more setup, more print passes, and more production time.
               </p>
             </div>
-            <div className="grid gap-px bg-white/12 md:grid-cols-3">
+            <div className="grid gap-px bg-[#d7e3ee] md:grid-cols-3">
               {colorCountExamples.map((example) => (
-                <article key={example.design} className="bg-[#08111f] p-6">
-                  <div className="relative h-40 overflow-hidden rounded-xl border border-white/14 bg-[#101b2c]">
+                <article key={example.design} className="bg-white p-6">
+                  <div className="relative h-40 overflow-hidden rounded-sm border border-black/10 bg-[#eef4fa]">
                     <MiniShirt>
                       {example.colors.map((color) => (
                         <ColorDot key={color} color={color} />
@@ -137,10 +137,10 @@ export default function ScreenPrintingColorGuidePage() {
                   <p className="mt-5 text-xs font-black uppercase tracking-[0.18em] text-accent">
                     Design
                   </p>
-                  <h3 className="mt-2 text-lg font-black uppercase text-white">
+                  <h3 className="mt-2 text-lg font-black uppercase text-[#07111f]">
                     {example.design}
                   </h3>
-                  <p className="mt-4 rounded-lg border border-accent/30 bg-accent/10 px-4 py-3 text-sm font-black uppercase tracking-wide text-white">
+                  <p className="mt-4 rounded-md border border-accent/30 bg-accent/10 px-4 py-3 text-sm font-black uppercase tracking-wide text-[#07111f]">
                     {example.result}
                   </p>
                 </article>
@@ -150,13 +150,13 @@ export default function ScreenPrintingColorGuidePage() {
         </section>
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
-          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-2">
-            <div className="bg-[#08111f] p-6 sm:p-8">
+          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-2">
+            <div className="bg-white p-6 sm:p-8">
               <p className="eyebrow">Light shirt</p>
-              <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-white">
+              <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#07111f]">
                 White shirt example
               </h2>
-              <p className="mt-4 text-sm leading-7 text-[#b9c7d6]">
+              <p className="mt-4 text-sm leading-7 text-[#314154]">
                 Red + blue artwork on a white shirt usually prints as the two
                 visible ink colors.
               </p>
@@ -171,12 +171,12 @@ export default function ScreenPrintingColorGuidePage() {
                 />
               </div>
             </div>
-            <div className="bg-[#08111f] p-6 sm:p-8">
+            <div className="bg-white p-6 sm:p-8">
               <p className="eyebrow">Dark shirt</p>
-              <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-white">
+              <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#07111f]">
                 Black shirt example
               </h2>
-              <p className="mt-4 text-sm leading-7 text-[#b9c7d6]">
+              <p className="mt-4 text-sm leading-7 text-[#314154]">
                 Dark garments often need a white underbase so red and blue stay
                 bright. That underbase is typically counted as an added print
                 color.
@@ -197,18 +197,18 @@ export default function ScreenPrintingColorGuidePage() {
         </section>
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
-          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-[0.38fr_1fr]">
-            <div className="bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8">
+          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.38fr_1fr]">
+            <div className="bg-white p-6 sm:p-8">
               <p className="eyebrow">Ink layers</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
                 What is happening on the shirt.
               </h2>
-              <p className="mt-6 text-sm leading-7 text-[#b9c7d6]">
+              <p className="mt-6 text-sm leading-7 text-[#314154]">
                 Think of the white underbase like primer. It goes down first on
                 dark fabric, then the visible colors print on top.
               </p>
             </div>
-            <div className="bg-[#08111f] p-6 sm:p-8">
+            <div className="bg-white p-6 sm:p-8">
               {[
                 ["Top layer", "Red Ink", "#d71920", "translate-x-8"],
                 ["Top layer", "Blue Ink", "#005eb8", "translate-x-4"],
@@ -217,7 +217,7 @@ export default function ScreenPrintingColorGuidePage() {
               ].map(([kind, name, color, shift], index) => (
                 <div
                   key={name}
-                  className={`relative mb-4 ${shift} rounded-xl border border-white/14 p-5 shadow-[0_16px_38px_rgba(0,0,0,0.28)]`}
+                  className={`relative mb-4 ${shift} rounded-sm border border-black/10 p-5 shadow-[0_16px_38px_rgba(0,0,0,0.16)]`}
                   style={{ backgroundColor: color }}
                 >
                   <p className={`text-xs font-black uppercase tracking-[0.18em] ${color === "#ffffff" ? "text-[#101827]/55" : "text-white/62"}`}>
@@ -236,38 +236,38 @@ export default function ScreenPrintingColorGuidePage() {
         </section>
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
-          <div className="mx-auto overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
-            <div className="border-b border-white/12 bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8">
+          <div className="mx-auto overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10">
+            <div className="bg-white p-6 sm:p-8">
               <p className="eyebrow">Mixing shirt colors</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
                 Can I mix shirt colors?
               </h2>
             </div>
-            <div className="grid gap-px bg-white/12 lg:grid-cols-3">
+            <div className="grid gap-px bg-[#d7e3ee] lg:grid-cols-3">
               {[
                 [["Black", "#05070b"], ["Navy", "#071d3c"], ["Dark Gray", "#3f4448"], "Usually Compatible", "These garments often use the same print setup and white underbase."],
                 [["White", "#f4f7fb"], ["Ash", "#d7d8d5"], ["Light Gray", "#bfc3c7"], "Usually Compatible", "These garments often print using the same ink colors without an underbase."],
                 [["Black", "#05070b"], ["White", "#f4f7fb"], ["Red", "#a81220"], "May Require Additional Setup", "Mixing light and dark garments can require different print configurations and additional production time."],
               ].map(([one, two, three, title, text]) => (
-                <article key={String(text)} className="bg-[#08111f] p-6 sm:p-8">
+                <article key={String(text)} className="bg-white p-6 sm:p-8">
                   {[one, two, three].map((item) => {
                     const [name, color] = item as string[];
                     return (
                       <div
                         key={name}
-                        className="mb-3 flex items-center gap-3 rounded-lg border border-white/12 bg-white/[0.04] p-3"
+                        className="mb-3 flex items-center gap-3 rounded-md border border-black/10 bg-[#f4f8fc] p-3"
                       >
-                        <span className="h-9 w-9 rounded-full border border-white/20" style={{ backgroundColor: color }} />
-                        <span className="text-sm font-black uppercase tracking-wide text-white">
+                        <span className="h-9 w-9 rounded-full border border-black/20" style={{ backgroundColor: color }} />
+                        <span className="text-sm font-black uppercase tracking-wide text-[#07111f]">
                           {name}
                         </span>
                       </div>
                     );
                   })}
-                  <p className="mt-6 rounded-lg border border-accent/30 bg-accent/10 px-4 py-3 text-sm font-black uppercase tracking-wide text-white">
+                  <p className="mt-6 rounded-md border border-accent/30 bg-accent/10 px-4 py-3 text-sm font-black uppercase tracking-wide text-[#07111f]">
                     {String(title)}
                   </p>
-                  <p className="mt-4 text-sm leading-7 text-[#b9c7d6]">
+                  <p className="mt-4 text-sm leading-7 text-[#314154]">
                     {String(text)}
                   </p>
                 </article>
@@ -277,11 +277,11 @@ export default function ScreenPrintingColorGuidePage() {
         </section>
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
-          <div className="mx-auto max-w-7xl rounded-xl border border-accent/35 bg-accent/10 p-6 shadow-[0_22px_70px_rgba(31,115,190,0.18)] sm:p-8">
+          <div className="mx-auto max-w-7xl rounded-sm border border-accent/25 bg-white p-6 shadow-[0_18px_55px_rgba(7,17,31,0.1)] sm:p-8">
             <p className="text-xs font-black uppercase tracking-[0.22em] text-accent">
               Tip
             </p>
-            <p className="mt-3 text-lg font-bold leading-8 text-white">
+            <p className="mt-3 text-lg font-bold leading-8 text-[#07111f]">
               If you want to order multiple garment colors while keeping costs
               lower, choose colors within the same general lightness group, all
               dark colors or all light colors, whenever possible.
@@ -290,20 +290,20 @@ export default function ScreenPrintingColorGuidePage() {
         </section>
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
-          <div className="mx-auto max-w-7xl overflow-hidden rounded-xl border border-white/18 bg-[#08111f] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
-            <div className="border-b border-white/12 p-6 sm:p-8">
+          <div className="mx-auto max-w-7xl overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10">
+            <div className="bg-white p-6 sm:p-8">
               <p className="eyebrow">FAQ</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
                 Common color-count questions.
               </h2>
             </div>
-            <div className="grid gap-px bg-white/12 md:grid-cols-2">
+            <div className="grid gap-px bg-[#d7e3ee] md:grid-cols-2">
               {faqs.map(([question, answer]) => (
-                <article key={question} className="bg-[#08111f] p-6 sm:p-7">
-                  <h3 className="text-base font-black uppercase tracking-wide text-white">
+                <article key={question} className="bg-white p-6 sm:p-7">
+                  <h3 className="text-base font-black uppercase tracking-wide text-[#07111f]">
                     {question}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-[#b9c7d6]">
+                  <p className="mt-4 text-sm leading-7 text-[#314154]">
                     {answer}
                   </p>
                 </article>

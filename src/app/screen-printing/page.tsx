@@ -84,7 +84,7 @@ export default function ScreenPrintingPage() {
   return (
     <>
       <Header />
-      <main className="bg-[#050b14]">
+      <main className="bg-[#f4f8fc]">
         <section className="relative isolate overflow-hidden px-5 py-14 sm:px-8 lg:px-10 lg:py-20">
           <div className="absolute inset-0 -z-30 bg-[#03070d]" />
           <div className="absolute inset-y-0 right-0 -z-30 w-full lg:w-[78%]">
@@ -99,7 +99,7 @@ export default function ScreenPrintingPage() {
             />
           </div>
           <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(3,7,13,0.98)_0%,rgba(3,7,13,0.94)_34%,rgba(3,7,13,0.62)_56%,rgba(3,7,13,0.42)_100%)]" />
-          <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(3,7,13,0.5)_0%,rgba(3,7,13,0.08)_42%,rgba(3,7,13,0.96)_100%)]" />
+          <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(3,7,13,0.5)_0%,rgba(3,7,13,0.08)_42%,#f4f8fc_100%)]" />
           <div className="absolute inset-y-0 left-[34%] -z-10 hidden w-1/3 bg-[linear-gradient(90deg,rgba(3,7,13,0),rgba(3,7,13,0.72)_42%,rgba(3,7,13,0.08)_100%)] lg:block" />
           <div className="absolute right-0 top-10 -z-10 h-[34rem] w-2/3 bg-[radial-gradient(ellipse_at_center,rgba(31,115,190,0.18),transparent_70%)] blur-2xl" />
           <div className="absolute inset-0 -z-10 opacity-[0.1] [background-image:linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:70px_70px]" />
@@ -132,7 +132,7 @@ export default function ScreenPrintingPage() {
                 </a>
               </div>
             </div>
-            <div className="rounded-xl border border-white/16 bg-[#08111f]/82 p-5 shadow-[0_26px_90px_rgba(0,0,0,0.42)] backdrop-blur">
+            <div className="rounded-sm border border-white/18 bg-white/92 p-5 text-[#07111f] shadow-[0_26px_90px_rgba(0,0,0,0.28)] backdrop-blur">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-accent">
                 Quick specs
               </p>
@@ -140,7 +140,7 @@ export default function ScreenPrintingPage() {
                 {highlights.map((highlight) => (
                   <div
                     key={highlight}
-                    className="rounded-lg border border-white/12 bg-white/[0.04] px-4 py-3 text-sm font-bold text-white/78"
+                    className="rounded-md border border-black/8 bg-[#f4f8fc] px-4 py-3 text-sm font-bold text-[#314154]"
                   >
                     {highlight}
                   </div>
@@ -150,7 +150,7 @@ export default function ScreenPrintingPage() {
           </div>
         </section>
 
-        <section className="bg-[#050b14] px-5 pt-8 sm:px-8 lg:px-10">
+        <section className="bg-[#f4f8fc] px-5 pt-8 sm:px-8 lg:px-10">
           <div className="mx-auto flex max-w-7xl flex-wrap gap-3">
             <Link
               href="/screen-printing"
@@ -160,7 +160,7 @@ export default function ScreenPrintingPage() {
             </Link>
             <Link
               href="/screen-printing/color-guide"
-              className="rounded-lg border border-white/18 bg-white/[0.04] px-5 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
+              className="rounded-lg border border-accent/25 bg-white px-5 py-3 text-xs font-black uppercase tracking-wide text-accent shadow-[0_10px_28px_rgba(7,17,31,0.08)] transition hover:border-accent hover:bg-accent hover:text-white"
             >
               Ink & shirt color guide
             </Link>
@@ -168,13 +168,13 @@ export default function ScreenPrintingPage() {
         </section>
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
-          <div className="mx-auto grid max-w-7xl overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-[0.78fr_1.22fr]">
-            <div className="bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8 lg:p-10">
+          <div className="mx-auto grid max-w-7xl overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.78fr_1.22fr]">
+            <div className="bg-white p-6 sm:p-8 lg:p-10">
               <p className="eyebrow">Production floor</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
                 See the print work in motion.
               </h2>
-              <p className="mt-6 text-sm leading-7 text-[#b9c7d6]">
+              <p className="mt-6 text-sm leading-7 text-[#314154]">
                 Every screen print job comes down to setup, registration, ink,
                 pressure, cure, and a final check before it leaves the shop.
               </p>
@@ -195,18 +195,18 @@ export default function ScreenPrintingPage() {
         </section>
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
-          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-[0.38fr_1fr]">
-            <div className="bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8">
+          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.38fr_1fr]">
+            <div className="bg-white p-6 sm:p-8">
               <p className="eyebrow">What to expect</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
                 Clean prints. Clear process.
               </h2>
-              <p className="mt-6 text-sm leading-7 text-[#b9c7d6]">
+              <p className="mt-6 text-sm leading-7 text-[#314154]">
                 Bring finished artwork or send what you have. We can help clean
                 up files, prepare the print, and send a proof before production.
               </p>
             </div>
-            <div className="grid gap-px bg-white/12 sm:grid-cols-3">
+            <div className="grid gap-px bg-[#d7e3ee] sm:grid-cols-3">
               {processSteps.map((step, index) => (
                 <article
                   key={step.title}
@@ -267,18 +267,18 @@ export default function ScreenPrintingPage() {
               <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <p className="eyebrow">Photo gallery</p>
-                  <h2 className="mt-3 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+                  <h2 className="mt-3 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
                     Recent screen printing.
                   </h2>
                 </div>
                 <Link
                   href="/portfolio"
-                  className="text-sm font-black uppercase tracking-wide text-accent transition hover:text-white"
+                  className="text-sm font-black uppercase tracking-wide text-accent transition hover:text-[#07111f]"
                 >
                   View more work
                 </Link>
               </div>
-              <div className="grid gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 sm:grid-cols-2 lg:grid-cols-3">
                 {galleryImages.map((image) => (
                   <div
                     key={image}
@@ -300,20 +300,20 @@ export default function ScreenPrintingPage() {
         ) : null}
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
-          <div className="mx-auto max-w-7xl overflow-hidden rounded-xl border border-white/18 bg-[#08111f] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
-            <div className="border-b border-white/12 p-6 sm:p-8">
+          <div className="mx-auto max-w-7xl overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10">
+            <div className="bg-white p-6 sm:p-8">
               <p className="eyebrow">Screen printing FAQ</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
                 Questions before you order.
               </h2>
             </div>
-            <div className="grid gap-px bg-white/12 md:grid-cols-2">
+            <div className="grid gap-px bg-[#d7e3ee] md:grid-cols-2">
               {faqs.map((faq) => (
-                <article key={faq.question} className="bg-[#08111f] p-6 sm:p-7">
-                  <h3 className="text-base font-black uppercase tracking-wide text-white">
+                <article key={faq.question} className="bg-white p-6 sm:p-7">
+                  <h3 className="text-base font-black uppercase tracking-wide text-[#07111f]">
                     {faq.question}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-[#b9c7d6]">
+                  <p className="mt-4 text-sm leading-7 text-[#314154]">
                     {faq.answer}
                   </p>
                 </article>

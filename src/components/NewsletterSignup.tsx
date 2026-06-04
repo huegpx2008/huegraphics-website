@@ -7,13 +7,13 @@ export function NewsletterSignup() {
       action={mailchimpAction}
       method="post"
       target="_blank"
-      className="rounded-xl border border-white/18 bg-[#08111f] p-6 sm:p-8"
+      className="rounded-sm bg-white p-6 shadow-[0_18px_55px_rgba(7,17,31,0.1)] ring-1 ring-black/10 sm:p-8"
     >
       <p className="eyebrow">Email updates</p>
-      <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+      <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
         Join the Hue list.
       </h2>
-      <p className="mt-5 max-w-2xl text-sm leading-7 text-[#b9c7d6]">
+      <p className="mt-5 max-w-2xl text-sm leading-7 text-[#314154]">
         New customers get $20 off their first order. Sign up for occasional
         updates, offers, and shop news.
       </p>
@@ -23,7 +23,7 @@ export function NewsletterSignup() {
           name="EMAIL"
           required
           placeholder="Email address*"
-          className="min-w-0 flex-1 rounded-lg border border-white/14 bg-white/[0.04] px-4 py-4 text-sm text-white outline-none transition placeholder:text-[#b9c7d6]/70 focus:border-accent"
+          className="min-w-0 flex-1 rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-4 text-sm text-[#07111f] outline-none transition placeholder:text-[#536273]/70 focus:border-accent"
         />
         <input
           type="text"

@@ -15,15 +15,15 @@ export default function QuoteAppPage() {
   return (
     <>
       <Header />
-      <main className="bg-[#050b14] px-5 py-8 sm:px-8 lg:px-10">
-        <section className="mx-auto max-w-7xl overflow-hidden rounded-xl border border-white/18 bg-[#08111f] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
-          <div className="flex flex-col gap-5 border-b border-white/12 bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8 lg:flex-row lg:items-end lg:justify-between">
+      <main className="bg-[#f4f8fc] px-5 py-8 sm:px-8 lg:px-10">
+        <section className="mx-auto max-w-7xl overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10">
+          <div className="flex flex-col gap-5 bg-white p-6 sm:p-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="eyebrow">Beta quote app</p>
-              <h1 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+              <h1 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
                 Build a quick estimate.
               </h1>
-              <p className="mt-5 max-w-2xl text-sm leading-7 text-[#b9c7d6]">
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-[#314154]">
                 Use the beta quote app below for quick pricing. If it does not
                 load in this window, open it directly in a new tab.
               </p>
@@ -32,7 +32,7 @@ export default function QuoteAppPage() {
               href={quoteAppUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-fit rounded-lg border border-accent/45 bg-accent/10 px-5 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/18"
+              className="inline-flex w-fit rounded-md border border-accent/45 bg-accent/10 px-5 py-3 text-xs font-black uppercase tracking-wide text-[#07111f] transition hover:border-accent hover:bg-accent hover:text-white"
             >
               Open in new tab
             </a>

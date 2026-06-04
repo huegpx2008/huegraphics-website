@@ -164,16 +164,16 @@ export function PortfolioShowcase({ images }: PortfolioShowcaseProps) {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-[#050b14] px-5 py-8 sm:px-8 lg:px-10">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_72%_18%,rgba(31,115,190,0.22),transparent_28rem),linear-gradient(180deg,#08111f,#050b14)]" />
-        <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-[0.42fr_1fr]">
-          <div className="bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8">
+      <section className="relative isolate overflow-hidden bg-[#f4f8fc] px-5 py-10 sm:px-8 lg:px-10 lg:py-16">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_72%_18%,rgba(31,115,190,0.14),transparent_28rem)]" />
+        <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.42fr_1fr]">
+          <div className="bg-white p-6 sm:p-8">
             <p className="eyebrow">Portfolio</p>
-            <h1 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
+            <h1 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.9] text-[#07111f] sm:text-7xl">
               A living wall of work.
             </h1>
             <div className="mt-7 h-1 w-16 rounded-full bg-accent" />
-            <p className="mt-7 text-sm leading-7 text-[#b9c7d6]">
+            <p className="mt-7 text-sm leading-7 text-[#314154]">
               A rotating look through years of apparel, graphics, signs,
               banners, installs, and shop-floor moments from Hue Graphics.
             </p>
@@ -184,7 +184,7 @@ export function PortfolioShowcase({ images }: PortfolioShowcaseProps) {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-lg border border-accent/35 bg-accent/10 px-4 py-2 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/18"
+                  className="rounded-md border border-accent/35 bg-accent/10 px-4 py-2 text-xs font-black uppercase tracking-wide text-[#07111f] transition hover:border-accent hover:bg-accent hover:text-white"
                 >
                   {link.label}
                 </a>
@@ -240,8 +240,8 @@ export function PortfolioShowcase({ images }: PortfolioShowcaseProps) {
         </div>
       </section>
 
-      <section className="bg-[#050b14] px-5 pb-8 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl auto-rows-[4.7rem] grid-cols-4 grid-flow-dense gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] sm:auto-rows-[5.6rem] sm:grid-cols-6 lg:auto-rows-[6rem] lg:grid-cols-8 xl:grid-cols-10">
+      <section className="bg-[#f4f8fc] px-5 pb-10 sm:px-8 lg:px-10 lg:pb-16">
+        <div className="mx-auto grid max-w-7xl auto-rows-[4.7rem] grid-cols-4 grid-flow-dense gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 sm:auto-rows-[5.6rem] sm:grid-cols-6 lg:auto-rows-[6rem] lg:grid-cols-8 xl:grid-cols-10">
           {galleryTiles.map((tile, index) => (
             <button
               key={`${tile.id}-${index}`}

@@ -36,18 +36,17 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main className="bg-[#050b14]">
+      <main className="bg-[#f4f8fc]">
         <section className="relative isolate overflow-hidden px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_20%,rgba(31,115,190,0.2),transparent_28rem),linear-gradient(180deg,#08111f,#050b14)]" />
-          <div className="absolute inset-0 -z-10 opacity-[0.09] [background-image:linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:76px_76px]" />
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_20%,rgba(31,115,190,0.16),transparent_28rem),linear-gradient(180deg,#ffffff,#f4f8fc)]" />
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <div>
               <p className="eyebrow">About Hue Graphics & Apparel, LLC</p>
-              <h1 className="mt-5 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
+              <h1 className="mt-5 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.9] text-[#07111f] sm:text-7xl">
                 Built on family, legacy, and community.
               </h1>
             </div>
-            <p className="max-w-2xl text-lg leading-8 text-[#b9c7d6]">
+            <p className="max-w-2xl text-lg leading-8 text-[#314154]">
               Founded in February 2013, Hue Graphics & Apparel, LLC was built on
               more than a passion for printing. It was built on family, legacy,
               and a commitment to serving the community.
@@ -56,7 +55,7 @@ export default function AboutPage() {
         </section>
 
         <section className="px-5 pb-8 sm:px-8 lg:px-10">
-          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-2">
+          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-2">
             <div className="relative min-h-[360px] overflow-hidden bg-[#08111f] lg:min-h-[540px]">
               <Image
                 src="/images/old-store.png"
@@ -88,23 +87,23 @@ export default function AboutPage() {
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.34fr_1fr]">
-            <div className="rounded-xl border border-white/18 bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8">
+            <div className="rounded-sm bg-white p-6 shadow-[0_18px_55px_rgba(7,17,31,0.1)] ring-1 ring-black/10 sm:p-8">
               <p className="eyebrow">Milestones</p>
               <div className="mt-7 grid gap-5">
                 {milestones.map((milestone) => (
                   <div key={milestone.year} className="border-l border-accent/45 pl-5">
                     <p className="text-sm font-black text-accent">{milestone.year}</p>
-                    <p className="mt-1 text-base font-black uppercase tracking-wide text-white">
+                    <p className="mt-1 text-base font-black uppercase tracking-wide text-[#07111f]">
                       {milestone.title}
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-[#b9c7d6]">
+                    <p className="mt-2 text-sm leading-6 text-[#314154]">
                       {milestone.description}
                     </p>
                   </div>
                 ))}
               </div>
             </div>
-            <article className="rounded-xl border border-white/18 bg-[#08111f] p-6 text-base leading-8 text-[#b9c7d6] shadow-[0_26px_90px_rgba(0,0,0,0.36)] sm:p-8 lg:p-10">
+            <article className="rounded-sm bg-white p-6 text-base leading-8 text-[#314154] shadow-[0_18px_55px_rgba(7,17,31,0.1)] ring-1 ring-black/10 sm:p-8 lg:p-10">
               <p>
                 The story of Hue Graphics began with my father, Hugh A. Morris.
                 In 2008, he opened a small T-shirt shop in Winder, Georgia
@@ -153,10 +152,10 @@ export default function AboutPage() {
                 helping businesses, organizations, and individuals share their
                 message, build their brand, and make a lasting impression.
               </p>
-              <blockquote className="mt-8 border-l-4 border-accent pl-5 text-xl font-black leading-8 text-white">
+              <blockquote className="mt-8 border-l-4 border-accent pl-5 text-xl font-black leading-8 text-[#07111f]">
                 &ldquo;The first quality that is needed is audacity.&rdquo;
               </blockquote>
-              <p className="mt-8 text-white">
+              <p className="mt-8 font-bold text-[#07111f]">
                 Thank you for supporting our family business and being part of
                 our journey.
               </p>

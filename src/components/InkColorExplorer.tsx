@@ -78,14 +78,14 @@ export function InkColorExplorer() {
 
   return (
     <section className="px-5 py-8 sm:px-8 lg:px-10">
-      <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-[0.42fr_1fr]">
-        <div className="bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8">
+      <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.42fr_1fr]">
+        <div className="bg-white p-6 sm:p-8">
           <p className="eyebrow">Ink color explorer</p>
-          <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+          <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
             Preview common print colors.
           </h2>
           <div className="mt-7 h-1 w-16 rounded-full bg-accent" />
-          <div className="mt-7 overflow-hidden rounded-xl border border-white/14 bg-[#101b2c]">
+          <div className="mt-7 overflow-hidden rounded-sm border border-black/10 bg-[#101b2c] shadow-[0_18px_48px_rgba(7,17,31,0.12)]">
             <div
               className="h-40 border-b border-white/12"
               style={{ backgroundColor: selectedColor.hex }}
@@ -102,14 +102,14 @@ export function InkColorExplorer() {
               </p>
             </div>
           </div>
-          <p className="mt-5 text-xs leading-6 text-white/48">
+          <p className="mt-5 text-xs leading-6 text-[#536273]">
             On-screen swatches are approximate. Final color can shift based on
             garment color, fabric, underbase, curing, lighting, and monitor
             settings.
           </p>
         </div>
 
-        <div className="bg-[#08111f] p-6 sm:p-8">
+        <div className="bg-white p-6 sm:p-8">
           <div className="flex flex-wrap gap-2">
             {groups.map((group) => (
               <button
@@ -120,7 +120,7 @@ export function InkColorExplorer() {
                   "rounded-lg border px-3 py-2 text-xs font-black uppercase tracking-wide transition",
                   activeGroup === group
                     ? "border-accent bg-accent text-white"
-                    : "border-white/14 bg-white/[0.04] text-[#b9c7d6] hover:border-accent/60 hover:text-white",
+                    : "border-black/10 bg-[#f4f8fc] text-[#314154] hover:border-accent/60 hover:text-[#07111f]",
                 ].join(" ")}
               >
                 {group}
@@ -135,22 +135,22 @@ export function InkColorExplorer() {
                 type="button"
                 onClick={() => setSelectedColor(color)}
                 className={[
-                  "group grid grid-cols-[3.75rem_1fr] overflow-hidden rounded-lg border bg-white/[0.035] text-left transition hover:border-accent/70 hover:bg-accent/10",
+                  "group grid grid-cols-[3.75rem_1fr] overflow-hidden rounded-md border bg-[#f4f8fc] text-left transition hover:border-accent/70 hover:bg-accent/10",
                   selectedColor.code === color.code &&
                   selectedColor.name === color.name
                     ? "border-accent"
-                    : "border-white/12",
+                    : "border-black/10",
                 ].join(" ")}
               >
                 <span
-                  className="min-h-16 border-r border-white/12"
+                  className="min-h-16 border-r border-black/10"
                   style={{ backgroundColor: color.hex }}
                 />
                 <span className="p-3">
-                  <span className="block text-sm font-black uppercase leading-tight text-white">
+                  <span className="block text-sm font-black uppercase leading-tight text-[#07111f]">
                     {color.name}
                   </span>
-                  <span className="mt-1 block text-xs font-bold text-[#b9c7d6]">
+                  <span className="mt-1 block text-xs font-bold text-[#536273]">
                     {color.code}
                   </span>
                 </span>

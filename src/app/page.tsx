@@ -1,14 +1,22 @@
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { HeroSection } from "@/components/HeroSection";
+import {
+  HomeV2BrandWall,
+  HomeV2CustomerWall,
+  HomeV2FeaturedWork,
+  HomeV2Hero,
+  HomeV2Process,
+  HomeV2ProductionVideo,
+  HomeV2Services,
+  HomeV2StoryStats,
+  HomeV2Timeline,
+  HomeV2TrustBar,
+} from "@/components/HomeV2Sections";
 import { QuickLinksSection } from "@/components/QuickLinksSection";
 import { QuoteSection } from "@/components/QuoteSection";
-import { RecentWorkSection } from "@/components/RecentWorkSection";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { ServiceAreaSection } from "@/components/ServiceAreaSection";
-import { ServicesSection } from "@/components/ServicesSection";
-import { StorySection } from "@/components/StorySection";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
@@ -26,12 +34,18 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <HeroSection />
-        <ServicesSection />
-        <ServiceAreaSection />
-        <RecentWorkSection />
+        <HomeV2Hero />
+        <HomeV2TrustBar />
+        <HomeV2BrandWall />
+        <HomeV2ProductionVideo showIntro />
+        <HomeV2Services />
+        <HomeV2StoryStats />
+        <HomeV2CustomerWall />
+        <HomeV2FeaturedWork />
+        <HomeV2Process />
         <ReviewsSection />
-        <StorySection />
+        <HomeV2Timeline />
+        <ServiceAreaSection />
         <QuoteSection />
         <QuickLinksSection />
         <CTASection />

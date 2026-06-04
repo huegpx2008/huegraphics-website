@@ -60,23 +60,22 @@ export function QuoteSection() {
   }
 
   return (
-    <section id="quote" className="bg-[#050b14] px-5 py-8 sm:px-8 lg:px-10">
-      <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-[0.42fr_1fr]">
-        <div className="bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8">
+    <section id="quote" className="bg-[#f4f8fc] px-5 py-8 sm:px-8 lg:px-10">
+      <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.42fr_1fr]">
+        <div className="bg-white p-6 sm:p-8">
           <p className="eyebrow">Request a quote</p>
-          <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+          <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
             Apparel. Signs. Banners.
           </h2>
           <div className="mt-7 h-1 w-16 rounded-full bg-accent" />
-          <p className="mt-7 text-sm leading-7 text-[#b9c7d6]">
+          <p className="mt-7 text-sm leading-7 text-[#314154]">
             Send project details, artwork notes, quantities, deadlines, and
             anything else we need to get pricing started.
           </p>
         </div>
         {status?.type === "success" ? (
-          <div className="relative overflow-hidden bg-[#08111f] p-6 sm:p-8 lg:p-10">
+          <div className="relative overflow-hidden bg-white p-6 sm:p-8 lg:p-10">
             <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-accent/18 blur-3xl" />
-            <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:48px_48px]" />
             <div className="relative flex min-h-[520px] flex-col items-start justify-center">
               <div className="grid h-20 w-20 place-items-center rounded-2xl border border-accent/45 bg-accent/15 text-4xl font-black text-accent shadow-[0_0_42px_rgba(31,115,190,0.34)]">
                 OK
@@ -84,18 +83,18 @@ export function QuoteSection() {
               <p className="mt-8 text-xs font-black uppercase tracking-[0.22em] text-accent">
                 Quote request received
               </p>
-              <h3 className="mt-4 max-w-xl font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.92] tracking-tight text-white sm:text-6xl">
+              <h3 className="mt-4 max-w-xl font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.92] text-[#07111f] sm:text-6xl">
                 Your project is on the shop board.
               </h3>
-              <p className="mt-6 max-w-xl text-base leading-8 text-[#b9c7d6]">
+              <p className="mt-6 max-w-xl text-base leading-8 text-[#314154]">
                 Your project details made it through. We will review the specs,
                 files, and timeline, then get back to you with the next steps.
               </p>
-              <div className="mt-8 rounded-lg border border-white/14 bg-white/[0.04] p-5">
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-white/52">
+              <div className="mt-8 rounded-md border border-black/10 bg-[#f4f8fc] p-5">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#536273]">
                   What happens next
                 </p>
-                <p className="mt-2 text-sm leading-7 text-white/76">
+                <p className="mt-2 text-sm leading-7 text-[#314154]">
                   A real person checks the request, not a robot queue. If we
                   need artwork clarification, quantities, or sizing details,
                   we will reach out.
@@ -111,31 +110,31 @@ export function QuoteSection() {
             </div>
           </div>
         ) : (
-        <form onSubmit={handleSubmit} className="bg-[#08111f] p-6 sm:p-8 lg:p-10">
+        <form onSubmit={handleSubmit} className="bg-white p-6 sm:p-8 lg:p-10">
           <div className="grid gap-4 sm:grid-cols-2">
             <input
               name="name"
               placeholder="Name"
-              className="rounded-lg border border-white/14 bg-white/[0.04] px-4 py-4 text-sm text-white outline-none transition placeholder:text-[#b9c7d6]/70 focus:border-accent"
+              className="rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-4 text-sm text-[#07111f] outline-none transition placeholder:text-[#536273]/70 focus:border-accent"
             />
             <input
               name="email"
               type="email"
               required
               placeholder="Email*"
-              className="rounded-lg border border-white/14 bg-white/[0.04] px-4 py-4 text-sm text-white outline-none transition placeholder:text-[#b9c7d6]/70 focus:border-accent"
+              className="rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-4 text-sm text-[#07111f] outline-none transition placeholder:text-[#536273]/70 focus:border-accent"
             />
             <input
               name="phone"
               type="tel"
               placeholder="Phone"
-              className="rounded-lg border border-white/14 bg-white/[0.04] px-4 py-4 text-sm text-white outline-none transition placeholder:text-[#b9c7d6]/70 focus:border-accent"
+              className="rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-4 text-sm text-[#07111f] outline-none transition placeholder:text-[#536273]/70 focus:border-accent"
             />
             <select
               name="interest"
               required
               defaultValue=""
-              className="rounded-lg border border-white/14 bg-[#0b1728] px-4 py-4 text-sm text-white outline-none transition focus:border-accent"
+              className="rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-4 text-sm text-[#07111f] outline-none transition focus:border-accent"
             >
               <option value="" disabled>
                 Service needed*
@@ -152,17 +151,17 @@ export function QuoteSection() {
             required
             placeholder="Project details*"
             rows={6}
-            className="mt-4 w-full rounded-lg border border-white/14 bg-white/[0.04] px-4 py-4 text-sm text-white outline-none transition placeholder:text-[#b9c7d6]/70 focus:border-accent"
+            className="mt-4 w-full rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-4 text-sm text-[#07111f] outline-none transition placeholder:text-[#536273]/70 focus:border-accent"
           />
           <textarea
             name="notes"
             placeholder="Other notes"
             rows={5}
-            className="mt-4 w-full rounded-lg border border-white/14 bg-white/[0.04] px-4 py-4 text-sm text-white outline-none transition placeholder:text-[#b9c7d6]/70 focus:border-accent"
+            className="mt-4 w-full rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-4 text-sm text-[#07111f] outline-none transition placeholder:text-[#536273]/70 focus:border-accent"
           />
           <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <label className="inline-flex cursor-pointer items-center gap-3 text-sm font-bold text-[#b9c7d6] transition hover:text-white">
+              <label className="inline-flex cursor-pointer items-center gap-3 text-sm font-bold text-[#314154] transition hover:text-accent">
                 <span className="text-lg text-accent">+</span>
                 Attach Files
                 <input
@@ -179,11 +178,11 @@ export function QuoteSection() {
                   }
                 />
               </label>
-              <p className="mt-2 text-xs leading-5 text-white/42">
+              <p className="mt-2 text-xs leading-5 text-[#536273]">
                 JPG, PNG, PDF, SVG, ZIP, and common artwork files.
               </p>
               {fileNames.length > 0 ? (
-                <p className="mt-2 max-w-md text-xs leading-5 text-white/60">
+                <p className="mt-2 max-w-md text-xs leading-5 text-[#314154]">
                   {fileNames.join(", ")}
                 </p>
               ) : null}

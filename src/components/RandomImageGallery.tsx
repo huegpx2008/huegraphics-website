@@ -56,7 +56,7 @@ export function RandomImageGallery({ folder, fallbackImages }: RandomImageGaller
   }, [allImages, visibleImages]);
 
   return (
-    <div className="grid gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 sm:grid-cols-2 lg:grid-cols-3">
       {visibleImages.map((image, index) => (
         <div key={`${image}-${index}`} className="relative aspect-square bg-[#101b2c]">
           <Image

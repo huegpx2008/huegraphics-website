@@ -1,20 +1,78 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import { LogoEasterEgg } from "./LogoEasterEgg";
 
 const navItems = [
-  { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "About", href: "/about" },
   { label: "Resources", href: "/#resources" },
   { label: "Contact", href: "/contact" },
 ];
 
+const serviceLinks = [
+  { label: "All Services", href: "/services" },
+  { label: "Screen Printing", href: "/screen-printing" },
+  { label: "Embroidery", href: "/embroidery" },
+  { label: "DTF Transfers", href: "/dtf-transfers" },
+  { label: "Signs & Banners", href: "/signs-banners" },
+  { label: "Vehicle Graphics", href: "/vehicle-graphics" },
+  { label: "Business Printing", href: "/business-printing" },
+];
+
 export function Header() {
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-navy/90 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-5 py-3 sm:px-8 lg:px-10">
         <LogoEasterEgg />
         <nav aria-label="Main navigation" className="hidden items-center gap-7 lg:flex">
+          <div
+            className="relative"
+            onMouseEnter={() => setIsServicesOpen(true)}
+            onMouseLeave={() => setIsServicesOpen(false)}
+            onPointerEnter={() => setIsServicesOpen(true)}
+            onPointerLeave={() => setIsServicesOpen(false)}
+            onFocus={() => setIsServicesOpen(true)}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) {
+                setIsServicesOpen(false);
+              }
+            }}
+          >
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-1 py-3 text-sm font-semibold text-white/68 transition hover:text-white"
+            >
+              Services
+              <span className="text-[0.65rem] text-accent">v</span>
+            </Link>
+            <div
+              className={[
+                "absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3 transition duration-150",
+                isServicesOpen
+                  ? "visible opacity-100"
+                  : "invisible opacity-0",
+              ].join(" ")}
+            >
+              <div className="overflow-hidden rounded-sm bg-white shadow-[0_24px_70px_rgba(0,0,0,0.28)] ring-1 ring-black/10">
+                {serviceLinks.map((service) => (
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    className="group/item flex items-center justify-between border-b border-black/8 px-4 py-3 text-sm font-black uppercase tracking-wide text-[#07111f] transition last:border-b-0 hover:bg-[#f4f8fc] hover:text-accent"
+                  >
+                    {service.label}
+                    <span className="text-accent transition group-hover/item:translate-x-1">
+                      -&gt;
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
           {navItems.map((item) => (
             <Link
               key={item.href}

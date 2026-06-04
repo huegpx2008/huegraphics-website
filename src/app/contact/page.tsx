@@ -40,18 +40,17 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="bg-[#050b14]">
+      <main className="bg-[#f4f8fc]">
         <section className="relative isolate overflow-hidden px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_20%,rgba(31,115,190,0.22),transparent_28rem),linear-gradient(180deg,#08111f,#050b14)]" />
-          <div className="absolute inset-0 -z-10 opacity-[0.09] [background-image:linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:76px_76px]" />
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_20%,rgba(31,115,190,0.16),transparent_28rem),linear-gradient(180deg,#ffffff,#f4f8fc)]" />
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
               <p className="eyebrow">Contact Hue Graphics</p>
-              <h1 className="mt-5 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
+              <h1 className="mt-5 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.9] text-[#07111f] sm:text-7xl">
                 Questions, quotes, directions.
               </h1>
             </div>
-            <p className="max-w-2xl text-lg leading-8 text-[#b9c7d6]">
+            <p className="max-w-2xl text-lg leading-8 text-[#314154]">
               Reach the shop, find our Bethlehem location, send a general
               question, or jump straight into a quote request when you are ready
               to start a project.
@@ -60,49 +59,49 @@ export default function ContactPage() {
         </section>
 
         <section className="px-5 pb-8 sm:px-8 lg:px-10">
-          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-[0.86fr_1.14fr]">
-            <div className="bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8">
+          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.86fr_1.14fr]">
+            <div className="bg-white p-6 sm:p-8">
               <p className="eyebrow">Shop info</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
                 Hue Graphics & Apparel.
               </h2>
               <div className="mt-7 h-1 w-16 rounded-full bg-accent" />
-              <div className="mt-7 space-y-6 text-sm leading-7 text-[#b9c7d6]">
+              <div className="mt-7 space-y-6 text-sm leading-7 text-[#314154]">
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.18em] text-white/48">
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-[#536273]">
                     Address
                   </p>
                   <a
                     href={directionsUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-2 block text-white transition hover:text-accent"
+                    className="mt-2 block font-bold text-[#07111f] transition hover:text-accent"
                   >
                     {address}
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.18em] text-white/48">
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-[#536273]">
                     Hours
                   </p>
-                  <p className="mt-2 text-white">Monday-Friday, 9:00 AM-5:00 PM</p>
+                  <p className="mt-2 font-bold text-[#07111f]">Monday-Friday, 9:00 AM-5:00 PM</p>
                 </div>
                 <div className="grid gap-3">
                   {contactLinks.map((item) => (
                     <a
                       key={item.label}
                       href={item.href}
-                      className="grid gap-1 rounded-lg border border-white/12 bg-white/[0.03] p-4 transition hover:border-accent/50 hover:bg-accent/10"
+                      className="grid gap-1 rounded-md border border-black/10 bg-[#f4f8fc] p-4 transition hover:border-accent/50 hover:bg-accent/10"
                     >
-                      <span className="text-xs font-black uppercase tracking-[0.18em] text-white/48">
+                      <span className="text-xs font-black uppercase tracking-[0.18em] text-[#536273]">
                         {item.label}
                       </span>
-                      <span className="font-bold text-white">{item.value}</span>
+                      <span className="font-bold text-[#07111f]">{item.value}</span>
                     </a>
                   ))}
                 </div>
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.18em] text-white/48">
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-[#536273]">
                     Socials
                   </p>
                   <div className="mt-3 flex flex-wrap gap-3">
@@ -112,7 +111,7 @@ export default function ContactPage() {
                         href={item.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="rounded-lg border border-accent/35 bg-accent/10 px-4 py-2 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/18"
+                        className="rounded-md border border-accent/35 bg-accent/10 px-4 py-2 text-xs font-black uppercase tracking-wide text-[#07111f] transition hover:border-accent hover:bg-accent hover:text-white"
                       >
                         {item.label}
                       </a>
@@ -144,14 +143,14 @@ export default function ContactPage() {
         </section>
 
         <section className="px-5 pb-8 sm:px-8 lg:px-10">
-          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-xl border border-white/18 bg-white/12 shadow-[0_26px_90px_rgba(0,0,0,0.42)] lg:grid-cols-[0.38fr_1fr]">
-            <div className="bg-[linear-gradient(145deg,#08111f,#06101d)] p-6 sm:p-8">
+          <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.38fr_1fr]">
+            <div className="bg-white p-6 sm:p-8">
               <p className="eyebrow">General questions</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
                 Send us a message.
               </h2>
               <div className="mt-7 h-1 w-16 rounded-full bg-accent" />
-              <p className="mt-7 text-sm leading-7 text-[#b9c7d6]">
+              <p className="mt-7 text-sm leading-7 text-[#314154]">
                 Use this for general questions, order follow-ups, or anything
                 that does not need a full quote request.
               </p>
@@ -168,16 +167,16 @@ export default function ContactPage() {
 
         <QuoteSection />
 
-        <section className="bg-[#050b14] px-5 pb-8 sm:px-8 lg:px-10">
-          <div className="mx-auto max-w-7xl rounded-xl border border-white/18 bg-[#08111f] p-6 text-sm leading-7 text-[#b9c7d6] sm:p-8">
-            <p className="font-bold text-white">Prefer to talk now?</p>
+        <section className="bg-[#f4f8fc] px-5 pb-8 sm:px-8 lg:px-10">
+          <div className="mx-auto max-w-7xl rounded-sm bg-white p-6 text-sm leading-7 text-[#314154] shadow-[0_18px_55px_rgba(7,17,31,0.1)] ring-1 ring-black/10 sm:p-8">
+            <p className="font-bold text-[#07111f]">Prefer to talk now?</p>
             <p className="mt-2">
               Call the office at{" "}
-              <Link href="tel:17708673520" className="text-white hover:text-accent">
+              <Link href="tel:17708673520" className="font-bold text-[#07111f] hover:text-accent">
                 (770) 867-3520
               </Link>{" "}
               or call/text Office Mobile at{" "}
-              <Link href="tel:16782388913" className="text-white hover:text-accent">
+              <Link href="tel:16782388913" className="font-bold text-[#07111f] hover:text-accent">
                 (678) 238-8913
               </Link>
               .

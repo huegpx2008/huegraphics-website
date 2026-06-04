@@ -65,6 +65,16 @@ img {
   }
 }
 
+@keyframes brandMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
 @keyframes artworkDraw {
   0%,
   100% {
