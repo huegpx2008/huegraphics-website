@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { InkColorExplorer } from "@/components/InkColorExplorer";
 import { QuoteSection } from "@/components/QuoteSection";
+import { ScreenPrintEstimator } from "@/components/ScreenPrintEstimator";
 import { workImagesByFolder } from "@/data/workImages.generated";
 import { createSeoMetadata } from "@/lib/seo";
 
@@ -166,6 +167,8 @@ export default function ScreenPrintingPage() {
             </Link>
           </div>
         </section>
+
+        <ScreenPrintEstimator />
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
           <div className="mx-auto grid max-w-7xl overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.78fr_1.22fr]">
