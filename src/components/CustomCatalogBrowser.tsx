@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import type { CatalogProduct } from "@/data/sanmarCatalog.generated";
 
 type CustomCatalogBrowserProps = {
@@ -17,27 +17,59 @@ type ProjectItem = {
   brand: string;
   color: string;
   quantity: number;
-  sizes: Record<string, number>;
+  estimatedEach?: number | string;
+  estimatedTotal?: number | string;
 };
 
-type SameDesignStatus = "yes" | "no" | "not-sure";
-type DecorationMethod = "screenprint" | "dtf" | "embroidery" | "not-sure";
+type EstimateState = {
+  status: "loading" | "ready" | "unavailable";
+  each?: number | string;
+  total?: number | string;
+  quantity?: number | string;
+  warnings?: string[];
+};
+
+type ScreenprintEstimate = {
+  ok?: boolean;
+  price?: {
+    retail?: number | string;
+    each?: number | string;
+  };
+  currency?: string;
+  summary?: {
+    totalQuantity?: number | string;
+    lineItems?: {
+      style?: string;
+      productName?: string;
+      title?: string;
+      color?: string;
+      quantity?: number | string;
+      sizes?: Record<string, number>;
+    }[];
+  };
+  warnings?: string[];
+  error?: {
+    message?: string;
+    fields?: Record<string, string>;
+  };
+};
+
+type DetailEstimatorState = {
+  product: CatalogProduct;
+  color: string;
+  sizes: Record<string, string>;
+  frontColors: string;
+  backColors: string;
+  sameDesign: boolean;
+  darkGarment: boolean;
+  whiteUnderbase: boolean;
+  estimate: ScreenprintEstimate | null;
+  error: string;
+  isLoading: boolean;
+};
 
 const visibleProductLimit = 48;
-const pricingAppUrl = "https://quotes.huegraphics.cc/apparel";
-
-const sameDesignLabels: Record<SameDesignStatus, string> = {
-  yes: "Yes, same design",
-  no: "No, different designs",
-  "not-sure": "Not sure",
-};
-
-const decorationMethodLabels: Record<DecorationMethod, string> = {
-  screenprint: "Screen Printing",
-  dtf: "DTF Transfers",
-  embroidery: "Embroidery",
-  "not-sure": "Not sure / Help me choose",
-};
+const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
 
 function shortDescription(description: string) {
   if (description.length <= 180) {
@@ -51,60 +83,141 @@ function defaultColor(product: CatalogProduct) {
   return product.colors[0]?.name || "";
 }
 
-function createProjectItem(product: CatalogProduct): ProjectItem {
+function formatPrice(value: number | string | undefined, currency = "USD") {
+  if (typeof value === "number") {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency,
+    }).format(value);
+  }
+
+  return value || "Estimate unavailable";
+}
+
+function normalizeQuantity(value: string | number) {
+  const numeric = Number(value);
+  return Number.isFinite(numeric) ? Math.max(1, Math.floor(numeric)) : 1;
+}
+
+function productSizeOrder(product: CatalogProduct) {
+  const normalized = product.sizes.length ? product.sizes : preferredSizes;
+  const preferred = preferredSizes.filter((size) => normalized.includes(size));
+  const rest = normalized.filter((size) => !preferred.includes(size));
+  return [...preferred, ...rest].slice(0, 8);
+}
+
+function buildDefaultSizes(product: CatalogProduct, quantity: number) {
+  const sizes = productSizeOrder(product);
+  const activeSizes = sizes.filter((size) =>
+    ["S", "M", "L", "XL"].includes(size),
+  );
+  const distributionSizes = activeSizes.length ? activeSizes : sizes.slice(0, 4);
+  const result = Object.fromEntries(sizes.map((size) => [size, 0]));
+
+  distributionSizes.forEach((size, index) => {
+    result[size] =
+      Math.floor(quantity / distributionSizes.length) +
+      (index < quantity % distributionSizes.length ? 1 : 0);
+  });
+
+  return result;
+}
+
+function buildDetailSizes(product: CatalogProduct, quantity: number) {
+  const defaults = buildDefaultSizes(product, quantity);
+
+  return Object.fromEntries(
+    Object.entries(defaults).map(([size, qty]) => [size, String(qty)]),
+  );
+}
+
+function buildScreenprintPayload({
+  product,
+  color,
+  sizeQuantities,
+  frontColors,
+  backColors,
+  sameDesign,
+  darkGarment,
+  whiteUnderbase,
+}: {
+  product: CatalogProduct;
+  color: string;
+  sizeQuantities: Record<string, number>;
+  frontColors: number;
+  backColors: number;
+  sameDesign: boolean;
+  darkGarment: boolean;
+  whiteUnderbase: boolean;
+}) {
   return {
-    id: `${product.style}-${Date.now()}-${Math.random().toString(16).slice(2)}`,
-    productName: product.title,
-    style: product.style,
-    brand: product.brand,
-    color: defaultColor(product),
-    quantity: 12,
-    sizes: {},
+    lineItems: [
+      {
+        style: product.style,
+        title: product.title,
+        color,
+        sizes: sizeQuantities,
+        sizeQty: sizeQuantities,
+      },
+    ],
+    printLines: [
+      {
+        id: "front",
+        name: "Front",
+        colors: frontColors,
+      },
+      {
+        id: "back",
+        name: "Back",
+        colors: backColors,
+      },
+    ],
+    sameDesign,
+    darkGarments: darkGarment,
+    whiteUnderbase,
   };
 }
 
-function buildPricingUrl({
-  items,
-  method,
-  sameDesign,
-  notes,
-}: {
-  items: ProjectItem[];
-  method: DecorationMethod;
-  sameDesign: SameDesignStatus;
-  notes: string;
-}) {
-  const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
-  const sameDesignValue =
-    sameDesign === "yes" ? "true" : sameDesign === "no" ? "false" : "unsure";
-  const projectData = {
-    source: "website-catalog",
-    decorationMethod: method,
-    decorationMethodLabel: decorationMethodLabels[method],
-    sameDesign: sameDesignValue,
-    sameDesignLabel: sameDesignLabels[sameDesign],
-    totalQuantity,
-    notes,
-    items: items.map((item) => ({
-      productName: item.productName,
-      style: item.style,
-      sku: item.style,
-      brand: item.brand,
-      color: item.color,
-      quantity: item.quantity,
-      sizes: item.sizes,
-    })),
-  };
-  const params = new URLSearchParams({
-    source: "website-catalog",
-    method,
-    sameDesign: sameDesignValue,
-    totalQuantity: String(totalQuantity),
-    items: JSON.stringify(projectData.items),
-    project: JSON.stringify(projectData),
+async function requestScreenprintEstimate(payload: unknown) {
+  const response = await fetch("/api/pricing/screenprint", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
   });
+  const data = (await response.json()) as ScreenprintEstimate;
 
-  return `${pricingAppUrl}?${params.toString()}`;
+  if (!response.ok || data.ok === false) {
+    throw new Error(data.error?.message || "Estimate unavailable");
+  }
+
+  return data;
+}
+
+function getEstimateSummary(product: CatalogProduct, estimate: ScreenprintEstimate) {
+  const line = estimate.summary?.lineItems?.[0];
+  const sizes = line?.sizes
+    ? Object.entries(line.sizes)
+        .filter(([, quantity]) => Number(quantity) > 0)
+        .map(([size, quantity]) => `${size}: ${quantity}`)
+        .join(", ")
+    : "";
+
+  return [
+    line?.style || product.style,
+    line?.productName || product.title,
+    line?.color ? `Color: ${line.color}` : "",
+    sizes,
+  ]
+    .filter(Boolean)
+    .join(" - ");
+}
+
+function getErrorMessage(error: unknown) {
+  return error instanceof Error
+    ? error.message
+    : "Estimate unavailable. Please try again or request a quote.";
 }
 
 export function CustomCatalogBrowser({
@@ -117,9 +230,25 @@ export function CustomCatalogBrowser({
   const [brand, setBrand] = useState("All");
   const [projectItems, setProjectItems] = useState<ProjectItem[]>([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [sameDesign, setSameDesign] = useState<SameDesignStatus>("yes");
-  const [method, setMethod] = useState<DecorationMethod>("screenprint");
-  const [notes, setNotes] = useState("");
+  const [quickQuantity, setQuickQuantity] = useState("24");
+  const [quickFrontColors, setQuickFrontColors] = useState("1");
+  const [quickBackColors, setQuickBackColors] = useState("0");
+  const [quickSameDesign, setQuickSameDesign] = useState(true);
+  const [quickDarkGarment, setQuickDarkGarment] = useState(false);
+  const [quickWhiteUnderbase, setQuickWhiteUnderbase] = useState(false);
+  const [debouncedQuickSettings, setDebouncedQuickSettings] = useState({
+    quantity: "24",
+    frontColors: "1",
+    backColors: "0",
+    sameDesign: true,
+    darkGarment: false,
+    whiteUnderbase: false,
+  });
+  const [catalogEstimates, setCatalogEstimates] = useState<
+    Record<string, EstimateState>
+  >({});
+  const [detailEstimator, setDetailEstimator] =
+    useState<DetailEstimatorState | null>(null);
 
   const filteredProducts = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -149,49 +278,260 @@ export function CustomCatalogBrowser({
   }, [brand, category, products, query]);
 
   const visibleProducts = filteredProducts.slice(0, visibleProductLimit);
-  const totalQuantity = projectItems.reduce(
-    (total, item) => total + item.quantity,
-    0
+  const visibleProductKey = visibleProducts
+    .map((product) => product.style)
+    .join("|");
+  const visibleProductsForEstimates = useMemo(
+    () => visibleProducts,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [visibleProductKey],
   );
-  const mixedColors = new Set(
-    projectItems.map((item) => item.color).filter(Boolean)
-  ).size;
-  const pricingUrl = buildPricingUrl({
-    items: projectItems,
-    method,
-    sameDesign,
-    notes,
-  });
+  const estimatedQuoteTotal = projectItems.reduce(
+    (total, item) =>
+      total +
+      (typeof item.estimatedTotal === "number" ? item.estimatedTotal : 0),
+    0,
+  );
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      setDebouncedQuickSettings({
+        quantity: quickQuantity,
+        frontColors: quickFrontColors,
+        backColors: quickBackColors,
+        sameDesign: quickSameDesign,
+        darkGarment: quickDarkGarment,
+        whiteUnderbase: quickWhiteUnderbase,
+      });
+    }, 600);
+
+    return () => window.clearTimeout(timeout);
+  }, [
+    quickBackColors,
+    quickDarkGarment,
+    quickFrontColors,
+    quickQuantity,
+    quickSameDesign,
+    quickWhiteUnderbase,
+  ]);
+
+  useEffect(() => {
+    let isCancelled = false;
+    const productsToEstimate = [...visibleProductsForEstimates];
+    const quantity = normalizeQuantity(debouncedQuickSettings.quantity);
+
+    setCatalogEstimates((current) => {
+      const next = { ...current };
+      productsToEstimate.forEach((product) => {
+        next[product.style] = { status: "loading" };
+      });
+      return next;
+    });
+
+    async function loadEstimates() {
+      for (const product of productsToEstimate) {
+        const payload = buildScreenprintPayload({
+          product,
+          color: defaultColor(product),
+          sizeQuantities: buildDefaultSizes(product, quantity),
+          frontColors: Number(debouncedQuickSettings.frontColors),
+          backColors: Number(debouncedQuickSettings.backColors),
+          sameDesign: debouncedQuickSettings.sameDesign,
+          darkGarment: debouncedQuickSettings.darkGarment,
+          whiteUnderbase: debouncedQuickSettings.whiteUnderbase,
+        });
+
+        try {
+          const estimate = await requestScreenprintEstimate(payload);
+
+          if (isCancelled) {
+            return;
+          }
+
+          setCatalogEstimates((current) => ({
+            ...current,
+            [product.style]: {
+              status: "ready",
+              each: estimate.price?.each,
+              total: estimate.price?.retail,
+              quantity: estimate.summary?.totalQuantity,
+              warnings: estimate.warnings,
+            },
+          }));
+        } catch {
+          if (isCancelled) {
+            return;
+          }
+
+          setCatalogEstimates((current) => ({
+            ...current,
+            [product.style]: { status: "unavailable" },
+          }));
+        }
+      }
+    }
+
+    const timeout = window.setTimeout(loadEstimates, 150);
+
+    return () => {
+      isCancelled = true;
+      window.clearTimeout(timeout);
+    };
+  }, [debouncedQuickSettings, visibleProductKey, visibleProductsForEstimates]);
 
   function addToProject(product: CatalogProduct) {
-    setProjectItems((currentItems) => [...currentItems, createProjectItem(product)]);
+    const estimate = catalogEstimates[product.style];
+
+    setProjectItems((currentItems) => [
+      ...currentItems,
+      {
+        id: `${product.style}-${Date.now()}-${Math.random()
+          .toString(16)
+          .slice(2)}`,
+        productName: product.title,
+        style: product.style,
+        brand: product.brand,
+        color: defaultColor(product),
+        quantity: Number(estimate?.quantity) || normalizeQuantity(quickQuantity),
+        estimatedEach: estimate?.each,
+        estimatedTotal: estimate?.total,
+      },
+    ]);
     setIsDrawerOpen(true);
   }
 
-  function updateProjectItem(
-    id: string,
-    updates: Partial<Pick<ProjectItem, "color" | "quantity">>
-  ) {
-    setProjectItems((currentItems) =>
-      currentItems.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              ...updates,
-              quantity:
-                updates.quantity === undefined
-                  ? item.quantity
-                  : Math.max(1, updates.quantity),
-            }
-          : item
-      )
-    );
+  function addDetailEstimateToProject() {
+    if (!detailEstimator?.estimate) {
+      return;
+    }
+
+    const estimate = detailEstimator.estimate;
+    const product = detailEstimator.product;
+
+    setProjectItems((currentItems) => [
+      ...currentItems,
+      {
+        id: `${product.style}-${Date.now()}-${Math.random()
+          .toString(16)
+          .slice(2)}`,
+        productName: product.title,
+        style: product.style,
+        brand: product.brand,
+        color: detailEstimator.color,
+        quantity:
+          Number(estimate.summary?.totalQuantity) ||
+          Object.values(detailEstimator.sizes).reduce(
+            (total, quantity) => total + Number(quantity || 0),
+            0,
+          ),
+        estimatedEach: estimate.price?.each,
+        estimatedTotal: estimate.price?.retail,
+      },
+    ]);
+    setIsDrawerOpen(true);
   }
 
   function removeProjectItem(id: string) {
     setProjectItems((currentItems) =>
-      currentItems.filter((item) => item.id !== id)
+      currentItems.filter((item) => item.id !== id),
     );
+  }
+
+  function openDetailEstimator(product: CatalogProduct) {
+    setDetailEstimator({
+      product,
+      color: defaultColor(product),
+      sizes: buildDetailSizes(product, normalizeQuantity(quickQuantity)),
+      frontColors: quickFrontColors,
+      backColors: quickBackColors,
+      sameDesign: quickSameDesign,
+      darkGarment: quickDarkGarment,
+      whiteUnderbase: quickWhiteUnderbase,
+      estimate: null,
+      error: "",
+      isLoading: false,
+    });
+  }
+
+  function updateDetail(updates: Partial<DetailEstimatorState>) {
+    setDetailEstimator((current) =>
+      current
+        ? {
+            ...current,
+            ...updates,
+            estimate: updates.estimate === undefined ? current.estimate : updates.estimate,
+            error: updates.error === undefined ? current.error : updates.error,
+          }
+        : current,
+    );
+  }
+
+  function updateDetailSize(size: string, value: string) {
+    setDetailEstimator((current) =>
+      current
+        ? {
+            ...current,
+            sizes: {
+              ...current.sizes,
+              [size]: value,
+            },
+            estimate: null,
+            error: "",
+          }
+        : current,
+    );
+  }
+
+  async function submitDetailEstimate(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (!detailEstimator) {
+      return;
+    }
+
+    const sizeQuantities = Object.fromEntries(
+      Object.entries(detailEstimator.sizes).map(([size, quantity]) => [
+        size,
+        Number(quantity || 0),
+      ]),
+    );
+    const totalQty = Object.values(sizeQuantities).reduce(
+      (total, quantity) => total + quantity,
+      0,
+    );
+
+    if (totalQty <= 0) {
+      updateDetail({
+        error: "Please enter at least one garment quantity.",
+        estimate: null,
+      });
+      return;
+    }
+
+    updateDetail({ isLoading: true, error: "", estimate: null });
+
+    try {
+      const estimate = await requestScreenprintEstimate(
+        buildScreenprintPayload({
+          product: detailEstimator.product,
+          color: detailEstimator.color,
+          sizeQuantities,
+          frontColors: Number(detailEstimator.frontColors),
+          backColors: Number(detailEstimator.backColors),
+          sameDesign: detailEstimator.sameDesign,
+          darkGarment: detailEstimator.darkGarment,
+          whiteUnderbase: detailEstimator.whiteUnderbase,
+        }),
+      );
+
+      updateDetail({ estimate, isLoading: false });
+    } catch (error) {
+      updateDetail({
+        error: getErrorMessage(error),
+        estimate: null,
+        isLoading: false,
+      });
+    }
   }
 
   return (
@@ -241,6 +581,101 @@ export function CustomCatalogBrowser({
               </select>
             </label>
           </div>
+
+          <div className="mt-5 rounded-sm border border-accent/20 bg-[#eef6ff] p-4">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
+                  Quick estimate settings
+                </p>
+                <p className="mt-2 text-sm leading-6 text-[#314154]">
+                  Catalog estimates are based on your quick estimate settings.
+                  Final pricing may change after exact sizes, artwork, and
+                  production review.
+                </p>
+              </div>
+              <p className="text-xs font-black uppercase tracking-wide text-[#65717e]">
+                Screen printing only
+              </p>
+            </div>
+            <div className="mt-4 grid gap-3 md:grid-cols-3 xl:grid-cols-6">
+              <label className="block">
+                <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                  Est. quantity
+                </span>
+                <input
+                  type="number"
+                  min={1}
+                  value={quickQuantity}
+                  onChange={(event) => setQuickQuantity(event.target.value)}
+                  className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                />
+              </label>
+              <label className="block">
+                <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                  Front colors
+                </span>
+                <select
+                  value={quickFrontColors}
+                  onChange={(event) => setQuickFrontColors(event.target.value)}
+                  className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                >
+                  {[0, 1, 2, 3, 4].map((count) => (
+                    <option key={count} value={count}>
+                      {count}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="block">
+                <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                  Back colors
+                </span>
+                <select
+                  value={quickBackColors}
+                  onChange={(event) => setQuickBackColors(event.target.value)}
+                  className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                >
+                  {[0, 1, 2, 3, 4].map((count) => (
+                    <option key={count} value={count}>
+                      {count}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {[
+                {
+                  label: "Same design",
+                  checked: quickSameDesign,
+                  setter: setQuickSameDesign,
+                },
+                {
+                  label: "Dark garment",
+                  checked: quickDarkGarment,
+                  setter: setQuickDarkGarment,
+                },
+                {
+                  label: "White underbase",
+                  checked: quickWhiteUnderbase,
+                  setter: setQuickWhiteUnderbase,
+                },
+              ].map((option) => (
+                <label
+                  key={option.label}
+                  className="flex h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-white px-3 text-xs font-black uppercase tracking-wide text-[#314154] md:mt-6"
+                >
+                  <span>{option.label}</span>
+                  <input
+                    type="checkbox"
+                    checked={option.checked}
+                    onChange={(event) => option.setter(event.target.checked)}
+                    className="h-5 w-5 accent-[#1f73be]"
+                  />
+                </label>
+              ))}
+            </div>
+          </div>
+
           <div className="mt-4 flex flex-col gap-3 text-sm text-[#65717e] sm:flex-row sm:items-center sm:justify-between">
             <p>
               Showing {visibleProducts.length} of {filteredProducts.length}{" "}
@@ -268,12 +703,7 @@ export function CustomCatalogBrowser({
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visibleProducts.map((product) => {
-            const singleItemUrl = buildPricingUrl({
-              items: [createProjectItem(product)],
-              method,
-              sameDesign,
-              notes,
-            });
+            const estimate = catalogEstimates[product.style];
 
             return (
               <article
@@ -316,6 +746,18 @@ export function CustomCatalogBrowser({
                     <p className="mt-3 text-sm leading-6 text-[#5e6c7a]">
                       {shortDescription(product.description)}
                     </p>
+                    <div className="mt-4 rounded-md bg-[#07111f] px-4 py-3 text-white">
+                      <p className="text-[0.66rem] font-black uppercase tracking-[0.16em] text-[#9fc8ef]">
+                        Decorated estimate
+                      </p>
+                      <p className="mt-1 text-sm font-black">
+                        {estimate?.status === "ready"
+                          ? `Estimated from ${formatPrice(estimate.each)} each`
+                          : estimate?.status === "loading"
+                            ? "Loading estimate..."
+                            : "Estimate unavailable"}
+                      </p>
+                    </div>
                     <div className="mt-4 flex flex-wrap gap-2">
                       <span className="rounded-full bg-[#eef6ff] px-3 py-1 text-xs font-black text-[#125b99]">
                         {product.category}
@@ -346,12 +788,13 @@ export function CustomCatalogBrowser({
                       >
                         Details
                       </Link>
-                      <a
-                        href={singleItemUrl}
+                      <button
+                        type="button"
+                        onClick={() => openDetailEstimator(product)}
                         className="rounded-md border border-black/10 px-4 py-2 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
                       >
                         Get price now
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -362,9 +805,8 @@ export function CustomCatalogBrowser({
 
         {filteredProducts.length > visibleProductLimit ? (
           <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-6 text-[#65717e]">
-            Narrow your search to see more specific styles. Add several
-            compatible garments to one project quote when they share the same
-            design, print location, print size, and ink setup.
+            Narrow your search to see more specific styles. Estimates are only
+            requested for the products currently shown.
           </p>
         ) : null}
       </div>
@@ -398,7 +840,7 @@ export function CustomCatalogBrowser({
                   Project quote
                 </p>
                 <h2 className="mt-2 text-3xl font-black uppercase text-[#07111f]">
-                  Build a mixed garment quote
+                  Screen print estimate cart
                 </h2>
               </div>
               <button
@@ -410,83 +852,50 @@ export function CustomCatalogBrowser({
               </button>
             </div>
             <p className="mt-4 rounded-sm bg-[#eef6ff] p-4 text-sm leading-6 text-[#314154]">
-              Minimums are usually based on the print setup, not just one
-              garment style. You can often combine short sleeve shirts, long
-              sleeve shirts, hoodies, polos, and other compatible garments when
-              they use the same artwork, print location, print size, and ink
-              setup.
+              Catalog estimates are based on your quick estimate settings.
+              Final pricing may change after exact sizes, artwork, and
+              production review.
             </p>
           </div>
 
           <div className="flex-1 overflow-y-auto p-5">
             {projectItems.length ? (
               <div className="grid gap-4">
-                {projectItems.map((item) => {
-                  const product = products.find(
-                    (catalogProduct) => catalogProduct.style === item.style
-                  );
-
-                  return (
-                    <div
-                      key={item.id}
-                      className="rounded-sm border border-black/10 bg-[#f7f8fa] p-4"
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div>
-                          <p className="text-xs font-black uppercase tracking-[0.14em] text-accent">
-                            {item.brand} · {item.style}
-                          </p>
-                          <h3 className="mt-1 text-base font-black text-[#07111f]">
-                            {item.productName}
-                          </h3>
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => removeProjectItem(item.id)}
-                          className="text-xs font-black uppercase text-[#8a3440] transition hover:text-red-600"
-                        >
-                          Remove
-                        </button>
+                {projectItems.map((item) => (
+                  <div
+                    key={item.id}
+                    className="rounded-sm border border-black/10 bg-[#f7f8fa] p-4"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <p className="text-xs font-black uppercase tracking-[0.14em] text-accent">
+                          {item.brand} - {item.style}
+                        </p>
+                        <h3 className="mt-1 text-base font-black text-[#07111f]">
+                          {item.productName}
+                        </h3>
                       </div>
-                      <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_110px]">
-                        <label className="block">
-                          <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                            Color
-                          </span>
-                          <select
-                            value={item.color}
-                            onChange={(event) =>
-                              updateProjectItem(item.id, {
-                                color: event.target.value,
-                              })
-                            }
-                            className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
-                          >
-                            {(product?.colors || []).map((color) => (
-                              <option key={color.name}>{color.name}</option>
-                            ))}
-                          </select>
-                        </label>
-                        <label className="block">
-                          <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                            Pieces
-                          </span>
-                          <input
-                            type="number"
-                            min={1}
-                            value={item.quantity}
-                            onChange={(event) =>
-                              updateProjectItem(item.id, {
-                                quantity: Number(event.target.value),
-                              })
-                            }
-                            className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
-                          />
-                        </label>
-                      </div>
+                      <button
+                        type="button"
+                        onClick={() => removeProjectItem(item.id)}
+                        className="text-xs font-black uppercase text-[#8a3440] transition hover:text-red-600"
+                      >
+                        Remove
+                      </button>
                     </div>
-                  );
-                })}
+                    <div className="mt-4 grid gap-2 text-sm font-bold text-[#314154]">
+                      <p>Color: {item.color}</p>
+                      <p>Estimated quantity: {item.quantity}</p>
+                      <p>
+                        Estimated each price:{" "}
+                        {formatPrice(item.estimatedEach)}
+                      </p>
+                      <p>
+                        Estimated total: {formatPrice(item.estimatedTotal)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             ) : (
               <div className="rounded-sm border border-dashed border-black/20 p-8 text-center">
@@ -495,119 +904,255 @@ export function CustomCatalogBrowser({
                 </p>
               </div>
             )}
-
-            <div className="mt-6 grid gap-5">
-              <fieldset>
-                <legend className="text-sm font-black uppercase text-[#07111f]">
-                  Will these items use the same design?
-                </legend>
-                <div className="mt-3 grid gap-2">
-                  {(Object.keys(sameDesignLabels) as SameDesignStatus[]).map(
-                    (option) => (
-                      <label
-                        key={option}
-                        className="flex items-center gap-3 rounded-sm border border-black/10 bg-white p-3 text-sm font-bold text-[#314154]"
-                      >
-                        <input
-                          type="radio"
-                          name="sameDesign"
-                          checked={sameDesign === option}
-                          onChange={() => setSameDesign(option)}
-                        />
-                        {sameDesignLabels[option]}
-                      </label>
-                    )
-                  )}
-                </div>
-              </fieldset>
-
-              <fieldset>
-                <legend className="text-sm font-black uppercase text-[#07111f]">
-                  What decoration method are you considering?
-                </legend>
-                <div className="mt-3 grid gap-2">
-                  {(Object.keys(decorationMethodLabels) as DecorationMethod[]).map(
-                    (option) => (
-                      <label
-                        key={option}
-                        className="flex items-center gap-3 rounded-sm border border-black/10 bg-white p-3 text-sm font-bold text-[#314154]"
-                      >
-                        <input
-                          type="radio"
-                          name="method"
-                          checked={method === option}
-                          onChange={() => setMethod(option)}
-                        />
-                        {decorationMethodLabels[option]}
-                      </label>
-                    )
-                  )}
-                </div>
-              </fieldset>
-
-              <label className="block">
-                <span className="text-sm font-black uppercase text-[#07111f]">
-                  Project notes
-                </span>
-                <textarea
-                  value={notes}
-                  onChange={(event) => setNotes(event.target.value)}
-                  placeholder="Artwork details, locations, deadline, or anything you already know..."
-                  className="mt-3 min-h-24 w-full rounded-md border border-black/12 bg-white p-3 text-sm font-semibold text-[#07111f]"
-                />
-              </label>
-
-              <div className="grid gap-3">
-                {method === "screenprint" && totalQuantity > 0 && totalQuantity < 24 ? (
-                  <p className="rounded-sm bg-[#fff7e8] p-4 text-sm font-semibold leading-6 text-[#6d4c13]">
-                    Screen printing usually starts at 24 pieces for the same
-                    design. For lower quantities, DTF or DTG may be a better
-                    option.
-                  </p>
-                ) : null}
-                {method === "screenprint" &&
-                totalQuantity >= 24 &&
-                sameDesign === "yes" ? (
-                  <p className="rounded-sm bg-[#eef6ff] p-4 text-sm font-semibold leading-6 text-[#125b99]">
-                    This project may qualify for screen printing if the artwork,
-                    print location, print size, and ink setup are compatible.
-                  </p>
-                ) : null}
-                {mixedColors > 1 ? (
-                  <p className="rounded-sm bg-[#f3f5f7] p-4 text-sm font-semibold leading-6 text-[#4d5c6c]">
-                    Mixing garment colors can affect screen printing setup. Dark
-                    garments may require a white underbase, while light garments
-                    may not.
-                  </p>
-                ) : null}
-              </div>
-            </div>
           </div>
 
           <div className="border-t border-black/10 bg-white p-5">
             <div className="mb-4 flex items-center justify-between gap-3 text-sm">
               <span className="font-black uppercase text-[#65717e]">
-                Total quantity
+                Estimated quote total
               </span>
               <span className="text-2xl font-black text-[#07111f]">
-                {totalQuantity}
+                {formatPrice(estimatedQuoteTotal)}
               </span>
             </div>
-            <a
-              href={projectItems.length ? pricingUrl : undefined}
-              aria-disabled={!projectItems.length}
-              className={[
-                "block rounded-md px-5 py-4 text-center text-sm font-black uppercase text-white transition",
-                projectItems.length
-                  ? "bg-accent hover:bg-[#2a86d8]"
-                  : "pointer-events-none bg-[#9aa5b1]",
-              ].join(" ")}
+            <Link
+              href="/request-a-quote"
+              className="block rounded-md bg-accent px-5 py-4 text-center text-sm font-black uppercase text-white transition hover:bg-[#2a86d8]"
             >
-              Continue to pricing app
-            </a>
+              Request official quote
+            </Link>
           </div>
         </aside>
       </div>
+
+      {detailEstimator ? (
+        <div className="fixed inset-0 z-[80] overflow-y-auto bg-black/60 px-5 py-8">
+          <div className="mx-auto max-w-4xl overflow-hidden rounded-sm bg-white shadow-[0_24px_90px_rgba(0,0,0,0.38)]">
+            <div className="flex items-start justify-between gap-4 border-b border-black/10 p-5">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
+                  Get price now
+                </p>
+                <h2 className="mt-2 text-3xl font-black uppercase text-[#07111f]">
+                  {detailEstimator.product.style} -{" "}
+                  {detailEstimator.product.title}
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => setDetailEstimator(null)}
+                className="rounded-full border border-black/10 px-3 py-1 text-sm font-black text-[#07111f] transition hover:border-accent hover:text-accent"
+              >
+                X
+              </button>
+            </div>
+
+            <div className="grid gap-px bg-[#d7e3ee] lg:grid-cols-[1fr_0.9fr]">
+              <form onSubmit={submitDetailEstimate} className="bg-white p-5">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      Color
+                    </span>
+                    <select
+                      value={detailEstimator.color}
+                      onChange={(event) =>
+                        updateDetail({
+                          color: event.target.value,
+                          estimate: null,
+                          error: "",
+                        })
+                      }
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                    >
+                      {detailEstimator.product.colors.map((color) => (
+                        <option key={color.name}>{color.name}</option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      Same design
+                    </span>
+                    <div className="mt-2 flex h-11 items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-black uppercase text-[#314154]">
+                      <span>{detailEstimator.sameDesign ? "Yes" : "No"}</span>
+                      <input
+                        type="checkbox"
+                        checked={detailEstimator.sameDesign}
+                        onChange={(event) =>
+                          updateDetail({
+                            sameDesign: event.target.checked,
+                            estimate: null,
+                            error: "",
+                          })
+                        }
+                        className="h-5 w-5 accent-[#1f73be]"
+                      />
+                    </div>
+                  </label>
+                </div>
+
+                <div className="mt-5">
+                  <p className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                    Size quantities
+                  </p>
+                  <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                    {Object.entries(detailEstimator.sizes).map(([size, quantity]) => (
+                      <label key={size} className="block">
+                        <span className="text-xs font-black uppercase text-[#6a7480]">
+                          {size}
+                        </span>
+                        <input
+                          type="number"
+                          min={0}
+                          value={quantity}
+                          onChange={(event) =>
+                            updateDetailSize(size, event.target.value)
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        />
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      Front colors
+                    </span>
+                    <select
+                      value={detailEstimator.frontColors}
+                      onChange={(event) =>
+                        updateDetail({
+                          frontColors: event.target.value,
+                          estimate: null,
+                          error: "",
+                        })
+                      }
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                    >
+                      {[0, 1, 2, 3, 4].map((count) => (
+                        <option key={count} value={count}>
+                          {count}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      Back colors
+                    </span>
+                    <select
+                      value={detailEstimator.backColors}
+                      onChange={(event) =>
+                        updateDetail({
+                          backColors: event.target.value,
+                          estimate: null,
+                          error: "",
+                        })
+                      }
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                    >
+                      {[0, 1, 2, 3, 4].map((count) => (
+                        <option key={count} value={count}>
+                          {count}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  {[
+                    ["Dark garment", "darkGarment"],
+                    ["White underbase", "whiteUnderbase"],
+                  ].map(([label, field]) => (
+                    <label
+                      key={field}
+                      className="flex h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154]"
+                    >
+                      <span>{label}</span>
+                      <input
+                        type="checkbox"
+                        checked={Boolean(
+                          detailEstimator[field as "darkGarment" | "whiteUnderbase"],
+                        )}
+                        onChange={(event) =>
+                          updateDetail({
+                            [field]: event.target.checked,
+                            estimate: null,
+                            error: "",
+                          })
+                        }
+                        className="h-5 w-5 accent-[#1f73be]"
+                      />
+                    </label>
+                  ))}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={detailEstimator.isLoading}
+                  className="mt-6 w-full rounded-md bg-accent px-5 py-4 text-sm font-black uppercase text-white transition hover:bg-[#2a86d8] disabled:cursor-wait disabled:opacity-70"
+                >
+                  {detailEstimator.isLoading ? "Getting estimate..." : "Get estimate"}
+                </button>
+
+                {detailEstimator.error ? (
+                  <p className="mt-4 rounded-md border border-red-200 bg-red-50 p-4 text-sm font-bold leading-6 text-red-700">
+                    {detailEstimator.error}
+                  </p>
+                ) : null}
+              </form>
+
+              <div className="bg-[#eef4fa] p-5">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
+                  Estimate
+                </p>
+                {detailEstimator.estimate ? (
+                  <div className="mt-5 grid gap-4">
+                    <div className="rounded-md bg-white p-5 ring-1 ring-black/8">
+                      <p className="text-xs font-black uppercase tracking-[0.16em] text-[#678197]">
+                        Estimated total
+                      </p>
+                      <p className="mt-2 text-4xl font-black text-[#07111f]">
+                        {formatPrice(detailEstimator.estimate.price?.retail)}
+                      </p>
+                      <p className="mt-2 text-sm font-black uppercase text-[#52677d]">
+                        Estimated each:{" "}
+                        {formatPrice(detailEstimator.estimate.price?.each)}
+                      </p>
+                    </div>
+                    <p className="rounded-md bg-white p-4 text-sm font-bold leading-6 text-[#314154] ring-1 ring-black/8">
+                      {getEstimateSummary(
+                        detailEstimator.product,
+                        detailEstimator.estimate,
+                      )}
+                    </p>
+                    {detailEstimator.estimate.warnings?.length ? (
+                      <div className="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm font-bold leading-6 text-amber-800">
+                        {detailEstimator.estimate.warnings.map((warning) => (
+                          <p key={warning}>{warning}</p>
+                        ))}
+                      </div>
+                    ) : null}
+                    <button
+                      type="button"
+                      onClick={addDetailEstimateToProject}
+                      className="rounded-md bg-[#07111f] px-5 py-4 text-sm font-black uppercase text-white transition hover:bg-accent"
+                    >
+                      Add estimate to project quote
+                    </button>
+                  </div>
+                ) : (
+                  <p className="mt-5 rounded-md border border-dashed border-[#b5c6d6] bg-white/70 p-5 text-sm leading-7 text-[#52677d]">
+                    Enter exact color, sizes, and print details to request a
+                    live screen printing estimate.
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }
