@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 import type { CatalogProduct } from "@/data/sanmarCatalog.generated";
 import {
+  embroideryMinimumQuantity,
+  getEmbroideryRecommendation,
+} from "@/lib/catalog-embroidery";
+import {
   getScreenPrintRecommendation,
   screenPrintMinimumQuantity,
 } from "@/lib/catalog-screenprint";
@@ -10,6 +14,8 @@ import {
 type CatalogStartingPriceProps = {
   product: CatalogProduct;
 };
+
+type PricingService = "screenprint" | "embroidery";
 
 type ScreenprintEstimate = {
   ok?: boolean;
@@ -60,10 +66,32 @@ function buildDefaultSizes(product: CatalogProduct) {
   return result;
 }
 
+function buildEmbroideryDefaultSizes(product: CatalogProduct) {
+  const sizes = productSizeOrder(product);
+  const targetSize = sizes.includes("L") ? "L" : sizes[0];
+
+  return Object.fromEntries(
+    sizes.map((size) => [
+      size,
+      size === targetSize ? embroideryMinimumQuantity : 0,
+    ]),
+  );
+}
+
 export function CatalogStartingPrice({ product }: CatalogStartingPriceProps) {
   const [estimate, setEstimate] = useState<ScreenprintEstimate | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const recommendation = getScreenPrintRecommendation(product);
+  const [service, setService] = useState<PricingService>("screenprint");
+  const recommendation =
+    service === "screenprint"
+      ? getScreenPrintRecommendation(product)
+      : getEmbroideryRecommendation(product);
+
+  useEffect(() => {
+    if (window.location.search.includes("service=embroidery")) {
+      setService("embroidery");
+    }
+  }, []);
 
   useEffect(() => {
     if (!recommendation.canEstimate) {
@@ -78,36 +106,71 @@ export function CatalogStartingPrice({ product }: CatalogStartingPriceProps) {
       setIsLoading(true);
 
       try {
-        const response = await fetch("/api/pricing/screenprint", {
+        const isEmbroidery = service === "embroidery";
+        const sizes = isEmbroidery
+          ? buildEmbroideryDefaultSizes(product)
+          : buildDefaultSizes(product);
+        const response = await fetch(
+          isEmbroidery ? "/api/pricing/embroidery" : "/api/pricing/screenprint",
+          {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            lineItems: [
-              {
-                style: product.style,
-                title: product.title,
-                color: product.colors[0]?.name || "",
-                sizes: buildDefaultSizes(product),
-                sizeQty: buildDefaultSizes(product),
-              },
-            ],
-            printLines: [
-              {
-                id: "front",
-                name: "Front",
-                colors: 1,
-              },
-              {
-                id: "back",
-                name: "Back",
-                colors: 0,
-              },
-            ],
-            sameDesign: true,
-          }),
-        });
+          body: JSON.stringify(
+            isEmbroidery
+              ? {
+                  lineItems: [
+                    {
+                      style: product.style,
+                      title: product.title,
+                      color: product.colors[0]?.name || "",
+                      sizes,
+                      sizeQty: sizes,
+                    },
+                  ],
+                  locations: [
+                    {
+                      placement: product.category === "Caps" ? "Hat Front" : "Left Chest",
+                      stitchCount: 5000,
+                      threadColors: 2,
+                      puff3mm: false,
+                    },
+                  ],
+                  options: {
+                    digitizingRequired: false,
+                    names: { enabled: false, large: false },
+                    numbers: { enabled: false, large: false },
+                  },
+                  sameDesign: true,
+                }
+              : {
+                  lineItems: [
+                    {
+                      style: product.style,
+                      title: product.title,
+                      color: product.colors[0]?.name || "",
+                      sizes,
+                      sizeQty: sizes,
+                    },
+                  ],
+                  printLines: [
+                    {
+                      id: "front",
+                      name: "Front",
+                      colors: 1,
+                    },
+                    {
+                      id: "back",
+                      name: "Back",
+                      colors: 0,
+                    },
+                  ],
+                  sameDesign: true,
+                },
+          ),
+          },
+        );
         const data = (await response.json()) as ScreenprintEstimate;
 
         if (!isCancelled) {
@@ -129,14 +192,16 @@ export function CatalogStartingPrice({ product }: CatalogStartingPriceProps) {
     return () => {
       isCancelled = true;
     };
-  }, [product, recommendation.canEstimate]);
+  }, [product, recommendation.canEstimate, service]);
 
   return (
     <div className="bg-white/8 p-5">
       <p className="text-xs font-black uppercase tracking-[0.16em] text-white/50">
         {recommendation.canEstimate
           ? "Starting price"
-          : "Screen print guidance"}
+          : service === "screenprint"
+            ? "Screen print guidance"
+            : "Embroidery guidance"}
       </p>
       <p className="mt-2 text-xl font-black text-white">
         {!recommendation.canEstimate
@@ -149,10 +214,10 @@ export function CatalogStartingPrice({ product }: CatalogStartingPriceProps) {
       </p>
       <p className="mt-2 text-xs font-black uppercase tracking-wide text-[#9fc8ef]">
         {recommendation.canEstimate
-          ? "24 pc minimum - 1 color / 1 side"
-          : recommendation.method === "dtf"
-            ? "DTF recommended"
-            : "Embroidery recommended"}
+          ? service === "screenprint"
+            ? "24 pc minimum - 1 color / 1 side"
+            : "5 pc minimum - left chest / 5k stitches"
+          : recommendation.label}
       </p>
       {!recommendation.canEstimate ? (
         <p className="mt-3 text-xs font-semibold leading-5 text-white/70">

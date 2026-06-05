@@ -345,6 +345,12 @@ function getErrorMessage(error: unknown) {
     : "Estimate unavailable. Please try again or request a quote.";
 }
 
+function productDetailHref(product: CatalogProduct, service: PricingService) {
+  const path = `/custom-catalog/${encodeURIComponent(product.style)}`;
+
+  return service === "embroidery" ? `${path}?service=embroidery` : path;
+}
+
 export function CustomCatalogBrowser({
   products,
   categories,
@@ -362,8 +368,8 @@ export function CustomCatalogBrowser({
   const [quickBackColors, setQuickBackColors] = useState("0");
   const [quickSameDesign, setQuickSameDesign] = useState(true);
   const [quickPlacement, setQuickPlacement] = useState("Left Chest");
-  const [quickStitchCount, setQuickStitchCount] = useState("8000");
-  const [quickThreadColors, setQuickThreadColors] = useState("6");
+  const [quickStitchCount, setQuickStitchCount] = useState("5000");
+  const [quickThreadColors, setQuickThreadColors] = useState("2");
   const [quickDigitizingRequired, setQuickDigitizingRequired] = useState(false);
   const [quickPuff3mm, setQuickPuff3mm] = useState(false);
   const [quickNamesEnabled, setQuickNamesEnabled] = useState(false);
@@ -376,8 +382,8 @@ export function CustomCatalogBrowser({
     backColors: "0",
     sameDesign: true,
     placement: "Left Chest",
-    stitchCount: "8000",
-    threadColors: "6",
+    stitchCount: "5000",
+    threadColors: "2",
     digitizingRequired: false,
     puff3mm: false,
     namesEnabled: false,
@@ -1102,7 +1108,7 @@ export function CustomCatalogBrowser({
                 className="group overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(7,17,31,0.08)] ring-1 ring-black/8 transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(31,115,190,0.16)]"
               >
                 <Link
-                  href={`/custom-catalog/${encodeURIComponent(product.style)}`}
+                  href={productDetailHref(product, pricingService)}
                   className="block"
                 >
                   <div className="relative aspect-[1.08] bg-[#eef2f6]">
@@ -1215,7 +1221,7 @@ export function CustomCatalogBrowser({
                     ) : null}
                     <div className="grid gap-2">
                       <Link
-                        href={`/custom-catalog/${encodeURIComponent(product.style)}`}
+                        href={productDetailHref(product, pricingService)}
                         className="rounded-md border border-black/10 px-4 py-2 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
                       >
                         Details

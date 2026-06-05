@@ -189,13 +189,7 @@ const screenPrintNavigatorStyles = [
   "DT6600",
 ];
 
-const screenPrintNavigatorProducts = screenPrintNavigatorStyles
-  .map((style) =>
-    sanmarCatalogProducts.find((product) => product.style === style),
-  )
-  .filter((product): product is (typeof sanmarCatalogProducts)[number] =>
-    Boolean(product),
-  );
+const screenPrintNavigatorProducts = sanmarCatalogProducts;
 
 export default function ScreenPrintingPage() {
   const galleryImages = screenPrintingImages.slice(0, 10);

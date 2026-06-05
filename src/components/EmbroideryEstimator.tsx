@@ -22,7 +22,14 @@ type NavigatorGroup = {
   eyebrow: string;
   summary: string;
   pdf: string;
-  category: string;
+  sections: NavigatorSection[];
+};
+
+type NavigatorSection = {
+  id: string;
+  label: string;
+  description: string;
+  styles: string[];
 };
 
 type EstimateState = {
@@ -104,7 +111,154 @@ const navigatorGroups: NavigatorGroup[] = [
     summary:
       "Popular polos and knits for company uniforms, schools, golf events, and staff apparel.",
     pdf: "/2026-Polo-Navigator-SM-Links.pdf",
-    category: "Polos/Knits",
+    sections: [
+      {
+        id: "polo-retail-travismathew",
+        label: "Retail Brands: TravisMathew",
+        description: "Premium retail polos with modern fabrics and a polished finish.",
+        styles: [
+          "TM1MY403",
+          "TM1MY402",
+          "TMA41462",
+          "TM1MAA369",
+          "TM1LD005",
+          "TM1MY404",
+          "TM1WW002",
+          "TMA41461",
+          "TM1LF071",
+          "TM1MAA370",
+          "TM1MU411",
+          "TM1WW001",
+          "TM1MU410",
+          "TM1WX002",
+        ],
+      },
+      {
+        id: "polo-retail-nike",
+        label: "Retail Brands: Nike",
+        description: "Dri-FIT and performance Nike polos from the polo navigator.",
+        styles: [
+          "NKDC2108",
+          "NKFQ3968",
+          "NKDX6684",
+          "NKDX6685",
+          "203690",
+          "203697",
+          "799802",
+          "811807",
+          "267020",
+          "286772",
+          "NKDC1963",
+          "NKDC1991",
+          "883681",
+          "838957",
+          "NKBV6042",
+        ],
+      },
+      {
+        id: "polo-retail-ogio",
+        label: "Retail Brands: OGIO",
+        description: "OGIO polos with a sportier retail feel and embroidery-friendly surfaces.",
+        styles: [
+          "OG170",
+          "LOG170",
+          "OG101",
+          "LOG101",
+          "OG138",
+          "LOG138",
+          "OG109",
+          "OG152",
+          "OG122",
+          "LOG122",
+          "OG143",
+          "OG154",
+          "LOG154",
+          "OG125",
+          "LOG125",
+        ],
+      },
+      {
+        id: "polo-port-authority",
+        label: "Industry Exclusives: Port Authority",
+        description: "Core professional polos, including Silk Touch and performance options.",
+        styles: [
+          "K240",
+          "LK240",
+          "K528",
+          "L528",
+          "K110",
+          "LK110",
+          "K572",
+          "L572",
+          "K863",
+          "LK863",
+          "K200",
+          "LK200",
+          "K100",
+          "TLK100",
+          "L100",
+          "Y100",
+          "K8000",
+          "TK8000",
+          "LK8000",
+          "K500",
+          "TLK500",
+          "L500",
+          "Y500",
+        ],
+      },
+      {
+        id: "polo-sport-tek",
+        label: "Industry Exclusives: Sport-Tek",
+        description: "Performance polos for teams, schools, and active staff apparel.",
+        styles: [
+          "ST520",
+          "LST520",
+          "T474",
+          "L474",
+          "ST665",
+          "LST665",
+          "ST550",
+          "LST550",
+          "ST655",
+          "TST655",
+          "LST655",
+          "ST740",
+          "LST740",
+          "YST740",
+          "ST640",
+          "LST640",
+          "YST640",
+          "ST650",
+          "TST650",
+          "LST650",
+          "ST405",
+          "LST405",
+        ],
+      },
+      {
+        id: "polo-cornerstone",
+        label: "Industry Exclusives: CornerStone",
+        description: "Hardworking snag-proof and tactical polos for crews and workwear.",
+        styles: [
+          "CS4020",
+          "CS4020P",
+          "CS410",
+          "TLCS410",
+          "CS411",
+          "CS420",
+          "CS450",
+          "TLCS450",
+          "CS451",
+          "CS412",
+          "TLCS412",
+          "CS413",
+          "CS418",
+          "TLCS418",
+          "CS419",
+        ],
+      },
+    ],
   },
   {
     id: "wovens",
@@ -113,7 +267,76 @@ const navigatorGroups: NavigatorGroup[] = [
     summary:
       "Button-down and woven shirts that look sharp with a left chest embroidered logo.",
     pdf: "/2025-Wovens-Navigator-0316Update-SM-Links.pdf",
-    category: "Woven Shirts",
+    sections: [
+      {
+        id: "woven-easy-care",
+        label: "Easy Care",
+        description: "Wrinkle-resistant dress shirts and easy-care woven options.",
+        styles: [
+          "BB18002",
+          "TBB18002",
+          "BB18003",
+          "W680",
+          "LW680",
+          "S608",
+          "TLS608",
+          "S608ES",
+          "L608",
+          "BB18000",
+          "TBB18000",
+          "BB18001",
+          "MM2000",
+          "MM2001",
+          "W100",
+          "TW100",
+          "LW100",
+        ],
+      },
+      {
+        id: "woven-oxfords-fishing",
+        label: "Oxfords & Fishing",
+        description: "Oxford cloth, fishing shirts, and UV daybreak woven styles.",
+        styles: [
+          "BB18004",
+          "BB18005",
+          "MM2002",
+          "MM2003",
+          "S658",
+          "TS658",
+          "L658",
+          "EB600",
+          "W960",
+          "LW960",
+          "CT107106",
+        ],
+      },
+      {
+        id: "woven-workwear",
+        label: "Workwear",
+        description: "Durable woven work shirts for crews, field staff, and uniforms.",
+        styles: [
+          "CT105291",
+          "SLU2",
+          "CSW174",
+          "CT106689",
+          "SP14",
+          "SP14LONG",
+          "CSW176",
+        ],
+      },
+      {
+        id: "woven-short-sleeve",
+        label: "Short Sleeve / Camp",
+        description: "Short-sleeve woven shirts and camp shirts for warmer-weather uniforms.",
+        styles: ["ST326815TB", "MM2006", "W400", "LW400", "ST325929TB", "S535"],
+      },
+      {
+        id: "woven-womens",
+        label: "Women's",
+        description: "Blouses and tunics from the woven/dress shirts navigator.",
+        styles: ["BB18007", "MM2011", "LW713", "BB18009", "LOG1002", "LW701"],
+      },
+    ],
   },
   {
     id: "headwear",
@@ -122,7 +345,94 @@ const navigatorGroups: NavigatorGroup[] = [
     summary:
       "Caps, beanies, and structured headwear for teams, crews, shops, and events.",
     pdf: "/Headwear-Navigator-2025-FINAL-1106Update-SM.pdf",
-    category: "Caps",
+    sections: [
+      {
+        id: "headwear-stretch-fit",
+        label: "Stretch Fit Caps",
+        description: "Structured stretch caps from the headwear navigator.",
+        styles: [
+          "C865",
+          "C813",
+          "C812",
+          "C938",
+          "NE1000",
+          "NE1020",
+          "TM1MU426",
+          "NKFD9718",
+          "NKFB6448",
+        ],
+      },
+      {
+        id: "headwear-performance",
+        label: "Performance Caps",
+        description: "Lightweight, moisture-wicking, and performance cap options.",
+        styles: [
+          "NKFB6447",
+          "NE406",
+          "C833",
+          "YC833",
+          "NKFD9709",
+          "NE209",
+          "STC39",
+          "NKFB6445",
+          "OG604",
+          "STC26",
+          "YSTC26",
+        ],
+      },
+      {
+        id: "headwear-flat-bill",
+        label: "Flat Bill Caps",
+        description: "Flat bill and snapback caps with a more modern profile.",
+        styles: [
+          "NE404",
+          "STC38",
+          "NE4030",
+          "NE4020",
+          "DT624",
+          "NE207",
+          "STC64",
+          "STC19",
+          "NE400",
+        ],
+      },
+      {
+        id: "headwear-mesh-back",
+        label: "Mesh Back Caps",
+        description: "Trucker and mesh-back caps for breathable everyday wear.",
+        styles: ["NE205", "C402", "YC402", "CT106577", "C110", "STC54", "TM1MU423", "NE204", "C911"],
+      },
+      {
+        id: "headwear-classic",
+        label: "Classic Caps",
+        description: "Traditional structured and unstructured caps.",
+        styles: ["NE200", "CP80", "YCP80", "CT103938", "DT600", "CP86", "NE201", "CP78", "PWU", "LPWU", "STC43"],
+      },
+      {
+        id: "headwear-camo",
+        label: "Camo Caps",
+        description: "Camouflage and outdoor-inspired caps.",
+        styles: ["C925", "C855", "C819", "C869", "C930", "RU900", "C871"],
+      },
+      {
+        id: "headwear-full-brim",
+        label: "Full Brim Hats",
+        description: "Bucket, brim, and outdoor sun hats.",
+        styles: ["NE800", "C948", "C920", "NKBFN6319", "C921", "PWSH2", "C947", "C980", "C976"],
+      },
+      {
+        id: "headwear-visors",
+        label: "Visors",
+        description: "Performance and fashion visor options.",
+        styles: ["NKFB6446", "STC57", "C983", "NKFB5675", "STC51", "C840", "NE219", "STC27", "CP45"],
+      },
+      {
+        id: "headwear-beanies",
+        label: "Fleece Caps / Beanies",
+        description: "Beanies, knit caps, and fleece-lined cold-weather headwear.",
+        styles: ["NKFN6310", "NE902", "C977", "CT104597", "CTA205", "NE900", "CP90", "DT815", "CP90L"],
+      },
+    ],
   },
   {
     id: "bags",
@@ -131,7 +441,66 @@ const navigatorGroups: NavigatorGroup[] = [
     summary:
       "Backpacks, totes, duffels, and everyday bags for schools, events, and business gifts.",
     pdf: "/BagsNavigator-2025-0317Update-SM-Links.pdf",
-    category: "Bags",
+    sections: [
+      {
+        id: "bag-retail-backpacks",
+        label: "Retail Brands Backpacks",
+        description: "Premium retail backpack styles from OGIO, The North Face, Nike, and Carhartt.",
+        styles: [
+          "411065",
+          "417054",
+          "NF0A3KX6",
+          "411092",
+          "NKDH7709",
+          "CT89241804",
+          "411067",
+          "NF0A3KX7",
+          "CT89350303",
+        ],
+      },
+      {
+        id: "bag-exclusive-backpacks",
+        label: "Exclusive Brands Backpacks",
+        description: "Port Authority, Mercer+Mettle, and CornerStone backpack options.",
+        styles: ["MMB200", "BG204", "CSB205", "BG226", "BG203", "BG217", "BG208", "BG1020", "BG223"],
+      },
+      {
+        id: "bag-cinch",
+        label: "Cinch Packs",
+        description: "Simple drawstring and cinch packs for events, schools, and giveaways.",
+        styles: ["BG615", "BG611", "BG6200", "NKDM3978", "92000", "412045", "BG637", "BG810", "BST600"],
+      },
+      {
+        id: "bag-coolers",
+        label: "Coolers & Lunch Bags",
+        description: "Coolers and lunch bags that can carry embroidered branding.",
+        styles: ["BG516", "EB800", "408113", "BG512", "CT89132109", "CT89251601", "BG513", "CT89032822", "CSB505"],
+      },
+      {
+        id: "bag-duffels",
+        label: "Duffel Bags",
+        description: "Gym, travel, and sport duffels from the bags navigator.",
+        styles: ["BG99", "BB18880", "95001", "BG970", "CT89260209", "NKDM3976", "BG980", "TMB205", "108087"],
+      },
+      {
+        id: "bag-totes",
+        label: "Totes",
+        description: "Cotton, twill, laptop, and everyday tote styles.",
+        styles: ["B0750", "BB18840", "BG435", "B050", "220", "94000", "B400", "BG1500", "MMB202", "B300"],
+      },
+      {
+        id: "bag-messenger",
+        label: "Messenger Bags & Briefcases",
+        description: "Computer cases, briefcases, and messenger bags.",
+        styles: ["BG302", "BB18830", "117023", "BG304", "417018", "417012", "BG305", "711207", "417015"],
+      },
+      {
+        id: "bag-crossbody",
+        label: "Crossbody, Hip Packs & Sling Packs",
+        description: "Small packs, crossbody bags, sling packs, and hip packs.",
+        styles: ["BG905", "CT89098101", "97002", "BG1010", "92002", "BG935", "BG936", "COTOBFP", "MMB600"],
+      },
+    ],
   },
 ];
 
@@ -322,11 +691,18 @@ function getEstimateSummary(product: CatalogProduct, estimate: EmbroideryEstimat
 }
 
 export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
+  const productByStyle = useMemo(
+    () => new Map(products.map((product) => [product.style, product])),
+    [products],
+  );
   const [activeGroup, setActiveGroup] = useState<NavigatorCategory>("polos");
+  const [activeSectionId, setActiveSectionId] = useState(
+    navigatorGroups[0].sections[0].id,
+  );
   const [quantity, setQuantity] = useState(String(embroideryMinimumQuantity));
   const [placement, setPlacement] = useState("Left Chest");
-  const [stitchCount, setStitchCount] = useState("8000");
-  const [threadColors, setThreadColors] = useState("6");
+  const [stitchCount, setStitchCount] = useState("5000");
+  const [threadColors, setThreadColors] = useState("2");
   const [digitizingRequired, setDigitizingRequired] = useState(false);
   const [puff3mm, setPuff3mm] = useState(false);
   const [namesEnabled, setNamesEnabled] = useState(false);
@@ -338,12 +714,15 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
 
   const group =
     navigatorGroups.find((item) => item.id === activeGroup) ?? navigatorGroups[0];
+  const activeSection =
+    group.sections.find((section) => section.id === activeSectionId) ??
+    group.sections[0];
   const visibleProducts = useMemo(
     () =>
-      products
-        .filter((product) => product.category === group.category)
-        .slice(0, 12),
-    [group.category, products],
+      activeSection.styles
+        .map((style) => productByStyle.get(style))
+        .filter((product): product is CatalogProduct => Boolean(product)),
+    [activeSection, productByStyle],
   );
   const normalizedQuantity = normalizeQuantity(quantity);
 
@@ -362,11 +741,11 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
       for (const product of visibleProducts) {
         const payload = buildEmbroideryPayload({
           product,
-          color: defaultColor(product),
-          sizeQuantities: buildDefaultSizes(product, normalizedQuantity),
-          placement,
-          stitchCount: Number(stitchCount),
-          threadColors: Number(threadColors),
+                    color: defaultColor(product),
+                    sizeQuantities: buildDefaultSizes(product, normalizedQuantity),
+                    placement: activeGroup === "headwear" ? "Hat Front" : placement,
+                    stitchCount: Number(stitchCount),
+                    threadColors: Number(threadColors),
           digitizingRequired,
           puff3mm,
           namesEnabled,
@@ -415,6 +794,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
       window.clearTimeout(timeout);
     };
   }, [
+    activeGroup,
     digitizingRequired,
     namesEnabled,
     normalizedQuantity,
@@ -446,7 +826,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
       product,
       color: defaultColor(product),
       sizes: buildDetailSizes(product, normalizedQuantity),
-      placement,
+      placement: activeGroup === "headwear" ? "Hat Front" : placement,
       stitchCount,
       threadColors,
       digitizingRequired,
@@ -717,7 +1097,11 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                 <button
                   key={item.id}
                   type="button"
-                  onClick={() => setActiveGroup(item.id)}
+                  onClick={() => {
+                    setActiveGroup(item.id);
+                    setActiveSectionId(item.sections[0].id);
+                    setPlacement(item.id === "headwear" ? "Hat Front" : "Left Chest");
+                  }}
                   className={[
                     "rounded-md border px-4 py-3 text-left text-xs font-black uppercase tracking-wide transition",
                     activeGroup === item.id
@@ -756,9 +1140,39 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
               <p className="mt-2 max-w-3xl text-sm leading-6 text-[#52677d]">
                 {group.summary}
               </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {group.sections.map((section) => (
+                  <button
+                    key={section.id}
+                    type="button"
+                    onClick={() => setActiveSectionId(section.id)}
+                    className={[
+                      "rounded-full border px-4 py-2 text-xs font-black uppercase tracking-wide transition",
+                      activeSection.id === section.id
+                        ? "border-accent bg-accent text-white"
+                        : "border-black/10 bg-white text-[#314154] hover:border-accent hover:text-accent",
+                    ].join(" ")}
+                  >
+                    {section.label}
+                  </button>
+                ))}
+              </div>
+              <div className="mt-5 rounded-sm border border-accent/20 bg-white p-4">
+                <p className="text-xs font-black uppercase tracking-[0.16em] text-accent">
+                  {activeSection.label}
+                </p>
+                <p className="mt-2 text-sm font-semibold leading-6 text-[#52677d]">
+                  {activeSection.description}
+                </p>
+                <p className="mt-2 text-xs font-black uppercase tracking-wide text-[#7a8794]">
+                  Showing {visibleProducts.length} matching catalog styles from
+                  this PDF section.
+                </p>
+              </div>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {visibleProducts.length ? (
+              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {visibleProducts.map((product) => {
                 const estimate = estimates[product.style];
                 const image = productImage(product);
@@ -769,7 +1183,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                     className="overflow-hidden rounded-sm bg-white shadow-[0_16px_42px_rgba(7,17,31,0.08)] ring-1 ring-black/8"
                   >
                     <Link
-                      href={`/custom-catalog/${encodeURIComponent(product.style)}`}
+                      href={`/custom-catalog/${encodeURIComponent(product.style)}?service=embroidery`}
                       className="block"
                     >
                       <div className="relative aspect-[1.08] bg-[#eef2f6]">
@@ -830,7 +1244,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                         Get price now
                       </button>
                       <Link
-                        href={`/custom-catalog/${encodeURIComponent(product.style)}`}
+                        href={`/custom-catalog/${encodeURIComponent(product.style)}?service=embroidery`}
                         className="rounded-md border border-black/10 px-4 py-2 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
                       >
                         Details
@@ -839,7 +1253,15 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                   </article>
                 );
               })}
-            </div>
+              </div>
+            ) : (
+              <div className="rounded-sm border border-dashed border-[#b5c6d6] bg-white p-8 text-center">
+                <p className="text-sm font-bold text-[#52677d]">
+                  The PDF includes styles in this section that are not in the
+                  current generated catalog data yet.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
