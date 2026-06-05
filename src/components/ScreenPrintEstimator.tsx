@@ -849,14 +849,14 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
   }
 
   return (
-    <section className="px-5 py-8 sm:px-8 lg:px-10">
+    <section className="px-4 py-8 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-[96rem] overflow-hidden rounded-sm bg-[#f4f8fc] shadow-[0_24px_70px_rgba(7,17,31,0.16)] ring-1 ring-black/10">
         <div className="relative bg-[#07111f] p-5 text-white sm:p-7 lg:p-8">
           <div className="absolute inset-x-0 top-0 h-1 bg-accent" />
           <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr] xl:items-end">
             <div>
               <p className="eyebrow text-accent">Screen print navigator</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.94] text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-3xl font-black uppercase leading-[0.94] text-white sm:text-5xl">
                 Quick live price guide.
               </h2>
               <p className="mt-4 max-w-3xl text-sm leading-7 text-[#d6e3f0]">
@@ -915,7 +915,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
               <div className="flex flex-col gap-2 md:pt-6">
                 <Link
                   href="/custom-catalog"
-                  className="rounded-md bg-accent px-4 py-3 text-center text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#2a86d8]"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#2a86d8]"
                 >
                   Full catalog
                 </Link>
@@ -923,7 +923,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
                   href={activePdf}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-md border border-white/22 px-4 py-3 text-center text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/22 px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
                 >
                   PDF
                 </a>
@@ -939,7 +939,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
           <button
             type="button"
             onClick={openFloatingQuoteBasket}
-            className="mt-4 rounded-md border border-white/20 px-5 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
+            className="mt-4 inline-flex min-h-11 items-center rounded-md border border-white/20 px-5 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
           >
             Open quote basket
           </button>
@@ -958,14 +958,14 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
                   {group.summary}
                 </p>
               </div>
-              <div className="flex rounded-md border border-[#c9d7e6] bg-white p-1 shadow-[0_12px_30px_rgba(7,17,31,0.08)]">
+              <div className="grid rounded-md border border-[#c9d7e6] bg-white p-1 shadow-[0_12px_30px_rgba(7,17,31,0.08)] sm:flex">
                 {navigatorGroups.map((item) => (
                   <button
                     key={item.id}
                     type="button"
                     onClick={() => setActiveGroup(item.id)}
                     className={[
-                      "rounded px-4 py-2 text-xs font-black uppercase tracking-wide transition",
+                      "min-h-10 rounded px-4 text-xs font-black uppercase tracking-wide transition",
                       activeGroup === item.id
                         ? "bg-accent text-white"
                         : "text-[#52677d] hover:text-accent",
@@ -1075,7 +1075,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
                             <button
                               type="button"
                               onClick={() => openDetailEstimator(product)}
-                              className="mt-3 block rounded-md border border-black/10 px-3 py-2 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
+                              className="mt-3 flex min-h-11 items-center justify-center rounded-md border border-black/10 px-3 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
                             >
                               Get detailed estimate
                             </button>
@@ -1090,7 +1090,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
           </div>
       </div>
       {detailEstimator ? (
-        <div className="fixed inset-0 z-[80] grid place-items-center bg-black/60 px-4 py-6">
+        <div className="fixed inset-0 z-[80] grid place-items-start overflow-y-auto bg-black/60 px-4 py-4 sm:place-items-center sm:py-6">
           <div className="max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-sm bg-white shadow-[0_24px_90px_rgba(0,0,0,0.38)]">
             <div className="flex items-start justify-between gap-4 border-b border-black/10 p-5">
               <div>
@@ -1107,7 +1107,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
               <button
                 type="button"
                 onClick={() => setDetailEstimator(null)}
-                className="rounded-full border border-black/10 px-3 py-1 text-sm font-black text-[#07111f] transition hover:border-accent hover:text-accent"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-black/10 px-3 text-sm font-black text-[#07111f] transition hover:border-accent hover:text-accent"
               >
                 X
               </button>

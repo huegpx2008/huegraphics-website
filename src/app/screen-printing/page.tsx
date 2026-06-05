@@ -198,7 +198,7 @@ export default function ScreenPrintingPage() {
     <>
       <Header />
       <main className="bg-[#f4f8fc]">
-        <section className="relative isolate overflow-hidden px-5 py-14 sm:px-8 lg:px-10 lg:py-20">
+        <section className="relative isolate overflow-hidden px-4 py-10 sm:px-8 sm:py-14 lg:px-10 lg:py-20">
           <div className="absolute inset-0 -z-30 bg-[#03070d]" />
           <div className="absolute inset-y-0 right-0 -z-30 w-full lg:w-[78%]">
             <EarlyLoopVideo
@@ -216,19 +216,19 @@ export default function ScreenPrintingPage() {
           <div className="absolute inset-y-0 left-[34%] -z-10 hidden w-1/3 bg-[linear-gradient(90deg,rgba(3,7,13,0),rgba(3,7,13,0.72)_42%,rgba(3,7,13,0.08)_100%)] lg:block" />
           <div className="absolute right-0 top-10 -z-10 h-[34rem] w-2/3 bg-[radial-gradient(ellipse_at_center,rgba(31,115,190,0.18),transparent_70%)] blur-2xl" />
           <div className="absolute inset-0 -z-10 opacity-[0.1] [background-image:linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:70px_70px]" />
-          <div className="mx-auto grid min-h-[560px] max-w-7xl items-end gap-10 lg:grid-cols-[0.9fr_0.75fr]">
+          <div className="mx-auto grid min-h-[460px] max-w-7xl items-end gap-8 sm:min-h-[560px] lg:grid-cols-[0.9fr_0.75fr] lg:gap-10">
             <div className="max-w-3xl">
               <p className="eyebrow">Screen printing</p>
-              <h1 className="mt-5 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-6xl font-black uppercase leading-[0.84] tracking-tight text-white sm:text-7xl lg:text-8xl">
+              <h1 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-[3.2rem] font-black uppercase leading-[0.84] tracking-tight text-white sm:mt-5 sm:text-7xl lg:text-8xl">
                 Custom apparel printed in-house.
               </h1>
-              <p className="mt-7 max-w-2xl text-lg font-semibold leading-8 text-white/82 sm:text-xl">
+              <p className="mt-5 max-w-2xl text-base font-semibold leading-7 text-white/82 sm:mt-7 sm:text-xl sm:leading-8">
                 Durable prints for businesses, schools, crews, events, and
                 organizations in Bethlehem, Barrow County, Winder, Auburn, and
                 Northeast Georgia that need apparel people actually want to
                 wear.
               </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row">
                 <Link
                   href="/request-a-quote"
                   className="rounded-lg bg-accent px-7 py-4 text-center text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"

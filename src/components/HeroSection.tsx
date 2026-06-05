@@ -17,38 +17,38 @@ export function HeroSection() {
       <div className="absolute left-0 top-0 -z-10 h-full w-28 bg-[linear-gradient(90deg,#000,transparent)]" />
       <div className="absolute right-0 top-12 -z-10 h-[34rem] w-2/3 bg-[radial-gradient(ellipse_at_center,rgba(31,115,190,0.2),transparent_70%)] blur-2xl" />
 
-      <div className="mx-auto flex min-h-[calc(100svh-73px)] w-full max-w-7xl flex-col justify-center px-5 py-12 sm:px-8 lg:px-10">
-        <div className="max-w-3xl pt-8 sm:pt-12 lg:pt-8">
+      <div className="mx-auto flex min-h-[calc(100svh-73px)] w-full max-w-7xl flex-col justify-center px-4 py-10 sm:px-8 sm:py-12 lg:px-10">
+        <div className="max-w-3xl pt-4 sm:pt-12 lg:pt-8">
           <Image
             src="/images/logo.png"
             alt="Hue Graphics"
             width={180}
             height={177}
             priority
-            className="mb-8 h-auto w-24 object-contain sm:w-28 lg:w-32"
+            className="mb-6 h-auto w-20 object-contain sm:mb-8 sm:w-28 lg:w-32"
           />
           <p className="eyebrow">Premium production for brands, crews, and fleets</p>
-          <h1 className="mt-5 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-6xl font-black uppercase leading-[0.84] tracking-tight text-white sm:text-7xl lg:text-8xl xl:text-9xl">
+          <h1 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-[3.25rem] font-black uppercase leading-[0.84] tracking-tight text-white sm:mt-5 sm:text-7xl lg:text-8xl xl:text-9xl">
             Custom
             <span className="block">Apparel.</span>
             <span className="block">Signs.</span>
             <span className="block text-accent">Printing.</span>
           </h1>
-          <p className="mt-7 max-w-xl text-lg font-semibold leading-8 text-white/82 sm:text-xl">
+          <p className="mt-5 max-w-xl text-base font-semibold leading-7 text-white/82 sm:mt-7 sm:text-xl sm:leading-8">
             Built locally in Bethlehem, GA. Produced professionally for Barrow
             County and Northeast Georgia.
             Quality apparel, signs, graphics, and print—all under one roof.
           </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
             <a
               href="/request-a-quote"
-              className="rounded-lg bg-accent px-7 py-4 text-center text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
+              className="inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-7 text-center text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
             >
               Request a Quote -&gt;
             </a>
             <a
               href="/portfolio"
-              className="rounded-lg border border-white/28 bg-black/28 px-7 py-4 text-center text-sm font-black uppercase tracking-wide text-white backdrop-blur-sm transition hover:border-accent/70 hover:bg-accent/10"
+              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/28 bg-black/28 px-7 text-center text-sm font-black uppercase tracking-wide text-white backdrop-blur-sm transition hover:border-accent/70 hover:bg-accent/10"
             >
               View Our Work -&gt;
             </a>

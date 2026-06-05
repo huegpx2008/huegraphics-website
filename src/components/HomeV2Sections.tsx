@@ -194,29 +194,29 @@ export function HomeV2Hero() {
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#05070b_0%,rgba(5,7,11,0.94)_28%,rgba(5,7,11,0.62)_58%,rgba(5,7,11,0.25)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(5,7,11,0)_0%,rgba(5,7,11,0.12)_56%,#f4f8fc_100%)]" />
 
-      <div className="mx-auto grid min-h-[620px] max-w-7xl items-center px-5 py-14 sm:px-8 lg:px-10 lg:py-20">
+      <div className="mx-auto grid min-h-[520px] max-w-7xl items-center px-4 py-12 sm:min-h-[620px] sm:px-8 sm:py-14 lg:px-10 lg:py-20">
         <div className="max-w-4xl">
           <p className="text-xs font-black uppercase tracking-[0.24em] text-[#50a8ff] sm:text-sm">
             Custom apparel. Screen printing. Embroidery. Signs.
           </p>
-          <h1 className="mt-5 max-w-3xl font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.88] text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mt-4 max-w-3xl font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-[2.75rem] font-black uppercase leading-[0.88] text-white sm:mt-5 sm:text-6xl lg:text-7xl">
             We don&apos;t just print. We build brands.
           </h1>
-          <p className="mt-7 max-w-xl text-base font-semibold leading-8 text-white/86 sm:text-lg">
+          <p className="mt-5 max-w-xl text-base font-semibold leading-7 text-white/86 sm:mt-7 sm:text-lg sm:leading-8">
             Family-owned in Bethlehem, Georgia. Hue Graphics helps businesses,
             schools, churches, teams, and organizations turn ideas into apparel,
             graphics, signage, and print pieces people are proud to use.
           </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row">
             <Link
               href="/request-a-quote"
-              className="inline-flex justify-center rounded-md bg-accent px-7 py-4 text-sm font-black uppercase text-white shadow-[0_18px_42px_rgba(31,115,190,0.34)] transition hover:-translate-y-0.5 hover:bg-[#2a86d8]"
+              className="inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-7 text-sm font-black uppercase text-white shadow-[0_18px_42px_rgba(31,115,190,0.34)] transition hover:-translate-y-0.5 hover:bg-[#2a86d8]"
             >
               Request a quote
             </Link>
             <Link
               href="/services"
-              className="inline-flex justify-center rounded-md border border-white/44 bg-black/20 px-7 py-4 text-sm font-black uppercase text-white backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-accent hover:bg-accent/12"
+              className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/44 bg-black/20 px-7 text-sm font-black uppercase text-white backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-accent hover:bg-accent/12"
             >
               Our services
             </Link>
