@@ -9,6 +9,11 @@ import {
 } from "@/components/FloatingQuoteBasket";
 import type { CatalogProduct } from "@/data/sanmarCatalog.generated";
 import {
+  embroideryMinimumQuantity,
+  getEmbroideryRecommendation,
+  isEmbroideryFriendlyProduct,
+} from "@/lib/catalog-embroidery";
+import {
   getScreenPrintRecommendation,
   screenPrintMinimumQuantity,
 } from "@/lib/catalog-screenprint";
@@ -18,6 +23,8 @@ type CustomCatalogBrowserProps = {
   categories: readonly string[];
   brands: readonly string[];
 };
+
+type PricingService = "screenprint" | "embroidery";
 
 type EstimateState = {
   status: "loading" | "ready" | "unavailable";
@@ -52,14 +59,38 @@ type ScreenprintEstimate = {
   };
 };
 
+type EmbroideryEstimate = ScreenprintEstimate & {
+  summary?: ScreenprintEstimate["summary"] & {
+    location?: {
+      placement?: string;
+      stitchCount?: number | string;
+      threadColors?: number | string;
+      puff3mm?: boolean;
+    };
+    options?: {
+      digitizingRequired?: boolean;
+      names?: { enabled?: boolean };
+      numbers?: { enabled?: boolean };
+    };
+  };
+};
+
 type DetailEstimatorState = {
   product: CatalogProduct;
+  service: PricingService;
   color: string;
   sizes: Record<string, string>;
   frontColors: string;
   backColors: string;
+  placement: string;
+  stitchCount: string;
+  threadColors: string;
+  digitizingRequired: boolean;
+  puff3mm: boolean;
+  namesEnabled: boolean;
+  numbersEnabled: boolean;
   sameDesign: boolean;
-  estimate: ScreenprintEstimate | null;
+  estimate: ScreenprintEstimate | EmbroideryEstimate | null;
   error: string;
   isLoading: boolean;
 };
@@ -67,6 +98,15 @@ type DetailEstimatorState = {
 const visibleProductLimit = 48;
 const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
 const frontColorOptions = ["1", "2", "3", "4"];
+const stitchCountOptions = ["5000", "8000", "10000", "12000", "15000"];
+const threadColorOptions = ["1", "2", "3", "4", "5", "6", "8"];
+const placementOptions = [
+  "Left Chest",
+  "Right Chest",
+  "Hat Front",
+  "Bag Front",
+  "Sleeve",
+];
 const backColorOptions = [
   { label: "No back print", value: "0" },
   { label: "1 color", value: "1" },
@@ -211,6 +251,75 @@ async function requestScreenprintEstimate(payload: unknown) {
   return data;
 }
 
+function buildEmbroideryPayload({
+  product,
+  color,
+  sizeQuantities,
+  placement,
+  stitchCount,
+  threadColors,
+  digitizingRequired,
+  puff3mm,
+  namesEnabled,
+  numbersEnabled,
+  sameDesign,
+}: {
+  product: CatalogProduct;
+  color: string;
+  sizeQuantities: Record<string, number>;
+  placement: string;
+  stitchCount: number;
+  threadColors: number;
+  digitizingRequired: boolean;
+  puff3mm: boolean;
+  namesEnabled: boolean;
+  numbersEnabled: boolean;
+  sameDesign: boolean;
+}) {
+  return {
+    lineItems: [
+      {
+        style: product.style,
+        title: product.title,
+        color,
+        sizes: sizeQuantities,
+        sizeQty: sizeQuantities,
+      },
+    ],
+    locations: [
+      {
+        placement,
+        stitchCount,
+        threadColors,
+        puff3mm,
+      },
+    ],
+    options: {
+      digitizingRequired,
+      names: { enabled: namesEnabled, large: false },
+      numbers: { enabled: numbersEnabled, large: false },
+    },
+    sameDesign,
+  };
+}
+
+async function requestEmbroideryEstimate(payload: unknown) {
+  const response = await fetch("/api/pricing/embroidery", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+  const data = (await response.json()) as EmbroideryEstimate;
+
+  if (!response.ok || data.ok === false) {
+    throw new Error(data.error?.message || "Estimate unavailable");
+  }
+
+  return data;
+}
+
 function getEstimateSummary(product: CatalogProduct, estimate: ScreenprintEstimate) {
   const line = estimate.summary?.lineItems?.[0];
   const sizes = line?.sizes
@@ -242,6 +351,8 @@ export function CustomCatalogBrowser({
   brands,
 }: CustomCatalogBrowserProps) {
   const [query, setQuery] = useState("");
+  const [pricingService, setPricingService] =
+    useState<PricingService>("screenprint");
   const [category, setCategory] = useState("All");
   const [brand, setBrand] = useState("All");
   const [quickQuantity, setQuickQuantity] = useState(
@@ -250,18 +361,41 @@ export function CustomCatalogBrowser({
   const [quickFrontColors, setQuickFrontColors] = useState("1");
   const [quickBackColors, setQuickBackColors] = useState("0");
   const [quickSameDesign, setQuickSameDesign] = useState(true);
+  const [quickPlacement, setQuickPlacement] = useState("Left Chest");
+  const [quickStitchCount, setQuickStitchCount] = useState("8000");
+  const [quickThreadColors, setQuickThreadColors] = useState("6");
+  const [quickDigitizingRequired, setQuickDigitizingRequired] = useState(false);
+  const [quickPuff3mm, setQuickPuff3mm] = useState(false);
+  const [quickNamesEnabled, setQuickNamesEnabled] = useState(false);
+  const [quickNumbersEnabled, setQuickNumbersEnabled] = useState(false);
   const [minimumSuggestion, setMinimumSuggestion] = useState("");
   const [debouncedQuickSettings, setDebouncedQuickSettings] = useState({
+    service: "screenprint" as PricingService,
     quantity: String(screenPrintMinimumQuantity),
     frontColors: "1",
     backColors: "0",
     sameDesign: true,
+    placement: "Left Chest",
+    stitchCount: "8000",
+    threadColors: "6",
+    digitizingRequired: false,
+    puff3mm: false,
+    namesEnabled: false,
+    numbersEnabled: false,
   });
   const [catalogEstimates, setCatalogEstimates] = useState<
     Record<string, EstimateState>
   >({});
   const [detailEstimator, setDetailEstimator] =
     useState<DetailEstimatorState | null>(null);
+
+  useEffect(() => {
+    if (window.location.search.includes("service=embroidery")) {
+      setPricingService("embroidery");
+      setQuickQuantity(String(embroideryMinimumQuantity));
+      setCategory("All");
+    }
+  }, []);
 
   const filteredProducts = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -270,6 +404,10 @@ export function CustomCatalogBrowser({
       const matchesCategory =
         category === "All" || product.category === category;
       const matchesBrand = brand === "All" || product.brand === brand;
+      const matchesService =
+        pricingService === "screenprint" ||
+        category !== "All" ||
+        isEmbroideryFriendlyProduct(product);
       const matchesQuery =
         !normalizedQuery ||
         [
@@ -286,9 +424,9 @@ export function CustomCatalogBrowser({
           .toLowerCase()
           .includes(normalizedQuery);
 
-      return matchesCategory && matchesBrand && matchesQuery;
+      return matchesCategory && matchesBrand && matchesQuery && matchesService;
     });
-  }, [brand, category, products, query]);
+  }, [brand, category, pricingService, products, query]);
 
   const visibleProducts = filteredProducts.slice(0, visibleProductLimit);
   const visibleProductKey = visibleProducts
@@ -300,6 +438,7 @@ export function CustomCatalogBrowser({
     [visibleProductKey],
   );
   const isStartingEstimate =
+    pricingService === "screenprint" &&
     quickQuantity === String(screenPrintMinimumQuantity) &&
     quickFrontColors === "1" &&
     quickBackColors === "0";
@@ -307,30 +446,55 @@ export function CustomCatalogBrowser({
   useEffect(() => {
     const timeout = window.setTimeout(() => {
       setDebouncedQuickSettings({
+        service: pricingService,
         quantity: quickQuantity,
         frontColors: quickFrontColors,
         backColors: quickBackColors,
         sameDesign: quickSameDesign,
+        placement: quickPlacement,
+        stitchCount: quickStitchCount,
+        threadColors: quickThreadColors,
+        digitizingRequired: quickDigitizingRequired,
+        puff3mm: quickPuff3mm,
+        namesEnabled: quickNamesEnabled,
+        numbersEnabled: quickNumbersEnabled,
       });
     }, 600);
 
     return () => window.clearTimeout(timeout);
   }, [
     quickBackColors,
+    quickDigitizingRequired,
     quickFrontColors,
+    quickNamesEnabled,
+    quickNumbersEnabled,
+    quickPlacement,
+    quickPuff3mm,
     quickQuantity,
     quickSameDesign,
+    quickStitchCount,
+    quickThreadColors,
+    pricingService,
   ]);
 
   useEffect(() => {
     let isCancelled = false;
     const productsToEstimate = [...visibleProductsForEstimates];
-    const quantity = normalizeQuantity(debouncedQuickSettings.quantity);
+    const quantity =
+      debouncedQuickSettings.service === "screenprint"
+        ? normalizeQuantity(debouncedQuickSettings.quantity)
+        : Math.max(
+            embroideryMinimumQuantity,
+            Math.floor(Number(debouncedQuickSettings.quantity) || embroideryMinimumQuantity),
+          );
 
     setCatalogEstimates((current) => {
       const next = { ...current };
       productsToEstimate.forEach((product) => {
-        const recommendation = getScreenPrintRecommendation(product);
+        const recommendation =
+          debouncedQuickSettings.service === "screenprint"
+            ? getScreenPrintRecommendation(product)
+            : getEmbroideryRecommendation(product);
 
         next[product.style] = recommendation.canEstimate
           ? { status: "loading" }
@@ -341,23 +505,44 @@ export function CustomCatalogBrowser({
 
     async function loadEstimates() {
       for (const product of productsToEstimate) {
-        const recommendation = getScreenPrintRecommendation(product);
+        const recommendation =
+          debouncedQuickSettings.service === "screenprint"
+            ? getScreenPrintRecommendation(product)
+            : getEmbroideryRecommendation(product);
 
         if (!recommendation.canEstimate) {
           continue;
         }
 
-        const payload = buildScreenprintPayload({
-          product,
-          color: defaultColor(product),
-          sizeQuantities: buildDefaultSizes(product, quantity),
-          frontColors: Number(debouncedQuickSettings.frontColors),
-          backColors: Number(debouncedQuickSettings.backColors),
-          sameDesign: debouncedQuickSettings.sameDesign,
-        });
-
         try {
-          const estimate = await requestScreenprintEstimate(payload);
+          const estimate =
+            debouncedQuickSettings.service === "screenprint"
+              ? await requestScreenprintEstimate(
+                  buildScreenprintPayload({
+                    product,
+                    color: defaultColor(product),
+                    sizeQuantities: buildDefaultSizes(product, quantity),
+                    frontColors: Number(debouncedQuickSettings.frontColors),
+                    backColors: Number(debouncedQuickSettings.backColors),
+                    sameDesign: debouncedQuickSettings.sameDesign,
+                  }),
+                )
+              : await requestEmbroideryEstimate(
+                  buildEmbroideryPayload({
+                    product,
+                    color: defaultColor(product),
+                    sizeQuantities: buildDefaultSizes(product, quantity),
+                    placement: debouncedQuickSettings.placement,
+                    stitchCount: Number(debouncedQuickSettings.stitchCount),
+                    threadColors: Number(debouncedQuickSettings.threadColors),
+                    digitizingRequired:
+                      debouncedQuickSettings.digitizingRequired,
+                    puff3mm: debouncedQuickSettings.puff3mm,
+                    namesEnabled: debouncedQuickSettings.namesEnabled,
+                    numbersEnabled: debouncedQuickSettings.numbersEnabled,
+                    sameDesign: debouncedQuickSettings.sameDesign,
+                  }),
+                );
 
           if (isCancelled) {
             return;
@@ -396,11 +581,17 @@ export function CustomCatalogBrowser({
 
   function handleQuickQuantityChange(value: string) {
     const numeric = Number(value);
+    const minimum =
+      pricingService === "screenprint"
+        ? screenPrintMinimumQuantity
+        : embroideryMinimumQuantity;
 
-    if (value && Number.isFinite(numeric) && numeric < screenPrintMinimumQuantity) {
-      setQuickQuantity(String(screenPrintMinimumQuantity));
+    if (value && Number.isFinite(numeric) && numeric < minimum) {
+      setQuickQuantity(String(minimum));
       setMinimumSuggestion(
-        "Screen printing usually starts at 24 pieces. For lower quantities, DTF or DTG may be a better option.",
+        pricingService === "screenprint"
+          ? "Screen printing usually starts at 24 pieces. For lower quantities, DTF or DTG may be a better option."
+          : "Embroidery estimates start at 5 pieces. Send very small projects in for review and we can help.",
       );
       return;
     }
@@ -439,8 +630,26 @@ export function CustomCatalogBrowser({
       color: detailEstimator.color,
       sizes,
       quantity: totalQty,
+      service:
+        detailEstimator.service === "screenprint"
+          ? "Screen Printing"
+          : "Embroidery",
       frontColors: detailEstimator.frontColors,
       backColors: detailEstimator.backColors,
+      decorationSummary:
+        detailEstimator.service === "embroidery"
+          ? [
+              detailEstimator.placement,
+              `${Number(detailEstimator.stitchCount).toLocaleString("en-US")} stitches`,
+              `${detailEstimator.threadColors} thread colors`,
+              detailEstimator.digitizingRequired ? "Digitizing needed" : "",
+              detailEstimator.puff3mm ? "3D puff" : "",
+              detailEstimator.namesEnabled ? "Names" : "",
+              detailEstimator.numbersEnabled ? "Numbers" : "",
+            ]
+              .filter(Boolean)
+              .join(" / ")
+          : undefined,
       estimatedEach: detailEstimator.estimate?.price?.each,
       estimatedTotal: detailEstimator.estimate?.price?.retail,
     };
@@ -450,7 +659,10 @@ export function CustomCatalogBrowser({
   }
 
   function openDetailEstimator(product: CatalogProduct) {
-    const recommendation = getScreenPrintRecommendation(product);
+    const recommendation =
+      pricingService === "screenprint"
+        ? getScreenPrintRecommendation(product)
+        : getEmbroideryRecommendation(product);
 
     if (!recommendation.canEstimate) {
       return;
@@ -458,10 +670,26 @@ export function CustomCatalogBrowser({
 
     setDetailEstimator({
       product,
+      service: pricingService,
       color: defaultColor(product),
-      sizes: buildDetailSizes(product, normalizeQuantity(quickQuantity)),
+      sizes: buildDetailSizes(
+        product,
+        pricingService === "screenprint"
+          ? normalizeQuantity(quickQuantity)
+          : Math.max(
+              embroideryMinimumQuantity,
+              Math.floor(Number(quickQuantity) || embroideryMinimumQuantity),
+            ),
+      ),
       frontColors: quickFrontColors,
       backColors: quickBackColors,
+      placement: quickPlacement,
+      stitchCount: quickStitchCount,
+      threadColors: quickThreadColors,
+      digitizingRequired: quickDigitizingRequired,
+      puff3mm: quickPuff3mm,
+      namesEnabled: quickNamesEnabled,
+      numbersEnabled: quickNumbersEnabled,
       sameDesign: quickSameDesign,
       estimate: null,
       error: "",
@@ -516,10 +744,17 @@ export function CustomCatalogBrowser({
       return;
     }
 
-    if (totalQty < screenPrintMinimumQuantity) {
+    const minimum =
+      detailEstimator.service === "screenprint"
+        ? screenPrintMinimumQuantity
+        : embroideryMinimumQuantity;
+
+    if (totalQty < minimum) {
       updateDetail({
         error:
-          "This item is under 24 pieces. You can still add it to the quote basket and combine it with compatible styles using the same artwork.",
+          detailEstimator.service === "screenprint"
+            ? "This item is under 24 pieces. You can still add it to the quote basket and combine it with compatible styles using the same artwork."
+            : "Embroidery estimates start at 5 pieces.",
         estimate: null,
       });
       return;
@@ -528,16 +763,33 @@ export function CustomCatalogBrowser({
     updateDetail({ isLoading: true, error: "", estimate: null });
 
     try {
-      const estimate = await requestScreenprintEstimate(
-        buildScreenprintPayload({
-          product: detailEstimator.product,
-          color: detailEstimator.color,
-          sizeQuantities,
-          frontColors: Number(detailEstimator.frontColors),
-          backColors: Number(detailEstimator.backColors),
-          sameDesign: detailEstimator.sameDesign,
-        }),
-      );
+      const estimate =
+        detailEstimator.service === "screenprint"
+          ? await requestScreenprintEstimate(
+              buildScreenprintPayload({
+                product: detailEstimator.product,
+                color: detailEstimator.color,
+                sizeQuantities,
+                frontColors: Number(detailEstimator.frontColors),
+                backColors: Number(detailEstimator.backColors),
+                sameDesign: detailEstimator.sameDesign,
+              }),
+            )
+          : await requestEmbroideryEstimate(
+              buildEmbroideryPayload({
+                product: detailEstimator.product,
+                color: detailEstimator.color,
+                sizeQuantities,
+                placement: detailEstimator.placement,
+                stitchCount: Number(detailEstimator.stitchCount),
+                threadColors: Number(detailEstimator.threadColors),
+                digitizingRequired: detailEstimator.digitizingRequired,
+                puff3mm: detailEstimator.puff3mm,
+                namesEnabled: detailEstimator.namesEnabled,
+                numbersEnabled: detailEstimator.numbersEnabled,
+                sameDesign: detailEstimator.sameDesign,
+              }),
+            );
 
       updateDetail({ estimate, isLoading: false });
     } catch (error) {
@@ -610,54 +862,120 @@ export function CustomCatalogBrowser({
                 </p>
               </div>
               <p className="text-xs font-black uppercase tracking-wide text-[#65717e]">
-                Screen printing only
+                {pricingService === "screenprint"
+                  ? "Screen printing"
+                  : "Embroidery"}
               </p>
             </div>
             <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+              <label className="block">
+                <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                  Service
+                </span>
+                <select
+                  value={pricingService}
+                  onChange={(event) => {
+                    const service = event.target.value as PricingService;
+                    setPricingService(service);
+                    setCategory("All");
+                    setQuickQuantity(
+                      service === "screenprint"
+                        ? String(screenPrintMinimumQuantity)
+                        : String(embroideryMinimumQuantity),
+                    );
+                    setMinimumSuggestion("");
+                  }}
+                  className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                >
+                  <option value="screenprint">Screen Printing</option>
+                  <option value="embroidery">Embroidery</option>
+                </select>
+              </label>
               <label className="block">
                 <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
                   Est. quantity
                 </span>
                 <input
                   type="number"
-                  min={screenPrintMinimumQuantity}
+                  min={
+                    pricingService === "screenprint"
+                      ? screenPrintMinimumQuantity
+                      : embroideryMinimumQuantity
+                  }
                   value={quickQuantity}
                   onChange={(event) => handleQuickQuantityChange(event.target.value)}
                   className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
                 />
               </label>
-              <label className="block">
-                <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                  How many colors on front?
-                </span>
-                <select
-                  value={quickFrontColors}
-                  onChange={(event) => setQuickFrontColors(event.target.value)}
-                  className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
-                >
-                  {frontColorOptions.map((count) => (
-                    <option key={count} value={count}>
-                      {count} {count === "1" ? "color" : "colors"}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label className="block">
-                <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                  How many colors on back?
-                </span>
-                <select
-                  value={quickBackColors}
-                  onChange={(event) => setQuickBackColors(event.target.value)}
-                  className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
-                >
-                  {backColorOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
+              {pricingService === "screenprint" ? (
+                <>
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      How many colors on front?
+                    </span>
+                    <select
+                      value={quickFrontColors}
+                      onChange={(event) => setQuickFrontColors(event.target.value)}
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                    >
+                      {frontColorOptions.map((count) => (
+                        <option key={count} value={count}>
+                          {count} {count === "1" ? "color" : "colors"}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      How many colors on back?
+                    </span>
+                    <select
+                      value={quickBackColors}
+                      onChange={(event) => setQuickBackColors(event.target.value)}
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                    >
+                      {backColorOptions.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </>
+              ) : (
+                <>
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      Stitch count
+                    </span>
+                    <select
+                      value={quickStitchCount}
+                      onChange={(event) => setQuickStitchCount(event.target.value)}
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                    >
+                      {stitchCountOptions.map((option) => (
+                        <option key={option} value={option}>
+                          {Number(option).toLocaleString("en-US")}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      Thread colors
+                    </span>
+                    <select
+                      value={quickThreadColors}
+                      onChange={(event) => setQuickThreadColors(event.target.value)}
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                    >
+                      {threadColorOptions.map((option) => (
+                        <option key={option}>{option}</option>
+                      ))}
+                    </select>
+                  </label>
+                </>
+              )}
               {[
                 {
                   label: "Same design",
@@ -679,6 +997,59 @@ export function CustomCatalogBrowser({
                 </label>
               ))}
             </div>
+            {pricingService === "embroidery" ? (
+              <div className="mt-3 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+                <label className="block">
+                  <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                    Placement
+                  </span>
+                  <select
+                    value={quickPlacement}
+                    onChange={(event) => setQuickPlacement(event.target.value)}
+                    className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                  >
+                    {placementOptions.map((option) => (
+                      <option key={option}>{option}</option>
+                    ))}
+                  </select>
+                </label>
+                {[
+                  {
+                    label: "Digitizing",
+                    checked: quickDigitizingRequired,
+                    setter: setQuickDigitizingRequired,
+                  },
+                  {
+                    label: "3D puff",
+                    checked: quickPuff3mm,
+                    setter: setQuickPuff3mm,
+                  },
+                  {
+                    label: "Names",
+                    checked: quickNamesEnabled,
+                    setter: setQuickNamesEnabled,
+                  },
+                  {
+                    label: "Numbers",
+                    checked: quickNumbersEnabled,
+                    setter: setQuickNumbersEnabled,
+                  },
+                ].map((option) => (
+                  <label
+                    key={option.label}
+                    className="flex h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-white px-3 text-xs font-black uppercase tracking-wide text-[#314154] md:mt-6"
+                  >
+                    <span>{option.label}</span>
+                    <input
+                      type="checkbox"
+                      checked={option.checked}
+                      onChange={(event) => option.setter(event.target.checked)}
+                      className="h-5 w-5 accent-[#1f73be]"
+                    />
+                  </label>
+                ))}
+              </div>
+            ) : null}
             {minimumSuggestion ? (
               <p className="mt-3 rounded-md border border-[#b9dcff] bg-[#eef6ff] p-3 text-xs font-bold leading-5 text-[#125b99]">
                 {minimumSuggestion}
@@ -714,7 +1085,16 @@ export function CustomCatalogBrowser({
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visibleProducts.map((product) => {
             const estimate = catalogEstimates[product.style];
-            const recommendation = getScreenPrintRecommendation(product);
+            const recommendation =
+              pricingService === "screenprint"
+                ? getScreenPrintRecommendation(product)
+                : getEmbroideryRecommendation(product);
+            const serviceLabel =
+              pricingService === "screenprint"
+                ? "Screen print"
+                : "Embroidery";
+            const minimumLabel =
+              pricingService === "screenprint" ? "24 pc minimum" : "5 pc minimum";
 
             return (
               <article
@@ -763,7 +1143,7 @@ export function CustomCatalogBrowser({
                           ? isStartingEstimate
                             ? "Starting price"
                             : "Quick estimate"
-                          : "Screen print guidance"}
+                          : `${serviceLabel} guidance`}
                       </p>
                       <p className="mt-1 text-sm font-black">
                         {!recommendation.canEstimate
@@ -777,11 +1157,9 @@ export function CustomCatalogBrowser({
                       <p className="mt-1 text-[0.66rem] font-black uppercase tracking-wide text-white/58">
                         {recommendation.canEstimate
                           ? isStartingEstimate
-                            ? "24 pc minimum - 1 color / 1 side"
+                            ? `${minimumLabel} - 1 color / 1 side`
                             : "Based on current settings"
-                          : recommendation.method === "dtf"
-                            ? "DTF recommended"
-                            : "Embroidery recommended"}
+                          : recommendation.label}
                       </p>
                       {!recommendation.canEstimate ? (
                         <p className="mt-2 text-xs font-semibold leading-5 text-white/70">
@@ -815,6 +1193,26 @@ export function CustomCatalogBrowser({
                         ? "Add to project quote"
                         : recommendation.label}
                     </button>
+                    {!recommendation.canEstimate &&
+                    pricingService === "screenprint" &&
+                    recommendation.method === "embroidery" ? (
+                      <Link
+                        href="/embroidery"
+                        className="rounded-md bg-[#07111f] px-4 py-3 text-center text-xs font-black uppercase text-white transition hover:bg-accent"
+                      >
+                        View embroidery
+                      </Link>
+                    ) : null}
+                    {!recommendation.canEstimate &&
+                    pricingService === "embroidery" &&
+                    recommendation.method === "screenprint" ? (
+                      <Link
+                        href="/screen-printing"
+                        className="rounded-md bg-[#07111f] px-4 py-3 text-center text-xs font-black uppercase text-white transition hover:bg-accent"
+                      >
+                        View screen printing
+                      </Link>
+                    ) : null}
                     <div className="grid gap-2">
                       <Link
                         href={`/custom-catalog/${encodeURIComponent(product.style)}`}
@@ -949,52 +1347,164 @@ export function CustomCatalogBrowser({
                   </div>
                 </div>
 
-                <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                  <label className="block">
-                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                      How many colors on front?
-                    </span>
-                    <select
-                      value={detailEstimator.frontColors}
-                      onChange={(event) =>
-                        updateDetail({
-                          frontColors: event.target.value,
-                          estimate: null,
-                          error: "",
-                        })
-                      }
-                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
-                    >
-                      {frontColorOptions.map((count) => (
-                        <option key={count} value={count}>
-                          {count} {count === "1" ? "color" : "colors"}
-                        </option>
+                {detailEstimator.service === "screenprint" ? (
+                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                    <label className="block">
+                      <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                        How many colors on front?
+                      </span>
+                      <select
+                        value={detailEstimator.frontColors}
+                        onChange={(event) =>
+                          updateDetail({
+                            frontColors: event.target.value,
+                            estimate: null,
+                            error: "",
+                          })
+                        }
+                        className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                      >
+                        {frontColorOptions.map((count) => (
+                          <option key={count} value={count}>
+                            {count} {count === "1" ? "color" : "colors"}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <label className="block">
+                      <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                        How many colors on back?
+                      </span>
+                      <select
+                        value={detailEstimator.backColors}
+                        onChange={(event) =>
+                          updateDetail({
+                            backColors: event.target.value,
+                            estimate: null,
+                            error: "",
+                          })
+                        }
+                        className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                      >
+                        {backColorOptions.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  </div>
+                ) : (
+                  <>
+                    <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                      <label className="block">
+                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                          Placement
+                        </span>
+                        <select
+                          value={detailEstimator.placement}
+                          onChange={(event) =>
+                            updateDetail({
+                              placement: event.target.value,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        >
+                          {placementOptions.map((option) => (
+                            <option key={option}>{option}</option>
+                          ))}
+                        </select>
+                      </label>
+                      <label className="block">
+                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                          Stitch count
+                        </span>
+                        <select
+                          value={detailEstimator.stitchCount}
+                          onChange={(event) =>
+                            updateDetail({
+                              stitchCount: event.target.value,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        >
+                          {stitchCountOptions.map((option) => (
+                            <option key={option} value={option}>
+                              {Number(option).toLocaleString("en-US")}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                      <label className="block">
+                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                          Thread colors
+                        </span>
+                        <select
+                          value={detailEstimator.threadColors}
+                          onChange={(event) =>
+                            updateDetail({
+                              threadColors: event.target.value,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        >
+                          {threadColorOptions.map((option) => (
+                            <option key={option}>{option}</option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      {[
+                        {
+                          label: "Digitizing needed",
+                          key: "digitizingRequired" as const,
+                          checked: detailEstimator.digitizingRequired,
+                        },
+                        {
+                          label: "3D puff",
+                          key: "puff3mm" as const,
+                          checked: detailEstimator.puff3mm,
+                        },
+                        {
+                          label: "Names",
+                          key: "namesEnabled" as const,
+                          checked: detailEstimator.namesEnabled,
+                        },
+                        {
+                          label: "Numbers",
+                          key: "numbersEnabled" as const,
+                          checked: detailEstimator.numbersEnabled,
+                        },
+                      ].map((option) => (
+                        <label
+                          key={option.label}
+                          className="flex h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154]"
+                        >
+                          <span>{option.label}</span>
+                          <input
+                            type="checkbox"
+                            checked={option.checked}
+                            onChange={(event) =>
+                              updateDetail({
+                                [option.key]: event.target.checked,
+                                estimate: null,
+                                error: "",
+                              })
+                            }
+                            className="h-5 w-5 accent-[#1f73be]"
+                          />
+                        </label>
                       ))}
-                    </select>
-                  </label>
-                  <label className="block">
-                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                      How many colors on back?
-                    </span>
-                    <select
-                      value={detailEstimator.backColors}
-                      onChange={(event) =>
-                        updateDetail({
-                          backColors: event.target.value,
-                          estimate: null,
-                          error: "",
-                        })
-                      }
-                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
-                    >
-                      {backColorOptions.map((option) => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                </div>
+                    </div>
+                  </>
+                )}
                 <p className="mt-3 text-xs font-semibold leading-5 text-[#65717e]">
                   Final pricing may change after artwork review, garment color,
                   and exact production setup.

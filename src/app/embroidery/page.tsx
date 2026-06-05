@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
+import { EmbroideryEstimator } from "@/components/EmbroideryEstimator";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
+import { sanmarCatalogProducts } from "@/data/sanmarCatalog.generated";
+import { isEmbroideryFriendlyProduct } from "@/lib/catalog-embroidery";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
@@ -41,6 +44,10 @@ const gallery = [
   "/images/emb.png",
 ];
 
+const embroideryNavigatorProducts = sanmarCatalogProducts.filter(
+  isEmbroideryFriendlyProduct,
+);
+
 export default function EmbroideryPage() {
   return (
     <>
@@ -75,6 +82,8 @@ export default function EmbroideryPage() {
             </Link>
           </div>
         </section>
+
+        <EmbroideryEstimator products={embroideryNavigatorProducts} />
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
           <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.85fr_1.15fr]">

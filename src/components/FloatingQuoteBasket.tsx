@@ -10,8 +10,10 @@ export type QuoteBasketItem = {
   color: string;
   sizes: Record<string, number>;
   quantity: number;
+  service?: string;
   frontColors: string;
   backColors: string;
+  decorationSummary?: string;
   estimatedEach?: number | string;
   estimatedTotal?: number | string;
 };
@@ -40,6 +42,9 @@ function formatBasketDetails(items: QuoteBasketItem[], notes: string) {
         .join(", ");
       const back =
         Number(item.backColors) > 0 ? `${item.backColors} back` : "front only";
+      const decoration = item.decorationSummary
+        ? `Decoration: ${item.decorationSummary}`
+        : `Print colors: ${item.frontColors} front / ${back}`;
       const estimate =
         item.estimatedTotal === undefined
           ? "Estimate not calculated yet"
@@ -49,12 +54,15 @@ function formatBasketDetails(items: QuoteBasketItem[], notes: string) {
 
       return [
         `${index + 1}. ${item.brand} ${item.style} - ${item.productName}`,
+        item.service ? `Service: ${item.service}` : "",
         `Color: ${item.color}`,
         `Quantity: ${item.quantity}`,
         `Sizes: ${sizes || "Not provided"}`,
-        `Print colors: ${item.frontColors} front / ${back}`,
+        decoration,
         estimate,
-      ].join("\n");
+      ]
+        .filter(Boolean)
+        .join("\n");
     })
     .join("\n\n");
 
@@ -280,11 +288,15 @@ export function FloatingQuoteBasket() {
                     <div className="mt-4 grid gap-2 text-sm font-bold text-[#314154]">
                       <p>Color: {item.color}</p>
                       <p>Quantity: {item.quantity}</p>
+                      <p>Service: {item.service || "Screen Printing"}</p>
                       <p>
-                        Print colors: {item.frontColors} front /{" "}
-                        {Number(item.backColors) > 0
-                          ? `${item.backColors} back`
-                          : "front only"}
+                        {item.decorationSummary
+                          ? `Decoration: ${item.decorationSummary}`
+                          : `Print colors: ${item.frontColors} front / ${
+                              Number(item.backColors) > 0
+                                ? `${item.backColors} back`
+                                : "front only"
+                            }`}
                       </p>
                       {item.estimatedTotal !== undefined ? (
                         <p>Estimated total: {formatPrice(item.estimatedTotal)}</p>
