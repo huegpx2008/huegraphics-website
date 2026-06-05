@@ -33,6 +33,19 @@ function formatPrice(value: number | string | undefined, currency = "USD") {
   return value || "Request pricing";
 }
 
+function numericPrice(value: number | string | undefined) {
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return value;
+  }
+
+  if (typeof value === "string") {
+    const parsed = Number(value.replace(/[^0-9.-]/g, ""));
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+
+  return null;
+}
+
 function formatBasketDetails(items: QuoteBasketItem[], notes: string) {
   const itemDetails = items
     .map((item, index) => {
@@ -195,6 +208,13 @@ export function FloatingQuoteBasket() {
   }
 
   const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
+  const estimatedQuoteTotal = items.reduce((total, item) => {
+    const price = numericPrice(item.estimatedTotal);
+    return price === null ? total : total + price;
+  }, 0);
+  const hasEstimatedPrices = items.some(
+    (item) => numericPrice(item.estimatedTotal) !== null,
+  );
 
   if (!isReady) {
     return null;
@@ -298,12 +318,47 @@ export function FloatingQuoteBasket() {
                                 : "front only"
                             }`}
                       </p>
-                      {item.estimatedTotal !== undefined ? (
-                        <p>Estimated total: {formatPrice(item.estimatedTotal)}</p>
-                      ) : null}
+                      <div className="mt-2 rounded-md bg-white p-3 ring-1 ring-black/8">
+                        {item.estimatedTotal !== undefined ||
+                        item.estimatedEach !== undefined ? (
+                          <div className="grid gap-1">
+                            <p>
+                              Estimated each:{" "}
+                              <span className="font-black text-[#07111f]">
+                                {formatPrice(item.estimatedEach)}
+                              </span>
+                            </p>
+                            <p>
+                              Estimated total:{" "}
+                              <span className="font-black text-[#07111f]">
+                                {formatPrice(item.estimatedTotal)}
+                              </span>
+                            </p>
+                          </div>
+                        ) : (
+                          <p className="text-[#65717e]">
+                            Estimate not calculated yet. Open this item and run
+                            an estimate to save item pricing.
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}
+                {hasEstimatedPrices ? (
+                  <div className="rounded-sm border border-accent/20 bg-[#eef6ff] p-4">
+                    <p className="text-xs font-black uppercase tracking-[0.16em] text-accent">
+                      Estimated quote total
+                    </p>
+                    <p className="mt-2 text-2xl font-black text-[#07111f]">
+                      {formatPrice(estimatedQuoteTotal)}
+                    </p>
+                    <p className="mt-2 text-xs font-semibold leading-5 text-[#52677d]">
+                      Items without a saved estimate are not included in this
+                      total.
+                    </p>
+                  </div>
+                ) : null}
               </div>
             ) : (
               <div className="rounded-sm border border-dashed border-black/20 p-8 text-center">

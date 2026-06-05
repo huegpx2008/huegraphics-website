@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CatalogStartingPrice } from "@/components/CatalogStartingPrice";
+import { CatalogReturnLink } from "@/components/CatalogReturnLink";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -81,12 +82,7 @@ export default async function ProductDetailPage({
       <main>
         <section className="bg-[#07111f] px-5 py-10 text-white sm:px-8 lg:px-10 lg:py-16">
           <div className="mx-auto max-w-7xl">
-            <Link
-              href="/custom-catalog"
-              className="text-sm font-black uppercase tracking-[0.12em] text-[#50a8ff] transition hover:text-white"
-            >
-              &lt;- Back to catalog
-            </Link>
+            <CatalogReturnLink />
             <div className="mt-8 grid gap-10 lg:grid-cols-[0.52fr_0.48fr] lg:items-start">
               <div className="grid gap-4">
                 <div className="overflow-hidden rounded-sm bg-white p-6 shadow-[0_24px_70px_rgba(0,0,0,0.24)]">

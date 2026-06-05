@@ -96,6 +96,8 @@ type DetailEstimatorState = {
 };
 
 const visibleProductLimit = 48;
+const returnUrlKey = "hue-catalog-return-url";
+const returnScrollKey = "hue-catalog-return-scroll-y";
 const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
 const frontColorOptions = ["1", "2", "3", "4"];
 const stitchCountOptions = ["5000", "8000", "10000", "12000", "15000"];
@@ -351,6 +353,14 @@ function productDetailHref(product: CatalogProduct, service: PricingService) {
   return service === "embroidery" ? `${path}?service=embroidery` : path;
 }
 
+function saveReturnState() {
+  window.sessionStorage.setItem(
+    returnUrlKey,
+    `${window.location.pathname}${window.location.search}`,
+  );
+  window.sessionStorage.setItem(returnScrollKey, String(window.scrollY));
+}
+
 export function CustomCatalogBrowser({
   products,
   categories,
@@ -443,6 +453,30 @@ export function CustomCatalogBrowser({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [visibleProductKey],
   );
+
+  useEffect(() => {
+    const savedUrl = window.sessionStorage.getItem(returnUrlKey);
+    const savedScroll = window.sessionStorage.getItem(returnScrollKey);
+    const currentUrl = `${window.location.pathname}${window.location.search}`;
+
+    if (savedUrl !== currentUrl || !savedScroll) {
+      return;
+    }
+
+    const scrollY = Number(savedScroll);
+
+    if (!Number.isFinite(scrollY)) {
+      return;
+    }
+
+    const timeout = window.setTimeout(() => {
+      window.scrollTo({ top: scrollY, behavior: "auto" });
+      window.sessionStorage.removeItem(returnScrollKey);
+    }, 150);
+
+    return () => window.clearTimeout(timeout);
+  }, [pricingService, visibleProductKey]);
+
   const isStartingEstimate =
     pricingService === "screenprint" &&
     quickQuantity === String(screenPrintMinimumQuantity) &&
@@ -1109,6 +1143,7 @@ export function CustomCatalogBrowser({
               >
                 <Link
                   href={productDetailHref(product, pricingService)}
+                  onClick={saveReturnState}
                   className="block"
                 >
                   <div className="relative aspect-[1.08] bg-[#eef2f6]">
@@ -1222,6 +1257,7 @@ export function CustomCatalogBrowser({
                     <div className="grid gap-2">
                       <Link
                         href={productDetailHref(product, pricingService)}
+                        onClick={saveReturnState}
                         className="rounded-md border border-black/10 px-4 py-2 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
                       >
                         Details

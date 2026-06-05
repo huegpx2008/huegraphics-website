@@ -93,6 +93,8 @@ type DetailEstimatorState = {
 };
 
 const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
+const returnUrlKey = "hue-catalog-return-url";
+const returnScrollKey = "hue-catalog-return-scroll-y";
 const placementOptions = [
   "Left Chest",
   "Right Chest",
@@ -535,6 +537,14 @@ function shortDescription(description: string) {
   return `${description.slice(0, 147).trim()}...`;
 }
 
+function saveReturnState() {
+  window.sessionStorage.setItem(
+    returnUrlKey,
+    `${window.location.pathname}${window.location.search}`,
+  );
+  window.sessionStorage.setItem(returnScrollKey, String(window.scrollY));
+}
+
 function productSizeOrder(product: CatalogProduct) {
   const normalized = product.sizes.length ? product.sizes : preferredSizes;
   const preferred = preferredSizes.filter((size) => normalized.includes(size));
@@ -725,6 +735,29 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
     [activeSection, productByStyle],
   );
   const normalizedQuantity = normalizeQuantity(quantity);
+
+  useEffect(() => {
+    const savedUrl = window.sessionStorage.getItem(returnUrlKey);
+    const savedScroll = window.sessionStorage.getItem(returnScrollKey);
+    const currentUrl = `${window.location.pathname}${window.location.search}`;
+
+    if (savedUrl !== currentUrl || !savedScroll) {
+      return;
+    }
+
+    const scrollY = Number(savedScroll);
+
+    if (!Number.isFinite(scrollY)) {
+      return;
+    }
+
+    const timeout = window.setTimeout(() => {
+      window.scrollTo({ top: scrollY, behavior: "auto" });
+      window.sessionStorage.removeItem(returnScrollKey);
+    }, 150);
+
+    return () => window.clearTimeout(timeout);
+  }, [activeGroup, activeSectionId]);
 
   useEffect(() => {
     let isCancelled = false;
@@ -1184,6 +1217,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                   >
                     <Link
                       href={`/custom-catalog/${encodeURIComponent(product.style)}?service=embroidery`}
+                      onClick={saveReturnState}
                       className="block"
                     >
                       <div className="relative aspect-[1.08] bg-[#eef2f6]">
@@ -1245,6 +1279,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                       </button>
                       <Link
                         href={`/custom-catalog/${encodeURIComponent(product.style)}?service=embroidery`}
+                        onClick={saveReturnState}
                         className="rounded-md border border-black/10 px-4 py-2 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
                       >
                         Details
