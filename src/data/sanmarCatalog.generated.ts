@@ -28,1084 +28,498 @@ export type CatalogProduct = {
 
 export const sanmarCatalogProducts = [
   {
-    "style": "8300",
-    "title": "Gildan - DryBlend 50 Cotton/50 Poly Pocket T-Shirt.",
+    "style": "2000",
+    "title": "Gildan - Ultra Cotton 100% US Cotton T-Shirt.",
     "brand": "Gildan",
     "category": "T-Shirts",
     "subcategory": "",
-    "description": "5.5-ounce 50/50 cotton/poly DryBlend moisture-wicking properties Non-topstitched classic width rib collar Taped neck and shoulders Left chest pocket Recycled high-performing black tear-away labelClassic fit seamless bodySafety Green is compliant with ANSI/ISEA 107 high-visibility standards for background color",
-    "availableSizes": "Adult Sizes: S-3XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f6/8300_ashgrey_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f6/8300_ashgrey_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_8300.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/2085/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_8300.pdf",
-    "companionStyle": "8300|8400|8000|8000B",
+    "description": "6-ounce 100% US cotton)50/50 cotton/poly (Dark Heather Safety Pink Safety Green Safety Orange Heathered Cardinal Heathered Indigo Heathered Navy Heathered Sapphire) 99/1 cotton/polyester (Ash)90/10 cotton/polyester (Sports Grey Antique Cherry Red Antique Irish Green Antique Royal)Prepared for dying (PFD) fabric whic...",
+    "availableSizes": "Adult Sizes: S-5XLSizes available vary by color.",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_natural_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f13/2000_natural_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_2000.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/152/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_2000.pdf",
+    "companionStyle": "2000|2000L|2000B|2300|G2400|2400B|2410|2200|2700",
     "colors": [
       {
-        "name": "Ash Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_AshGrey_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f6/8300_ashgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_ashgrey_model_frontTN.jpg",
-        "pms": "COOL GRAY 3C"
+        "name": "Antique Cherry Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_AntiqueCherryRed.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_antiquecherryred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_antiquecherryred_model_frontTN.jpg",
+        "pms": "7427C"
       },
       {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_Black_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_black_model_frontTN.jpg",
-        "pms": "426C"
+        "name": "Antique Irish Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_AntiqueIrishGreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_antiqueirishgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_antiqueirishgreen_model_frontTN.jpg",
+        "pms": "348C"
       },
       {
-        "name": "Graphite Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_GraphiteHeather_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/8300_graphiteheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_graphiteheather_model_frontTN.jpg",
-        "pms": "424C"
+        "name": "Antique Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_AntiqueRoyal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_antiqueroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_antiqueroyal_model_frontTN.jpg",
+        "pms": "287C"
       },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_Navy_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_Red_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_red_model_frontTN.jpg",
-        "pms": "199C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_Royal_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_royal_model_frontTN.jpg",
-        "pms": "7686C"
-      },
-      {
-        "name": "S. Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_SOrange_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/8300_sorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_sorange_model_frontTN.jpg",
-        "pms": "021C"
-      },
-      {
-        "name": "Safety Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_SafetyGreen_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f6/8300_safetygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_safetygreen_model_frontTN.jpg",
-        "pms": "382C"
-      },
-      {
-        "name": "Sport Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_SportGrey_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_sportgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_sportgrey_model_frontTN.jpg",
-        "pms": "COOL GRAY 7C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_White_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_white_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 5.37,
-    "msrp": 8.74,
-    "pieceWeight": 0.39
-  },
-  {
-    "style": "BC100B",
-    "title": "BELLA+CANVAS Infant Jersey Short Sleeve One Piece",
-    "brand": "Bella + Canvas",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Envelope neck Side seamed Snap leg closure Tear-away label 4.2-ounce 100% Airlume combed and ring spun cotton 32 singles Athletic Heather: 90/10 Airlume combed and ring spun cotton/polyester Other Heathers: 52/48 Airlume combed and ring spun cotton/polyester",
-    "availableSizes": "Infant Sizes: 0M-18M",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_athleticheather_flat_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_athleticheather_flat_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC100B.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/64774/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC100B.pdf",
-    "companionStyle": "",
-    "colors": [
-      {
-        "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_AthleticHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_athleticheather_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_athleticheather_flat_frontTN.jpg",
-        "pms": "COOL GREY 5UP"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_Black_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_black_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Dark Grey Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_DarkGreyHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_darkgreyheather_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_darkgreyheather_flat_frontTN.jpg",
-        "pms": "7540CP"
-      },
-      {
-        "name": "Heather Columbia Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_HeatherColumbiaBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_heathercolumbiablue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_heathercolumbiablue_flat_frontTN.jpg",
-        "pms": "660U"
-      },
-      {
-        "name": "Heather Dust",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_HeatherDust_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_heatherdust_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_heatherdust_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Mauve",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_HeatherMauve_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_heathermauve_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_heathermauve_flat_frontTN.jpg",
-        "pms": "7524U"
-      },
-      {
-        "name": "Natural",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_Natural_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_natural_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_natural_flat_frontTN.jpg",
-        "pms": "7500CP"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_Navy_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_navy_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_navy_flat_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_Pink_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_pink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_pink_model_frontTN.jpg",
-        "pms": "706C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_White_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_white_model_frontTN.jpg",
-        "pms": "WHITE C"
-      }
-    ],
-    "sizes": [
-      "0003",
-      "0306",
-      "0612",
-      "1218"
-    ],
-    "priceFrom": 5.78,
-    "msrp": 9.56,
-    "pieceWeight": 0.11
-  },
-  {
-    "style": "ST370",
-    "title": "Sport-Tek CamoHex Tee.",
-    "brand": "Sport-Tek",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "With an all-over sublimated digital camo print and powerful moisture wicking CamoHex delivers high performance and bold style for athletes and fans alike.4-ounce 100% polyester interlock Tag-free label Set-in sleeves*Due to the nature of 100% polyester performance fabrics special care must be taken throughout the sc...",
-    "availableSizes": "Adult Sizes: XS-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_forestgreen_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_forestgreen_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_ST370.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/6676/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_ST370.pdf",
-    "companionStyle": "ST370|LST370|YST370|YST240|YST239|ST371|LST371|YST371|ST239|STC23|ST240",
-    "colors": [
-      {
-        "name": "Deep Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_deepred_ST370.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_deepred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_deepred_model_frontTN.jpg",
-        "pms": "201C"
-      },
-      {
-        "name": "Forest Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_forestgreen_ST370.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_forestgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_forestgreen_model_frontTN.jpg",
-        "pms": "553C"
-      },
-      {
-        "name": "Iron Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_irongrey_ST370.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_irongrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_irongrey_model_frontTN.jpg",
-        "pms": "7540C"
-      },
-      {
-        "name": "Lime Shock",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_limeshock_ST370.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_limeshock_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_limeshock_model_frontTN.jpg",
-        "pms": "375C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_maroon_ST370.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_maroon_model_frontTN.jpg",
-        "pms": "504C"
-      },
-      {
-        "name": "Neon Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonorange_ST370.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_neonorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_neonorange_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_purplecamohex.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_purple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_purple_model_frontTN.jpg",
-        "pms": "7672C"
-      },
-      {
-        "name": "True Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_truenavy_ST370.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_truenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_truenavy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_trueroyal_ST370.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_trueroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_trueroyal_model_frontTN.jpg",
-        "pms": "7687C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_white_ST370.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_white_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 9.47,
-    "msrp": 14.94,
-    "pieceWeight": 0.3
-  },
-  {
-    "style": "18600",
-    "title": "Gildan - Heavy Blend Full-Zip Hooded Sweatshirt.",
-    "brand": "Gildan",
-    "category": "Sweatshirts/Fleece",
-    "subcategory": "",
-    "description": "8-ounce US 50/50 cotton/poly Double-needle stitching at waistband and cuffs Unlined hood with dyed-to-match drawcord YKK metal zipper 1x1 rib knit cuffs and waistband with spandex Front pouch pockets Safety Green is compliant with ANSI/ISEA 107 high-visibility standardsRecycled high-performing black tear-away label",
-    "availableSizes": "Adult Sizes: S-5XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_white_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_white_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_18600.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/437/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_18600.pdf",
-    "companionStyle": "18600|18600B|18500B|18500|18000B|18000|18200|18200B",
-    "colors": [
       {
         "name": "Ash",
         "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Ash.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_ashgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_ashgrey_model_frontTN.jpg",
-        "pms": ""
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_ash_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_ash_model_frontTN.jpg",
+        "pms": "COOL GRAY 3C"
+      },
+      {
+        "name": "Azalea",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Azalea.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_azalea_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_azalea_model_frontTN.jpg",
+        "pms": "2045C"
       },
       {
         "name": "Black",
         "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_black_model_frontTN.jpg",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_black_model_frontTN.jpg",
         "pms": "426C"
+      },
+      {
+        "name": "Blue Dusk",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_BlueDusk.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_bluedusk_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_bluedusk_model_frontTN.jpg",
+        "pms": "7546C"
+      },
+      {
+        "name": "Cardinal Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_CardinalRed.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_cardinalred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_cardinalred_model_frontTN.jpg",
+        "pms": "1955C"
       },
       {
         "name": "Carolina Blue",
         "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_CarolinaBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f11/18600_carolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_carolinablue_model_frontTN.jpg",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_carolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_carolinablue_model_frontTN.jpg",
         "pms": "659C"
+      },
+      {
+        "name": "Charcoal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Charcoal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_charcoal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_charcoal_model_frontTN.jpg",
+        "pms": "COOL GRAY 10C"
+      },
+      {
+        "name": "Cherry Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_cherryred.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_cherryred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_cherryred_model_frontTN.jpg",
+        "pms": "187C"
+      },
+      {
+        "name": "Cornsilk",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/gildan_cornsilk.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f8/2000_cornsilk_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_cornsilk_model_frontTN.jpg",
+        "pms": "393C"
+      },
+      {
+        "name": "Daisy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Daisy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_daisy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_daisy_model_frontTN.jpg",
+        "pms": "122C"
       },
       {
         "name": "Dark Chocolate",
         "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_DarkChocolate.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_darkchocolate_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_darkchocolate_model_frontTN.jpg",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_darkchocolate_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_darkchocolate_model_frontTN.jpg",
         "pms": "412C"
       },
       {
-        "name": "Dark Heather Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_darkheather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_darkheathergrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_darkheathergrey_model_frontTN.jpg",
-        "pms": "446C"
-      },
-      {
-        "name": "Forest Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Forest.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_forestgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_forestgreen_model_frontTN.jpg",
-        "pms": "5535C"
-      },
-      {
-        "name": "Graphite Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gil_GraphiteHeather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f9/18600_graphiteheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_graphiteheather_model_frontTN.jpg",
-        "pms": "424C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Maroon.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_maroon_model_frontTN.jpg",
-        "pms": "7644C"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Navy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_purple.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_purple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_purple_model_frontTN.jpg",
-        "pms": "2112C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Red.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_red_model_frontTN.jpg",
-        "pms": "199C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Royal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_royal_model_frontTN.jpg",
-        "pms": "7686C"
-      },
-      {
-        "name": "S. Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_safetyorange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_s.orange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_s.orange_model_frontTN.jpg",
-        "pms": "ORANGE 021C"
-      },
-      {
-        "name": "Safety Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_safetygreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_safetygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_safetygreen_model_frontTN.jpg",
-        "pms": "382C"
-      },
-      {
-        "name": "Sport Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_SportGrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_sportgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_sportgrey_model_frontTN.jpg",
-        "pms": "COOL GREY 7C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_white_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 22.13,
-    "msrp": 36.26,
-    "pieceWeight": 1.06
-  },
-  {
-    "style": "BC4719",
-    "title": "BELLA+CANVAS Unisex 10-Ounce Heavyweight Pullover Hoodie",
-    "brand": "Bella + Canvas",
-    "category": "Sweatshirts/Fleece",
-    "subcategory": "",
-    "description": "Relaxed fitDouble layered hood with single dart construction no drawcordInterior brushed fleeceSide seamedSingle front pocketTear-away label10-ounce 65/35 Airlume combed and ring spun cotton/polyester fleeceAthletic Heather: 94/6 Airlume combed and ring spun cotton/polyesterPlease note: This style is currently trans...",
-    "availableSizes": "Unisex Sizes: XS-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_dust_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_dust_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC4719.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/64674/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC4719.pdf",
-    "companionStyle": "",
-    "colors": [
-      {
-        "name": "Asphalt",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Asphalt_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_asphalt_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_asphalt_model_frontTN.jpg",
-        "pms": "BLACK 7U"
-      },
-      {
-        "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_AthleticHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_athleticheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_athleticheather_model_frontTN.jpg",
-        "pms": "COOL GREY 5UP"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Black_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_black_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Dust",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Dust_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_dust_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_dust_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Forest",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Forest_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_forest_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_forest_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Maroon_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_maroon_model_frontTN.jpg",
-        "pms": "7643C"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Navy_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Vintage Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_VintageBlack_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_vintageblack_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_vintageblack_model_frontTN.jpg",
-        "pms": "419C"
-      },
-      {
-        "name": "Vintage Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_VintageBrown_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_vintagebrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_vintagebrown_model_frontTN.jpg",
-        "pms": "7575U"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_White_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_white_model_frontTN.jpg",
-        "pms": "WHITE C"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 25.51,
-    "msrp": 43.02,
-    "pieceWeight": 1.5
-  },
-  {
-    "style": "ST870",
-    "title": "Sport-Tek Circuit Hooded Full-Zip",
-    "brand": "Sport-Tek",
-    "category": "Sweatshirts/Fleece",
-    "subcategory": "",
-    "description": "Ideal for warmups or cooldowns the Circuit Hooded Full-Zip moves with you throughout your practice game or day. 7.8-ounce 78/22 poly/spandex Tear-away removable label Three-panel hood Vislon front zipper Secure front pockets",
-    "availableSizes": "Adult Sizes: XS-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/ST870_deepblack_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/ST870_deepblack_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_ST870.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/18473/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_ST870.pdf",
-    "companionStyle": "ST870",
-    "colors": [
-      {
-        "name": "Deep Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_DeepBlack_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST870sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/ST870_deepblack_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST870_deepblack_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Graphite",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_graphite.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST870sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/ST870_graphite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST870_graphite_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "True Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST870_TRUENAVY.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST870sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f23/ST870_truenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST870_truenavy_model_frontTN.jpg",
-        "pms": "533C"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 33.05,
-    "msrp": 58.1,
-    "pieceWeight": 0.96
-  },
-  {
-    "style": "8400",
-    "title": "Gildan - DryBlend 50 Cotton/50 Poly Long Sleeve T-Shirt.",
-    "brand": "Gildan",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "5.5-ounce 50/50 cotton/poly DryBlend moisture-wicking propertiesRecycled high-performing black tear-away label Non-topstitched classic width rib collar Taped neck and shoulders Rib knit cuffsClassic fit seamless bodySafety Green is compliant with ANSI/ISEA 107 high-visibility standards for background color",
-    "availableSizes": "Adult Sizes: S-3XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/8400_ashgrey_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/8400_ashgrey_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_8400.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/4211/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_8400.pdf",
-    "companionStyle": "8400|8000|8300|8000B",
-    "colors": [
-      {
-        "name": "Ash Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Ash.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/8400_ashgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_ashgrey_model_frontTN.jpg",
-        "pms": "COOL GRAY 3C"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_black_model_frontTN.jpg",
-        "pms": "426C"
-      },
-      {
-        "name": "Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_carolinablue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/8400_carolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_carolinablue_model_frontTN.jpg",
-        "pms": "659C"
-      },
-      {
         "name": "Dark Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_darkheather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8400_darkheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_darkheather_model_frontTN.jpg",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_DarkHeather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f8/2000_darkheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_darkheather_model_frontTN.jpg",
         "pms": "7545C"
       },
       {
         "name": "Forest Green",
         "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Forest.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_forestgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_forestgreen_model_frontTN.jpg",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/2000_forestgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_forestgreen_model_frontTN.jpg",
         "pms": "5535C"
       },
       {
-        "name": "Graphite Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_8400_graphiteheather_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8400_graphiteheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_graphiteheather_model_frontTN.jpg",
-        "pms": "424C"
+        "name": "Galapagos Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_GalapagosBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_galapagosblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_galapagosblue_model_frontTN.jpg",
+        "pms": "7470C"
+      },
+      {
+        "name": "Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Gold.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_gold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_gold_model_frontTN.jpg",
+        "pms": "1235C"
+      },
+      {
+        "name": "Heathered Cardinal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_HeatheredCardinal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/2000_heatheredcardinal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_heatheredcardinal_model_frontTN.jpg",
+        "pms": "194 C"
+      },
+      {
+        "name": "Heathered Indigo",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_HeatheredIndigo.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/2000_heatheredindigo_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_heatheredindigo_model_frontTN.jpg",
+        "pms": "2139 C"
+      },
+      {
+        "name": "Heathered Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_HeatheredNavy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f8/2000_heathernavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_heathernavy_model_frontTN.jpg",
+        "pms": "432 C"
+      },
+      {
+        "name": "Heathered Sapphire",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_HeatheredSapphire.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f8/2000_heathersapphire_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_heathersapphire_model_frontTN.jpg",
+        "pms": "7690 C"
+      },
+      {
+        "name": "Heliconia",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Heliconia.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_heliconia_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_heliconia_model_frontTN.jpg",
+        "pms": "213C"
+      },
+      {
+        "name": "Ice Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_IceGrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_icegrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_icegrey_model_frontTN.jpg",
+        "pms": "WARM GRAY 1C"
+      },
+      {
+        "name": "Indigo Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_IndigoBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_indigoblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_indigoblue_model_frontTN.jpg",
+        "pms": "5405C"
+      },
+      {
+        "name": "Iris",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Iris.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_iris_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_iris_model_frontTN.jpg",
+        "pms": "660C"
+      },
+      {
+        "name": "Irish Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_IrishGreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_irishgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_irishgreen_model_frontTN.jpg",
+        "pms": "2252C"
+      },
+      {
+        "name": "Jade Dome",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_JadeDome2.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_jadedome_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_jadedome_model_frontTN.jpg",
+        "pms": "7717C"
+      },
+      {
+        "name": "Kelly Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_KellyGreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_kellygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_kellygreen_model_frontTN.jpg",
+        "pms": "335C"
+      },
+      {
+        "name": "Light Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_LightBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_lightblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_lightblue_model_frontTN.jpg",
+        "pms": "543C"
+      },
+      {
+        "name": "Light Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_LightPink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_lightpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_lightpink_model_frontTN.jpg",
+        "pms": "684C"
+      },
+      {
+        "name": "Lime",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Lime.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_lime_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_lime_model_frontTN.jpg",
+        "pms": "7488C"
       },
       {
         "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_maroon.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8400_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_maroon_model_frontTN.jpg",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Maroon.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_maroon_model_frontTN.jpg",
         "pms": "7644C"
+      },
+      {
+        "name": "Metro Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_MetroBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_metroblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_metroblue_model_frontTN.jpg",
+        "pms": "2111C"
+      },
+      {
+        "name": "Military Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_MilitaryGreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_militarygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_militarygreen_model_frontTN.jpg",
+        "pms": "5615C"
+      },
+      {
+        "name": "Mint Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_mintgreen_5000.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_mintgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_mintgreen_model_frontTN.jpg",
+        "pms": "345C"
+      },
+      {
+        "name": "Natural",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Natural.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_natural_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_natural_model_frontTN.jpg",
+        "pms": "2309C"
       },
       {
         "name": "Navy",
         "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Navy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_navy_model_frontTN.jpg",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_navy_model_frontTN.jpg",
         "pms": "533C"
       },
       {
+        "name": "Olive",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Olive.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_olive_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_olive_model_frontTN.jpg",
+        "pms": "448C"
+      },
+      {
         "name": "Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_orange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_orange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_orange_model_frontTN.jpg",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_OSHAOrange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_orange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_orange_model_frontTN.jpg",
         "pms": "2026C"
+      },
+      {
+        "name": "Orchid",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Orchid.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_orchid_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_orchid_model_frontTN.jpg",
+        "pms": "2635C"
+      },
+      {
+        "name": "PFD",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_2000B_PFD_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f13/2000_pfd_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_pfd_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Pistachio",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_Pistachio.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_pistachio_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_pistachio_model_frontTN.jpg",
+        "pms": "577C"
+      },
+      {
+        "name": "Prairie Dust",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_PrairieDust.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_prairiedust_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_prairiedust_model_frontTN.jpg",
+        "pms": "7497C"
+      },
+      {
+        "name": "Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Purple.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_purple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_purple_model_frontTN.jpg",
+        "pms": "2112C"
       },
       {
         "name": "Red",
         "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Red.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_red_model_frontTN.jpg",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_red_model_frontTN.jpg",
         "pms": "199C"
       },
       {
         "name": "Royal",
         "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Royal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_royal_model_frontTN.jpg",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_royal_model_frontTN.jpg",
         "pms": "7686C"
       },
       {
         "name": "S. Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_safetyorange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8400_safetyorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_safetyorange_model_frontTN.jpg",
-        "pms": "021C"
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_safetyorange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/2000_s.orange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_s.orange_model_frontTN.jpg",
+        "pms": "ORANGE 021C"
       },
       {
         "name": "Safety Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_safetygreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8400_safetygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_safetygreen_model_frontTN.jpg",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_SafetyGreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_safetygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_safetygreen_model_frontTN.jpg",
         "pms": "382C"
       },
       {
+        "name": "Safety Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_SafetyPink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_safetypink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_safetypink_model_frontTN.jpg",
+        "pms": "1915C"
+      },
+      {
+        "name": "Sand",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Sand.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_sand_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_sand_model_frontTN.jpg",
+        "pms": "7528C"
+      },
+      {
+        "name": "Sapphire",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Sapphire.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_sapphire_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_sapphire_model_frontTN.jpg",
+        "pms": "641C"
+      },
+      {
+        "name": "Sky",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Sky.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_sky_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_sky_model_frontTN.jpg",
+        "pms": "297C"
+      },
+      {
         "name": "Sport Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_SportGrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_sportgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_sportgrey_model_frontTN.jpg",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/18900_SportGrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_sportgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_sportgrey_model_frontTN.jpg",
         "pms": "COOL GRAY 7C"
+      },
+      {
+        "name": "Stone Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_StoneBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_stoneblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_stoneblue_model_frontTN.jpg",
+        "pms": "2164C"
+      },
+      {
+        "name": "Tan",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Tan.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_tan_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_tan_model_frontTN.jpg",
+        "pms": "2316C"
+      },
+      {
+        "name": "Tangerine",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Tangerine.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_tangerine_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_tangerine_model_frontTN.jpg",
+        "pms": "2025C"
+      },
+      {
+        "name": "Texas Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_TexasOrange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_texasorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_texasorange_model_frontTN.jpg",
+        "pms": "7592C"
+      },
+      {
+        "name": "Vegas Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_VegasGold.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_vegasgold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_vegasgold_model_frontTN.jpg",
+        "pms": "7507C"
       },
       {
         "name": "White",
         "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_white_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 7.19,
-    "msrp": 10.38,
-    "pieceWeight": 0.45
-  },
-  {
-    "style": "BC3501T",
-    "title": "BELLA+CANVAS Toddler Jersey Long Sleeve Tee",
-    "brand": "Bella + Canvas",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Retail fit Crewneck Side seamed Ribbed cuff Tear-away label Solid colors: 4.2-ounce 100% Airlume combed and ring spun cotton 32 singles Athletic Heather: 90/10 Airlume combed and ring spun cotton/polyester Other Heathers: 52/48 Airlume combed and ring spun cotton/polyester",
-    "availableSizes": "Toddler Sizes: 2T-5T",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_athleticheather_flat_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_athleticheather_flat_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC3501T.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/64376/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC3501T.pdf",
-    "companionStyle": "",
-    "colors": [
-      {
-        "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501T_AthleticHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_athleticheather_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501T_athleticheather_flat_frontTN.jpg",
-        "pms": "COOL GREY 5UP"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501T_Black_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_black_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501T_black_flat_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501T_Pink_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_pink_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501T_pink_flat_frontTN.jpg",
-        "pms": "706C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501T_White_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501T_white_model_frontTN.jpg",
-        "pms": "WHITE C"
-      }
-    ],
-    "sizes": [
-      "2T",
-      "3T",
-      "4T",
-      "5T"
-    ],
-    "priceFrom": 7.1,
-    "msrp": 10.2,
-    "pieceWeight": 0.17
-  },
-  {
-    "style": "ST376LS",
-    "title": "Sport-Tek Drift Camo Colorblock Long Sleeve Tee",
-    "brand": "Sport-Tek",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Step up your game in this moisture-wicking tee that delivers UV protection and features our unique drift camo print and bold colorblocking. 3.8-ounce 100% polyesterColor-locking PosiCharge technology (solid body only)UPF rating of 30Tear-away removable labelRaglan sleeves",
-    "availableSizes": "Adult Sizes: XS-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_black_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_black_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_ST376LS.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/27777/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_ST376LS.pdf",
-    "companionStyle": "",
-    "colors": [
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_Black_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_black_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Olive Drab Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_OliveDrabGreen_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_olivedrabgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_olivedrabgreen_model_frontTN.jpg",
-        "pms": "7771C"
-      },
-      {
-        "name": "Silver",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_Silver_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_silver_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_silver_model_frontTN.jpg",
-        "pms": "429C"
-      },
-      {
-        "name": "True Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_TrueNavy_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_truenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_truenavy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_TrueRoyal_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_trueroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_trueroyal_model_frontTN.jpg",
-        "pms": "7687C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_White_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_white_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 9.23,
-    "msrp": 14.46,
-    "pieceWeight": 0.33
-  },
-  {
-    "style": "8800",
-    "title": "Gildan - DryBlend 6-Ounce Jersey Knit Sport Shirt.",
-    "brand": "Gildan",
-    "category": "Polos/Knits",
-    "subcategory": "",
-    "description": "6-ounce 52/48 cotton/polyester90/10 cotton/polyester (Sport Grey)62/38 cotton/polyester (Graphite Heather) DryBlend moisture-wicking properties Recycled high-performing black tear-away label Contoured welt knit collar and cuffsClean-finished placket with dyed-to-match buttons Double-needle hemClassic fit seamless body",
-    "availableSizes": "Adult Sizes: S-5XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_white_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_white_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_8800.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/574/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_8800.pdf",
-    "companionStyle": "8800|8800B",
-    "colors": [
-      {
-        "name": "Ash",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Ash_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_ash_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_ash_model_frontTN.jpg",
-        "pms": "COOL GRAY 3C"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Black_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_black_model_frontTN.jpg",
-        "pms": "426C"
-      },
-      {
-        "name": "Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_CarolinaBlue_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/8800_carolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_carolinablue_model_frontTN.jpg",
-        "pms": "659C"
-      },
-      {
-        "name": "Dark Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_DarkHeather_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/8800_darkheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_darkheather_model_frontTN.jpg",
-        "pms": "COOL GRAY 11C"
-      },
-      {
-        "name": "Forest Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_ForestGreen_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f11/8800_forestgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_forestgreen_model_frontTN.jpg",
-        "pms": "5535C"
-      },
-      {
-        "name": "Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Gold_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/8800_gold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_gold_model_frontTN.jpg",
-        "pms": "1235C"
-      },
-      {
-        "name": "Graphite Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_GraphiteHeather_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/8800_graphiteheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_graphiteheather_model_frontTN.jpg",
-        "pms": "424C"
-      },
-      {
-        "name": "Kelly Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_KellyGreen_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/8800_kellygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_kellygreen_model_frontTN.jpg",
-        "pms": "335C"
-      },
-      {
-        "name": "Light Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_LightBlue_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/8800_lightblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_lightblue_model_frontTN.jpg",
-        "pms": "543C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Maroon_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_maroon_model_frontTN.jpg",
-        "pms": "7644C"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Navy_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Purple_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_purple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_purple_model_frontTN.jpg",
-        "pms": "2112C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Red_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_red_model_frontTN.jpg",
-        "pms": "199C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Royal_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_royal_model_frontTN.jpg",
-        "pms": "7686C"
-      },
-      {
-        "name": "Sand",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Sand_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/8800_sand_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_sand_model_frontTN.jpg",
-        "pms": "7528C"
-      },
-      {
-        "name": "Sport Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_SportGrey_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_sportgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_sportgrey_model_frontTN.jpg",
-        "pms": "COOL GRAY 7C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_White_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_white_model_frontTN.jpg",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_white_model_frontTN.jpg",
         "pms": ""
       }
     ],
@@ -1119,56 +533,2428 @@ export const sanmarCatalogProducts = [
       "S",
       "XL"
     ],
-    "priceFrom": 9.32,
-    "msrp": 14.64,
-    "pieceWeight": 0.47
+    "priceFrom": 4.12,
+    "msrp": 6.24,
+    "pieceWeight": 0.3
   },
   {
-    "style": "ST301",
-    "title": "Sport-Tek Classic Long Sleeve Rugby Polo.",
-    "brand": "Sport-Tek",
-    "category": "Polos/Knits",
+    "style": "996M",
+    "title": "Jerzees NuBlend Pullover Hooded Sweatshirt.",
+    "brand": "Jerzees",
+    "category": "Sweatshirts/Fleece",
     "subcategory": "",
-    "description": "A lighter weight and authentic rugby polo in popular team colors. 6.5-ounce 100% ring spun cotton jersey Engineered with yarn-dyed stripes Woven twill collar Twill-taped neck 2-button twill-reinforced placket with rubber buttons 1x1 rib knit cuffs",
-    "availableSizes": "Adult Sizes: XS-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST301_blackgraphite_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST301_blackgraphite_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_ST301.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/8117/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_ST301.pdf",
-    "companionStyle": "ST301",
+    "description": "8-ounce 50/50 cotton/poly NuBlend pill-resistant fleeceHigh stitch density for a smooth printing canvas Two-ply hood with grommets and dyed-to-match tipped and knotted drawcord1x1 rib knit in cuffs and waistband Front pouch pocket Double-needle coverseamed neck armholes and waistband Ash (formerly Birch)Due to the n...",
+    "availableSizes": "Adult Sizes: S-5XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_ash_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_ash_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_996M.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/1491/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_996M.pdf",
+    "companionStyle": "996M|996Y|995Y|993B|995M|562M|993M|562B|973M",
     "colors": [
       {
-        "name": "Black/ Graphite",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_blackgraphite_ST300.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST301sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST301_blackgraphite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST301_blackgraphite_model_frontTN.jpg",
+        "name": "Ash",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_birch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_ash_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_ash_model_frontTN.jpg",
+        "pms": "427C"
+      },
+      {
+        "name": "Athletic Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_athleticheather_996M.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_athleticheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_athleticheather_model_frontTN.jpg",
+        "pms": "COOL GRAY 6C"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_black.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_black_model_frontTN.jpg",
         "pms": "BLACK C"
       },
       {
-        "name": "Forest Green/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_forestgreenwhite_F246.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST301sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST301_forestgreenwhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST301_forestgreenwhite_model_frontTN.jpg",
-        "pms": "553 C"
+        "name": "Black Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/NIKE_blackheather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_blackheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_blackheather_model_frontTN.jpg",
+        "pms": "7540C"
       },
       {
-        "name": "True Navy/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_truenavywhite_F246.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST301sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST301_truenavywhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST301_truenavywhite_model_frontTN.jpg",
-        "pms": "533 C"
+        "name": "Blush Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_996M_blushpink_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/996M_blushpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_blushpink_model_frontTN.jpg",
+        "pms": "7611C"
       },
       {
-        "name": "True Royal/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_trueroyalwhite_F246.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST301sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST301_trueroyalwhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST301_trueroyalwhite_model_frontTN.jpg",
-        "pms": "654 C"
+        "name": "Burnt Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_BURNTORANGE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_burntorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_burntorange_model_frontTN.jpg",
+        "pms": "172C"
+      },
+      {
+        "name": "California Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_CaliforniaBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_californiablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_californiablue_model_frontTN.jpg",
+        "pms": "632C"
+      },
+      {
+        "name": "Cardinal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_cardinal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_cardinal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_cardinal_model_frontTN.jpg",
+        "pms": "188C"
+      },
+      {
+        "name": "Charcoal Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_CharcoalGrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_charcoalgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_charcoalgrey_model_frontTN.jpg",
+        "pms": "COOL GRAY 11C"
+      },
+      {
+        "name": "Chocolate",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/NewEra_chocolate.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/996M_chocolate_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_chocolate_model_frontTN.jpg",
+        "pms": "7519C"
+      },
+      {
+        "name": "Classic Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_ClassicPink_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_classicpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_classicpink_model_frontTN.jpg",
+        "pms": "510C"
+      },
+      {
+        "name": "Columbia Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_ColumbiaBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_columbiablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_columbiablue_model_frontTN.jpg",
+        "pms": "646C"
+      },
+      {
+        "name": "Cool Mint",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_CoolMint_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_coolmint_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_coolmint_model_frontTN.jpg",
+        "pms": "338C"
+      },
+      {
+        "name": "Cyber Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_CyberPink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_cyberpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_cyberpink_model_frontTN.jpg",
+        "pms": "215C"
+      },
+      {
+        "name": "Deep Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_DEEPPURPLE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_deeppurple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_deeppurple_model_frontTN.jpg",
+        "pms": "2695C"
+      },
+      {
+        "name": "Denim",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_Denim_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_denim_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_denim_model_frontTN.jpg",
+        "pms": "5405C"
+      },
+      {
+        "name": "Forest Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_forest.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_forestgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_forestgreen_model_frontTN.jpg",
+        "pms": "567C"
+      },
+      {
+        "name": "Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_GOLD.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_gold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_gold_model_frontTN.jpg",
+        "pms": "1235C"
+      },
+      {
+        "name": "Golden Pecan",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_996M_goldenpecan_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/996M_goldenpecan_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_goldenpecan_model_frontTN.jpg",
+        "pms": "7511C"
+      },
+      {
+        "name": "J. Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_truenavy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f31/996M_jnavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_jnavy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Kelly",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_KELLY.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_kelly_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_kelly_model_frontTN.jpg",
+        "pms": "348C"
+      },
+      {
+        "name": "Khaki",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_khaki.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_khaki_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_khaki_model_frontTN.jpg",
+        "pms": "7536C"
+      },
+      {
+        "name": "Kiwi",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_Kiwi.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/996M_kiwi_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_kiwi_model_frontTN.jpg",
+        "pms": "360C"
+      },
+      {
+        "name": "Light Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_LIGHTBLUE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/996M_lightblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_lightblue_model_frontTN.jpg",
+        "pms": "278C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_MAROON.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_maroon_model_frontTN.jpg",
+        "pms": "504C"
+      },
+      {
+        "name": "Military Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_militarygreen_996M.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_militarygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_militarygreen_model_frontTN.jpg",
+        "pms": "5747C"
+      },
+      {
+        "name": "Military Green Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_996M_militarygreenheather_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/996M_militarygreenheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_militarygreenheather_model_frontTN.jpg",
+        "pms": "5615C"
+      },
+      {
+        "name": "Mustard Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_996M_mustardheather_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/996M_mustardheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_mustardheather_model_frontTN.jpg",
+        "pms": "1245C"
+      },
+      {
+        "name": "Neon Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_neongreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/996M_neongreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_neongreen_model_frontTN.jpg",
+        "pms": "367C"
+      },
+      {
+        "name": "Neon Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_neonpink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/996M_neonpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_neonpink_model_frontTN.jpg",
+        "pms": "806C"
+      },
+      {
+        "name": "Oatmeal Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/jerzees_oatmealheather_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f17/996M_oatmealheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_oatmealheather_model_frontTN.jpg",
+        "pms": "7534C"
+      },
+      {
+        "name": "Oxford",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_OXFORD.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_oxford_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_oxford_model_frontTN.jpg",
+        "pms": "423C"
+      },
+      {
+        "name": "Periwinkle Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_PeriwinkleBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_periwinkleblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_periwinkleblue_model_frontTN.jpg",
+        "pms": "7456C"
+      },
+      {
+        "name": "Retro Heather Coral",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_RetroHeatherCoral_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_retroheathercoral_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_retroheathercoral_model_frontTN.jpg",
+        "pms": "805C"
+      },
+      {
+        "name": "Rock",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_Rock_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f7/996M_rock_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_rock_model_frontTN.jpg",
+        "pms": "COOL GREY 8C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_royal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_royal_model_frontTN.jpg",
+        "pms": "7686C"
+      },
+      {
+        "name": "Safari",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_Safari_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_safari_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_safari_model_frontTN.jpg",
+        "pms": "7531C"
+      },
+      {
+        "name": "Safety Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_safetygreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f3/996M_safetygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_safetygreen_model_frontTN.jpg",
+        "pms": "379C"
+      },
+      {
+        "name": "Safety Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_safetyorange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f3/996M_safetyorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_safetyorange_model_frontTN.jpg",
+        "pms": "1645C"
+      },
+      {
+        "name": "Sage",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_Sage_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_sage_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_sage_model_frontTN.jpg",
+        "pms": "5503C"
+      },
+      {
+        "name": "Sandstone",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_Sandstone_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_sandstone_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_sandstone_model_frontTN.jpg",
+        "pms": "4755C"
+      },
+      {
+        "name": "Scuba Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_ScubaBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_scubablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_scubablue_model_frontTN.jpg",
+        "pms": "325C"
+      },
+      {
+        "name": "Sunset Coral",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_SunsetCoral_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_sunsetcoral_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_sunsetcoral_model_frontTN.jpg",
+        "pms": "2348C"
+      },
+      {
+        "name": "Sweet Cream Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_996M_sweetcreamheather_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/996M_sweetcreamheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_sweetcreamheather_model_frontTN.jpg",
+        "pms": "468C"
+      },
+      {
+        "name": "T Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_TexasOrange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_texasorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_texasorange_model_frontTN.jpg",
+        "pms": "1605C"
+      },
+      {
+        "name": "True Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_truered.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_truered_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_truered_model_frontTN.jpg",
+        "pms": "187C"
+      },
+      {
+        "name": "Vintage Heather Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_vintageheatherblue_996M.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_vintageheatherblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_vintageheatherblue_model_frontTN.jpg",
+        "pms": "653C"
+      },
+      {
+        "name": "Vintage Heather Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_vintageheathermaroon_996M.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_vintageheathermaroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_vintageheathermaroon_model_frontTN.jpg",
+        "pms": "505C"
+      },
+      {
+        "name": "Vintage Heather Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_vintageheathernavy_996M.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_vintageheathernavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_vintageheathernavy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Vintage Heather Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_vintageheatherred_996M.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_vintageheatherred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_vintageheatherred_model_frontTN.jpg",
+        "pms": "7419C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_white.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_white_model_frontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 17.28,
+    "msrp": 26.56,
+    "pieceWeight": 0.82
+  },
+  {
+    "style": "BC3001",
+    "title": "BELLA+CANVAS Unisex Jersey Short Sleeve Tee.",
+    "brand": "Bella + Canvas",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Retail fit Tear-away label Side seamed Shoulder taping Solid Colors: 4.2-ounce 100% Airlume combed and ring spun cotton 32 singles Ash: 99/1 Airlume combed and ring spun cotton/poly Athletic Heather/Black Heather: 90/10 Airlume combed and ring spun cotton/poly Heather CVC/Blend Colors: 52/48 Airlume combed and ring...",
+    "availableSizes": "Unisex Sizes: XS-5XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_aqua_flat_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_aqua_flat_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC3001.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/9260/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC3001.pdf",
+    "companionStyle": "BC3001|BC3001CVC|BC3501|BC6004|BC3001Y|BC3001U|BC3005",
+    "colors": [
+      {
+        "name": "Aqua",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_aqua.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_aqua_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_aqua_flat_frontTN.jpg",
+        "pms": "7459C"
+      },
+      {
+        "name": "Army",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_army.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_army_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_army_flat_frontTN.jpg",
+        "pms": "418CP"
+      },
+      {
+        "name": "Ash",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_ash.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_ash_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_ash_flat_frontTN.jpg",
+        "pms": "428CP"
+      },
+      {
+        "name": "Asphalt",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_asphalt.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_asphalt_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_asphalt_flat_frontTN.jpg",
+        "pms": "BLACK 7U"
+      },
+      {
+        "name": "Atlantic",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Atlantic_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_atlantic_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_atlantic_flat_frontTN.jpg",
+        "pms": "2217CP"
+      },
+      {
+        "name": "Autumn",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_autumn.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f2/BC3001_autumn_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_autumn_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Baby Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_babyblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_babyblue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_babyblue_flat_frontTN.jpg",
+        "pms": "2205UP"
+      },
+      {
+        "name": "Berry",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_berry.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_berry_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_berry_flat_frontTN.jpg",
+        "pms": "233CP"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_black.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_black_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_black_flat_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Blue Storm",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_BlueStorm_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_bluestorm_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_bluestorm_flat_frontTN.jpg",
+        "pms": "446U"
+      },
+      {
+        "name": "Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_brown.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_brown_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_brown_flat_frontTN.jpg",
+        "pms": "440CP"
+      },
+      {
+        "name": "Burnt Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_burntorange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_burntorange_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_burntorange_flat_frontTN.jpg",
+        "pms": "159C"
+      },
+      {
+        "name": "Canvas Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_canvasred.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_canvasred_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_canvasred_flat_frontTN.jpg",
+        "pms": "201C"
+      },
+      {
+        "name": "Cardinal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_cardinal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_cardinal_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_cardinal_flat_frontTN.jpg",
+        "pms": "194C"
+      },
+      {
+        "name": "Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_CarolinaBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_carolinablue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_carolinablue_flat_frontTN.jpg",
+        "pms": "7453CP"
+      },
+      {
+        "name": "Charity Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_charitypink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_charitypink_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_charitypink_flat_frontTN.jpg",
+        "pms": "212CP"
+      },
+      {
+        "name": "Chestnut",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Chestnut_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_chestnut_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_chestnut_flat_frontTN.jpg",
+        "pms": "7581CP"
+      },
+      {
+        "name": "Clay",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Clay_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_clay_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_clay_flat_frontTN.jpg",
+        "pms": "7593U"
+      },
+      {
+        "name": "Cocoa",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Cocoa_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_cocoa_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_cocoa_flat_frontTN.jpg",
+        "pms": "4105U"
+      },
+      {
+        "name": "Columbia Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_ColumbiaBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001_columbiablue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_columbiablue_flat_frontTN.jpg",
+        "pms": "2387C"
+      },
+      {
+        "name": "Cool Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_CoolBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_coolblue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_coolblue_flat_frontTN.jpg",
+        "pms": "7694C"
+      },
+      {
+        "name": "Coral",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_coral.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_coral_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_coral_flat_frontTN.jpg",
+        "pms": "2024U"
+      },
+      {
+        "name": "Dark Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_darkgrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_darkgrey_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_darkgrey_flat_frontTN.jpg",
+        "pms": "432CP"
+      },
+      {
+        "name": "Dark Lavender",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_DarkLavender_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_darklavender_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_darklavender_flat_frontTN.jpg",
+        "pms": "2100CP"
+      },
+      {
+        "name": "Dark Olive",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_darkolive.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f2/BC3001_darkolive_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_darkolive_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Deep Teal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_deepteal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_deepteal_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_deepteal_flat_frontTN.jpg",
+        "pms": "3025CP"
+      },
+      {
+        "name": "Dust",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Dust_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_dust_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_dust_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Dusty Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_DustyBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_dustyblue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_dustyblue_flat_frontTN.jpg",
+        "pms": "5645CP"
+      },
+      {
+        "name": "Electric Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_ElectricBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_electricblue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_electricblue_flat_frontTN.jpg",
+        "pms": "3553C"
+      },
+      {
+        "name": "Evergreen",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_evergreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_evergreen_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_evergreen_flat_frontTN.jpg",
+        "pms": "343C"
+      },
+      {
+        "name": "Forest",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_forest.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_forest_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_forest_flat_frontTN.jpg",
+        "pms": "5535 C"
+      },
+      {
+        "name": "Fuchsia",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Fuchsia.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001_fuchsia_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_fuchsia_flat_frontTN.jpg",
+        "pms": "2040C"
+      },
+      {
+        "name": "Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_gold.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_gold_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_gold_flat_frontTN.jpg",
+        "pms": "137C"
+      },
+      {
+        "name": "Hunter Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_HunterGreen_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_huntergreen_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_huntergreen_flat_frontTN.jpg",
+        "pms": "5467C"
+      },
+      {
+        "name": "Kelly",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_kelly.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_kelly_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_kelly_flat_frontTN.jpg",
+        "pms": "341C"
+      },
+      {
+        "name": "Lavender Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_LavenderBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_lavenderblue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_lavenderblue_flat_frontTN.jpg",
+        "pms": "7667CP"
+      },
+      {
+        "name": "Lavender Dust",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_LavenderDust_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_lavenderdust_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_lavenderdust_flat_frontTN.jpg",
+        "pms": "5245CP"
+      },
+      {
+        "name": "Leaf",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_leaf.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_leaf_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_leaf_flat_frontTN.jpg",
+        "pms": "2263CP"
+      },
+      {
+        "name": "Light Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_lightblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_lightblue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_lightblue_flat_frontTN.jpg",
+        "pms": "5435C"
+      },
+      {
+        "name": "Light Violet",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_LightViolet_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_lightviolet_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_lightviolet_flat_frontTN.jpg",
+        "pms": "2358UP"
+      },
+      {
+        "name": "Lilac",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_lilac.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f2/BC3001_lilac_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_lilac_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Maize Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_maizeyellow.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_maizeyellow_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_maizeyellow_flat_frontTN.jpg",
+        "pms": "7548CP"
+      },
+      {
+        "name": "Marine",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Marine_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_marine_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_marine_flat_frontTN.jpg",
+        "pms": "633CP"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_maroon.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_maroon_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_maroon_flat_frontTN.jpg",
+        "pms": "7643C"
+      },
+      {
+        "name": "Mauve",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_mauve.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_mauve_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_mauve_flat_frontTN.jpg",
+        "pms": "7524U"
+      },
+      {
+        "name": "Military Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_militarygreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_militarygreen_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_militarygreen_flat_frontTN.jpg",
+        "pms": "2410UP"
+      },
+      {
+        "name": "Mint",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_mint.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_mint_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_mint_flat_frontTN.jpg",
+        "pms": "344C"
+      },
+      {
+        "name": "Mustard",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_mustard.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f2/BC3001_mustard_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_mustard_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Natural",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_natural.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_natural_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_natural_flat_frontTN.jpg",
+        "pms": "7500CP"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_navy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_navy_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_navy_flat_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Ocean Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_oceanblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_oceanblue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_oceanblue_flat_frontTN.jpg",
+        "pms": "7458UP"
+      },
+      {
+        "name": "Olive",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_olive.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_olive_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_olive_flat_frontTN.jpg",
+        "pms": "5747CP"
+      },
+      {
+        "name": "Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_orange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_orange_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_orange_flat_frontTN.jpg",
+        "pms": "1645C"
+      },
+      {
+        "name": "Orchid",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Orchid_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_orchid_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_orchid_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Oxblood Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_oxbloodblack.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_oxbloodblack_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_oxbloodblack_flat_frontTN.jpg",
+        "pms": "7449CP"
+      },
+      {
+        "name": "Peach",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Peach_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_peach_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_peach_flat_frontTN.jpg",
+        "pms": "2016UP"
+      },
+      {
+        "name": "Pebble Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_PebbleBrown_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_pebblebrown_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_pebblebrown_flat_frontTN.jpg",
+        "pms": "409C"
+      },
+      {
+        "name": "Pine",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Pine_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_pine_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_pine_flat_frontTN.jpg",
+        "pms": "4188CP"
+      },
+      {
+        "name": "Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_pink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_pink_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_pink_flat_frontTN.jpg",
+        "pms": "706C"
+      },
+      {
+        "name": "Pink Gravel",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_PinkGravel_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_pinkgravel_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_pinkgravel_flat_frontTN.jpg",
+        "pms": "435CP"
+      },
+      {
+        "name": "Poppy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC_Poppy_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f8/BC3001_poppy_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_poppy_flat_frontTN.jpg",
+        "pms": "2347C"
+      },
+      {
+        "name": "Purple Storm",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_PurpleStorm_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_purplestorm_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_purplestorm_flat_frontTN.jpg",
+        "pms": "2333CP"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_red.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_red_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_red_flat_frontTN.jpg",
+        "pms": "200C"
+      },
+      {
+        "name": "Royal Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_RoyalPurple_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_royalpurple_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_royalpurple_flat_frontTN.jpg",
+        "pms": "266CP"
+      },
+      {
+        "name": "Rust",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_rust.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_rust_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_rust_flat_frontTN.jpg",
+        "pms": "2350U"
+      },
+      {
+        "name": "Sage",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Sage_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_sage_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_sage_flat_frontTN.jpg",
+        "pms": "5635CP"
+      },
+      {
+        "name": "Sand Dune",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_SandDune.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001_sanddune_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_sanddune_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Silver",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_silver.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_silver_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_silver_flat_frontTN.jpg",
+        "pms": "420C"
+      },
+      {
+        "name": "Slate",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Slate_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_slate_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_slate_flat_frontTN.jpg",
+        "pms": "2168UP"
+      },
+      {
+        "name": "Soft Cream",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_softcream.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_softcream_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_softcream_flat_frontTN.jpg",
+        "pms": "468CP"
+      },
+      {
+        "name": "Soft Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_softpink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_softpink_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_softpink_flat_frontTN.jpg",
+        "pms": "7604UP"
+      },
+      {
+        "name": "Solid Athletic Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_SolidAthleticGrey_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_solidathleticgrey_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_solidathleticgrey_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Steel Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_steelblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_steelblue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_steelblue_flat_frontTN.jpg",
+        "pms": "5415CP"
+      },
+      {
+        "name": "Storm",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_storm.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_storm_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_storm_flat_frontTN.jpg",
+        "pms": "424CP"
+      },
+      {
+        "name": "Sunset",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_sunset.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_sunset_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_sunset_flat_frontTN.jpg",
+        "pms": "2024CP"
+      },
+      {
+        "name": "Synthetic Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_SyntheticGreen_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_syntheticgreen_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_syntheticgreen_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Tan",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Tan_MRF26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_tan_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_tan_flat_frontTN.jpg",
+        "pms": "2324CP"
+      },
+      {
+        "name": "Teal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_teal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_teal_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_teal_flat_frontTN.jpg",
+        "pms": "3262C"
+      },
+      {
+        "name": "Team Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_TeamNavy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001_teamnavy_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_teamnavy_flat_frontTN.jpg",
+        "pms": "2747C"
+      },
+      {
+        "name": "Team Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_teampurple.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_teampurple_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_teampurple_flat_frontTN.jpg",
+        "pms": "2695C"
+      },
+      {
+        "name": "Thyme",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Thyme_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_thyme_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_thyme_flat_frontTN.jpg",
+        "pms": "4177U"
+      },
+      {
+        "name": "Toast",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Toast_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_toast_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_toast_flat_frontTN.jpg",
+        "pms": "7574C"
+      },
+      {
+        "name": "True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_trueroyal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_trueroyal_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_trueroyal_flat_frontTN.jpg",
+        "pms": "7684CP"
+      },
+      {
+        "name": "Turquoise",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_turquoise.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/BC3001_turquoise_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_turquoise_flat_frontTN.jpg",
+        "pms": "638C"
+      },
+      {
+        "name": "Vintage Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_vintageblack.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_vintageblack_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintageblack_flat_frontTN.jpg",
+        "pms": "419C"
+      },
+      {
+        "name": "Vintage Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_VintageBrown_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_vintagebrown_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintagebrown_flat_frontTN.jpg",
+        "pms": "7575U"
+      },
+      {
+        "name": "Vintage Denim",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_VintageDenim_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_vintagedenim_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintagedenim_flat_frontTN.jpg",
+        "pms": "2178U"
+      },
+      {
+        "name": "Vintage Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_VintageNavy_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_vintagenavy_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintagenavy_flat_frontTN.jpg",
+        "pms": "303UP"
+      },
+      {
+        "name": "Vintage Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_VintageRed_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_vintagered_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintagered_flat_frontTN.jpg",
+        "pms": "4059UP"
+      },
+      {
+        "name": "Vintage White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC_VintageWhite_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f8/BC3001_vintagewhite_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintagewhite_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_white.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_white_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_white_flat_frontTN.jpg",
+        "pms": "WHITE C"
+      },
+      {
+        "name": "Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_yellow.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_yellow_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_yellow_flat_frontTN.jpg",
+        "pms": "100CP"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 5.8,
+    "msrp": 9.6,
+    "pieceWeight": 0.22
+  },
+  {
+    "style": "BC3001CVC",
+    "title": "BELLA+CANVAS Unisex Heather CVC Short Sleeve Tee.",
+    "brand": "Bella + Canvas",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Retail fit Tear-away label Side seamed Shoulder taping Athletic Heather/Black Heather: 4.2-ounce 90/10 Airlume combed and ring spun cotton/poly 32 singles Heather CVC/Solid CVC Blend Colors: 52/48 Airlume combed and ring spun cotton/poly Prism: 99/1 Airlume combed and ring spun cotton/poly",
+    "availableSizes": "Unisex Sizes: XS-5XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_athleticheather_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_athleticheather_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC3001CVC.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/9762/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC3001CVC.pdf",
+    "companionStyle": "BC3001|BC3001CVC|BC3501|BC6004|BC3001Y|BC3001U|BC3005",
+    "colors": [
+      {
+        "name": "Athletic Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_AthleticHeather_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_athleticheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_athleticheather_model_frontTN.jpg",
+        "pms": "428U"
+      },
+      {
+        "name": "Black Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_BlackHeather_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_blackheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_blackheather_model_frontTN.jpg",
+        "pms": "BLACK 7CP"
+      },
+      {
+        "name": "Dark Grey Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_DarkGreyHeather_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_darkgreyheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_darkgreyheather_model_frontTN.jpg",
+        "pms": "426C"
+      },
+      {
+        "name": "Deep Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_DeepHeather_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_deepheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_deepheather_model_frontTN.jpg",
+        "pms": "2333CP"
+      },
+      {
+        "name": "Heather Aqua",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherAqua_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatheraqua_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatheraqua_model_frontTN.jpg",
+        "pms": "7702C"
+      },
+      {
+        "name": "Heather Autumn",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherAutumn_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherautumn_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherautumn_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Baby Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBabyBlue_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heatherbabyblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherbabyblue_model_frontTN.jpg",
+        "pms": "2205UP"
+      },
+      {
+        "name": "Heather Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBlue_MRF26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherblue_model_frontTN.jpg",
+        "pms": "535C"
+      },
+      {
+        "name": "Heather Blue Lagoon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBlueLagoon_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatherbluelagoon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherbluelagoon_model_frontTN.jpg",
+        "pms": "2211C"
+      },
+      {
+        "name": "Heather Blue Storm",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBlueStorm_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heatherbluestorm_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherbluestorm_model_frontTN.jpg",
+        "pms": "446U"
+      },
+      {
+        "name": "Heather Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBrown_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherbrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherbrown_model_frontTN.jpg",
+        "pms": "7519C"
+      },
+      {
+        "name": "Heather Bubble Gum",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBubbleGum_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatherbubblegum_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherbubblegum_model_frontTN.jpg",
+        "pms": "189C"
+      },
+      {
+        "name": "Heather Canvas Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCanvasRed_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001CVC_heathercanvasred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercanvasred_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Cardinal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCardinal_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heathercardinal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercardinal_model_frontTN.jpg",
+        "pms": "7421C"
+      },
+      {
+        "name": "Heather Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCarolinaBlue_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heathercarolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercarolinablue_model_frontTN.jpg",
+        "pms": "7453CP"
+      },
+      {
+        "name": "Heather Cement",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCement_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001CVC_heathercement_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercement_model_frontTN.jpg",
+        "pms": "454C"
+      },
+      {
+        "name": "Heather Charity Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCharityPink_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001CVC_heathercharitypink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercharitypink_model_frontTN.jpg",
+        "pms": "1915C"
+      },
+      {
+        "name": "Heather Clay",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherClay_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherclay_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherclay_model_frontTN.jpg",
+        "pms": "7593U"
+      },
+      {
+        "name": "Heather Columbia Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherColumbiaBlue_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathercolumbiablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercolumbiablue_model_frontTN.jpg",
+        "pms": "660U"
+      },
+      {
+        "name": "Heather Cool Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCoolGrey_MRF26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001CVC_heathercoolgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercoolgrey_model_frontTN.jpg",
+        "pms": "406C"
+      },
+      {
+        "name": "Heather Dark Lavender",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherDarkLavender_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heatherdarklavender_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherdarklavender_model_frontTN.jpg",
+        "pms": "2100CP"
+      },
+      {
+        "name": "Heather Deep Teal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherDeepTeal_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherdeepteal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherdeepteal_model_frontTN.jpg",
+        "pms": "7699C"
+      },
+      {
+        "name": "Heather Dust",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherDust_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherdust_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherdust_model_frontTN.jpg",
+        "pms": "5575CP"
+      },
+      {
+        "name": "Heather Dusty Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherDustyBlue_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherdustyblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherdustyblue_model_frontTN.jpg",
+        "pms": "5575CP"
+      },
+      {
+        "name": "Heather Emerald",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherEmerald_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatheremerald_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatheremerald_model_frontTN.jpg",
+        "pms": "627C"
+      },
+      {
+        "name": "Heather Forest",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherForest_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherforest_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherforest_model_frontTN.jpg",
+        "pms": "343U"
+      },
+      {
+        "name": "Heather French Vanilla",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherFrenchVanilla_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatherfrenchvanilla_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherfrenchvanilla_model_frontTN.jpg",
+        "pms": "7402CP"
+      },
+      {
+        "name": "Heather Grass Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherGrassGreen_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heathergrassgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathergrassgreen_model_frontTN.jpg",
+        "pms": "3425UP"
+      },
+      {
+        "name": "Heather Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherGreen_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathergreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathergreen_model_frontTN.jpg",
+        "pms": "7491C"
+      },
+      {
+        "name": "Heather Ice Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherIceBlue_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathericeblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathericeblue_model_frontTN.jpg",
+        "pms": "317CP"
+      },
+      {
+        "name": "Heather Kelly",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherKelly_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherkelly_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherkelly_model_frontTN.jpg",
+        "pms": "340C"
+      },
+      {
+        "name": "Heather Lapis",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherLapis_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherlapis_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherlapis_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Magenta",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMagenta_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heathermagenta_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermagenta_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMaroon_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathermaroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermaroon_model_frontTN.jpg",
+        "pms": "7644CP"
+      },
+      {
+        "name": "Heather Mauve",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMauve_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathermauve_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermauve_model_frontTN.jpg",
+        "pms": "7524UP"
+      },
+      {
+        "name": "Heather Midnight Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMidnightNavy_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathermidnitenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermidnitenavy_model_frontTN.jpg",
+        "pms": "2380CP"
+      },
+      {
+        "name": "Heather Military Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMilitaryGreen_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathermilitarygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermilitarygreen_model_frontTN.jpg",
+        "pms": "7764U"
+      },
+      {
+        "name": "Heather Mint",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMint_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heathermint_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermint_model_frontTN.jpg",
+        "pms": "2246 C"
+      },
+      {
+        "name": "Heather Mustard",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMustard_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathermustard_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermustard_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Natural",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherNatural_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heathernatural_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathernatural_model_frontTN.jpg",
+        "pms": "7500CP"
+      },
+      {
+        "name": "Heather Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherNavy_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathernavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathernavy_model_frontTN.jpg",
+        "pms": "2379C"
+      },
+      {
+        "name": "Heather Oatmeal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherOatmeal_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heatheroatmeal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatheroatmeal_model_frontTN.jpg",
+        "pms": "7534C"
+      },
+      {
+        "name": "Heather Olive",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherOlive_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherolive_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherolive_model_frontTN.jpg",
+        "pms": "7497CP"
+      },
+      {
+        "name": "Heather Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherOrange_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherorange_model_frontTN.jpg",
+        "pms": "1645C"
+      },
+      {
+        "name": "Heather Orchid",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherOrchid_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherorchid_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherorchid_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Peach",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPeach_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherpeach_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherpeach_model_frontTN.jpg",
+        "pms": "2016UP"
+      },
+      {
+        "name": "Heather Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPink_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heatherpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherpink_model_frontTN.jpg",
+        "pms": "706C"
+      },
+      {
+        "name": "Heather Pink Gravel",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPinkGravel_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatherpinkgravel_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherpinkgravel_model_frontTN.jpg",
+        "pms": "4735CP"
+      },
+      {
+        "name": "Heather Prism Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismBlue_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismblue_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Prism Dusty Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismDustyBlue_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismdustyblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismdustyblue_model_frontTN.jpg",
+        "pms": "5575C"
+      },
+      {
+        "name": "Heather Prism Ice Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismIceBlue_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f14/BC3001CVC_heatherprismiceblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismiceblue_model_frontTN.jpg",
+        "pms": "559UP"
+      },
+      {
+        "name": "Heather Prism Lilac",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismLilac_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherprismlilac_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismlilac_model_frontTN.jpg",
+        "pms": "2052CP"
+      },
+      {
+        "name": "Heather Prism Mint",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismMint_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismmint_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismmint_model_frontTN.jpg",
+        "pms": "344C"
+      },
+      {
+        "name": "Heather Prism Natural",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismNatural_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismnatural_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismnatural_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Prism Peach",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismPeach_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismpeach_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismpeach_model_frontTN.jpg",
+        "pms": "7520C"
+      },
+      {
+        "name": "Heather Prism Sunset",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismSunset_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismsunset_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismsunset_model_frontTN.jpg",
+        "pms": "2025UP"
+      },
+      {
+        "name": "Heather Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPurple_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatherpurple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherpurple_model_frontTN.jpg",
+        "pms": "2082U"
+      },
+      {
+        "name": "Heather Raspberry",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherRaspberry_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherraspberry_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherraspberry_model_frontTN.jpg",
+        "pms": "207U"
+      },
+      {
+        "name": "Heather Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherRed_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherred_model_frontTN.jpg",
+        "pms": "193C"
+      },
+      {
+        "name": "Heather Sage",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSage_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heathersage_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathersage_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Sand Dune",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSandDune_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001CVC_heathersanddune_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathersanddune_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Sea Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSeaGreen_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherseagreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherseagreen_model_frontTN.jpg",
+        "pms": "2398C"
+      },
+      {
+        "name": "Heather Silver",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSilver_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heathersilver_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathersilver_model_frontTN.jpg",
+        "pms": "420C"
+      },
+      {
+        "name": "Heather Slate",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSlate_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherslate_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherslate_model_frontTN.jpg",
+        "pms": "2168UP"
+      },
+      {
+        "name": "Heather Soft Cream",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSoftCream_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heathersoftcream_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathersoftcream_model_frontTN.jpg",
+        "pms": "468CP"
+      },
+      {
+        "name": "Heather Stone",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherStone_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherstone_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherstone_model_frontTN.jpg",
+        "pms": "2327UP"
+      },
+      {
+        "name": "Heather Storm",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherStorm_MRF26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f31/BC3001CVC_heatherstorm_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherstorm_model_frontTN.jpg",
+        "pms": "COOL GRAY 9CP"
+      },
+      {
+        "name": "Heather Sunset",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSunset_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f31/BC3001CVC_heathersunset_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathersunset_model_frontTN.jpg",
+        "pms": "2024UP"
+      },
+      {
+        "name": "Heather Tan",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherTan_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heathertan_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathertan_model_frontTN.jpg",
+        "pms": "2323CP"
+      },
+      {
+        "name": "Heather Team Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherTeamPurple_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherteampurple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherteampurple_model_frontTN.jpg",
+        "pms": "2665C"
+      },
+      {
+        "name": "Heather True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherTrueRoyal_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f31/BC3001CVC_heathertrueroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathertrueroyal_model_frontTN.jpg",
+        "pms": "286CP"
+      },
+      {
+        "name": "Heather Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherYellow_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f31/BC3001CVC_heatheryellow_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatheryellow_model_frontTN.jpg",
+        "pms": "100CP"
+      },
+      {
+        "name": "Heather Yellow Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherYellowGold_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatheryellowgold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatheryellowgold_model_frontTN.jpg",
+        "pms": "134C"
+      },
+      {
+        "name": "Neon Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_NeonBlue_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_neonblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_neonblue_model_frontTN.jpg",
+        "pms": "PROCESS BLUE CP"
+      },
+      {
+        "name": "Neon Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_NeonOrange_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_neonorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_neonorange_model_frontTN.jpg",
+        "pms": "165C"
+      },
+      {
+        "name": "Neon Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_NeonPink_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_neonpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_neonpink_model_frontTN.jpg",
+        "pms": "926C"
+      },
+      {
+        "name": "Neon Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_NeonYellow_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_neonyellow_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_neonyellow_model_frontTN.jpg",
+        "pms": "923C"
+      },
+      {
+        "name": "Solid Asphalt Blend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidAsphaltBlend_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_solidasphaltblend_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidasphaltblend_model_frontTN.jpg",
+        "pms": "BLACK 7U"
+      },
+      {
+        "name": "Solid Black Blend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidBlackBlend_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f11/BC3001CVC_solidblackblend_model_front_072019.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidblackblend_model_front_072019TN.jpg",
+        "pms": "Black C"
+      },
+      {
+        "name": "Solid Navy Blend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidNavyBlend_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_solidnavyblend_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidnavyblend_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Solid Red Blend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidRedBlend_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_solidredblend_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidredblend_model_frontTN.jpg",
+        "pms": "200C"
+      },
+      {
+        "name": "Solid True Royal Blend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidTrueRoyalBlend_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_solidtrueroyalblend_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidtrueroyalblend_model_frontTN.jpg",
+        "pms": "7684CP"
+      },
+      {
+        "name": "Solid White Blend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidWhiteTriblend_2026.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f11/BC3001CVC_solidwhiteblend_model_front_072019.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidwhiteblend_model_front_072019TN.jpg",
+        "pms": "White C"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 5.79,
+    "msrp": 9.58,
+    "pieceWeight": 0.26
+  },
+  {
+    "style": "ST350",
+    "title": "Sport-Tek PosiCharge Competitor Tee.",
+    "brand": "Sport-Tek",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Lightweight roomy and highly breathable these moisture-wicking value-priced tees feature PosiCharge technology to lock in color and prevent logos from fading.3.8-ounce 100% polyester interlock with PosiCharge technology Removable tag for comfort and relabeling Set-in sleevesGiven the extreme heat required for sublim...",
+    "availableSizes": "Adult Sizes: XS-6XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_black_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_black_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_ST350.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/4349/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_ST350.pdf",
+    "companionStyle": "ST350|ST350LS|ST351|ST355|ST352|LST350|LST351|LST352|LST353|LST353LS|TST350LS|TST350|TST351|YST355|YST350|YST350LS|ST354|LST354|YST354|ST357|LST357|ST355P|YST355P|YST460|LST550|ST358|LST358|YST358|STC36|YST357|ST356|STA35|LST356|ST550",
+    "colors": [
+      {
+        "name": "Atomic Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_atomicblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_atomicblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_atomicblue_model_frontTN.jpg",
+        "pms": "2203C"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_black.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_black_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Cardinal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_cardinal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_cardinal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_cardinal_model_frontTN.jpg",
+        "pms": "7421C"
+      },
+      {
+        "name": "Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_carolinablue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_carolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_carolinablue_model_frontTN.jpg",
+        "pms": "646C"
+      },
+      {
+        "name": "Coyote Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_CoyoteBrown_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_coyotebrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_coyotebrown_model_frontTN.jpg",
+        "pms": "2326C"
+      },
+      {
+        "name": "Deep Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_deeporange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_deeporange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_deeporange_model_frontTN.jpg",
+        "pms": "173C"
+      },
+      {
+        "name": "Deep Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350_DEEP-RED.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f6/ST350_deepred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_deepred_model_frontTN.jpg",
+        "pms": "201C"
+      },
+      {
+        "name": "Forest Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_forestgreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_forestgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_forestgreen_model_frontTN.jpg",
+        "pms": "553C"
+      },
+      {
+        "name": "Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_gold.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_gold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_gold_model_frontTN.jpg",
+        "pms": "1235C"
+      },
+      {
+        "name": "Grey Concrete",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350_GreyConcrete_MRF26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_greyconcrete_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_greyconcrete_model_frontTN.jpg",
+        "pms": "COOL GRAY 10C"
+      },
+      {
+        "name": "Grey Concrete Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/LST350_IronGrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f18/ST350_greyconcreteheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_greyconcreteheather_model_frontTN.jpg",
+        "pms": "COOL GRAY 10C"
+      },
+      {
+        "name": "Iron Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_irongrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_irongrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_irongrey_model_frontTN.jpg",
+        "pms": "7540C"
+      },
+      {
+        "name": "Iron Grey Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/LST350_IRONGREYHEATHER.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f18/ST350_irongreyheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_irongreyheather_model_frontTN.jpg",
+        "pms": "7540C"
+      },
+      {
+        "name": "Kelly Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_kellygreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_kellygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_kellygreen_model_frontTN.jpg",
+        "pms": "341C"
+      },
+      {
+        "name": "Lime Shock",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_limeshock.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_limeshock_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_limeshock_model_frontTN.jpg",
+        "pms": "375C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_maroon.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_maroon_model_frontTN.jpg",
+        "pms": "504C"
+      },
+      {
+        "name": "Neon Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonorange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_neonorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_neonorange_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Neon Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonpink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_neonpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_neonpink_model_frontTN.jpg",
+        "pms": "806C"
+      },
+      {
+        "name": "Neon Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonyellow.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_neonyellow_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_neonyellow_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Olive Drab Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_OliveDrabGreen_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_olivedrabgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_olivedrabgreen_model_frontTN.jpg",
+        "pms": "7771C"
+      },
+      {
+        "name": "Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_purple.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_purple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_purple_model_frontTN.jpg",
+        "pms": "7672C"
+      },
+      {
+        "name": "Sand",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350_Sand.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_sand_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_sand_model_frontTN.jpg",
+        "pms": "453C"
+      },
+      {
+        "name": "Silver",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_silver.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_silver_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_silver_model_frontTN.jpg",
+        "pms": "429C"
+      },
+      {
+        "name": "Texas Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_texasorange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_texasorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_texasorange_model_frontTN.jpg",
+        "pms": "7584C"
+      },
+      {
+        "name": "Tropic Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_tropicblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_tropicblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_tropicblue_model_frontTN.jpg",
+        "pms": "7474C"
+      },
+      {
+        "name": "True Kelly Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350_TrueKellyGreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/ST350_truekellygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_truekellygreen_model_frontTN.jpg",
+        "pms": "348C"
+      },
+      {
+        "name": "True Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_truenavy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_truenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_truenavy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "True Navy Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_truenavyheather_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f18/ST350_truenavyheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_truenavyheather_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "True Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_truered.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_truered_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_truered_model_frontTN.jpg",
+        "pms": "200C"
+      },
+      {
+        "name": "True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_trueroyal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_trueroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_trueroyal_model_frontTN.jpg",
+        "pms": "7687C"
+      },
+      {
+        "name": "True Royal Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_trueroyalheather_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f18/ST350_trueroyalheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_trueroyalheather_model_frontTN.jpg",
+        "pms": "7686C"
+      },
+      {
+        "name": "Vegas Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_vegasgold.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_vegasgold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_vegasgold_model_frontTN.jpg",
+        "pms": "4525C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_white.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_white_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Woodland Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_WoodlandBrown_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_woodlandbrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_woodlandbrown_model_frontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 5.13,
+    "msrp": 8.26,
+    "pieceWeight": 0.27
+  },
+  {
+    "style": "ST350LS",
+    "title": "Sport-Tek Long Sleeve PosiCharge Competitor Tee.",
+    "brand": "Sport-Tek",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Lightweight roomy and highly breathable these moisture-wicking value-priced tees feature PosiCharge technology to lock in color and prevent logos from fading.3.8-ounce 100% polyester interlock with PosiCharge technology Removable tag for comfort and relabelingSet-in sleevesGiven the extreme heat required for sublima...",
+    "availableSizes": "Adult Sizes: XS-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_black_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_black_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_ST350LS.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/4352/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_ST350LS.pdf",
+    "companionStyle": "ST350LS|ST350|ST351|ST352|ST355|LST353LS|LST350|LST353|LST351|LST352|TST350LS|TST351|TST350|YST350LS|YST355|YST350|ST354|LST354|YST354|ST357|LST357|ST355P|YST355P|YST460|LST550|ST358|LST358|YST358|STC36|YST357|ST356|STA35|LST356|ST550",
+    "colors": [
+      {
+        "name": "Atomic Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_atomicblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_atomicblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_atomicblue_model_frontTN.jpg",
+        "pms": "2203C"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_black.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_black_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_carolinablue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_carolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_carolinablue_model_frontTN.jpg",
+        "pms": "646C"
+      },
+      {
+        "name": "Coyote Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_CoyoteBrown_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_coyotebrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_coyotebrown_model_frontTN.jpg",
+        "pms": "2326C"
+      },
+      {
+        "name": "Deep Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_deeporange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/ST350LS_deeporange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_deeporange_model_frontTN.jpg",
+        "pms": "173C"
+      },
+      {
+        "name": "Deep Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350LS_DEEP-RED.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f6/ST350LS_deepred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_deepred_model_frontTN.jpg",
+        "pms": "201C"
+      },
+      {
+        "name": "Forest Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_forestgreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_forestgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_forestgreen_model_frontTN.jpg",
+        "pms": "553C"
+      },
+      {
+        "name": "Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_gold.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/ST350LS_gold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_gold_model_frontTN.jpg",
+        "pms": "1235C"
+      },
+      {
+        "name": "Grey Concrete",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350LS_GreyConcrete_MRF26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_greyconcrete_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_greyconcrete_model_frontTN.jpg",
+        "pms": "COOL GRAY 10C"
+      },
+      {
+        "name": "Grey Concrete Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350LS_GREYCONCRETEHEATHER.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_greyconcreteheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_greyconcreteheather_model_frontTN.jpg",
+        "pms": "COOL GRAY 10C"
+      },
+      {
+        "name": "Iron Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_irongrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/ST350LS_irongrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_irongrey_model_frontTN.jpg",
+        "pms": "7540C"
+      },
+      {
+        "name": "Iron Grey Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350LS_IRONGREYHEATHER.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_irongreyheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_irongreyheather_model_frontTN.jpg",
+        "pms": "7540C"
+      },
+      {
+        "name": "Lime Shock",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_limeshock.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/ST350LS_limeshock_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_limeshock_model_frontTN.jpg",
+        "pms": "375C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_maroon.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_maroon_model_frontTN.jpg",
+        "pms": "504C"
+      },
+      {
+        "name": "Neon Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonorange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_neonorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_neonorange_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Neon Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonpink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_neonpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_neonpink_model_frontTN.jpg",
+        "pms": "806C"
+      },
+      {
+        "name": "Neon Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonyellow.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_neonyellow_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_neonyellow_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Olive Drab Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_OliveDrabGreen_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_olivedrabgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_olivedrabgreen_model_frontTN.jpg",
+        "pms": "7771C"
+      },
+      {
+        "name": "Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_purple.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_purple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_purple_model_frontTN.jpg",
+        "pms": "7672C"
+      },
+      {
+        "name": "Silver",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_silver.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/ST350LS_silver_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_silver_model_frontTN.jpg",
+        "pms": "429C"
+      },
+      {
+        "name": "True Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_truenavy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_truenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_truenavy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "True Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_truered.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_truered_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_truered_model_frontTN.jpg",
+        "pms": "200C"
+      },
+      {
+        "name": "True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_trueroyal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/ST350LS_trueroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_trueroyal_model_frontTN.jpg",
+        "pms": "7687C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_white.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_white_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Woodland Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_WoodlandBrown_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_woodlandbrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_woodlandbrown_model_frontTN.jpg",
+        "pms": ""
       }
     ],
     "sizes": [
@@ -1181,9 +2967,2004 @@ export const sanmarCatalogProducts = [
       "XL",
       "XS"
     ],
-    "priceFrom": 27.68,
-    "msrp": 47.36,
-    "pieceWeight": 0.8
+    "priceFrom": 6.16,
+    "msrp": 10.32,
+    "pieceWeight": 0.31
+  },
+  {
+    "style": "PC61",
+    "title": "Port & Co Essential Tee.",
+    "brand": "Port & Co",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "A year-round essential our best-selling t-shirt has been voted most popular by groups teams clubs and schools across America.6.1-ounce 100% soft spun cotton98/2 cotton/poly (Ash)90/10 cotton/poly (Athletic Heather) 50/50 cotton/poly (Dark Heather Grey S. Green S. Orange) Natural: Minimally processed to keep the natu...",
+    "availableSizes": "Adult Sizes: S-6XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_white_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_white_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_PC61.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/1634/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_PC61.pdf",
+    "companionStyle": "PC61|PC61P|PC61LS|PC61LSP|PC61M|PC61PT|PC61T|PC61LST|PC61LSPT|LPC61|PC61Y|PC61YLS|PC61R",
+    "colors": [
+      {
+        "name": "Aquatic Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_aqua.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_aquaticblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_aquaticblue_model_frontTN.jpg",
+        "pms": "2389C"
+      },
+      {
+        "name": "Ash",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_ash.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_ash_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_ash_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Athletic Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_athleticheather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_athleticheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_athleticheather_model_frontTN.jpg",
+        "pms": "COOL GRAY 7C"
+      },
+      {
+        "name": "Athletic Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_athleticmaroon.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_athleticmaroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_athleticmaroon_model_frontTN.jpg",
+        "pms": "209C"
+      },
+      {
+        "name": "Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_brown.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_brown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_brown_model_frontTN.jpg",
+        "pms": "7519C"
+      },
+      {
+        "name": "Candy Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_candypink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_candypink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_candypink_model_frontTN.jpg",
+        "pms": "189C"
+      },
+      {
+        "name": "Cardinal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_cardinalred.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_cardinal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_cardinal_model_frontTN.jpg",
+        "pms": "7638C"
+      },
+      {
+        "name": "Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_carolinablue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_carolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_carolinablue_model_frontTN.jpg",
+        "pms": "7682C"
+      },
+      {
+        "name": "Charcoal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_charcoal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_charcoal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_charcoal_model_frontTN.jpg",
+        "pms": "COOL GRAY 11C"
+      },
+      {
+        "name": "Colonial Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_colonialblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_colonialblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_colonialblue_model_frontTN.jpg",
+        "pms": "2150C"
+      },
+      {
+        "name": "Coyote Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_CoyoteBrown.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC61_coyotebrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_coyotebrown_model_frontTN.jpg",
+        "pms": "2326C"
+      },
+      {
+        "name": "Daffodil Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_daffodilyellow.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_daffodilyellow_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_daffodilyellow_model_frontTN.jpg",
+        "pms": "7401C"
+      },
+      {
+        "name": "Dark Chocolate Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_darkchocobrwn.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_darkchocolatebrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_darkchocolatebrown_model_frontTN.jpg",
+        "pms": "412C"
+      },
+      {
+        "name": "Dark Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_forestgreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_darkgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_darkgreen_model_frontTN.jpg",
+        "pms": "560C"
+      },
+      {
+        "name": "Dark Heather Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_darkheathergrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_darkheathergrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_darkheathergrey_model_frontTN.jpg",
+        "pms": "7540C"
+      },
+      {
+        "name": "Deep Marine",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_deepmarine.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_deepmarine_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_deepmarine_model_frontTN.jpg",
+        "pms": "3584C"
+      },
+      {
+        "name": "Deep Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PORTANDCO_deepnavy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_deepnavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_deepnavy_model_frontTN.jpg",
+        "pms": "532C"
+      },
+      {
+        "name": "Dill Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_dillgreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_dillgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_dillgreen_model_frontTN.jpg",
+        "pms": "2263C"
+      },
+      {
+        "name": "Dusty Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_dustybrown.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_dustybrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_dustybrown_model_frontTN.jpg",
+        "pms": "2325C"
+      },
+      {
+        "name": "Eggplant",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_eggplant.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC61_eggplant_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_eggplant_model_frontTN.jpg",
+        "pms": "5185C"
+      },
+      {
+        "name": "Fiery Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_enginered.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_fieryred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_fieryred_model_frontTN.jpg",
+        "pms": "485C"
+      },
+      {
+        "name": "Flush Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_FlushPink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC61_flushpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_flushpink_model_frontTN.jpg",
+        "pms": "215C"
+      },
+      {
+        "name": "Forest Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_darkgreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_forestgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_forestgreen_model_frontTN.jpg",
+        "pms": "7736C"
+      },
+      {
+        "name": "Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_athleticgold.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_gold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_gold_model_frontTN.jpg",
+        "pms": "137C"
+      },
+      {
+        "name": "Jade Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_jadegreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_jadegreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_jadegreen_model_frontTN.jpg",
+        "pms": "7717C"
+      },
+      {
+        "name": "Jet Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_black.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC61_jetblack_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_jetblack_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Kelly",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_kelly.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_kelly_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_kelly_model_frontTN.jpg",
+        "pms": "340C"
+      },
+      {
+        "name": "Lavender",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lavender.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_lavender_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_lavender_model_frontTN.jpg",
+        "pms": "2071C"
+      },
+      {
+        "name": "Lemon Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lemon.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_lemonyellow_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_lemonyellow_model_frontTN.jpg",
+        "pms": "7406C"
+      },
+      {
+        "name": "Light Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lightblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_lightblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_lightblue_model_frontTN.jpg",
+        "pms": "278C"
+      },
+      {
+        "name": "Light Sand",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lightsand.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_lightsand_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_lightsand_model_frontTN.jpg",
+        "pms": "7528C"
+      },
+      {
+        "name": "Lime",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lime.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_lime_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_lime_model_frontTN.jpg",
+        "pms": "367C"
+      },
+      {
+        "name": "Medium Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_MediumGrey_MRF26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f21/PC61_mediumgray_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_mediumgray_model_frontTN.jpg",
+        "pms": "2332C"
+      },
+      {
+        "name": "Natural",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_natural.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_natural_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_natural_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_navy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_navy_model_frontTN.jpg",
+        "pms": "2380C"
+      },
+      {
+        "name": "Olive",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_olive.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_olive_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_olive_model_frontTN.jpg",
+        "pms": "5743C"
+      },
+      {
+        "name": "Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_orange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_orange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_orange_model_frontTN.jpg",
+        "pms": "172C"
+      },
+      {
+        "name": "Orange Sherbet",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_orangesherbet.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f19/PC61_orangesherbet_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_orangesherbet_model_frontTN.jpg",
+        "pms": "2025C"
+      },
+      {
+        "name": "Pale Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lightpink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_palepink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_palepink_model_frontTN.jpg",
+        "pms": "684C"
+      },
+      {
+        "name": "Pistachio",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_pistachio.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_pistachio_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_pistachio_model_frontTN.jpg",
+        "pms": "577C"
+      },
+      {
+        "name": "Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_purple.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_purple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_purple_model_frontTN.jpg",
+        "pms": "7672C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_red.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_red_model_frontTN.jpg",
+        "pms": "200C"
+      },
+      {
+        "name": "Rich Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_richred.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_richred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_richred_model_frontTN.jpg",
+        "pms": "7427C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_royal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_royal_model_frontTN.jpg",
+        "pms": "2133C"
+      },
+      {
+        "name": "S. Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_SGREEN.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f19/PC61_sgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_sgreen_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "S. Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_SORANGE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f19/PC61_sorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_sorange_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Sand",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sand.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_sand_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_sand_model_frontTN.jpg",
+        "pms": "2312C"
+      },
+      {
+        "name": "Sangria",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sangria.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_sangria_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_sangria_model_frontTN.jpg",
+        "pms": "2046C"
+      },
+      {
+        "name": "Sapphire",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sapphire.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_sapphire_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_sapphire_model_frontTN.jpg",
+        "pms": "2185C"
+      },
+      {
+        "name": "Silver",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_Silver.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC61_silver_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_silver_model_frontTN.jpg",
+        "pms": "435C"
+      },
+      {
+        "name": "Steel Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_steelblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_steelblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_steelblue_model_frontTN.jpg",
+        "pms": "2376C"
+      },
+      {
+        "name": "Stonewashed Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_stonewashedblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_stonewashedblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_stonewashedblue_model_frontTN.jpg",
+        "pms": "2157C"
+      },
+      {
+        "name": "Stonewashed Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_stonewashedgreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_stonewashedgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_stonewashedgreen_model_frontTN.jpg",
+        "pms": "7538C"
+      },
+      {
+        "name": "Teal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_teal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f12/PC61_teal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_teal_model_frontTN.jpg",
+        "pms": "2224C"
+      },
+      {
+        "name": "Texas Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_texasorange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_texasorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_texasorange_model_frontTN.jpg",
+        "pms": "7585C"
+      },
+      {
+        "name": "True Celadon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_TrueCeladon.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC61_trueceladon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_trueceladon_model_frontTN.jpg",
+        "pms": "7464C"
+      },
+      {
+        "name": "Tundra Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_TundraBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC61_tundrablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_tundrablue_model_frontTN.jpg",
+        "pms": "645C"
+      },
+      {
+        "name": "Turquoise",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_turquoise.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_turquoise_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_turquoise_model_frontTN.jpg",
+        "pms": "7704C"
+      },
+      {
+        "name": "Ultramarine Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_ultramarine.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_ultramarineblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_ultramarineblue_model_frontTN.jpg",
+        "pms": "2129C"
+      },
+      {
+        "name": "Violet",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lilac.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_violet_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_violet_model_frontTN.jpg",
+        "pms": "2114C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_white.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_white_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_yellow.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_yellow_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_yellow_model_frontTN.jpg",
+        "pms": "127C"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 3.94,
+    "msrp": 5.88,
+    "pieceWeight": 0.39
+  },
+  {
+    "style": "PC55",
+    "title": "Port & Co Core Blend Tee.",
+    "brand": "Port & Co",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "A reliable choice for comfort softness and durability. 5.5-ounce 50/50 cotton/poly 1x1 rib knit collar Shoulder to shoulder back neck tapeTear-away labelPlease note: This product is transitioning from white to black tear-away labels. Your order may contain a combination of both colored labels.Due to the nature of 50...",
+    "availableSizes": "Adult Sizes: S-6XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_ash_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC55_ash_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_PC55.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/1626/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_PC55.pdf",
+    "companionStyle": "PC55|LPC55|PC55LS|PC55P|PC55T|PC55PT|PC55LST|PC55Y",
+    "colors": [
+      {
+        "name": "Aquatic Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_aquaticblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_aquaticblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_aquaticblue_model_frontTN.jpg",
+        "pms": "2389C"
+      },
+      {
+        "name": "Ash",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_ash.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_ash_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_ash_model_frontTN.jpg",
+        "pms": "COOL GRAY 3C"
+      },
+      {
+        "name": "Athletic Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_athleticheather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_athleticheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_athleticheather_model_frontTN.jpg",
+        "pms": "COOL GRAY 7C"
+      },
+      {
+        "name": "Athletic Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_athleticmaroon.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_athleticmaroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_athleticmaroon_model_frontTN.jpg",
+        "pms": "209C"
+      },
+      {
+        "name": "Black Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_BLACKHEATHER.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC55_blackheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_blackheather_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_brown.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_brown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_brown_model_frontTN.jpg",
+        "pms": "7519C"
+      },
+      {
+        "name": "Candy Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_candypink2.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_candypink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_candypink_model_frontTN.jpg",
+        "pms": "189C"
+      },
+      {
+        "name": "Cardinal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PORTANDCO_cardinal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_cardinal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_cardinal_model_frontTN.jpg",
+        "pms": "7638C"
+      },
+      {
+        "name": "Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_carolinablue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_carolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_carolinablue_model_frontTN.jpg",
+        "pms": "7682C"
+      },
+      {
+        "name": "Charcoal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_charcoal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_charcoal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_charcoal_model_frontTN.jpg",
+        "pms": "COOL GRAY 11C"
+      },
+      {
+        "name": "Coyote Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_CoyoteBrown.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_coyotebrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_coyotebrown_model_frontTN.jpg",
+        "pms": "2326C"
+      },
+      {
+        "name": "Dark Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_DarkGreen_MRF26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_darkgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_darkgreen_model_frontTN.jpg",
+        "pms": "560C"
+      },
+      {
+        "name": "Dark Heather Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_darkheathergrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_darkheathergrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_darkheathergrey_model_frontTN.jpg",
+        "pms": "7540C"
+      },
+      {
+        "name": "Desert Sand",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sand.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_desertsand_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_desertsand_model_frontTN.jpg",
+        "pms": "2324C"
+      },
+      {
+        "name": "Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_harvestgold.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_gold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_gold_model_frontTN.jpg",
+        "pms": "137C"
+      },
+      {
+        "name": "Graphite Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_GRAPHITEHEATHER.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC55_graphiteheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_graphiteheather_model_frontTN.jpg",
+        "pms": "COOL GRAY 10C"
+      },
+      {
+        "name": "Heather Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_HEATHERNAVY.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC55_heathernavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_heathernavy_model_frontTN.jpg",
+        "pms": "2379C"
+      },
+      {
+        "name": "Heather Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_HeatherPurple.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_heatherpurple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_heatherpurple_model_frontTN.jpg",
+        "pms": "7672C"
+      },
+      {
+        "name": "Heather Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_HeatherRed.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_heatherred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_heatherred_model_frontTN.jpg",
+        "pms": "703C"
+      },
+      {
+        "name": "Heather Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_HEATHERROYAL.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC55_heatherroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_heatherroyal_model_frontTN.jpg",
+        "pms": "7684C"
+      },
+      {
+        "name": "Jade Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_jadegreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_jadegreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_jadegreen_model_frontTN.jpg",
+        "pms": "7717C"
+      },
+      {
+        "name": "Jet Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_black.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC55_jetblack_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_jetblack_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Kelly",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_kelly.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_kelly_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_kelly_model_frontTN.jpg",
+        "pms": "340C"
+      },
+      {
+        "name": "Light Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lightblue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_lightblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_lightblue_model_frontTN.jpg",
+        "pms": "278C"
+      },
+      {
+        "name": "Lime",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lime.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_lime_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_lime_model_frontTN.jpg",
+        "pms": "367C"
+      },
+      {
+        "name": "Medium Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_medgrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_mediumgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_mediumgrey_model_frontTN.jpg",
+        "pms": "2332C"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_navy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_navy_model_frontTN.jpg",
+        "pms": "2380C"
+      },
+      {
+        "name": "Neon Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_NeonBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_neonblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_neonblue_model_frontTN.jpg",
+        "pms": "801C"
+      },
+      {
+        "name": "Neon Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_NeonPink.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_neonpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_neonpink_model_frontTN.jpg",
+        "pms": "926C"
+      },
+      {
+        "name": "Oatmeal Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_OATMEALHEATHER.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC55_oatmealheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_oatmealheather_model_frontTN.jpg",
+        "pms": "COOL GRAY 2C"
+      },
+      {
+        "name": "Olive Drab Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_OliveDrabGreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_olivedrabgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_olivedrabgreen_model_frontTN.jpg",
+        "pms": "7771C"
+      },
+      {
+        "name": "Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_orange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_orange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_orange_model_frontTN.jpg",
+        "pms": "172C"
+      },
+      {
+        "name": "Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_purple.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_purple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_purple_model_frontTN.jpg",
+        "pms": "7672C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_red.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_red_model_frontTN.jpg",
+        "pms": "200C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_Royal_SmSwatch_LGCY.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_royal_model_frontTN.jpg",
+        "pms": "2133C"
+      },
+      {
+        "name": "Safety Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_safetygreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_safetygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_safetygreen_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Safety Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_safetyorange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_safetyorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_safetyorange_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Sangria",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sangria.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_sangria_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_sangria_model_frontTN.jpg",
+        "pms": "2046C"
+      },
+      {
+        "name": "Sapphire",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sapphire.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC55_sapphire_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_sapphire_model_frontTN.jpg",
+        "pms": "2185C"
+      },
+      {
+        "name": "Silver",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_Silver.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_silver_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_silver_model_frontTN.jpg",
+        "pms": "435C"
+      },
+      {
+        "name": "Steel Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_SteelBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_steelblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_steelblue_model_frontTN.jpg",
+        "pms": "2376C"
+      },
+      {
+        "name": "True Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_TrueNavy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_truenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_truenavy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_TrueRoyal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_trueroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_trueroyal_model_frontTN.jpg",
+        "pms": "7687C"
+      },
+      {
+        "name": "Vintage Jade Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_VintageJadeGreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_vintagejadegreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_vintagejadegreen_model_frontTN.jpg",
+        "pms": "7717C"
+      },
+      {
+        "name": "Vintage Kelly",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_VintageKelly.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_vintagekelly_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_vintagekelly_model_frontTN.jpg",
+        "pms": "340C"
+      },
+      {
+        "name": "Vintage Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_VintageRed.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_vintagered_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_vintagered_model_frontTN.jpg",
+        "pms": "200C"
+      },
+      {
+        "name": "Vintage Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_VintageRoyal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_vintageroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_vintageroyal_model_frontTN.jpg",
+        "pms": "7687C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_white.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_white_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Woodland Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_WoodlandBrown.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_woodlandbrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_woodlandbrown_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_yellow.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_yellow_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_yellow_model_frontTN.jpg",
+        "pms": "127C"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 3.88,
+    "msrp": 5.76,
+    "pieceWeight": 0.35
+  },
+  {
+    "style": "PC54",
+    "title": "Port & Co Core Cotton Tee.",
+    "brand": "Port & Co",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "An indispensable t-shirt in our classic silhouettewith a very friendly price.5.4-ounce 100% cotton98/2 cotton/poly (Ash)90/10 cotton/poly (Athletic Heather)50/50 cotton/poly (Black Heather Dark Heather Grey Graphite Heather Heather Athletic Maroon Heather Dark Chocolate Brown Heather Navy Heather Purple Heather Red...",
+    "availableSizes": "Adult Sizes: S-6XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_ash_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_ash_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_PC54.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/3985/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_PC54.pdf",
+    "companionStyle": "PC54|PC54Y|LPC54|PC54LS|PC54V|PC54YLS|LPC54LS|CAR54T|CAR54I|PC54TT|LPC54TT|PC54R|LPC54VC|PC54C|PC54P|LPC54V|PC54SL|PC54T",
+    "colors": [
+      {
+        "name": "Aquatic Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_AquaticBlue_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_aquaticblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_aquaticblue_model_frontTN.jpg",
+        "pms": "2389C"
+      },
+      {
+        "name": "Ash",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Ash_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_ash_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_ash_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Athletic Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_AthleticHeather_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_athleticheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_athleticheather_model_frontTN.jpg",
+        "pms": "COOL GRAY 7C"
+      },
+      {
+        "name": "Athletic Kelly",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_AthleticKelly_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_athletickelly_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_athletickelly_model_frontTN.jpg",
+        "pms": "7728C"
+      },
+      {
+        "name": "Athletic Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_AthleticMaroon_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_athleticmaroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_athleticmaroon_model_frontTN.jpg",
+        "pms": "209C"
+      },
+      {
+        "name": "Black Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_BlackHeather_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_blackheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_blackheather_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Bright Aqua",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_BrightAqua_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_brightaqua_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_brightaqua_model_frontTN.jpg",
+        "pms": "322C"
+      },
+      {
+        "name": "Candy Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CandyPink_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_candypink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_candypink_model_frontTN.jpg",
+        "pms": "189C"
+      },
+      {
+        "name": "Cardinal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Cardinal_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_cardinal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_cardinal_model_frontTN.jpg",
+        "pms": "7638C"
+      },
+      {
+        "name": "Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CarolinaBlue_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC54_carolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_carolinablue_model_frontTN.jpg",
+        "pms": "7682C"
+      },
+      {
+        "name": "Charcoal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Charcoal_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_charcoal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_charcoal_model_frontTN.jpg",
+        "pms": "COOL GRAY 11C"
+      },
+      {
+        "name": "Cherry Blossom",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CherryBlossom_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_cherryblossom_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_cherryblossom_model_frontTN.jpg",
+        "pms": "2050C"
+      },
+      {
+        "name": "Clover Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CloverGreen_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC54_clovergreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_clovergreen_model_frontTN.jpg",
+        "pms": "347C"
+      },
+      {
+        "name": "Coal Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CoalGrey_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_coalgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_coalgrey_model_frontTN.jpg",
+        "pms": "4287C"
+      },
+      {
+        "name": "Coral",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Coral_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC54_coral_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_coral_model_frontTN.jpg",
+        "pms": "178C"
+      },
+      {
+        "name": "Coyote Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CoyoteBrown_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_coyotebrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_coyotebrown_model_frontTN.jpg",
+        "pms": "2326C"
+      },
+      {
+        "name": "Creme",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Creme_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_cream_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_cream_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Dark Chocolate Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_DarkChocolateBrown_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_darkchocolatebrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_darkchocolatebrown_model_frontTN.jpg",
+        "pms": "412C"
+      },
+      {
+        "name": "Dark Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_DarkGreen_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_darkgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_darkgreen_model_frontTN.jpg",
+        "pms": "560C"
+      },
+      {
+        "name": "Dark Heather Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_DarkHeatherGrey_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_darkheathergrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_darkheathergrey_model_frontTN.jpg",
+        "pms": "7540C"
+      },
+      {
+        "name": "Duck Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_DuckBrown_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_duckbrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_duckbrown_model_frontTN.jpg",
+        "pms": "7575C"
+      },
+      {
+        "name": "Flush Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_FlushPink_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC54_flushpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_flushpink_model_frontTN.jpg",
+        "pms": "215C"
+      },
+      {
+        "name": "Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Gold_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_gold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_gold_model_frontTN.jpg",
+        "pms": "137C"
+      },
+      {
+        "name": "Graphite Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_GraphiteHeather_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_graphiteheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_graphiteheather_model_frontTN.jpg",
+        "pms": "COOL GREY 10C"
+      },
+      {
+        "name": "Heather Athletic Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherAthleticMaroon_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heatherathleticmaroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heatherathleticmaroon_model_frontTN.jpg",
+        "pms": "7644C"
+      },
+      {
+        "name": "Heather Dark Chocolate Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherDarkChocolateBrown_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heatherdarkchocolatebrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heatherdarkchocolatebrown_model_frontTN.jpg",
+        "pms": "411C"
+      },
+      {
+        "name": "Heather Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherNavy_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heathernavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heathernavy_model_frontTN.jpg",
+        "pms": "2379C"
+      },
+      {
+        "name": "Heather Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherPurple_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heatherpurple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heatherpurple_model_frontTN.jpg",
+        "pms": "7672C"
+      },
+      {
+        "name": "Heather Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherRed_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heatherred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heatherred_model_frontTN.jpg",
+        "pms": "703C"
+      },
+      {
+        "name": "Heather Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherRoyal_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heatherroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heatherroyal_model_frontTN.jpg",
+        "pms": "7684C"
+      },
+      {
+        "name": "Heather Sangria",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherSangria_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heathersangria_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heathersangria_model_frontTN.jpg",
+        "pms": "2046C"
+      },
+      {
+        "name": "Heathered Dusty Peach",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatheredDustyPeach_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_heathereddustypeach_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heathereddustypeach_model_frontTN.jpg",
+        "pms": "7513C"
+      },
+      {
+        "name": "Ivory",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Ivory_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_ivory_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_ivory_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Jade Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_JadeGreen_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_jadegreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_jadegreen_model_frontTN.jpg",
+        "pms": "7717C"
+      },
+      {
+        "name": "Jadeite",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Jadeite_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_jadeite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_jadeite_model_frontTN.jpg",
+        "pms": "337C"
+      },
+      {
+        "name": "Jet Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_JetBlack_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_jetblack_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_jetblack_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Kelly",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Kelly_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_kelly_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_kelly_model_frontTN.jpg",
+        "pms": "340C"
+      },
+      {
+        "name": "Laurel Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_LaurelGreen_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_laurelgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_laurelgreen_model_frontTN.jpg",
+        "pms": "4198C"
+      },
+      {
+        "name": "Lavender",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Lavender_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_lavender_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_lavender_model_frontTN.jpg",
+        "pms": "2071C"
+      },
+      {
+        "name": "Lemon Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_LemonYellow_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_lemonyellow_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_lemonyellow_model_frontTN.jpg",
+        "pms": "7406C"
+      },
+      {
+        "name": "Light Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_LightBlue_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_lightblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_lightblue_model_frontTN.jpg",
+        "pms": "278C"
+      },
+      {
+        "name": "Light Sand",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_LightSand_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_lightsand_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_lightsand_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Lime",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Lime_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_lime_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_lime_model_frontTN.jpg",
+        "pms": "367C"
+      },
+      {
+        "name": "Medium Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_MediumGrey_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_mediumgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_mediumgrey_model_frontTN.jpg",
+        "pms": "2332C"
+      },
+      {
+        "name": "Natural",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Natural_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_natural_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_natural_model_frontTN.jpg",
+        "pms": "9185C"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Navy_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_navy_model_frontTN.jpg",
+        "pms": "2380C"
+      },
+      {
+        "name": "Neon Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeonBlue_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC54_neonblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neonblue_model_frontTN.jpg",
+        "pms": "801C"
+      },
+      {
+        "name": "Neon Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeonGreen_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_neongreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neongreen_model_frontTN.jpg",
+        "pms": "902C"
+      },
+      {
+        "name": "Neon Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeonOrange_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f12/PC54_neonorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neonorange_model_frontTN.jpg",
+        "pms": "811C"
+      },
+      {
+        "name": "Neon Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeonPink_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_neonpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neonpink_model_frontTN.jpg",
+        "pms": "926C"
+      },
+      {
+        "name": "Neon Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeonYellow_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_neonyellow_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neonyellow_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Neptune Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeptuneBlue_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_neptuneblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neptuneblue_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Oatmeal Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_OatmealHeather_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_oatmealheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_oatmealheather_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Olive",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Olive_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC54_olive_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_olive_model_frontTN.jpg",
+        "pms": "5743C"
+      },
+      {
+        "name": "Olive Drab Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_OliveDrabGreen_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_olivedrabgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_olivedrabgreen_model_frontTN.jpg",
+        "pms": "7771C"
+      },
+      {
+        "name": "Olive Drab Green Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_OliveDrabGreenHeather_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_olivedrabgreenheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_olivedrabgreenheather_model_frontTN.jpg",
+        "pms": "4229C"
+      },
+      {
+        "name": "Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Orange_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_orange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_orange_model_frontTN.jpg",
+        "pms": "172C"
+      },
+      {
+        "name": "Pale Blush",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_PaleBlush_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_paleblush_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_paleblush_model_frontTN.jpg",
+        "pms": "5025C"
+      },
+      {
+        "name": "Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Purple_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_purple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_purple_model_frontTN.jpg",
+        "pms": "7672C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Red_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_red_model_frontTN.jpg",
+        "pms": "200C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Royal_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_royal_model_frontTN.jpg",
+        "pms": "2133C"
+      },
+      {
+        "name": "S. Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_S.Green_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_sgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_sgreen_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "S. Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_S.Orange_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_sorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_sorange_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Sand",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Sand_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_sand_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_sand_model_frontTN.jpg",
+        "pms": "2312C"
+      },
+      {
+        "name": "Sangria",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Sangria_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_sangria_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_sangria_model_frontTN.jpg",
+        "pms": "2046C"
+      },
+      {
+        "name": "Sapphire",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Sapphire_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_sapphire_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_sapphire_model_frontTN.jpg",
+        "pms": "2185C"
+      },
+      {
+        "name": "Silver",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Silver_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC54_silver_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_silver_model_frontTN.jpg",
+        "pms": "435C"
+      },
+      {
+        "name": "Steel Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_SteelBlue_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_steelblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_steelblue_model_frontTN.jpg",
+        "pms": "2376C"
+      },
+      {
+        "name": "Stonewashed Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_StonewashedBlue_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f3/PC54_stonewashedblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_stonewashedblue_model_frontTN.jpg",
+        "pms": "5425C"
+      },
+      {
+        "name": "Teal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Teal_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_teal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_teal_model_frontTN.jpg",
+        "pms": "2224C"
+      },
+      {
+        "name": "Team Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TeamPurple_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_teampurple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_teampurple_model_frontTN.jpg",
+        "pms": "669C"
+      },
+      {
+        "name": "Tennessee Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TennesseeOrange_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC54_tennesseeorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_tennesseeorange_model_frontTN.jpg",
+        "pms": "2018C"
+      },
+      {
+        "name": "Tidal Wave",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TidalWave_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_tidalwave_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_tidalwave_model_frontTN.jpg",
+        "pms": "305C"
+      },
+      {
+        "name": "True Celadon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TrueCeladon_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_trueceladon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_trueceladon_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "True Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TrueNavy_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_truenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_truenavy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TrueRoyal_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_trueroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_trueroyal_model_frontTN.jpg",
+        "pms": "7687C"
+      },
+      {
+        "name": "Tundra Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TundraBlue_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_tundrablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_tundrablue_model_frontTN.jpg",
+        "pms": "645C"
+      },
+      {
+        "name": "Violet",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Violet_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_violet_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_violet_model_frontTN.jpg",
+        "pms": "2046C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_White_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_white_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Woodland Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_WoodlandBrown_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_woodlandbrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_woodlandbrown_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Yellow_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_yellow_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_yellow_model_frontTN.jpg",
+        "pms": "127C"
+      },
+      {
+        "name": "Zinnia",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Zinnia_SP26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_zinnia_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_zinnia_model_frontTN.jpg",
+        "pms": "7419C"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 3.7,
+    "msrp": 5.4,
+    "pieceWeight": 0.35
+  },
+  {
+    "style": "8000",
+    "title": "Gildan DryBlend 50 Cotton/50 Poly T-Shirt.",
+    "brand": "Gildan",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "5.5-ounce 50 US cotton/50 poly65 US cotton/35 poly (Heathers)DryBlend moisture-wicking propertiesRecycled high-performing black tear-away labelNon-topstitched classic width rib collar Taped neck and shouldersClassic fit seamless bodySafety Green is compliant with ANSI/ISEA 107 high-visibility standards for backgroun...",
+    "availableSizes": "Adult Sizes: S-5XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_white_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_white_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_8000.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/1104/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_8000.pdf",
+    "companionStyle": "8000|8300|8400|8000B",
+    "colors": [
+      {
+        "name": "Ash",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Ash_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_ash_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_ash_model_frontTN.jpg",
+        "pms": "COOL GRAY 3C"
+      },
+      {
+        "name": "Azalea",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Azalea.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_azalea_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_azalea_model_frontTN.jpg",
+        "pms": "2045C"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Black_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_black_model_frontTN.jpg",
+        "pms": "426C"
+      },
+      {
+        "name": "Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_CarolinaBlue_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_carolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_carolinablue_model_frontTN.jpg",
+        "pms": "659C"
+      },
+      {
+        "name": "Daisy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Daisy_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_daisy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_daisy_model_frontTN.jpg",
+        "pms": "122C"
+      },
+      {
+        "name": "Dark Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_DarkGreen_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_sportdarkgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sportdarkgreen_model_frontTN.jpg",
+        "pms": "554C"
+      },
+      {
+        "name": "Dark Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_DarkHeather_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_darkheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_darkheather_model_frontTN.jpg",
+        "pms": "7545C"
+      },
+      {
+        "name": "Dark Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_DarkNavy_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_sportdarknavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sportdarknavy_model_frontTN.jpg",
+        "pms": "289C"
+      },
+      {
+        "name": "Deep Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_DeepRoyal_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f9/8000_sportroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sportroyal_model_frontTN.jpg",
+        "pms": "288C"
+      },
+      {
+        "name": "Electric Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_ElectricGreen_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f6/8000_electricgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_electricgreen_model_frontTN.jpg",
+        "pms": "361C"
+      },
+      {
+        "name": "Forest Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_ForestGreen_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_forestgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_forestgreen_model_frontTN.jpg",
+        "pms": "5535C"
+      },
+      {
+        "name": "Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Gold_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_gold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_gold_model_frontTN.jpg",
+        "pms": "1235C"
+      },
+      {
+        "name": "Graphite Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_GraphiteHeather_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_graphiteheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_graphiteheather_model_frontTN.jpg",
+        "pms": "424 C"
+      },
+      {
+        "name": "Gravel",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Gravel_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_gravel_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_gravel_model_frontTN.jpg",
+        "pms": "COOL GRAY 8C"
+      },
+      {
+        "name": "Heather Dark Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_HeatherDarkNavy_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/8000_heatherdarknavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_heatherdarknavy_model_frontTN.jpg",
+        "pms": "5275C"
+      },
+      {
+        "name": "Heather Deep Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_HeatherDeepRoyal_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f17/8000_heathersportroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_heathersportroyal_model_frontTN.jpg",
+        "pms": "7684C"
+      },
+      {
+        "name": "Heather Scarlet Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_HeatherScarletRed_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_heathersportscarlet_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_heathersportscarlet_model_frontTN.jpg",
+        "pms": "703C"
+      },
+      {
+        "name": "Heliconia",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Heliconia_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_heliconia_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_heliconia_model_frontTN.jpg",
+        "pms": "213C"
+      },
+      {
+        "name": "Irish Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_IrishGreen_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_irishgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_irishgreen_model_frontTN.jpg",
+        "pms": "2252C"
+      },
+      {
+        "name": "Jade Dome",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_JadeDome_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_jadedome_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_jadedome_model_frontTN.jpg",
+        "pms": "7717C"
+      },
+      {
+        "name": "Kelly Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_KellyGreen_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_kellygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_kellygreen_model_frontTN.jpg",
+        "pms": "335C"
+      },
+      {
+        "name": "Light Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_LightBlue_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_lightblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_lightblue_model_frontTN.jpg",
+        "pms": "543C"
+      },
+      {
+        "name": "Light Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_LightPink_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_lightpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_lightpink_model_frontTN.jpg",
+        "pms": "684C"
+      },
+      {
+        "name": "Lime",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Lime_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_lime_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_lime_model_frontTN.jpg",
+        "pms": "7488C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Maroon_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_maroon_model_frontTN.jpg",
+        "pms": "7644C"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Navy_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Orange_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_orange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_orange_model_frontTN.jpg",
+        "pms": "2026C"
+      },
+      {
+        "name": "Orchid",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Orchid_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_orchid_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_orchid_model_frontTN.jpg",
+        "pms": "2635C"
+      },
+      {
+        "name": "Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Purple_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_purple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_purple_model_frontTN.jpg",
+        "pms": "2112C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Red_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_red_model_frontTN.jpg",
+        "pms": "199C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Royal_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_royal_model_frontTN.jpg",
+        "pms": "7686C"
+      },
+      {
+        "name": "S. Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_SOrange_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_sorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sorange_model_frontTN.jpg",
+        "pms": "021C"
+      },
+      {
+        "name": "Safety Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_SafetyGreen_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_safetygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_safetygreen_model_frontTN.jpg",
+        "pms": "382C"
+      },
+      {
+        "name": "Sand",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Sand_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_sand_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sand_model_frontTN.jpg",
+        "pms": "7528C"
+      },
+      {
+        "name": "Sapphire",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Sapphire_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_sapphire_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sapphire_model_frontTN.jpg",
+        "pms": "641C"
+      },
+      {
+        "name": "Scarlet Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_ScarletRed_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_sportscarletred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sportscarletred_model_frontTN.jpg",
+        "pms": "200C"
+      },
+      {
+        "name": "Sport Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_SportGrey_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_sportgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sportgrey_model_frontTN.jpg",
+        "pms": "COOL GRAY 7C"
+      },
+      {
+        "name": "Tennessee Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_TennesseeOrange_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_tennesseeorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_tennesseeorange_model_frontTN.jpg",
+        "pms": "151C"
+      },
+      {
+        "name": "Texas Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_TexasOrange_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_texasorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_texasorange_model_frontTN.jpg",
+        "pms": "7592C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_White_swatch_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_white_model_frontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 4.1,
+    "msrp": 6.2,
+    "pieceWeight": 0.35
   },
   {
     "style": "5000",
@@ -1856,54 +5637,1420 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.32
   },
   {
-    "style": "BC3001B",
-    "title": "BELLA+CANVAS Infant Jersey Short Sleeve Tee",
-    "brand": "Bella + Canvas",
+    "style": "8300",
+    "title": "Gildan - DryBlend 50 Cotton/50 Poly Pocket T-Shirt.",
+    "brand": "Gildan",
     "category": "T-Shirts",
     "subcategory": "",
-    "description": "CrewneckSide seamedTear-away label4.2-ounce 100% Airlume combed and ring spun cotton 32 singles",
-    "availableSizes": "Infant Sizes: 3M-24M",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001B_black_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001B_black_flat_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC3001B.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/64773/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC3001B.pdf",
-    "companionStyle": "",
+    "description": "5.5-ounce 50/50 cotton/poly DryBlend moisture-wicking properties Non-topstitched classic width rib collar Taped neck and shoulders Left chest pocket Recycled high-performing black tear-away labelClassic fit seamless bodySafety Green is compliant with ANSI/ISEA 107 high-visibility standards for background color",
+    "availableSizes": "Adult Sizes: S-3XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f6/8300_ashgrey_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f6/8300_ashgrey_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_8300.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/2085/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_8300.pdf",
+    "companionStyle": "8300|8400|8000|8000B",
     "colors": [
       {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001B_Black_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001B_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001B_black_model_frontTN.jpg",
-        "pms": "BLACK C"
+        "name": "Ash Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_AshGrey_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f6/8300_ashgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_ashgrey_model_frontTN.jpg",
+        "pms": "COOL GRAY 3C"
       },
       {
-        "name": "Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001B_Pink_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001B_pink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001B_pink_model_frontTN.jpg",
-        "pms": "706C"
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_Black_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_black_model_frontTN.jpg",
+        "pms": "426C"
+      },
+      {
+        "name": "Graphite Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_GraphiteHeather_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/8300_graphiteheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_graphiteheather_model_frontTN.jpg",
+        "pms": "424C"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_Navy_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_Red_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_red_model_frontTN.jpg",
+        "pms": "199C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_Royal_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_royal_model_frontTN.jpg",
+        "pms": "7686C"
+      },
+      {
+        "name": "S. Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_SOrange_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/8300_sorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_sorange_model_frontTN.jpg",
+        "pms": "021C"
+      },
+      {
+        "name": "Safety Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_SafetyGreen_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f6/8300_safetygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_safetygreen_model_frontTN.jpg",
+        "pms": "382C"
+      },
+      {
+        "name": "Sport Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_SportGrey_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_sportgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_sportgrey_model_frontTN.jpg",
+        "pms": "COOL GRAY 7C"
       },
       {
         "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001B_White_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Bsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001B_white_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001B_white_flat_frontTN.jpg",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8300_White_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8300sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8300_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8300_white_model_frontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 5.37,
+    "msrp": 8.74,
+    "pieceWeight": 0.39
+  },
+  {
+    "style": "BC3200",
+    "title": "BELLA+CANVAS Unisex 3/4-Sleeve Baseball Tee.",
+    "brand": "Bella + Canvas",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Retail fit Tear-away label Contrast raglan sleeves and neck trim Side seamed Solid Colorblock: 3.6-ounce 52/48 Airlume combed and ring spun cotton/poly 40 singles Black Heather: 90/10 Airlume combed and ring spun cotton/poly Marble Colorblock: 4-ounce 91/9 poly/Airlume combed and ring spun cotton 32 singles Triblend...",
+    "availableSizes": "Unisex Sizes: XS-2XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_blackheatherblack_model_front_072019.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_blackheatherblack_model_back_072019.jpg",
+    "specSheet": "SpecSheetMeasurements_BC3200.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/9266/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC3200.pdf",
+    "companionStyle": "BC3200",
+    "colors": [
+      {
+        "name": "Black Heather/ Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_blackheatherblack.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_blackheatherblack_model_front_072019.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_blackheatherblack_model_front_072019TN.jpg",
+        "pms": "Black C"
+      },
+      {
+        "name": "Black/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_blackwhite.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_blackwhite_model_front_072019.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_blackwhite_model_front_072019TN.jpg",
+        "pms": "White C"
+      },
+      {
+        "name": "Deep Heather/ Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_deepheatherblack.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_deepheatherblack_model_front_072019.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_deepheatherblack_model_front_072019TN.jpg",
+        "pms": "2333CP"
+      },
+      {
+        "name": "Grey/ Charcoal-Black Triblend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_greycharcoalblacktriblend.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3200_greycharcoalblacktri_model_front_062018.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_greycharcoalblacktri_model_front_062018TN.jpg",
+        "pms": "Black 7CP"
+      },
+      {
+        "name": "Grey/ Maroon Triblend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_greymaroontriblend.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3200_greymaroontriblend_model_front_062018.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_greymaroontriblend_model_front_062018TN.jpg",
+        "pms": "209U"
+      },
+      {
+        "name": "Grey/ Red Triblend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_greyredtriblend.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3200_greyredtriblend_model_front_062018.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_greyredtriblend_model_front_062018TN.jpg",
+        "pms": "1797C"
+      },
+      {
+        "name": "Grey/ True Royal Triblend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_greytrueroyaltriblend.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3200_greytrueroyaltri_model_front_062018.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_greytrueroyaltri_model_front_062018TN.jpg",
+        "pms": "286CP"
+      },
+      {
+        "name": "White Fleck/ Charcoal-Black Triblend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitefleckcharcoalblacktriblend.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3200_whtflkchrcoalblktri_model_front_062018.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whtflkchrcoalblktri_model_front_062018TN.jpg",
+        "pms": "COOL GRAY 1CP"
+      },
+      {
+        "name": "White/ Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whiteblack.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whiteblack_model_front_072019.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whiteblack_model_front_072019TN.jpg",
+        "pms": "Black C"
+      },
+      {
+        "name": "White/ Deep Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitedeepheather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whitedeepheather_model_front_072019.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whitedeepheather_model_front_072019TN.jpg",
+        "pms": "2333CP"
+      },
+      {
+        "name": "White/ Kelly",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitekelly.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whitekelly_model_front_072019.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whitekelly_model_front_072019TN.jpg",
+        "pms": "341C"
+      },
+      {
+        "name": "White/ Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitenavy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whitenavy_model_front_072019.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whitenavy_model_front_072019TN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "White/ Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitered.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whitered_model_front_072019.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whitered_model_front_072019TN.jpg",
+        "pms": "200C"
+      },
+      {
+        "name": "White/ True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitetrueroyal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whitetrueroyal_model_front_072019.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whitetrueroyal_model_front_072019TN.jpg",
+        "pms": "7684CP"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 9.48,
+    "msrp": 14.96,
+    "pieceWeight": 0.26
+  },
+  {
+    "style": "ST370",
+    "title": "Sport-Tek CamoHex Tee.",
+    "brand": "Sport-Tek",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "With an all-over sublimated digital camo print and powerful moisture wicking CamoHex delivers high performance and bold style for athletes and fans alike.4-ounce 100% polyester interlock Tag-free label Set-in sleeves*Due to the nature of 100% polyester performance fabrics special care must be taken throughout the sc...",
+    "availableSizes": "Adult Sizes: XS-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_forestgreen_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_forestgreen_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_ST370.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/6676/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_ST370.pdf",
+    "companionStyle": "ST370|LST370|YST370|YST240|YST239|ST371|LST371|YST371|ST239|STC23|ST240",
+    "colors": [
+      {
+        "name": "Deep Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_deepred_ST370.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_deepred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_deepred_model_frontTN.jpg",
+        "pms": "201C"
+      },
+      {
+        "name": "Forest Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_forestgreen_ST370.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_forestgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_forestgreen_model_frontTN.jpg",
+        "pms": "553C"
+      },
+      {
+        "name": "Iron Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_irongrey_ST370.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_irongrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_irongrey_model_frontTN.jpg",
+        "pms": "7540C"
+      },
+      {
+        "name": "Lime Shock",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_limeshock_ST370.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_limeshock_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_limeshock_model_frontTN.jpg",
+        "pms": "375C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_maroon_ST370.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_maroon_model_frontTN.jpg",
+        "pms": "504C"
+      },
+      {
+        "name": "Neon Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonorange_ST370.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_neonorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_neonorange_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_purplecamohex.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_purple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_purple_model_frontTN.jpg",
+        "pms": "7672C"
+      },
+      {
+        "name": "True Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_truenavy_ST370.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_truenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_truenavy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_trueroyal_ST370.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_trueroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_trueroyal_model_frontTN.jpg",
+        "pms": "7687C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_white_ST370.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST370sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f15/ST370_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST370_white_model_frontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 9.47,
+    "msrp": 14.94,
+    "pieceWeight": 0.3
+  },
+  {
+    "style": "18600",
+    "title": "Gildan - Heavy Blend Full-Zip Hooded Sweatshirt.",
+    "brand": "Gildan",
+    "category": "Sweatshirts/Fleece",
+    "subcategory": "",
+    "description": "8-ounce US 50/50 cotton/poly Double-needle stitching at waistband and cuffs Unlined hood with dyed-to-match drawcord YKK metal zipper 1x1 rib knit cuffs and waistband with spandex Front pouch pockets Safety Green is compliant with ANSI/ISEA 107 high-visibility standardsRecycled high-performing black tear-away label",
+    "availableSizes": "Adult Sizes: S-5XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_white_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_white_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_18600.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/437/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_18600.pdf",
+    "companionStyle": "18600|18600B|18500B|18500|18000B|18000|18200|18200B",
+    "colors": [
+      {
+        "name": "Ash",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Ash.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_ashgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_ashgrey_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Black.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_black_model_frontTN.jpg",
+        "pms": "426C"
+      },
+      {
+        "name": "Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_CarolinaBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f11/18600_carolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_carolinablue_model_frontTN.jpg",
+        "pms": "659C"
+      },
+      {
+        "name": "Dark Chocolate",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_DarkChocolate.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_darkchocolate_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_darkchocolate_model_frontTN.jpg",
+        "pms": "412C"
+      },
+      {
+        "name": "Dark Heather Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_darkheather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_darkheathergrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_darkheathergrey_model_frontTN.jpg",
+        "pms": "446C"
+      },
+      {
+        "name": "Forest Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Forest.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_forestgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_forestgreen_model_frontTN.jpg",
+        "pms": "5535C"
+      },
+      {
+        "name": "Graphite Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gil_GraphiteHeather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f9/18600_graphiteheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_graphiteheather_model_frontTN.jpg",
+        "pms": "424C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Maroon.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_maroon_model_frontTN.jpg",
+        "pms": "7644C"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Navy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_purple.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_purple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_purple_model_frontTN.jpg",
+        "pms": "2112C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Red.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_red_model_frontTN.jpg",
+        "pms": "199C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Royal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_royal_model_frontTN.jpg",
+        "pms": "7686C"
+      },
+      {
+        "name": "S. Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_safetyorange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_s.orange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_s.orange_model_frontTN.jpg",
+        "pms": "ORANGE 021C"
+      },
+      {
+        "name": "Safety Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_safetygreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_safetygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_safetygreen_model_frontTN.jpg",
+        "pms": "382C"
+      },
+      {
+        "name": "Sport Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_SportGrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_sportgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_sportgrey_model_frontTN.jpg",
+        "pms": "COOL GREY 7C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/18600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/18600_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/18600_white_model_frontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 22.13,
+    "msrp": 36.26,
+    "pieceWeight": 1.06
+  },
+  {
+    "style": "BC4719",
+    "title": "BELLA+CANVAS Unisex 10-Ounce Heavyweight Pullover Hoodie",
+    "brand": "Bella + Canvas",
+    "category": "Sweatshirts/Fleece",
+    "subcategory": "",
+    "description": "Relaxed fitDouble layered hood with single dart construction no drawcordInterior brushed fleeceSide seamedSingle front pocketTear-away label10-ounce 65/35 Airlume combed and ring spun cotton/polyester fleeceAthletic Heather: 94/6 Airlume combed and ring spun cotton/polyesterPlease note: This style is currently trans...",
+    "availableSizes": "Unisex Sizes: XS-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_dust_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_dust_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC4719.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/64674/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC4719.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Asphalt",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Asphalt_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_asphalt_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_asphalt_model_frontTN.jpg",
+        "pms": "BLACK 7U"
+      },
+      {
+        "name": "Athletic Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_AthleticHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_athleticheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_athleticheather_model_frontTN.jpg",
+        "pms": "COOL GREY 5UP"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Black_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_black_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Dust",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Dust_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_dust_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_dust_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Forest",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Forest_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_forest_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_forest_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Maroon_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_maroon_model_frontTN.jpg",
+        "pms": "7643C"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_Navy_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Vintage Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_VintageBlack_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_vintageblack_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_vintageblack_model_frontTN.jpg",
+        "pms": "419C"
+      },
+      {
+        "name": "Vintage Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_VintageBrown_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_vintagebrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_vintagebrown_model_frontTN.jpg",
+        "pms": "7575U"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4719_White_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4719sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4719_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4719_white_model_frontTN.jpg",
         "pms": "WHITE C"
       }
     ],
     "sizes": [
-      "0306",
-      "0612",
-      "1218",
-      "1824"
+      "2XL",
+      "3XL",
+      "4XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
     ],
-    "priceFrom": 4.4,
-    "msrp": 6.8,
-    "pieceWeight": 0.09
+    "priceFrom": 25.51,
+    "msrp": 43.02,
+    "pieceWeight": 1.5
+  },
+  {
+    "style": "ST870",
+    "title": "Sport-Tek Circuit Hooded Full-Zip",
+    "brand": "Sport-Tek",
+    "category": "Sweatshirts/Fleece",
+    "subcategory": "",
+    "description": "Ideal for warmups or cooldowns the Circuit Hooded Full-Zip moves with you throughout your practice game or day. 7.8-ounce 78/22 poly/spandex Tear-away removable label Three-panel hood Vislon front zipper Secure front pockets",
+    "availableSizes": "Adult Sizes: XS-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/ST870_deepblack_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/ST870_deepblack_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_ST870.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/18473/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_ST870.pdf",
+    "companionStyle": "ST870",
+    "colors": [
+      {
+        "name": "Deep Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_DeepBlack_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST870sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/ST870_deepblack_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST870_deepblack_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Graphite",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_graphite.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST870sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/ST870_graphite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST870_graphite_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "True Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST870_TRUENAVY.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST870sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f23/ST870_truenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST870_truenavy_model_frontTN.jpg",
+        "pms": "533C"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 33.05,
+    "msrp": 58.1,
+    "pieceWeight": 0.96
+  },
+  {
+    "style": "8400",
+    "title": "Gildan - DryBlend 50 Cotton/50 Poly Long Sleeve T-Shirt.",
+    "brand": "Gildan",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "5.5-ounce 50/50 cotton/poly DryBlend moisture-wicking propertiesRecycled high-performing black tear-away label Non-topstitched classic width rib collar Taped neck and shoulders Rib knit cuffsClassic fit seamless bodySafety Green is compliant with ANSI/ISEA 107 high-visibility standards for background color",
+    "availableSizes": "Adult Sizes: S-3XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/8400_ashgrey_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/8400_ashgrey_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_8400.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/4211/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_8400.pdf",
+    "companionStyle": "8400|8000|8300|8000B",
+    "colors": [
+      {
+        "name": "Ash Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Ash.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/8400_ashgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_ashgrey_model_frontTN.jpg",
+        "pms": "COOL GRAY 3C"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Black.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_black_model_frontTN.jpg",
+        "pms": "426C"
+      },
+      {
+        "name": "Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_carolinablue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/8400_carolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_carolinablue_model_frontTN.jpg",
+        "pms": "659C"
+      },
+      {
+        "name": "Dark Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_darkheather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8400_darkheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_darkheather_model_frontTN.jpg",
+        "pms": "7545C"
+      },
+      {
+        "name": "Forest Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Forest.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_forestgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_forestgreen_model_frontTN.jpg",
+        "pms": "5535C"
+      },
+      {
+        "name": "Graphite Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_8400_graphiteheather_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8400_graphiteheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_graphiteheather_model_frontTN.jpg",
+        "pms": "424C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_maroon.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8400_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_maroon_model_frontTN.jpg",
+        "pms": "7644C"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Navy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_orange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_orange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_orange_model_frontTN.jpg",
+        "pms": "2026C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Red.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_red_model_frontTN.jpg",
+        "pms": "199C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Royal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_royal_model_frontTN.jpg",
+        "pms": "7686C"
+      },
+      {
+        "name": "S. Orange",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_safetyorange.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8400_safetyorange_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_safetyorange_model_frontTN.jpg",
+        "pms": "021C"
+      },
+      {
+        "name": "Safety Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_safetygreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8400_safetygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_safetygreen_model_frontTN.jpg",
+        "pms": "382C"
+      },
+      {
+        "name": "Sport Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_SportGrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_sportgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_sportgrey_model_frontTN.jpg",
+        "pms": "COOL GRAY 7C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8400sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8400_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8400_white_model_frontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 7.19,
+    "msrp": 10.38,
+    "pieceWeight": 0.45
+  },
+  {
+    "style": "BC3511",
+    "title": "BELLA+CANVAS Unisex 6-Ounce Heavyweight Long Sleeve Tee",
+    "brand": "Bella + Canvas",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Boxy relaxed fitDrop shoulderSide seamedTear-away label6-ounce 100% Airlume combed and ring spun cotton 20 singlesAthletic Heather: 90/10 Airlume combed and ring spun cotton/polyester",
+    "availableSizes": "Unisex Sizes: XS-3XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_forest_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_forest_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC3511.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/64574/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC3511.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Athletic Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_AthleticHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_athleticheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_athleticheather_model_frontTN.jpg",
+        "pms": "COOL GREY 5 UP"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Black_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_black_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Dark Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_DarkGrey_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_darkgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_darkgrey_model_frontTN.jpg",
+        "pms": "432CP"
+      },
+      {
+        "name": "Forest",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Forest_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_forest_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_forest_model_frontTN.jpg",
+        "pms": "5535C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Maroon_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_maroon_model_frontTN.jpg",
+        "pms": "7643C"
+      },
+      {
+        "name": "Natural",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Natural_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_natural_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_natural_model_frontTN.jpg",
+        "pms": "7500CP"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Navy_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Soft Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_SoftPink_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_softpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_softpink_model_frontTN.jpg",
+        "pms": "7604UP"
+      },
+      {
+        "name": "Toast",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Toast_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_toast_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_toast_model_frontTN.jpg",
+        "pms": "7574C"
+      },
+      {
+        "name": "Vintage Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_VintageBlack_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_vintageblack_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_vintageblack_model_frontTN.jpg",
+        "pms": "419C"
+      },
+      {
+        "name": "Vintage White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_VintageWhite_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_vintagewhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_vintagewhite_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_White_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_white_model_frontTN.jpg",
+        "pms": "WHITE C"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 9.84,
+    "msrp": 15.68,
+    "pieceWeight": 0.54
+  },
+  {
+    "style": "ST376LS",
+    "title": "Sport-Tek Drift Camo Colorblock Long Sleeve Tee",
+    "brand": "Sport-Tek",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Step up your game in this moisture-wicking tee that delivers UV protection and features our unique drift camo print and bold colorblocking. 3.8-ounce 100% polyesterColor-locking PosiCharge technology (solid body only)UPF rating of 30Tear-away removable labelRaglan sleeves",
+    "availableSizes": "Adult Sizes: XS-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_black_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_black_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_ST376LS.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/27777/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_ST376LS.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_Black_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_black_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Olive Drab Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_OliveDrabGreen_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_olivedrabgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_olivedrabgreen_model_frontTN.jpg",
+        "pms": "7771C"
+      },
+      {
+        "name": "Silver",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_Silver_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_silver_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_silver_model_frontTN.jpg",
+        "pms": "429C"
+      },
+      {
+        "name": "True Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_TrueNavy_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_truenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_truenavy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_TrueRoyal_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_trueroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_trueroyal_model_frontTN.jpg",
+        "pms": "7687C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_ST376_White_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST376LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f12/ST376LS_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST376LS_white_model_frontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 9.23,
+    "msrp": 14.46,
+    "pieceWeight": 0.33
+  },
+  {
+    "style": "8800",
+    "title": "Gildan - DryBlend 6-Ounce Jersey Knit Sport Shirt.",
+    "brand": "Gildan",
+    "category": "Polos/Knits",
+    "subcategory": "",
+    "description": "6-ounce 52/48 cotton/polyester90/10 cotton/polyester (Sport Grey)62/38 cotton/polyester (Graphite Heather) DryBlend moisture-wicking properties Recycled high-performing black tear-away label Contoured welt knit collar and cuffsClean-finished placket with dyed-to-match buttons Double-needle hemClassic fit seamless body",
+    "availableSizes": "Adult Sizes: S-5XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_white_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_white_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_8800.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/574/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_8800.pdf",
+    "companionStyle": "8800|8800B",
+    "colors": [
+      {
+        "name": "Ash",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Ash_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_ash_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_ash_model_frontTN.jpg",
+        "pms": "COOL GRAY 3C"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Black_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_black_model_frontTN.jpg",
+        "pms": "426C"
+      },
+      {
+        "name": "Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_CarolinaBlue_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/8800_carolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_carolinablue_model_frontTN.jpg",
+        "pms": "659C"
+      },
+      {
+        "name": "Dark Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_DarkHeather_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/8800_darkheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_darkheather_model_frontTN.jpg",
+        "pms": "COOL GRAY 11C"
+      },
+      {
+        "name": "Forest Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_ForestGreen_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f11/8800_forestgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_forestgreen_model_frontTN.jpg",
+        "pms": "5535C"
+      },
+      {
+        "name": "Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Gold_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/8800_gold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_gold_model_frontTN.jpg",
+        "pms": "1235C"
+      },
+      {
+        "name": "Graphite Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_GraphiteHeather_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/8800_graphiteheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_graphiteheather_model_frontTN.jpg",
+        "pms": "424C"
+      },
+      {
+        "name": "Kelly Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_KellyGreen_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/8800_kellygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_kellygreen_model_frontTN.jpg",
+        "pms": "335C"
+      },
+      {
+        "name": "Light Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_LightBlue_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/8800_lightblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_lightblue_model_frontTN.jpg",
+        "pms": "543C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Maroon_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_maroon_model_frontTN.jpg",
+        "pms": "7644C"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Navy_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Purple_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_purple_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_purple_model_frontTN.jpg",
+        "pms": "2112C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Red_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_red_model_frontTN.jpg",
+        "pms": "199C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Royal_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_royal_model_frontTN.jpg",
+        "pms": "7686C"
+      },
+      {
+        "name": "Sand",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_Sand_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/8800_sand_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_sand_model_frontTN.jpg",
+        "pms": "7528C"
+      },
+      {
+        "name": "Sport Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_SportGrey_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_sportgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_sportgrey_model_frontTN.jpg",
+        "pms": "COOL GRAY 7C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8800_White_2025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8800sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8800_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8800_white_model_frontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 9.32,
+    "msrp": 14.64,
+    "pieceWeight": 0.47
+  },
+  {
+    "style": "ST301",
+    "title": "Sport-Tek Classic Long Sleeve Rugby Polo.",
+    "brand": "Sport-Tek",
+    "category": "Polos/Knits",
+    "subcategory": "",
+    "description": "A lighter weight and authentic rugby polo in popular team colors. 6.5-ounce 100% ring spun cotton jersey Engineered with yarn-dyed stripes Woven twill collar Twill-taped neck 2-button twill-reinforced placket with rubber buttons 1x1 rib knit cuffs",
+    "availableSizes": "Adult Sizes: XS-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST301_blackgraphite_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST301_blackgraphite_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_ST301.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/8117/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_ST301.pdf",
+    "companionStyle": "ST301",
+    "colors": [
+      {
+        "name": "Black/ Graphite",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_blackgraphite_ST300.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST301sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST301_blackgraphite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST301_blackgraphite_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Forest Green/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_forestgreenwhite_F246.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST301sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST301_forestgreenwhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST301_forestgreenwhite_model_frontTN.jpg",
+        "pms": "553 C"
+      },
+      {
+        "name": "True Navy/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_truenavywhite_F246.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST301sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST301_truenavywhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST301_truenavywhite_model_frontTN.jpg",
+        "pms": "533 C"
+      },
+      {
+        "name": "True Royal/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_trueroyalwhite_F246.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST301sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST301_trueroyalwhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST301_trueroyalwhite_model_frontTN.jpg",
+        "pms": "654 C"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 27.68,
+    "msrp": 47.36,
+    "pieceWeight": 0.8
+  },
+  {
+    "style": "BC3010",
+    "title": "BELLA+CANVAS Unisex 6-Ounce Heavyweight Tee",
+    "brand": "Bella + Canvas",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Boxy relaxed fitDrop shoulderSide seamedTear-away label6-ounce 100% Airlume combed and ring spun cotton 20 singlesAthletic Heather: 90/10 Airlume combed and ring spun cotton/polyester",
+    "availableSizes": "Unisex Sizes: XS-3XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_forest_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_forest_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC3010.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/64573/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC3010.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Athletic Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_AthleticHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_athleticheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_athleticheather_model_frontTN.jpg",
+        "pms": "COOL GREY 5UP"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Black_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_black_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Dark Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_DarkGrey_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_darkgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_darkgrey_model_frontTN.jpg",
+        "pms": "432CP"
+      },
+      {
+        "name": "Forest",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Forest_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_forest_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_forest_model_frontTN.jpg",
+        "pms": "5535C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Maroon_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_maroon_model_frontTN.jpg",
+        "pms": "7643C"
+      },
+      {
+        "name": "Natural",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Natural_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_natural_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_natural_model_frontTN.jpg",
+        "pms": "7500CP"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Navy_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Soft Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_SoftPink_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_softpink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_softpink_model_frontTN.jpg",
+        "pms": "7604UP"
+      },
+      {
+        "name": "Toast",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Toast_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_toast_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_toast_model_frontTN.jpg",
+        "pms": "7574C"
+      },
+      {
+        "name": "Vintage Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageBlack_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintageblack_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintageblack_model_frontTN.jpg",
+        "pms": "419C"
+      },
+      {
+        "name": "Vintage Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageBrown_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintagebrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintagebrown_model_frontTN.jpg",
+        "pms": "7575U"
+      },
+      {
+        "name": "Vintage Denim",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageDenim_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintagedenim_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintagedenim_model_frontTN.jpg",
+        "pms": "2178U"
+      },
+      {
+        "name": "Vintage Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageNavy_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintagenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintagenavy_model_frontTN.jpg",
+        "pms": "303UP"
+      },
+      {
+        "name": "Vintage Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageRed_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintagered_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintagered_model_frontTN.jpg",
+        "pms": "4059UP"
+      },
+      {
+        "name": "Vintage White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageWhite_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintagewhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintagewhite_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_White_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_white_model_frontTN.jpg",
+        "pms": "WHITE C"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 7.8,
+    "msrp": 11.6,
+    "pieceWeight": 0.39
   },
   {
     "style": "ST445",
@@ -2870,129 +8017,114 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.46
   },
   {
-    "style": "BC3511",
-    "title": "BELLA+CANVAS Unisex 6-Ounce Heavyweight Long Sleeve Tee",
+    "style": "BC4651",
+    "title": "BELLA+CANVAS Unisex 7.5-Ounce Heavyweight Long Sleeve Tee",
     "brand": "Bella + Canvas",
     "category": "T-Shirts",
     "subcategory": "",
-    "description": "Boxy relaxed fitDrop shoulderSide seamedTear-away label6-ounce 100% Airlume combed and ring spun cotton 20 singlesAthletic Heather: 90/10 Airlume combed and ring spun cotton/polyester",
-    "availableSizes": "Unisex Sizes: XS-3XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_forest_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_forest_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC3511.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/64574/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC3511.pdf",
+    "description": "Boxy relaxed fitDouble-stitched 7/8 neckDrop shoulderRibbed cuffSide seamedTear-away label7.5-ounce 100% Airlume combed and ring spun cottonAthletic Heather: 90/10 Airlume combed and ring spun cotton/polyester",
+    "availableSizes": "Unisex Sizes: XS-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_cocoa_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_cocoa_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC4651.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/64576/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC4651.pdf",
     "companionStyle": "",
     "colors": [
       {
+        "name": "Asphalt",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_Asphalt_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_asphalt_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_asphalt_model_frontTN.jpg",
+        "pms": "BLACK 7U"
+      },
+      {
         "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_AthleticHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_athleticheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_athleticheather_model_frontTN.jpg",
-        "pms": "COOL GREY 5 UP"
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_AthleticHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_athleticheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_athleticheather_model_frontTN.jpg",
+        "pms": "COOL GREY 5UP"
       },
       {
         "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Black_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_black_model_frontTN.jpg",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_Black_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_black_model_frontTN.jpg",
         "pms": "BLACK C"
       },
       {
-        "name": "Dark Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_DarkGrey_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_darkgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_darkgrey_model_frontTN.jpg",
-        "pms": "432CP"
+        "name": "Cocoa",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_Cocoa_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_cocoa_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_cocoa_model_frontTN.jpg",
+        "pms": "4105U"
       },
       {
-        "name": "Forest",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Forest_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_forest_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_forest_model_frontTN.jpg",
-        "pms": "5535C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Maroon_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_maroon_model_frontTN.jpg",
-        "pms": "7643C"
-      },
-      {
-        "name": "Natural",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Natural_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_natural_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_natural_model_frontTN.jpg",
-        "pms": "7500CP"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Navy_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Soft Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_SoftPink_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_softpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_softpink_model_frontTN.jpg",
-        "pms": "7604UP"
-      },
-      {
-        "name": "Toast",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_Toast_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_toast_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_toast_model_frontTN.jpg",
-        "pms": "7574C"
-      },
-      {
-        "name": "Vintage Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_VintageBlack_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_vintageblack_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_vintageblack_model_frontTN.jpg",
-        "pms": "419C"
-      },
-      {
-        "name": "Vintage White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_VintageWhite_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_vintagewhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_vintagewhite_model_frontTN.jpg",
+        "name": "Dust",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_Dust_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_dust_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_dust_model_frontTN.jpg",
         "pms": ""
       },
       {
+        "name": "Hunter Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_HunterGreen_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_huntergreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_huntergreen_model_frontTN.jpg",
+        "pms": "5467C"
+      },
+      {
+        "name": "Purple Storm",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_PurpleStorm_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_purplestorm_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_purplestorm_model_frontTN.jpg",
+        "pms": "2333CP"
+      },
+      {
+        "name": "Vintage Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_VintageNavy_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_vintagenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_vintagenavy_model_frontTN.jpg",
+        "pms": "303UP"
+      },
+      {
+        "name": "Vintage Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_VintageRed_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_vintagered_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_vintagered_model_frontTN.jpg",
+        "pms": "4059UP"
+      },
+      {
         "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3511_White_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3511sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3511_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3511_white_model_frontTN.jpg",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_White_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_white_model_frontTN.jpg",
         "pms": "WHITE C"
       }
     ],
     "sizes": [
       "2XL",
       "3XL",
+      "4XL",
       "L",
       "M",
       "S",
       "XL",
       "XS"
     ],
-    "priceFrom": 9.84,
-    "msrp": 15.68,
-    "pieceWeight": 0.54
+    "priceFrom": 11.68,
+    "msrp": 19.36,
+    "pieceWeight": 0.7
   },
   {
     "style": "T473LS",
@@ -3401,270 +8533,114 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.34
   },
   {
-    "style": "BC3001T",
-    "title": "BELLA+CANVAS Toddler Short Sleeve Tee",
+    "style": "BC4610",
+    "title": "BELLA+CANVAS Unisex 7.5-Ounce Heavyweight Tee",
     "brand": "Bella + Canvas",
     "category": "T-Shirts",
     "subcategory": "",
-    "description": "Retail fit Crewneck Side seamed Tear-away label 4.2-ounce 100% Airlume combed and ring spun cotton 32 singles Heathers and Solid Black Blend: 52/48 Airlume combed and ring spun cotton/polyester Athletic Heather: 90/10 Airlume combed and ring spun cotton/polyester",
-    "availableSizes": "Toddler Sizes: 2T-5T",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_forest_flat_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_forest_flat_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC3001T.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/64375/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC3001T.pdf",
+    "description": "Boxy relaxed fitDouble-stitched 7/8 neckDrop shoulderSide seamedTear-away label7.5-ounce 100% Airlume combed and ring spun cottonAthletic Heather: 90/10 Airlume combed and ring spun cotton/polyester",
+    "availableSizes": "Unisex Sizes: XS-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_cocoa_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_cocoa_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC4610.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/64575/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC4610.pdf",
     "companionStyle": "",
     "colors": [
       {
+        "name": "Asphalt",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_Asphalt_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_asphalt_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_asphalt_model_frontTN.jpg",
+        "pms": "BLACK 7U"
+      },
+      {
         "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_AthleticHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_athleticheather_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_athleticheather_flat_frontTN.jpg",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_AthleticHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_athleticheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_athleticheather_model_frontTN.jpg",
         "pms": "COOL GREY 5UP"
       },
       {
         "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Black_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_black_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_black_flat_frontTN.jpg",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_Black_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_black_model_frontTN.jpg",
         "pms": "BLACK C"
       },
       {
-        "name": "Dark Grey Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_DarkGreyHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_darkgreyheather_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_darkgreyheather_flat_frontTN.jpg",
-        "pms": "7540CP"
+        "name": "Cocoa",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_Cocoa_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_cocoa_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_cocoa_model_frontTN.jpg",
+        "pms": "4105U"
       },
       {
-        "name": "Deep Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_DeepHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_deepheather_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_deepheather_flat_frontTN.jpg",
+        "name": "Dust",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_Dust_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_dust_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_dust_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Hunter Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_HunterGreen_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_huntergreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_huntergreen_model_frontTN.jpg",
+        "pms": "5467C"
+      },
+      {
+        "name": "Purple Storm",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_PurpleStorm_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_purplestorm_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_purplestorm_model_frontTN.jpg",
         "pms": "2333CP"
       },
       {
-        "name": "Dusty Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_DustyBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_dustyblue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_dustyblue_flat_frontTN.jpg",
-        "pms": "5645CP"
+        "name": "Vintage Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_VintageNavy_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_vintagenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_vintagenavy_model_frontTN.jpg",
+        "pms": "303UP"
       },
       {
-        "name": "Forest",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Forest_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_forest_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_forest_flat_frontTN.jpg",
-        "pms": "5535C"
-      },
-      {
-        "name": "Heather Columbia Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherColumbiaBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heathercolumbiablue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heathercolumbiablue_flat_frontTN.jpg",
-        "pms": "660U"
-      },
-      {
-        "name": "Heather Deep Teal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherDeepTeal_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatherdeepteal_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatherdeepteal_flat_frontTN.jpg",
-        "pms": "7699C"
-      },
-      {
-        "name": "Heather Dust",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherDust_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatherdust_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatherdust_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherMaroon_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heathermaroon_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heathermaroon_flat_frontTN.jpg",
-        "pms": "7644CP"
-      },
-      {
-        "name": "Heather Mauve",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherMauve_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heathermauve_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heathermauve_flat_frontTN.jpg",
-        "pms": "7524U"
-      },
-      {
-        "name": "Heather Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherNavy_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heathernavy_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heathernavy_flat_frontTN.jpg",
-        "pms": "2379CP"
-      },
-      {
-        "name": "Heather Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherRed_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatherred_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatherred_flat_frontTN.jpg",
-        "pms": "193C"
-      },
-      {
-        "name": "Heather Stone",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherStone_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatherstone_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatherstone_flat_frontTN.jpg",
-        "pms": "2327UP"
-      },
-      {
-        "name": "Heather Team Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherTeamPurple_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatherteampurple_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatherteampurple_flat_frontTN.jpg",
-        "pms": "2665C"
-      },
-      {
-        "name": "Heather True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherTrueRoyal_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heathertrueroyal_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heathertrueroyal_flat_frontTN.jpg",
-        "pms": "286CP"
-      },
-      {
-        "name": "Heather Yellow Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherYellowGold_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatheryellowgold_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatheryellowgold_flat_frontTN.jpg",
-        "pms": "134C"
-      },
-      {
-        "name": "Kelly",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Kelly_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_kelly_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_kelly_flat_frontTN.jpg",
-        "pms": "341C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Maroon_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_maroon_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_maroon_flat_frontTN.jpg",
-        "pms": "7643C"
-      },
-      {
-        "name": "Military Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_MilitaryGreen_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_militarygreen_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_militarygreen_flat_frontTN.jpg",
-        "pms": "2410UP"
-      },
-      {
-        "name": "Natural",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Natural_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_natural_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_natural_flat_frontTN.jpg",
-        "pms": "7500CP"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Navy_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Pink_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_pink_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_pink_flat_frontTN.jpg",
-        "pms": "706C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Red_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_red_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_red_flat_frontTN.jpg",
-        "pms": "200C"
-      },
-      {
-        "name": "Solid Athletic Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_SolidAthleticGrey_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_solidathleticgrey_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_solidathleticgrey_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Solid Black Blend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_SolidBlackBlend_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_solidblackblend_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_solidblackblend_flat_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Team Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_TeamPurple_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_teampurple_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_teampurple_flat_frontTN.jpg",
-        "pms": "2695C"
-      },
-      {
-        "name": "True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_TrueRoyal_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_trueroyal_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_trueroyal_flat_frontTN.jpg",
-        "pms": "7684CP"
+        "name": "Vintage Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_VintageRed_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_vintagered_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_vintagered_model_frontTN.jpg",
+        "pms": "4059UP"
       },
       {
         "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_White_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_white_model_frontTN.jpg",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_White_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_white_model_frontTN.jpg",
         "pms": "WHITE C"
-      },
-      {
-        "name": "Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Yellow_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_yellow_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_yellow_flat_frontTN.jpg",
-        "pms": "100CP"
       }
     ],
     "sizes": [
-      "2T",
-      "3T",
-      "4T",
-      "5T"
+      "2XL",
+      "3XL",
+      "4XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
     ],
-    "priceFrom": 4.46,
-    "msrp": 6.92,
-    "pieceWeight": 0.13
+    "priceFrom": 9.54,
+    "msrp": 15.08,
+    "pieceWeight": 0.54
   },
   {
     "style": "ST446",
@@ -4187,114 +9163,265 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.52
   },
   {
-    "style": "BC4651",
-    "title": "BELLA+CANVAS Unisex 7.5-Ounce Heavyweight Long Sleeve Tee",
+    "style": "BC3501CVC",
+    "title": "BELLA+CANVAS Unisex Heather CVC Long Sleeve Tee",
     "brand": "Bella + Canvas",
     "category": "T-Shirts",
     "subcategory": "",
-    "description": "Boxy relaxed fitDouble-stitched 7/8 neckDrop shoulderRibbed cuffSide seamedTear-away label7.5-ounce 100% Airlume combed and ring spun cottonAthletic Heather: 90/10 Airlume combed and ring spun cotton/polyester",
-    "availableSizes": "Unisex Sizes: XS-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_cocoa_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_cocoa_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC4651.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/64576/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC4651.pdf",
-    "companionStyle": "",
+    "description": "Retail fit Tear-away label Side seamed Ribbed cuffs Heather CVC/Blend Colors: 4.2-ounce 52/48 Airlume combed and ring spun cotton/poly Athletic Heather/Black Heather: 4.2-ounce 90/10 Airlume combed and ring spun cotton/poly Select colors XS-3XL",
+    "availableSizes": "Unisex Sizes: XS-3XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_athleticheather_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_athleticheather_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC3501CVC.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/23675/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC3501CVC.pdf",
+    "companionStyle": "BC3501CVC",
     "colors": [
       {
-        "name": "Asphalt",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_Asphalt_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_asphalt_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_asphalt_model_frontTN.jpg",
-        "pms": "BLACK 7U"
-      },
-      {
         "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_AthleticHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_athleticheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_athleticheather_model_frontTN.jpg",
-        "pms": "COOL GREY 5UP"
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_athleticheather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_athleticheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_athleticheather_model_frontTN.jpg",
+        "pms": "428U"
       },
       {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_Black_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_black_model_frontTN.jpg",
-        "pms": "BLACK C"
+        "name": "Black Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_blackheather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_blackheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_blackheather_model_frontTN.jpg",
+        "pms": "BLACK 7CP"
       },
       {
-        "name": "Cocoa",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_Cocoa_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_cocoa_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_cocoa_model_frontTN.jpg",
-        "pms": "4105U"
+        "name": "Dark Grey Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_darkgreyheather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_darkgreyheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_darkgreyheather_model_frontTN.jpg",
+        "pms": "7540CP"
       },
       {
-        "name": "Dust",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_Dust_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_dust_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_dust_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Hunter Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_HunterGreen_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_huntergreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_huntergreen_model_frontTN.jpg",
-        "pms": "5467C"
-      },
-      {
-        "name": "Purple Storm",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_PurpleStorm_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_purplestorm_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_purplestorm_model_frontTN.jpg",
+        "name": "Deep Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_deepheather.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_deepheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_deepheather_model_frontTN.jpg",
         "pms": "2333CP"
       },
       {
-        "name": "Vintage Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_VintageNavy_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_vintagenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_vintagenavy_model_frontTN.jpg",
-        "pms": "303UP"
+        "name": "Heather Brown",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherBrown_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherbrown_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherbrown_model_frontTN.jpg",
+        "pms": "7519C"
       },
       {
-        "name": "Vintage Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_VintageRed_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_vintagered_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_vintagered_model_frontTN.jpg",
-        "pms": "4059UP"
+        "name": "Heather Cardinal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heathercardinal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heathercardinal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathercardinal_model_frontTN.jpg",
+        "pms": "7421C"
       },
       {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4651_White_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4651sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4651_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4651_white_model_frontTN.jpg",
-        "pms": "WHITE C"
+        "name": "Heather Carolina Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherCarolinaBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heathercarolinablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathercarolinablue_model_frontTN.jpg",
+        "pms": "7453CP"
+      },
+      {
+        "name": "Heather Clay",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherClay_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherclay_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherclay_model_frontTN.jpg",
+        "pms": "7593U"
+      },
+      {
+        "name": "Heather Columbia Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherColumbiaBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heathercolumbiablue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathercolumbiablue_model_frontTN.jpg",
+        "pms": "660U"
+      },
+      {
+        "name": "Heather Dark Lavender",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherDarkLavender_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501CVC_heatherdarklavender_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherdarklavender_model_frontTN.jpg",
+        "pms": "2100CP"
+      },
+      {
+        "name": "Heather Deep Teal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heatherdeepteal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heatherdeepteal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherdeepteal_model_frontTN.jpg",
+        "pms": "7699C"
+      },
+      {
+        "name": "Heather Dusty Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherDustyBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherdustyblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherdustyblue_model_frontTN.jpg",
+        "pms": "5575CP"
+      },
+      {
+        "name": "Heather Forest",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heatherforest.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heatherforest_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherforest_model_frontTN.jpg",
+        "pms": "343U"
+      },
+      {
+        "name": "Heather Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherMaroon_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heathermaroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathermaroon_model_frontTN.jpg",
+        "pms": "7644CP"
+      },
+      {
+        "name": "Heather Mauve",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heathermauve.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heathermauve_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathermauve_model_frontTN.jpg",
+        "pms": "7524UP"
+      },
+      {
+        "name": "Heather Midnight Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherMidnightNavy_MRF26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heathermidnightnavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathermidnightnavy_model_frontTN.jpg",
+        "pms": "2380CP"
+      },
+      {
+        "name": "Heather Military Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherMilitaryGreen_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501CVC_heathermilitarygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathermilitarygreen_model_frontTN.jpg",
+        "pms": "7764U"
+      },
+      {
+        "name": "Heather Mustard",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherMustard_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501CVC_heathermustard_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathermustard_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Natural",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherNatural_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501CVC_heathernatural_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathernatural_model_frontTN.jpg",
+        "pms": "7500CP"
+      },
+      {
+        "name": "Heather Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherNavy_MRF26.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heathernavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathernavy_model_frontTN.jpg",
+        "pms": "2379C"
+      },
+      {
+        "name": "Heather Olive",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherOlive_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherolive_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherolive_model_frontTN.jpg",
+        "pms": "7497CP"
+      },
+      {
+        "name": "Heather Peach",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherPeach_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherpeach_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherpeach_model_frontTN.jpg",
+        "pms": "2016UP"
+      },
+      {
+        "name": "Heather Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherRed_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherred_model_frontTN.jpg",
+        "pms": "193C"
+      },
+      {
+        "name": "Heather Slate",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heatherslate.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heatherslate_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherslate_model_frontTN.jpg",
+        "pms": "2168UP"
+      },
+      {
+        "name": "Heather Stone",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heatherstone.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heatherstone_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherstone_model_frontTN.jpg",
+        "pms": "2327UP"
+      },
+      {
+        "name": "Heather True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heathertrueroyal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heathertrueroyal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathertrueroyal_model_frontTN.jpg",
+        "pms": "286CP"
+      },
+      {
+        "name": "Heather Yellow Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherYellowGold_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatheryellowgold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatheryellowgold_model_frontTN.jpg",
+        "pms": "134C"
+      },
+      {
+        "name": "Solid Black Blend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_SolidBlackBlend.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f7/BC3501CVC_solidblackblend_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_solidblackblend_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Solid White Blend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_SolidWhiteBlend.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f7/BC3501CVC_solidwhiteblend_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_solidwhiteblend_model_frontTN.jpg",
+        "pms": ""
       }
     ],
     "sizes": [
       "2XL",
       "3XL",
-      "4XL",
       "L",
       "M",
       "S",
       "XL",
       "XS"
     ],
-    "priceFrom": 11.68,
-    "msrp": 19.36,
-    "pieceWeight": 0.7
+    "priceFrom": 9.78,
+    "msrp": 15.56,
+    "pieceWeight": 0.37
   },
   {
     "style": "ST6044",
@@ -4584,590 +9711,6 @@ export const sanmarCatalogProducts = [
     "priceFrom": 17.58,
     "msrp": 27.16,
     "pieceWeight": 0.45
-  },
-  {
-    "style": "2000",
-    "title": "Gildan - Ultra Cotton 100% US Cotton T-Shirt.",
-    "brand": "Gildan",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "6-ounce 100% US cotton)50/50 cotton/poly (Dark Heather Safety Pink Safety Green Safety Orange Heathered Cardinal Heathered Indigo Heathered Navy Heathered Sapphire) 99/1 cotton/polyester (Ash)90/10 cotton/polyester (Sports Grey Antique Cherry Red Antique Irish Green Antique Royal)Prepared for dying (PFD) fabric whic...",
-    "availableSizes": "Adult Sizes: S-5XLSizes available vary by color.",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_natural_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f13/2000_natural_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_2000.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/152/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_2000.pdf",
-    "companionStyle": "2000|2000L|2000B|2300|G2400|2400B|2410|2200|2700",
-    "colors": [
-      {
-        "name": "Antique Cherry Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_AntiqueCherryRed.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_antiquecherryred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_antiquecherryred_model_frontTN.jpg",
-        "pms": "7427C"
-      },
-      {
-        "name": "Antique Irish Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_AntiqueIrishGreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_antiqueirishgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_antiqueirishgreen_model_frontTN.jpg",
-        "pms": "348C"
-      },
-      {
-        "name": "Antique Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_AntiqueRoyal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_antiqueroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_antiqueroyal_model_frontTN.jpg",
-        "pms": "287C"
-      },
-      {
-        "name": "Ash",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Ash.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_ash_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_ash_model_frontTN.jpg",
-        "pms": "COOL GRAY 3C"
-      },
-      {
-        "name": "Azalea",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Azalea.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_azalea_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_azalea_model_frontTN.jpg",
-        "pms": "2045C"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_black_model_frontTN.jpg",
-        "pms": "426C"
-      },
-      {
-        "name": "Blue Dusk",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_BlueDusk.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_bluedusk_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_bluedusk_model_frontTN.jpg",
-        "pms": "7546C"
-      },
-      {
-        "name": "Cardinal Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_CardinalRed.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_cardinalred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_cardinalred_model_frontTN.jpg",
-        "pms": "1955C"
-      },
-      {
-        "name": "Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_CarolinaBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_carolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_carolinablue_model_frontTN.jpg",
-        "pms": "659C"
-      },
-      {
-        "name": "Charcoal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Charcoal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_charcoal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_charcoal_model_frontTN.jpg",
-        "pms": "COOL GRAY 10C"
-      },
-      {
-        "name": "Cherry Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_cherryred.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_cherryred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_cherryred_model_frontTN.jpg",
-        "pms": "187C"
-      },
-      {
-        "name": "Cornsilk",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/gildan_cornsilk.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f8/2000_cornsilk_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_cornsilk_model_frontTN.jpg",
-        "pms": "393C"
-      },
-      {
-        "name": "Daisy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Daisy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_daisy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_daisy_model_frontTN.jpg",
-        "pms": "122C"
-      },
-      {
-        "name": "Dark Chocolate",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_DarkChocolate.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_darkchocolate_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_darkchocolate_model_frontTN.jpg",
-        "pms": "412C"
-      },
-      {
-        "name": "Dark Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_DarkHeather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f8/2000_darkheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_darkheather_model_frontTN.jpg",
-        "pms": "7545C"
-      },
-      {
-        "name": "Forest Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Forest.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/2000_forestgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_forestgreen_model_frontTN.jpg",
-        "pms": "5535C"
-      },
-      {
-        "name": "Galapagos Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_GalapagosBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_galapagosblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_galapagosblue_model_frontTN.jpg",
-        "pms": "7470C"
-      },
-      {
-        "name": "Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Gold.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_gold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_gold_model_frontTN.jpg",
-        "pms": "1235C"
-      },
-      {
-        "name": "Heathered Cardinal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_HeatheredCardinal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/2000_heatheredcardinal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_heatheredcardinal_model_frontTN.jpg",
-        "pms": "194 C"
-      },
-      {
-        "name": "Heathered Indigo",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_HeatheredIndigo.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/2000_heatheredindigo_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_heatheredindigo_model_frontTN.jpg",
-        "pms": "2139 C"
-      },
-      {
-        "name": "Heathered Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_HeatheredNavy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f8/2000_heathernavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_heathernavy_model_frontTN.jpg",
-        "pms": "432 C"
-      },
-      {
-        "name": "Heathered Sapphire",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_HeatheredSapphire.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f8/2000_heathersapphire_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_heathersapphire_model_frontTN.jpg",
-        "pms": "7690 C"
-      },
-      {
-        "name": "Heliconia",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Heliconia.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_heliconia_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_heliconia_model_frontTN.jpg",
-        "pms": "213C"
-      },
-      {
-        "name": "Ice Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_IceGrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_icegrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_icegrey_model_frontTN.jpg",
-        "pms": "WARM GRAY 1C"
-      },
-      {
-        "name": "Indigo Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_IndigoBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_indigoblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_indigoblue_model_frontTN.jpg",
-        "pms": "5405C"
-      },
-      {
-        "name": "Iris",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Iris.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_iris_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_iris_model_frontTN.jpg",
-        "pms": "660C"
-      },
-      {
-        "name": "Irish Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_IrishGreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_irishgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_irishgreen_model_frontTN.jpg",
-        "pms": "2252C"
-      },
-      {
-        "name": "Jade Dome",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_JadeDome2.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_jadedome_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_jadedome_model_frontTN.jpg",
-        "pms": "7717C"
-      },
-      {
-        "name": "Kelly Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_KellyGreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_kellygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_kellygreen_model_frontTN.jpg",
-        "pms": "335C"
-      },
-      {
-        "name": "Light Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_LightBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_lightblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_lightblue_model_frontTN.jpg",
-        "pms": "543C"
-      },
-      {
-        "name": "Light Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_LightPink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_lightpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_lightpink_model_frontTN.jpg",
-        "pms": "684C"
-      },
-      {
-        "name": "Lime",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Lime.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_lime_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_lime_model_frontTN.jpg",
-        "pms": "7488C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Maroon.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_maroon_model_frontTN.jpg",
-        "pms": "7644C"
-      },
-      {
-        "name": "Metro Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_MetroBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_metroblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_metroblue_model_frontTN.jpg",
-        "pms": "2111C"
-      },
-      {
-        "name": "Military Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_MilitaryGreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_militarygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_militarygreen_model_frontTN.jpg",
-        "pms": "5615C"
-      },
-      {
-        "name": "Mint Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_mintgreen_5000.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_mintgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_mintgreen_model_frontTN.jpg",
-        "pms": "345C"
-      },
-      {
-        "name": "Natural",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Natural.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_natural_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_natural_model_frontTN.jpg",
-        "pms": "2309C"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Navy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Olive",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Olive.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f12/2000_olive_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_olive_model_frontTN.jpg",
-        "pms": "448C"
-      },
-      {
-        "name": "Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_OSHAOrange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_orange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_orange_model_frontTN.jpg",
-        "pms": "2026C"
-      },
-      {
-        "name": "Orchid",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Orchid.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_orchid_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_orchid_model_frontTN.jpg",
-        "pms": "2635C"
-      },
-      {
-        "name": "PFD",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_2000B_PFD_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f13/2000_pfd_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_pfd_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Pistachio",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/GILDAN_Pistachio.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_pistachio_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_pistachio_model_frontTN.jpg",
-        "pms": "577C"
-      },
-      {
-        "name": "Prairie Dust",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_PrairieDust.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_prairiedust_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_prairiedust_model_frontTN.jpg",
-        "pms": "7497C"
-      },
-      {
-        "name": "Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Purple.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_purple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_purple_model_frontTN.jpg",
-        "pms": "2112C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Red.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_red_model_frontTN.jpg",
-        "pms": "199C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Royal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_royal_model_frontTN.jpg",
-        "pms": "7686C"
-      },
-      {
-        "name": "S. Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_safetyorange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/2000_s.orange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_s.orange_model_frontTN.jpg",
-        "pms": "ORANGE 021C"
-      },
-      {
-        "name": "Safety Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_SafetyGreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_safetygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_safetygreen_model_frontTN.jpg",
-        "pms": "382C"
-      },
-      {
-        "name": "Safety Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_SafetyPink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_safetypink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_safetypink_model_frontTN.jpg",
-        "pms": "1915C"
-      },
-      {
-        "name": "Sand",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Sand.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_sand_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_sand_model_frontTN.jpg",
-        "pms": "7528C"
-      },
-      {
-        "name": "Sapphire",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Sapphire.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_sapphire_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_sapphire_model_frontTN.jpg",
-        "pms": "641C"
-      },
-      {
-        "name": "Sky",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Sky.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_sky_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_sky_model_frontTN.jpg",
-        "pms": "297C"
-      },
-      {
-        "name": "Sport Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/18900_SportGrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_sportgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_sportgrey_model_frontTN.jpg",
-        "pms": "COOL GRAY 7C"
-      },
-      {
-        "name": "Stone Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_StoneBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_stoneblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_stoneblue_model_frontTN.jpg",
-        "pms": "2164C"
-      },
-      {
-        "name": "Tan",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Tan.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_tan_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_tan_model_frontTN.jpg",
-        "pms": "2316C"
-      },
-      {
-        "name": "Tangerine",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Tangerine.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_tangerine_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_tangerine_model_frontTN.jpg",
-        "pms": "2025C"
-      },
-      {
-        "name": "Texas Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_TexasOrange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_texasorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_texasorange_model_frontTN.jpg",
-        "pms": "7592C"
-      },
-      {
-        "name": "Vegas Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_VegasGold.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_vegasgold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_vegasgold_model_frontTN.jpg",
-        "pms": "7507C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2014/f13/2000_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2000_white_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 4.12,
-    "msrp": 6.24,
-    "pieceWeight": 0.3
-  },
-  {
-    "style": "BC3413T",
-    "title": "BELLA+CANVAS Toddler Triblend Short Sleeve Tee",
-    "brand": "Bella + Canvas",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Crewneck Side seamed Tear-away label 3.8-ounce 50/25/25 polyester/Airlume combed and ring spun cotton/rayon 40 singles",
-    "availableSizes": "Toddler Sizes: 2T-5T",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_athleticgreytriblend_flat_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_athleticgreytriblend_flat_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC3413T.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/64377/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC3413T.pdf",
-    "companionStyle": "",
-    "colors": [
-      {
-        "name": "Athletic Grey Triblend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_AthleticGreyTriblend_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_athleticgreytriblend_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_athleticgreytriblend_flat_frontTN.jpg",
-        "pms": "423C"
-      },
-      {
-        "name": "Blue Triblend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_BlueTriblend_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_bluetriblend_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_bluetriblend_flat_frontTN.jpg",
-        "pms": "7682CP"
-      },
-      {
-        "name": "Grey Triblend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_GreyTriblend_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_greytriblend_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_greytriblend_model_frontTN.jpg",
-        "pms": "416CP"
-      },
-      {
-        "name": "Olive Triblend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_OliveTriblend_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_olivetriblend_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_olivetriblend_model_frontTN.jpg",
-        "pms": "7497CP"
-      },
-      {
-        "name": "Peach Triblend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_PeachTriblend_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_peachtriblend_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_peachtriblend_model_frontTN.jpg",
-        "pms": "7520C"
-      },
-      {
-        "name": "Solid Black Triblend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_SolidBlackTriblend_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_solidblacktriblend_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_solidblacktriblend_model_frontTN.jpg",
-        "pms": "BLACK C"
-      }
-    ],
-    "sizes": [
-      "2T",
-      "3T",
-      "4T",
-      "5T"
-    ],
-    "priceFrom": 5.27,
-    "msrp": 8.54,
-    "pieceWeight": 0.12
   },
   {
     "style": "T200",
@@ -6198,1053 +10741,6 @@ export const sanmarCatalogProducts = [
     "priceFrom": 7.05,
     "msrp": 10.1,
     "pieceWeight": 0.45
-  },
-  {
-    "style": "BC3501CVC",
-    "title": "BELLA+CANVAS Unisex Heather CVC Long Sleeve Tee",
-    "brand": "Bella + Canvas",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Retail fit Tear-away label Side seamed Ribbed cuffs Heather CVC/Blend Colors: 4.2-ounce 52/48 Airlume combed and ring spun cotton/poly Athletic Heather/Black Heather: 4.2-ounce 90/10 Airlume combed and ring spun cotton/poly Select colors XS-3XL",
-    "availableSizes": "Unisex Sizes: XS-3XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_athleticheather_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_athleticheather_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC3501CVC.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/23675/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC3501CVC.pdf",
-    "companionStyle": "BC3501CVC",
-    "colors": [
-      {
-        "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_athleticheather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_athleticheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_athleticheather_model_frontTN.jpg",
-        "pms": "428U"
-      },
-      {
-        "name": "Black Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_blackheather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_blackheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_blackheather_model_frontTN.jpg",
-        "pms": "BLACK 7CP"
-      },
-      {
-        "name": "Dark Grey Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_darkgreyheather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_darkgreyheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_darkgreyheather_model_frontTN.jpg",
-        "pms": "7540CP"
-      },
-      {
-        "name": "Deep Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_deepheather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_deepheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_deepheather_model_frontTN.jpg",
-        "pms": "2333CP"
-      },
-      {
-        "name": "Heather Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherBrown_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherbrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherbrown_model_frontTN.jpg",
-        "pms": "7519C"
-      },
-      {
-        "name": "Heather Cardinal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heathercardinal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heathercardinal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathercardinal_model_frontTN.jpg",
-        "pms": "7421C"
-      },
-      {
-        "name": "Heather Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherCarolinaBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heathercarolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathercarolinablue_model_frontTN.jpg",
-        "pms": "7453CP"
-      },
-      {
-        "name": "Heather Clay",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherClay_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherclay_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherclay_model_frontTN.jpg",
-        "pms": "7593U"
-      },
-      {
-        "name": "Heather Columbia Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherColumbiaBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heathercolumbiablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathercolumbiablue_model_frontTN.jpg",
-        "pms": "660U"
-      },
-      {
-        "name": "Heather Dark Lavender",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherDarkLavender_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501CVC_heatherdarklavender_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherdarklavender_model_frontTN.jpg",
-        "pms": "2100CP"
-      },
-      {
-        "name": "Heather Deep Teal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heatherdeepteal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heatherdeepteal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherdeepteal_model_frontTN.jpg",
-        "pms": "7699C"
-      },
-      {
-        "name": "Heather Dusty Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherDustyBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherdustyblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherdustyblue_model_frontTN.jpg",
-        "pms": "5575CP"
-      },
-      {
-        "name": "Heather Forest",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heatherforest.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heatherforest_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherforest_model_frontTN.jpg",
-        "pms": "343U"
-      },
-      {
-        "name": "Heather Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherMaroon_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heathermaroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathermaroon_model_frontTN.jpg",
-        "pms": "7644CP"
-      },
-      {
-        "name": "Heather Mauve",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heathermauve.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heathermauve_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathermauve_model_frontTN.jpg",
-        "pms": "7524UP"
-      },
-      {
-        "name": "Heather Midnight Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherMidnightNavy_MRF26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heathermidnightnavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathermidnightnavy_model_frontTN.jpg",
-        "pms": "2380CP"
-      },
-      {
-        "name": "Heather Military Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherMilitaryGreen_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501CVC_heathermilitarygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathermilitarygreen_model_frontTN.jpg",
-        "pms": "7764U"
-      },
-      {
-        "name": "Heather Mustard",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherMustard_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501CVC_heathermustard_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathermustard_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Natural",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherNatural_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501CVC_heathernatural_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathernatural_model_frontTN.jpg",
-        "pms": "7500CP"
-      },
-      {
-        "name": "Heather Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherNavy_MRF26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heathernavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathernavy_model_frontTN.jpg",
-        "pms": "2379C"
-      },
-      {
-        "name": "Heather Olive",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherOlive_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherolive_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherolive_model_frontTN.jpg",
-        "pms": "7497CP"
-      },
-      {
-        "name": "Heather Peach",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherPeach_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherpeach_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherpeach_model_frontTN.jpg",
-        "pms": "2016UP"
-      },
-      {
-        "name": "Heather Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherRed_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatherred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherred_model_frontTN.jpg",
-        "pms": "193C"
-      },
-      {
-        "name": "Heather Slate",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heatherslate.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heatherslate_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherslate_model_frontTN.jpg",
-        "pms": "2168UP"
-      },
-      {
-        "name": "Heather Stone",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heatherstone.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heatherstone_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatherstone_model_frontTN.jpg",
-        "pms": "2327UP"
-      },
-      {
-        "name": "Heather True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_heathertrueroyal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/BC3501CVC_heathertrueroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heathertrueroyal_model_frontTN.jpg",
-        "pms": "286CP"
-      },
-      {
-        "name": "Heather Yellow Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_HeatherYellowGold_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f11/BC3501CVC_heatheryellowgold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_heatheryellowgold_model_frontTN.jpg",
-        "pms": "134C"
-      },
-      {
-        "name": "Solid Black Blend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_SolidBlackBlend.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f7/BC3501CVC_solidblackblend_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_solidblackblend_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Solid White Blend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501CVC_SolidWhiteBlend.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f7/BC3501CVC_solidwhiteblend_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501CVC_solidwhiteblend_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 9.78,
-    "msrp": 15.56,
-    "pieceWeight": 0.37
-  },
-  {
-    "style": "ST460LS",
-    "title": "Sport-Tek Long Sleeve Digi Camo Tee.",
-    "brand": "Sport-Tek",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "A subtle digi camo pattern gives this moisture-wicking breathable performance tee a unique edge.3.8-ounce 100% polyester interlock with sublimated digi camo print Removable tag for comfort and relabeling Digi camo print on sleeves",
-    "availableSizes": "Adult Sizes: XS-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_black_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_black_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_ST460LS.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/10171/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_ST460LS.pdf",
-    "companionStyle": "ST460LS|ST460",
-    "colors": [
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST460LS_Black_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST460LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST460LS_black_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Grey Concrete",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST460LS_GreyConcrete_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST460LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_greyconcrete_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST460LS_greyconcrete_model_frontTN.jpg",
-        "pms": "COOL GRAY 10C"
-      },
-      {
-        "name": "Olive Drab Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST460LS_OliveDrabGreen_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST460LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_olivedrabgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST460LS_olivedrabgreen_model_frontTN.jpg",
-        "pms": "7771C"
-      },
-      {
-        "name": "True Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST460LS_TrueNavy_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST460LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_truenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST460LS_truenavy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST460LS_White_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST460LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST460LS_white_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 10.49,
-    "msrp": 16.98,
-    "pieceWeight": 0.34
-  },
-  {
-    "style": "64800L",
-    "title": "Gildan Softstyle Women's Pique Polo",
-    "brand": "Gildan",
-    "category": "Polos/Knits",
-    "subcategory": "",
-    "description": "5.2-ounce 100% ring spun cotton 90/10 ring spun cotton/poly (Ring Spun Sport Grey) Rolled forward shoulders Clean-finished placket Dyed-to-match buttons Semi-fitted side seamed Recycled high-performing black tear-away label",
-    "availableSizes": "Women's Sizes: S-2XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_ringspunsportgrey_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_ringspunsportgrey_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_64800L.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/54875/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_64800L.pdf",
-    "companionStyle": "",
-    "colors": [
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_black_model_frontTN.jpg",
-        "pms": "426C"
-      },
-      {
-        "name": "Cherry Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_CherryRed_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/64800L_cherryred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_cherryred_model_frontTN.jpg",
-        "pms": "187C"
-      },
-      {
-        "name": "Daisy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Daisy_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/64800L_daisy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_daisy_model_frontTN.jpg",
-        "pms": "122C"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Navy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Red.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_red_model_frontTN.jpg",
-        "pms": "199C"
-      },
-      {
-        "name": "Ring Spun Sport Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Ring%20Spun%20Sport%20Grey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_ringspunsportgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_ringspunsportgrey_model_frontTN.jpg",
-        "pms": "COOL GRAY 7C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Royal_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/64800L_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_royal_model_frontTN.jpg",
-        "pms": "7686C"
-      },
-      {
-        "name": "Sapphire",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Sapphire_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/64800L_sapphire_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_sapphire_model_frontTN.jpg",
-        "pms": "641C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_white_model_frontTN.jpg",
-        "pms": "WHITE C"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 8.62,
-    "msrp": 13.24,
-    "pieceWeight": 0.37
-  },
-  {
-    "style": "ST104",
-    "title": "Sport-Tek Competitor United Polo",
-    "brand": "Sport-Tek",
-    "category": "Polos/Knits",
-    "subcategory": "",
-    "description": "Support your team with this moisture-wicking polo. 3.8-ounce 100% poly interlock with PosiCharge technology UPF rating of 30+ Moisture-wicking Perfect for all-around team uniforming Flat knit collar Self-fabric neck tape 3-button placket Dyed-to-match buttons Colorblock shoulder panels Tear-away label",
-    "availableSizes": "Adult Sizes: XS-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_blackgold_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_blackgold_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_ST104.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/46788/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_ST104.pdf",
-    "companionStyle": "",
-    "colors": [
-      {
-        "name": "Black/ Deep Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_Black_DeepRed.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_blackdeepred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_blackdeepred_model_frontTN.jpg",
-        "pms": "201C"
-      },
-      {
-        "name": "Black/ Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_Black_Gold.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_blackgold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_blackgold_model_frontTN.jpg",
-        "pms": "1235C"
-      },
-      {
-        "name": "Black/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_Black_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_blackwhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_blackwhite_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Carolina Blue/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_CarolinaBlue_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_carolinabluewhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_carolinabluewhite_model_frontTN.jpg",
-        "pms": "646C"
-      },
-      {
-        "name": "Deep Red/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_DeepRed_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_deepredwhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_deepredwhite_model_frontTN.jpg",
-        "pms": "201C"
-      },
-      {
-        "name": "Forest Green/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_ForestGreen_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_forestgreenwhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_forestgreenwhite_model_frontTN.jpg",
-        "pms": "553C"
-      },
-      {
-        "name": "Iron Grey/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_IronGrey_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_irongreywhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_irongreywhite_model_frontTN.jpg",
-        "pms": "7540C"
-      },
-      {
-        "name": "Maroon/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_Maroon_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_maroonwhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_maroonwhite_model_frontTN.jpg",
-        "pms": "504C"
-      },
-      {
-        "name": "Purple/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_Purple_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_purplewhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_purplewhite_model_frontTN.jpg",
-        "pms": "7672C"
-      },
-      {
-        "name": "True Navy/ Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_TrueNavy_Gold.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_truenavygold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_truenavygold_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "True Navy/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_TrueNavy_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_truenavywhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_truenavywhite_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "True Royal/ Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_TrueRoyalGold.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_trueroyalgold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_trueroyalgold_model_frontTN.jpg",
-        "pms": "7687C"
-      },
-      {
-        "name": "True Royal/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_TrueRoyalWhite.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_trueroyalwhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_trueroyalwhite_model_frontTN.jpg",
-        "pms": "7687C"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 10.77,
-    "msrp": 17.54,
-    "pieceWeight": 0.19
-  },
-  {
-    "style": "2200",
-    "title": "Gildan - Ultra Cotton 100% US Cotton Tank Top.",
-    "brand": "Gildan",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "6-ounce 100% US cotton90/10 cotton/poly (Sport Grey) 99/1 cotton/poly (Ash) Banded neck and armholes Double-needle hem Classic fit seamless bodyRecycled high-performing black tear-away label",
-    "availableSizes": "Adult Sizes: S-3XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_white_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_white_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_2200.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/781/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_2200.pdf",
-    "companionStyle": "2200|2000|2000L|2000B|2300|G2400|2400B|2410|2700",
-    "colors": [
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_black_model_frontTN.jpg",
-        "pms": "426C"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Navy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Red.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_red_model_frontTN.jpg",
-        "pms": "199C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Royal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_royal_model_frontTN.jpg",
-        "pms": "7686C"
-      },
-      {
-        "name": "Sport Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_SportGrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_sportgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_sportgrey_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_White.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_white_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 4.73,
-    "msrp": 7.46,
-    "pieceWeight": 0.3
-  },
-  {
-    "style": "BC3200",
-    "title": "BELLA+CANVAS Unisex 3/4-Sleeve Baseball Tee.",
-    "brand": "Bella + Canvas",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Retail fit Tear-away label Contrast raglan sleeves and neck trim Side seamed Solid Colorblock: 3.6-ounce 52/48 Airlume combed and ring spun cotton/poly 40 singles Black Heather: 90/10 Airlume combed and ring spun cotton/poly Marble Colorblock: 4-ounce 91/9 poly/Airlume combed and ring spun cotton 32 singles Triblend...",
-    "availableSizes": "Unisex Sizes: XS-2XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_blackheatherblack_model_front_072019.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_blackheatherblack_model_back_072019.jpg",
-    "specSheet": "SpecSheetMeasurements_BC3200.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/9266/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC3200.pdf",
-    "companionStyle": "BC3200",
-    "colors": [
-      {
-        "name": "Black Heather/ Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_blackheatherblack.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_blackheatherblack_model_front_072019.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_blackheatherblack_model_front_072019TN.jpg",
-        "pms": "Black C"
-      },
-      {
-        "name": "Black/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_blackwhite.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_blackwhite_model_front_072019.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_blackwhite_model_front_072019TN.jpg",
-        "pms": "White C"
-      },
-      {
-        "name": "Deep Heather/ Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_deepheatherblack.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_deepheatherblack_model_front_072019.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_deepheatherblack_model_front_072019TN.jpg",
-        "pms": "2333CP"
-      },
-      {
-        "name": "Grey/ Charcoal-Black Triblend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_greycharcoalblacktriblend.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3200_greycharcoalblacktri_model_front_062018.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_greycharcoalblacktri_model_front_062018TN.jpg",
-        "pms": "Black 7CP"
-      },
-      {
-        "name": "Grey/ Maroon Triblend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_greymaroontriblend.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3200_greymaroontriblend_model_front_062018.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_greymaroontriblend_model_front_062018TN.jpg",
-        "pms": "209U"
-      },
-      {
-        "name": "Grey/ Red Triblend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_greyredtriblend.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3200_greyredtriblend_model_front_062018.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_greyredtriblend_model_front_062018TN.jpg",
-        "pms": "1797C"
-      },
-      {
-        "name": "Grey/ True Royal Triblend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_greytrueroyaltriblend.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3200_greytrueroyaltri_model_front_062018.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_greytrueroyaltri_model_front_062018TN.jpg",
-        "pms": "286CP"
-      },
-      {
-        "name": "White Fleck/ Charcoal-Black Triblend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitefleckcharcoalblacktriblend.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3200_whtflkchrcoalblktri_model_front_062018.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whtflkchrcoalblktri_model_front_062018TN.jpg",
-        "pms": "COOL GRAY 1CP"
-      },
-      {
-        "name": "White/ Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whiteblack.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whiteblack_model_front_072019.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whiteblack_model_front_072019TN.jpg",
-        "pms": "Black C"
-      },
-      {
-        "name": "White/ Deep Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitedeepheather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whitedeepheather_model_front_072019.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whitedeepheather_model_front_072019TN.jpg",
-        "pms": "2333CP"
-      },
-      {
-        "name": "White/ Kelly",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitekelly.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whitekelly_model_front_072019.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whitekelly_model_front_072019TN.jpg",
-        "pms": "341C"
-      },
-      {
-        "name": "White/ Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitenavy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whitenavy_model_front_072019.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whitenavy_model_front_072019TN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "White/ Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitered.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whitered_model_front_072019.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whitered_model_front_072019TN.jpg",
-        "pms": "200C"
-      },
-      {
-        "name": "White/ True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_whitetrueroyal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3200sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f12/BC3200_whitetrueroyal_model_front_072019.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3200_whitetrueroyal_model_front_072019TN.jpg",
-        "pms": "7684CP"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 9.48,
-    "msrp": 14.96,
-    "pieceWeight": 0.26
-  },
-  {
-    "style": "ST100",
-    "title": "Sport-Tek Competitor United Crew",
-    "brand": "Sport-Tek",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Put yourself at the top of the game with this Competitor United crew that features moisture wicking and sun protection. 3.8-ounce 100% poly interlock with PosiCharge technology UPF rating of 30+ Tear-away label Contrast colorblocking on shoulders",
-    "availableSizes": "Adult Sizes: XS-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_BLACKLIMESHOCK_Model_Front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_BLACKLIMESHOCK_Model_Back.jpg",
-    "specSheet": "SpecSheetMeasurements_ST100.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/38680/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_ST100.pdf",
-    "companionStyle": "",
-    "colors": [
-      {
-        "name": "Black/ Lime Shock",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_BLACK_LIMESHOCK.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_BLACKLIMESHOCK_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_BLACKLIMESHOCK_Model_FrontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Black/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_BLACK_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_BLACKWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_BLACKWHITE_Model_FrontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Carolina Blue/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_CAROLINABLUE_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_CAROLINABLUEWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_CAROLINABLUEWHITE_Model_FrontTN.jpg",
-        "pms": "646C"
-      },
-      {
-        "name": "Deep Orange/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_DEEPORANGE_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_DEEPORANGEWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_DEEPORANGEWHITE_Model_FrontTN.jpg",
-        "pms": "173C"
-      },
-      {
-        "name": "Deep Red/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_DEEPRED_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_DEEPREDWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_DEEPREDWHITE_Model_FrontTN.jpg",
-        "pms": "201C"
-      },
-      {
-        "name": "Forest Green/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_FORESTGREEN_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_FORESTGREENWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_FORESTGREENWHITE_Model_FrontTN.jpg",
-        "pms": "553C"
-      },
-      {
-        "name": "Gold/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_GOLD_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_GOLDWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_GOLDWHITE_Model_FrontTN.jpg",
-        "pms": "1235C"
-      },
-      {
-        "name": "Iron Grey/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_IRONGREY_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_IRONGREYWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_IRONGREYWHITE_Model_FrontTN.jpg",
-        "pms": "7540C"
-      },
-      {
-        "name": "Maroon/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_MAROON_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_MAROONWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_MAROONWHITE_Model_FrontTN.jpg",
-        "pms": "504C"
-      },
-      {
-        "name": "Purple/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_PURPLE_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_PURPLEWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_PURPLEWHITE_Model_FrontTN.jpg",
-        "pms": "7672C"
-      },
-      {
-        "name": "True Navy/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_TRUENAVY_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_TRUENAVYWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_TRUENAVYWHITE_Model_FrontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "True Royal/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_TRUEROYAL_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_TRUEROYALWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_TRUEROYALWHITE_Model_FrontTN.jpg",
-        "pms": "7687C"
-      },
-      {
-        "name": "White/ Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_WHITE_BLACK.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_WHITEBLACK_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_WHITEBLACK_Model_FrontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "White/ White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_WHITE_WHITE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_WHITEWHITE_Model_Front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_WHITEWHITE_Model_FrontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 8.02,
-    "msrp": 12.04,
-    "pieceWeight": 0.28
-  },
-  {
-    "style": "SF600",
-    "title": "Gildan Softstyle Midweight Fleece Full-Zip Hooded Sweatshirt",
-    "brand": "Gildan",
-    "category": "Sweatshirts/Fleece",
-    "subcategory": "",
-    "description": "8.4-ounce 80/20 ring spun cotton/polyester 75/25 ring spun cotton/poly (Ring Spun Sport Grey) Brushed interior and a 100% ring spun cotton face Two-piece dyed-to-match jersey fabric-lined hood Drop shoulder Metal zipper Front pouch pocket 1x1 rib knit with spandex cuffs and bottom band Classic fit seamless body Recy...",
-    "availableSizes": "Adult Sizes: S-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_ringspunsportgrey_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_ringspunsportgrey_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_SF600.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/54873/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_SF600.pdf",
-    "companionStyle": "",
-    "colors": [
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_black_model_frontTN.jpg",
-        "pms": "426C"
-      },
-      {
-        "name": "Dark Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_DarkHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f4/SF600_darkheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_darkheather_model_frontTN.jpg",
-        "pms": "7545C"
-      },
-      {
-        "name": "Dusty Rose",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_DustyRose_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/SF600_dustyrose_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_dustyrose_model_frontTN.jpg",
-        "pms": "7605C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Maroon_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f4/SF600_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_maroon_model_frontTN.jpg",
-        "pms": "7644C"
-      },
-      {
-        "name": "Military Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_MilitaryGreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_militarygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_militarygreen_model_frontTN.jpg",
-        "pms": "5615C"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Navy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Off White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_OffWhite_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f4/SF600_offwhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_offwhite_model_frontTN.jpg",
-        "pms": "9161C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Red_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f4/SF600_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_red_model_frontTN.jpg",
-        "pms": "199C"
-      },
-      {
-        "name": "Ring Spun Sport Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_RingSpunSportGrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_ringspunsportgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_ringspunsportgrey_model_frontTN.jpg",
-        "pms": "COOL GRAY 7C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Royal_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f4/SF600_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_royal_model_frontTN.jpg",
-        "pms": "7686C"
-      },
-      {
-        "name": "Sand",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Sand.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_sand_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_sand_model_frontTN.jpg",
-        "pms": "7528C"
-      },
-      {
-        "name": "Stone Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_StoneBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_stoneblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_stoneblue_model_frontTN.jpg",
-        "pms": "2164C"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 20.46,
-    "msrp": 32.92,
-    "pieceWeight": 1.09
   },
   {
     "style": "A4N3532",
@@ -37777,6 +41273,112 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.4
   },
   {
+    "style": "BC100B",
+    "title": "BELLA+CANVAS Infant Jersey Short Sleeve One Piece",
+    "brand": "Bella + Canvas",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Envelope neck Side seamed Snap leg closure Tear-away label 4.2-ounce 100% Airlume combed and ring spun cotton 32 singles Athletic Heather: 90/10 Airlume combed and ring spun cotton/polyester Other Heathers: 52/48 Airlume combed and ring spun cotton/polyester",
+    "availableSizes": "Infant Sizes: 0M-18M",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_athleticheather_flat_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_athleticheather_flat_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC100B.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/64774/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC100B.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Athletic Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_AthleticHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_athleticheather_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_athleticheather_flat_frontTN.jpg",
+        "pms": "COOL GREY 5UP"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_Black_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_black_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Dark Grey Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_DarkGreyHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_darkgreyheather_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_darkgreyheather_flat_frontTN.jpg",
+        "pms": "7540CP"
+      },
+      {
+        "name": "Heather Columbia Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_HeatherColumbiaBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_heathercolumbiablue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_heathercolumbiablue_flat_frontTN.jpg",
+        "pms": "660U"
+      },
+      {
+        "name": "Heather Dust",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_HeatherDust_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_heatherdust_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_heatherdust_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Mauve",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_HeatherMauve_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_heathermauve_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_heathermauve_flat_frontTN.jpg",
+        "pms": "7524U"
+      },
+      {
+        "name": "Natural",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_Natural_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_natural_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_natural_flat_frontTN.jpg",
+        "pms": "7500CP"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_Navy_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_navy_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_navy_flat_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_Pink_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_pink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_pink_model_frontTN.jpg",
+        "pms": "706C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC100B_White_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC100Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/BC100B_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC100B_white_model_frontTN.jpg",
+        "pms": "WHITE C"
+      }
+    ],
+    "sizes": [
+      "0003",
+      "0306",
+      "0612",
+      "1218"
+    ],
+    "priceFrom": 5.78,
+    "msrp": 9.56,
+    "pieceWeight": 0.11
+  },
+  {
     "style": "TLCS410",
     "title": "CornerStone Tall Select Snag-Proof Tactical Polo.",
     "brand": "CornerStone",
@@ -38358,6 +41960,56 @@ export const sanmarCatalogProducts = [
     "priceFrom": 17.68,
     "msrp": 22.8,
     "pieceWeight": 0.41
+  },
+  {
+    "style": "BC3001B",
+    "title": "BELLA+CANVAS Infant Jersey Short Sleeve Tee",
+    "brand": "Bella + Canvas",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "CrewneckSide seamedTear-away label4.2-ounce 100% Airlume combed and ring spun cotton 32 singles",
+    "availableSizes": "Infant Sizes: 3M-24M",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001B_black_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001B_black_flat_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC3001B.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/64773/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC3001B.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001B_Black_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001B_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001B_black_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001B_Pink_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001B_pink_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001B_pink_model_frontTN.jpg",
+        "pms": "706C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001B_White_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Bsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001B_white_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001B_white_flat_frontTN.jpg",
+        "pms": "WHITE C"
+      }
+    ],
+    "sizes": [
+      "0306",
+      "0612",
+      "1218",
+      "1824"
+    ],
+    "priceFrom": 4.4,
+    "msrp": 6.8,
+    "pieceWeight": 0.09
   },
   {
     "style": "TLCS450",
@@ -38948,6 +42600,64 @@ export const sanmarCatalogProducts = [
     "priceFrom": 19.09,
     "msrp": 25.15,
     "pieceWeight": 0.6
+  },
+  {
+    "style": "BC3501T",
+    "title": "BELLA+CANVAS Toddler Jersey Long Sleeve Tee",
+    "brand": "Bella + Canvas",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Retail fit Crewneck Side seamed Ribbed cuff Tear-away label Solid colors: 4.2-ounce 100% Airlume combed and ring spun cotton 32 singles Athletic Heather: 90/10 Airlume combed and ring spun cotton/polyester Other Heathers: 52/48 Airlume combed and ring spun cotton/polyester",
+    "availableSizes": "Toddler Sizes: 2T-5T",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_athleticheather_flat_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_athleticheather_flat_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC3501T.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/64376/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC3501T.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Athletic Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501T_AthleticHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_athleticheather_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501T_athleticheather_flat_frontTN.jpg",
+        "pms": "COOL GREY 5UP"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501T_Black_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_black_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501T_black_flat_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501T_Pink_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_pink_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501T_pink_flat_frontTN.jpg",
+        "pms": "706C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3501T_White_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3501Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3501T_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3501T_white_model_frontTN.jpg",
+        "pms": "WHITE C"
+      }
+    ],
+    "sizes": [
+      "2T",
+      "3T",
+      "4T",
+      "5T"
+    ],
+    "priceFrom": 7.1,
+    "msrp": 10.2,
+    "pieceWeight": 0.17
   },
   {
     "style": "CS419",
@@ -39584,6 +43294,272 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.14
   },
   {
+    "style": "BC3001T",
+    "title": "BELLA+CANVAS Toddler Short Sleeve Tee",
+    "brand": "Bella + Canvas",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Retail fit Crewneck Side seamed Tear-away label 4.2-ounce 100% Airlume combed and ring spun cotton 32 singles Heathers and Solid Black Blend: 52/48 Airlume combed and ring spun cotton/polyester Athletic Heather: 90/10 Airlume combed and ring spun cotton/polyester",
+    "availableSizes": "Toddler Sizes: 2T-5T",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_forest_flat_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_forest_flat_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC3001T.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/64375/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC3001T.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Athletic Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_AthleticHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_athleticheather_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_athleticheather_flat_frontTN.jpg",
+        "pms": "COOL GREY 5UP"
+      },
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Black_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_black_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_black_flat_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Dark Grey Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_DarkGreyHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_darkgreyheather_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_darkgreyheather_flat_frontTN.jpg",
+        "pms": "7540CP"
+      },
+      {
+        "name": "Deep Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_DeepHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_deepheather_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_deepheather_flat_frontTN.jpg",
+        "pms": "2333CP"
+      },
+      {
+        "name": "Dusty Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_DustyBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_dustyblue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_dustyblue_flat_frontTN.jpg",
+        "pms": "5645CP"
+      },
+      {
+        "name": "Forest",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Forest_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_forest_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_forest_flat_frontTN.jpg",
+        "pms": "5535C"
+      },
+      {
+        "name": "Heather Columbia Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherColumbiaBlue_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heathercolumbiablue_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heathercolumbiablue_flat_frontTN.jpg",
+        "pms": "660U"
+      },
+      {
+        "name": "Heather Deep Teal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherDeepTeal_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatherdeepteal_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatherdeepteal_flat_frontTN.jpg",
+        "pms": "7699C"
+      },
+      {
+        "name": "Heather Dust",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherDust_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatherdust_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatherdust_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Heather Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherMaroon_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heathermaroon_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heathermaroon_flat_frontTN.jpg",
+        "pms": "7644CP"
+      },
+      {
+        "name": "Heather Mauve",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherMauve_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heathermauve_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heathermauve_flat_frontTN.jpg",
+        "pms": "7524U"
+      },
+      {
+        "name": "Heather Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherNavy_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heathernavy_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heathernavy_flat_frontTN.jpg",
+        "pms": "2379CP"
+      },
+      {
+        "name": "Heather Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherRed_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatherred_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatherred_flat_frontTN.jpg",
+        "pms": "193C"
+      },
+      {
+        "name": "Heather Stone",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherStone_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatherstone_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatherstone_flat_frontTN.jpg",
+        "pms": "2327UP"
+      },
+      {
+        "name": "Heather Team Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherTeamPurple_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatherteampurple_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatherteampurple_flat_frontTN.jpg",
+        "pms": "2665C"
+      },
+      {
+        "name": "Heather True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherTrueRoyal_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heathertrueroyal_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heathertrueroyal_flat_frontTN.jpg",
+        "pms": "286CP"
+      },
+      {
+        "name": "Heather Yellow Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_HeatherYellowGold_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_heatheryellowgold_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_heatheryellowgold_flat_frontTN.jpg",
+        "pms": "134C"
+      },
+      {
+        "name": "Kelly",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Kelly_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_kelly_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_kelly_flat_frontTN.jpg",
+        "pms": "341C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Maroon_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_maroon_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_maroon_flat_frontTN.jpg",
+        "pms": "7643C"
+      },
+      {
+        "name": "Military Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_MilitaryGreen_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_militarygreen_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_militarygreen_flat_frontTN.jpg",
+        "pms": "2410UP"
+      },
+      {
+        "name": "Natural",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Natural_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_natural_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_natural_flat_frontTN.jpg",
+        "pms": "7500CP"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Navy_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Pink",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Pink_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_pink_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_pink_flat_frontTN.jpg",
+        "pms": "706C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Red_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_red_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_red_flat_frontTN.jpg",
+        "pms": "200C"
+      },
+      {
+        "name": "Solid Athletic Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_SolidAthleticGrey_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_solidathleticgrey_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_solidathleticgrey_flat_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "Solid Black Blend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_SolidBlackBlend_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_solidblackblend_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_solidblackblend_flat_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Team Purple",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_TeamPurple_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_teampurple_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_teampurple_flat_frontTN.jpg",
+        "pms": "2695C"
+      },
+      {
+        "name": "True Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_TrueRoyal_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_trueroyal_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_trueroyal_flat_frontTN.jpg",
+        "pms": "7684CP"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_White_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_white_model_frontTN.jpg",
+        "pms": "WHITE C"
+      },
+      {
+        "name": "Yellow",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001T_Yellow_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001T_yellow_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001T_yellow_flat_frontTN.jpg",
+        "pms": "100CP"
+      }
+    ],
+    "sizes": [
+      "2T",
+      "3T",
+      "4T",
+      "5T"
+    ],
+    "priceFrom": 4.46,
+    "msrp": 6.92,
+    "pieceWeight": 0.13
+  },
+  {
     "style": "CS413",
     "title": "CornerStone Women's Select Snag-Proof Polo.",
     "brand": "CornerStone",
@@ -40067,6 +44043,80 @@ export const sanmarCatalogProducts = [
     "priceFrom": 7.68,
     "msrp": 11.36,
     "pieceWeight": 0.21
+  },
+  {
+    "style": "BC3413T",
+    "title": "BELLA+CANVAS Toddler Triblend Short Sleeve Tee",
+    "brand": "Bella + Canvas",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Crewneck Side seamed Tear-away label 3.8-ounce 50/25/25 polyester/Airlume combed and ring spun cotton/rayon 40 singles",
+    "availableSizes": "Toddler Sizes: 2T-5T",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_athleticgreytriblend_flat_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_athleticgreytriblend_flat_back.jpg",
+    "specSheet": "SpecSheetMeasurements_BC3413T.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/64377/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_BC3413T.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Athletic Grey Triblend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_AthleticGreyTriblend_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_athleticgreytriblend_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_athleticgreytriblend_flat_frontTN.jpg",
+        "pms": "423C"
+      },
+      {
+        "name": "Blue Triblend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_BlueTriblend_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_bluetriblend_flat_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_bluetriblend_flat_frontTN.jpg",
+        "pms": "7682CP"
+      },
+      {
+        "name": "Grey Triblend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_GreyTriblend_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_greytriblend_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_greytriblend_model_frontTN.jpg",
+        "pms": "416CP"
+      },
+      {
+        "name": "Olive Triblend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_OliveTriblend_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_olivetriblend_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_olivetriblend_model_frontTN.jpg",
+        "pms": "7497CP"
+      },
+      {
+        "name": "Peach Triblend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_PeachTriblend_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_peachtriblend_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_peachtriblend_model_frontTN.jpg",
+        "pms": "7520C"
+      },
+      {
+        "name": "Solid Black Triblend",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3413T_SolidBlackTriblend_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3413Tsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3413T_solidblacktriblend_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3413T_solidblacktriblend_model_frontTN.jpg",
+        "pms": "BLACK C"
+      }
+    ],
+    "sizes": [
+      "2T",
+      "3T",
+      "4T",
+      "5T"
+    ],
+    "priceFrom": 5.27,
+    "msrp": 8.54,
+    "pieceWeight": 0.12
   },
   {
     "style": "CS411",
@@ -41608,163 +45658,6 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.46
   },
   {
-    "style": "BC3010",
-    "title": "BELLA+CANVAS Unisex 6-Ounce Heavyweight Tee",
-    "brand": "Bella + Canvas",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Boxy relaxed fitDrop shoulderSide seamedTear-away label6-ounce 100% Airlume combed and ring spun cotton 20 singlesAthletic Heather: 90/10 Airlume combed and ring spun cotton/polyester",
-    "availableSizes": "Unisex Sizes: XS-3XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_forest_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_forest_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC3010.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/64573/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC3010.pdf",
-    "companionStyle": "",
-    "colors": [
-      {
-        "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_AthleticHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_athleticheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_athleticheather_model_frontTN.jpg",
-        "pms": "COOL GREY 5UP"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Black_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_black_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Dark Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_DarkGrey_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_darkgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_darkgrey_model_frontTN.jpg",
-        "pms": "432CP"
-      },
-      {
-        "name": "Forest",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Forest_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_forest_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_forest_model_frontTN.jpg",
-        "pms": "5535C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Maroon_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_maroon_model_frontTN.jpg",
-        "pms": "7643C"
-      },
-      {
-        "name": "Natural",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Natural_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_natural_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_natural_model_frontTN.jpg",
-        "pms": "7500CP"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Navy_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Soft Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_SoftPink_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_softpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_softpink_model_frontTN.jpg",
-        "pms": "7604UP"
-      },
-      {
-        "name": "Toast",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_Toast_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_toast_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_toast_model_frontTN.jpg",
-        "pms": "7574C"
-      },
-      {
-        "name": "Vintage Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageBlack_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintageblack_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintageblack_model_frontTN.jpg",
-        "pms": "419C"
-      },
-      {
-        "name": "Vintage Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageBrown_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintagebrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintagebrown_model_frontTN.jpg",
-        "pms": "7575U"
-      },
-      {
-        "name": "Vintage Denim",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageDenim_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintagedenim_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintagedenim_model_frontTN.jpg",
-        "pms": "2178U"
-      },
-      {
-        "name": "Vintage Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageNavy_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintagenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintagenavy_model_frontTN.jpg",
-        "pms": "303UP"
-      },
-      {
-        "name": "Vintage Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageRed_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintagered_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintagered_model_frontTN.jpg",
-        "pms": "4059UP"
-      },
-      {
-        "name": "Vintage White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_VintageWhite_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_vintagewhite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_vintagewhite_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3010_White_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3010sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC3010_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3010_white_model_frontTN.jpg",
-        "pms": "WHITE C"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 7.8,
-    "msrp": 11.6,
-    "pieceWeight": 0.39
-  },
-  {
     "style": "DT156",
     "title": "District Women's Perfect Tri Hooded Cardigan.",
     "brand": "District",
@@ -42697,116 +46590,6 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.44
   },
   {
-    "style": "BC4610",
-    "title": "BELLA+CANVAS Unisex 7.5-Ounce Heavyweight Tee",
-    "brand": "Bella + Canvas",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Boxy relaxed fitDouble-stitched 7/8 neckDrop shoulderSide seamedTear-away label7.5-ounce 100% Airlume combed and ring spun cottonAthletic Heather: 90/10 Airlume combed and ring spun cotton/polyester",
-    "availableSizes": "Unisex Sizes: XS-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_cocoa_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_cocoa_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC4610.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/64575/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC4610.pdf",
-    "companionStyle": "",
-    "colors": [
-      {
-        "name": "Asphalt",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_Asphalt_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_asphalt_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_asphalt_model_frontTN.jpg",
-        "pms": "BLACK 7U"
-      },
-      {
-        "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_AthleticHeather_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_athleticheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_athleticheather_model_frontTN.jpg",
-        "pms": "COOL GREY 5UP"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_Black_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_black_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Cocoa",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_Cocoa_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_cocoa_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_cocoa_model_frontTN.jpg",
-        "pms": "4105U"
-      },
-      {
-        "name": "Dust",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_Dust_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_dust_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_dust_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Hunter Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_HunterGreen_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_huntergreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_huntergreen_model_frontTN.jpg",
-        "pms": "5467C"
-      },
-      {
-        "name": "Purple Storm",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_PurpleStorm_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_purplestorm_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_purplestorm_model_frontTN.jpg",
-        "pms": "2333CP"
-      },
-      {
-        "name": "Vintage Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_VintageNavy_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_vintagenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_vintagenavy_model_frontTN.jpg",
-        "pms": "303UP"
-      },
-      {
-        "name": "Vintage Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_VintageRed_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_vintagered_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_vintagered_model_frontTN.jpg",
-        "pms": "4059UP"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC4610_White_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC4610sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/BC4610_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC4610_white_model_frontTN.jpg",
-        "pms": "WHITE C"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 9.54,
-    "msrp": 15.08,
-    "pieceWeight": 0.54
-  },
-  {
     "style": "CT102788",
     "title": "Carhartt Women's Clarksburg Full-Zip Hoodie",
     "brand": "Carhartt",
@@ -43463,701 +47246,6 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 3.18
   },
   {
-    "style": "BC3001CVC",
-    "title": "BELLA+CANVAS Unisex Heather CVC Short Sleeve Tee.",
-    "brand": "Bella + Canvas",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Retail fit Tear-away label Side seamed Shoulder taping Athletic Heather/Black Heather: 4.2-ounce 90/10 Airlume combed and ring spun cotton/poly 32 singles Heather CVC/Solid CVC Blend Colors: 52/48 Airlume combed and ring spun cotton/poly Prism: 99/1 Airlume combed and ring spun cotton/poly",
-    "availableSizes": "Unisex Sizes: XS-5XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_athleticheather_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_athleticheather_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC3001CVC.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/9762/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC3001CVC.pdf",
-    "companionStyle": "BC3001|BC3001CVC|BC3501|BC6004|BC3001Y|BC3001U|BC3005",
-    "colors": [
-      {
-        "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_AthleticHeather_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_athleticheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_athleticheather_model_frontTN.jpg",
-        "pms": "428U"
-      },
-      {
-        "name": "Black Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_BlackHeather_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_blackheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_blackheather_model_frontTN.jpg",
-        "pms": "BLACK 7CP"
-      },
-      {
-        "name": "Dark Grey Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_DarkGreyHeather_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_darkgreyheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_darkgreyheather_model_frontTN.jpg",
-        "pms": "426C"
-      },
-      {
-        "name": "Deep Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_DeepHeather_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_deepheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_deepheather_model_frontTN.jpg",
-        "pms": "2333CP"
-      },
-      {
-        "name": "Heather Aqua",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherAqua_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatheraqua_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatheraqua_model_frontTN.jpg",
-        "pms": "7702C"
-      },
-      {
-        "name": "Heather Autumn",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherAutumn_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherautumn_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherautumn_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Baby Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBabyBlue_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heatherbabyblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherbabyblue_model_frontTN.jpg",
-        "pms": "2205UP"
-      },
-      {
-        "name": "Heather Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBlue_MRF26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherblue_model_frontTN.jpg",
-        "pms": "535C"
-      },
-      {
-        "name": "Heather Blue Lagoon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBlueLagoon_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatherbluelagoon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherbluelagoon_model_frontTN.jpg",
-        "pms": "2211C"
-      },
-      {
-        "name": "Heather Blue Storm",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBlueStorm_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heatherbluestorm_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherbluestorm_model_frontTN.jpg",
-        "pms": "446U"
-      },
-      {
-        "name": "Heather Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBrown_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherbrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherbrown_model_frontTN.jpg",
-        "pms": "7519C"
-      },
-      {
-        "name": "Heather Bubble Gum",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherBubbleGum_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatherbubblegum_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherbubblegum_model_frontTN.jpg",
-        "pms": "189C"
-      },
-      {
-        "name": "Heather Canvas Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCanvasRed_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001CVC_heathercanvasred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercanvasred_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Cardinal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCardinal_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heathercardinal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercardinal_model_frontTN.jpg",
-        "pms": "7421C"
-      },
-      {
-        "name": "Heather Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCarolinaBlue_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heathercarolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercarolinablue_model_frontTN.jpg",
-        "pms": "7453CP"
-      },
-      {
-        "name": "Heather Cement",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCement_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001CVC_heathercement_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercement_model_frontTN.jpg",
-        "pms": "454C"
-      },
-      {
-        "name": "Heather Charity Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCharityPink_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001CVC_heathercharitypink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercharitypink_model_frontTN.jpg",
-        "pms": "1915C"
-      },
-      {
-        "name": "Heather Clay",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherClay_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherclay_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherclay_model_frontTN.jpg",
-        "pms": "7593U"
-      },
-      {
-        "name": "Heather Columbia Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherColumbiaBlue_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathercolumbiablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercolumbiablue_model_frontTN.jpg",
-        "pms": "660U"
-      },
-      {
-        "name": "Heather Cool Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherCoolGrey_MRF26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001CVC_heathercoolgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathercoolgrey_model_frontTN.jpg",
-        "pms": "406C"
-      },
-      {
-        "name": "Heather Dark Lavender",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherDarkLavender_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heatherdarklavender_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherdarklavender_model_frontTN.jpg",
-        "pms": "2100CP"
-      },
-      {
-        "name": "Heather Deep Teal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherDeepTeal_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherdeepteal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherdeepteal_model_frontTN.jpg",
-        "pms": "7699C"
-      },
-      {
-        "name": "Heather Dust",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherDust_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherdust_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherdust_model_frontTN.jpg",
-        "pms": "5575CP"
-      },
-      {
-        "name": "Heather Dusty Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherDustyBlue_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherdustyblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherdustyblue_model_frontTN.jpg",
-        "pms": "5575CP"
-      },
-      {
-        "name": "Heather Emerald",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherEmerald_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatheremerald_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatheremerald_model_frontTN.jpg",
-        "pms": "627C"
-      },
-      {
-        "name": "Heather Forest",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherForest_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherforest_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherforest_model_frontTN.jpg",
-        "pms": "343U"
-      },
-      {
-        "name": "Heather French Vanilla",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherFrenchVanilla_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatherfrenchvanilla_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherfrenchvanilla_model_frontTN.jpg",
-        "pms": "7402CP"
-      },
-      {
-        "name": "Heather Grass Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherGrassGreen_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heathergrassgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathergrassgreen_model_frontTN.jpg",
-        "pms": "3425UP"
-      },
-      {
-        "name": "Heather Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherGreen_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathergreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathergreen_model_frontTN.jpg",
-        "pms": "7491C"
-      },
-      {
-        "name": "Heather Ice Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherIceBlue_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathericeblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathericeblue_model_frontTN.jpg",
-        "pms": "317CP"
-      },
-      {
-        "name": "Heather Kelly",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherKelly_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherkelly_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherkelly_model_frontTN.jpg",
-        "pms": "340C"
-      },
-      {
-        "name": "Heather Lapis",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherLapis_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherlapis_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherlapis_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Magenta",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMagenta_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heathermagenta_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermagenta_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMaroon_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathermaroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermaroon_model_frontTN.jpg",
-        "pms": "7644CP"
-      },
-      {
-        "name": "Heather Mauve",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMauve_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathermauve_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermauve_model_frontTN.jpg",
-        "pms": "7524UP"
-      },
-      {
-        "name": "Heather Midnight Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMidnightNavy_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathermidnitenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermidnitenavy_model_frontTN.jpg",
-        "pms": "2380CP"
-      },
-      {
-        "name": "Heather Military Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMilitaryGreen_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathermilitarygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermilitarygreen_model_frontTN.jpg",
-        "pms": "7764U"
-      },
-      {
-        "name": "Heather Mint",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMint_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heathermint_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermint_model_frontTN.jpg",
-        "pms": "2246 C"
-      },
-      {
-        "name": "Heather Mustard",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherMustard_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathermustard_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathermustard_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Natural",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherNatural_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heathernatural_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathernatural_model_frontTN.jpg",
-        "pms": "7500CP"
-      },
-      {
-        "name": "Heather Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherNavy_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heathernavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathernavy_model_frontTN.jpg",
-        "pms": "2379C"
-      },
-      {
-        "name": "Heather Oatmeal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherOatmeal_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heatheroatmeal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatheroatmeal_model_frontTN.jpg",
-        "pms": "7534C"
-      },
-      {
-        "name": "Heather Olive",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherOlive_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherolive_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherolive_model_frontTN.jpg",
-        "pms": "7497CP"
-      },
-      {
-        "name": "Heather Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherOrange_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherorange_model_frontTN.jpg",
-        "pms": "1645C"
-      },
-      {
-        "name": "Heather Orchid",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherOrchid_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherorchid_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherorchid_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Peach",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPeach_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherpeach_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherpeach_model_frontTN.jpg",
-        "pms": "2016UP"
-      },
-      {
-        "name": "Heather Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPink_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heatherpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherpink_model_frontTN.jpg",
-        "pms": "706C"
-      },
-      {
-        "name": "Heather Pink Gravel",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPinkGravel_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatherpinkgravel_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherpinkgravel_model_frontTN.jpg",
-        "pms": "4735CP"
-      },
-      {
-        "name": "Heather Prism Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismBlue_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismblue_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Prism Dusty Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismDustyBlue_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismdustyblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismdustyblue_model_frontTN.jpg",
-        "pms": "5575C"
-      },
-      {
-        "name": "Heather Prism Ice Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismIceBlue_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f14/BC3001CVC_heatherprismiceblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismiceblue_model_frontTN.jpg",
-        "pms": "559UP"
-      },
-      {
-        "name": "Heather Prism Lilac",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismLilac_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherprismlilac_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismlilac_model_frontTN.jpg",
-        "pms": "2052CP"
-      },
-      {
-        "name": "Heather Prism Mint",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismMint_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismmint_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismmint_model_frontTN.jpg",
-        "pms": "344C"
-      },
-      {
-        "name": "Heather Prism Natural",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismNatural_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismnatural_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismnatural_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Prism Peach",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismPeach_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismpeach_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismpeach_model_frontTN.jpg",
-        "pms": "7520C"
-      },
-      {
-        "name": "Heather Prism Sunset",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPrismSunset_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherprismsunset_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherprismsunset_model_frontTN.jpg",
-        "pms": "2025UP"
-      },
-      {
-        "name": "Heather Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherPurple_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heatherpurple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherpurple_model_frontTN.jpg",
-        "pms": "2082U"
-      },
-      {
-        "name": "Heather Raspberry",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherRaspberry_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherraspberry_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherraspberry_model_frontTN.jpg",
-        "pms": "207U"
-      },
-      {
-        "name": "Heather Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherRed_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherred_model_frontTN.jpg",
-        "pms": "193C"
-      },
-      {
-        "name": "Heather Sage",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSage_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heathersage_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathersage_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Sand Dune",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSandDune_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001CVC_heathersanddune_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathersanddune_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Heather Sea Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSeaGreen_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherseagreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherseagreen_model_frontTN.jpg",
-        "pms": "2398C"
-      },
-      {
-        "name": "Heather Silver",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSilver_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f10/BC3001CVC_heathersilver_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathersilver_model_frontTN.jpg",
-        "pms": "420C"
-      },
-      {
-        "name": "Heather Slate",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSlate_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherslate_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherslate_model_frontTN.jpg",
-        "pms": "2168UP"
-      },
-      {
-        "name": "Heather Soft Cream",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSoftCream_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_heathersoftcream_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathersoftcream_model_frontTN.jpg",
-        "pms": "468CP"
-      },
-      {
-        "name": "Heather Stone",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherStone_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f1/BC3001CVC_heatherstone_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherstone_model_frontTN.jpg",
-        "pms": "2327UP"
-      },
-      {
-        "name": "Heather Storm",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherStorm_MRF26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f31/BC3001CVC_heatherstorm_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherstorm_model_frontTN.jpg",
-        "pms": "COOL GRAY 9CP"
-      },
-      {
-        "name": "Heather Sunset",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherSunset_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f31/BC3001CVC_heathersunset_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathersunset_model_frontTN.jpg",
-        "pms": "2024UP"
-      },
-      {
-        "name": "Heather Tan",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherTan_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heathertan_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathertan_model_frontTN.jpg",
-        "pms": "2323CP"
-      },
-      {
-        "name": "Heather Team Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherTeamPurple_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatherteampurple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatherteampurple_model_frontTN.jpg",
-        "pms": "2665C"
-      },
-      {
-        "name": "Heather True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherTrueRoyal_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f31/BC3001CVC_heathertrueroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heathertrueroyal_model_frontTN.jpg",
-        "pms": "286CP"
-      },
-      {
-        "name": "Heather Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherYellow_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f31/BC3001CVC_heatheryellow_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatheryellow_model_frontTN.jpg",
-        "pms": "100CP"
-      },
-      {
-        "name": "Heather Yellow Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_HeatherYellowGold_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f3/BC3001CVC_heatheryellowgold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_heatheryellowgold_model_frontTN.jpg",
-        "pms": "134C"
-      },
-      {
-        "name": "Neon Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_NeonBlue_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_neonblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_neonblue_model_frontTN.jpg",
-        "pms": "PROCESS BLUE CP"
-      },
-      {
-        "name": "Neon Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_NeonOrange_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_neonorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_neonorange_model_frontTN.jpg",
-        "pms": "165C"
-      },
-      {
-        "name": "Neon Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_NeonPink_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_neonpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_neonpink_model_frontTN.jpg",
-        "pms": "926C"
-      },
-      {
-        "name": "Neon Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_NeonYellow_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_neonyellow_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_neonyellow_model_frontTN.jpg",
-        "pms": "923C"
-      },
-      {
-        "name": "Solid Asphalt Blend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidAsphaltBlend_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_solidasphaltblend_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidasphaltblend_model_frontTN.jpg",
-        "pms": "BLACK 7U"
-      },
-      {
-        "name": "Solid Black Blend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidBlackBlend_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f11/BC3001CVC_solidblackblend_model_front_072019.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidblackblend_model_front_072019TN.jpg",
-        "pms": "Black C"
-      },
-      {
-        "name": "Solid Navy Blend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidNavyBlend_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_solidnavyblend_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidnavyblend_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Solid Red Blend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidRedBlend_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_solidredblend_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidredblend_model_frontTN.jpg",
-        "pms": "200C"
-      },
-      {
-        "name": "Solid True Royal Blend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidTrueRoyalBlend_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/BC3001CVC_solidtrueroyalblend_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidtrueroyalblend_model_frontTN.jpg",
-        "pms": "7684CP"
-      },
-      {
-        "name": "Solid White Blend",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001CVC_SolidWhiteTriblend_2026.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVCsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f11/BC3001CVC_solidwhiteblend_model_front_072019.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001CVC_solidwhiteblend_model_front_072019TN.jpg",
-        "pms": "White C"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 5.79,
-    "msrp": 9.58,
-    "pieceWeight": 0.26
-  },
-  {
     "style": "S6000",
     "title": "Champion Powerblend Crewneck Sweatshirt.",
     "brand": "Champion",
@@ -44636,6 +47724,105 @@ export const sanmarCatalogProducts = [
     "priceFrom": 7.39,
     "msrp": 10.78,
     "pieceWeight": 0.2
+  },
+  {
+    "style": "64800L",
+    "title": "Gildan Softstyle Women's Pique Polo",
+    "brand": "Gildan",
+    "category": "Polos/Knits",
+    "subcategory": "",
+    "description": "5.2-ounce 100% ring spun cotton 90/10 ring spun cotton/poly (Ring Spun Sport Grey) Rolled forward shoulders Clean-finished placket Dyed-to-match buttons Semi-fitted side seamed Recycled high-performing black tear-away label",
+    "availableSizes": "Women's Sizes: S-2XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_ringspunsportgrey_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_ringspunsportgrey_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_64800L.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/54875/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_64800L.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Black.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_black_model_frontTN.jpg",
+        "pms": "426C"
+      },
+      {
+        "name": "Cherry Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_CherryRed_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/64800L_cherryred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_cherryred_model_frontTN.jpg",
+        "pms": "187C"
+      },
+      {
+        "name": "Daisy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Daisy_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/64800L_daisy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_daisy_model_frontTN.jpg",
+        "pms": "122C"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Navy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Red.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_red_model_frontTN.jpg",
+        "pms": "199C"
+      },
+      {
+        "name": "Ring Spun Sport Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Ring%20Spun%20Sport%20Grey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_ringspunsportgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_ringspunsportgrey_model_frontTN.jpg",
+        "pms": "COOL GRAY 7C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Royal_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/64800L_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_royal_model_frontTN.jpg",
+        "pms": "7686C"
+      },
+      {
+        "name": "Sapphire",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_Sapphire_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f6/64800L_sapphire_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_sapphire_model_frontTN.jpg",
+        "pms": "641C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/64800L_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/64800Lsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/64800L_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/64800L_white_model_frontTN.jpg",
+        "pms": "WHITE C"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 8.62,
+    "msrp": 13.24,
+    "pieceWeight": 0.37
   },
   {
     "style": "S800",
@@ -48339,773 +51526,6 @@ export const sanmarCatalogProducts = [
     "priceFrom": 12.79,
     "msrp": 21.58,
     "pieceWeight": 0.63
-  },
-  {
-    "style": "BC3001",
-    "title": "BELLA+CANVAS Unisex Jersey Short Sleeve Tee.",
-    "brand": "Bella + Canvas",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Retail fit Tear-away label Side seamed Shoulder taping Solid Colors: 4.2-ounce 100% Airlume combed and ring spun cotton 32 singles Ash: 99/1 Airlume combed and ring spun cotton/poly Athletic Heather/Black Heather: 90/10 Airlume combed and ring spun cotton/poly Heather CVC/Blend Colors: 52/48 Airlume combed and ring...",
-    "availableSizes": "Unisex Sizes: XS-5XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_aqua_flat_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_aqua_flat_back.jpg",
-    "specSheet": "SpecSheetMeasurements_BC3001.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/9260/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_BC3001.pdf",
-    "companionStyle": "BC3001|BC3001CVC|BC3501|BC6004|BC3001Y|BC3001U|BC3005",
-    "colors": [
-      {
-        "name": "Aqua",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_aqua.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_aqua_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_aqua_flat_frontTN.jpg",
-        "pms": "7459C"
-      },
-      {
-        "name": "Army",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_army.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_army_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_army_flat_frontTN.jpg",
-        "pms": "418CP"
-      },
-      {
-        "name": "Ash",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_ash.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_ash_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_ash_flat_frontTN.jpg",
-        "pms": "428CP"
-      },
-      {
-        "name": "Asphalt",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_asphalt.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_asphalt_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_asphalt_flat_frontTN.jpg",
-        "pms": "BLACK 7U"
-      },
-      {
-        "name": "Atlantic",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Atlantic_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_atlantic_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_atlantic_flat_frontTN.jpg",
-        "pms": "2217CP"
-      },
-      {
-        "name": "Autumn",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_autumn.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f2/BC3001_autumn_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_autumn_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Baby Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_babyblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_babyblue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_babyblue_flat_frontTN.jpg",
-        "pms": "2205UP"
-      },
-      {
-        "name": "Berry",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_berry.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_berry_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_berry_flat_frontTN.jpg",
-        "pms": "233CP"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_black_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_black_flat_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Blue Storm",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_BlueStorm_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_bluestorm_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_bluestorm_flat_frontTN.jpg",
-        "pms": "446U"
-      },
-      {
-        "name": "Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_brown.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_brown_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_brown_flat_frontTN.jpg",
-        "pms": "440CP"
-      },
-      {
-        "name": "Burnt Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_burntorange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_burntorange_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_burntorange_flat_frontTN.jpg",
-        "pms": "159C"
-      },
-      {
-        "name": "Canvas Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_canvasred.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_canvasred_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_canvasred_flat_frontTN.jpg",
-        "pms": "201C"
-      },
-      {
-        "name": "Cardinal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_cardinal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_cardinal_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_cardinal_flat_frontTN.jpg",
-        "pms": "194C"
-      },
-      {
-        "name": "Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_CarolinaBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_carolinablue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_carolinablue_flat_frontTN.jpg",
-        "pms": "7453CP"
-      },
-      {
-        "name": "Charity Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_charitypink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_charitypink_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_charitypink_flat_frontTN.jpg",
-        "pms": "212CP"
-      },
-      {
-        "name": "Chestnut",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Chestnut_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_chestnut_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_chestnut_flat_frontTN.jpg",
-        "pms": "7581CP"
-      },
-      {
-        "name": "Clay",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Clay_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_clay_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_clay_flat_frontTN.jpg",
-        "pms": "7593U"
-      },
-      {
-        "name": "Cocoa",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Cocoa_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_cocoa_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_cocoa_flat_frontTN.jpg",
-        "pms": "4105U"
-      },
-      {
-        "name": "Columbia Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_ColumbiaBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001_columbiablue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_columbiablue_flat_frontTN.jpg",
-        "pms": "2387C"
-      },
-      {
-        "name": "Cool Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_CoolBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_coolblue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_coolblue_flat_frontTN.jpg",
-        "pms": "7694C"
-      },
-      {
-        "name": "Coral",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_coral.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_coral_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_coral_flat_frontTN.jpg",
-        "pms": "2024U"
-      },
-      {
-        "name": "Dark Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_darkgrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_darkgrey_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_darkgrey_flat_frontTN.jpg",
-        "pms": "432CP"
-      },
-      {
-        "name": "Dark Lavender",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_DarkLavender_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_darklavender_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_darklavender_flat_frontTN.jpg",
-        "pms": "2100CP"
-      },
-      {
-        "name": "Dark Olive",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_darkolive.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f2/BC3001_darkolive_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_darkolive_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Deep Teal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_deepteal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_deepteal_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_deepteal_flat_frontTN.jpg",
-        "pms": "3025CP"
-      },
-      {
-        "name": "Dust",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Dust_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_dust_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_dust_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Dusty Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_DustyBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_dustyblue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_dustyblue_flat_frontTN.jpg",
-        "pms": "5645CP"
-      },
-      {
-        "name": "Electric Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_ElectricBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_electricblue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_electricblue_flat_frontTN.jpg",
-        "pms": "3553C"
-      },
-      {
-        "name": "Evergreen",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_evergreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_evergreen_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_evergreen_flat_frontTN.jpg",
-        "pms": "343C"
-      },
-      {
-        "name": "Forest",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_forest.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_forest_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_forest_flat_frontTN.jpg",
-        "pms": "5535 C"
-      },
-      {
-        "name": "Fuchsia",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Fuchsia.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001_fuchsia_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_fuchsia_flat_frontTN.jpg",
-        "pms": "2040C"
-      },
-      {
-        "name": "Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_gold.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_gold_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_gold_flat_frontTN.jpg",
-        "pms": "137C"
-      },
-      {
-        "name": "Hunter Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_HunterGreen_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_huntergreen_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_huntergreen_flat_frontTN.jpg",
-        "pms": "5467C"
-      },
-      {
-        "name": "Kelly",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_kelly.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_kelly_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_kelly_flat_frontTN.jpg",
-        "pms": "341C"
-      },
-      {
-        "name": "Lavender Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_LavenderBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_lavenderblue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_lavenderblue_flat_frontTN.jpg",
-        "pms": "7667CP"
-      },
-      {
-        "name": "Lavender Dust",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_LavenderDust_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_lavenderdust_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_lavenderdust_flat_frontTN.jpg",
-        "pms": "5245CP"
-      },
-      {
-        "name": "Leaf",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_leaf.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_leaf_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_leaf_flat_frontTN.jpg",
-        "pms": "2263CP"
-      },
-      {
-        "name": "Light Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_lightblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_lightblue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_lightblue_flat_frontTN.jpg",
-        "pms": "5435C"
-      },
-      {
-        "name": "Light Violet",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_LightViolet_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_lightviolet_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_lightviolet_flat_frontTN.jpg",
-        "pms": "2358UP"
-      },
-      {
-        "name": "Lilac",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_lilac.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f2/BC3001_lilac_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_lilac_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Maize Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_maizeyellow.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_maizeyellow_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_maizeyellow_flat_frontTN.jpg",
-        "pms": "7548CP"
-      },
-      {
-        "name": "Marine",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Marine_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_marine_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_marine_flat_frontTN.jpg",
-        "pms": "633CP"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_maroon.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_maroon_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_maroon_flat_frontTN.jpg",
-        "pms": "7643C"
-      },
-      {
-        "name": "Mauve",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_mauve.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_mauve_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_mauve_flat_frontTN.jpg",
-        "pms": "7524U"
-      },
-      {
-        "name": "Military Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_militarygreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_militarygreen_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_militarygreen_flat_frontTN.jpg",
-        "pms": "2410UP"
-      },
-      {
-        "name": "Mint",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_mint.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_mint_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_mint_flat_frontTN.jpg",
-        "pms": "344C"
-      },
-      {
-        "name": "Mustard",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_mustard.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f2/BC3001_mustard_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_mustard_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Natural",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_natural.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_natural_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_natural_flat_frontTN.jpg",
-        "pms": "7500CP"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_navy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_navy_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_navy_flat_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Ocean Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_oceanblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_oceanblue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_oceanblue_flat_frontTN.jpg",
-        "pms": "7458UP"
-      },
-      {
-        "name": "Olive",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_olive.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_olive_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_olive_flat_frontTN.jpg",
-        "pms": "5747CP"
-      },
-      {
-        "name": "Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_orange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_orange_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_orange_flat_frontTN.jpg",
-        "pms": "1645C"
-      },
-      {
-        "name": "Orchid",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Orchid_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_orchid_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_orchid_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Oxblood Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_oxbloodblack.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_oxbloodblack_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_oxbloodblack_flat_frontTN.jpg",
-        "pms": "7449CP"
-      },
-      {
-        "name": "Peach",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Peach_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_peach_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_peach_flat_frontTN.jpg",
-        "pms": "2016UP"
-      },
-      {
-        "name": "Pebble Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_PebbleBrown_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_pebblebrown_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_pebblebrown_flat_frontTN.jpg",
-        "pms": "409C"
-      },
-      {
-        "name": "Pine",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Pine_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_pine_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_pine_flat_frontTN.jpg",
-        "pms": "4188CP"
-      },
-      {
-        "name": "Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_pink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_pink_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_pink_flat_frontTN.jpg",
-        "pms": "706C"
-      },
-      {
-        "name": "Pink Gravel",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_PinkGravel_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_pinkgravel_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_pinkgravel_flat_frontTN.jpg",
-        "pms": "435CP"
-      },
-      {
-        "name": "Poppy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC_Poppy_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f8/BC3001_poppy_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_poppy_flat_frontTN.jpg",
-        "pms": "2347C"
-      },
-      {
-        "name": "Purple Storm",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_PurpleStorm_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_purplestorm_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_purplestorm_flat_frontTN.jpg",
-        "pms": "2333CP"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_red.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_red_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_red_flat_frontTN.jpg",
-        "pms": "200C"
-      },
-      {
-        "name": "Royal Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_RoyalPurple_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_royalpurple_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_royalpurple_flat_frontTN.jpg",
-        "pms": "266CP"
-      },
-      {
-        "name": "Rust",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_rust.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_rust_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_rust_flat_frontTN.jpg",
-        "pms": "2350U"
-      },
-      {
-        "name": "Sage",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Sage_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_sage_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_sage_flat_frontTN.jpg",
-        "pms": "5635CP"
-      },
-      {
-        "name": "Sand Dune",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_SandDune.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001_sanddune_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_sanddune_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Silver",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_silver.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_silver_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_silver_flat_frontTN.jpg",
-        "pms": "420C"
-      },
-      {
-        "name": "Slate",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Slate_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_slate_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_slate_flat_frontTN.jpg",
-        "pms": "2168UP"
-      },
-      {
-        "name": "Soft Cream",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_softcream.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_softcream_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_softcream_flat_frontTN.jpg",
-        "pms": "468CP"
-      },
-      {
-        "name": "Soft Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_softpink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_softpink_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_softpink_flat_frontTN.jpg",
-        "pms": "7604UP"
-      },
-      {
-        "name": "Solid Athletic Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_SolidAthleticGrey_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_solidathleticgrey_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_solidathleticgrey_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Steel Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_steelblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_steelblue_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_steelblue_flat_frontTN.jpg",
-        "pms": "5415CP"
-      },
-      {
-        "name": "Storm",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_storm.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_storm_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_storm_flat_frontTN.jpg",
-        "pms": "424CP"
-      },
-      {
-        "name": "Sunset",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_sunset.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_sunset_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_sunset_flat_frontTN.jpg",
-        "pms": "2024CP"
-      },
-      {
-        "name": "Synthetic Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_SyntheticGreen_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_syntheticgreen_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_syntheticgreen_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Tan",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Tan_MRF26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_tan_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_tan_flat_frontTN.jpg",
-        "pms": "2324CP"
-      },
-      {
-        "name": "Teal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_teal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_teal_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_teal_flat_frontTN.jpg",
-        "pms": "3262C"
-      },
-      {
-        "name": "Team Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_TeamNavy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/BC3001_teamnavy_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_teamnavy_flat_frontTN.jpg",
-        "pms": "2747C"
-      },
-      {
-        "name": "Team Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_teampurple.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_teampurple_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_teampurple_flat_frontTN.jpg",
-        "pms": "2695C"
-      },
-      {
-        "name": "Thyme",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Thyme_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_thyme_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_thyme_flat_frontTN.jpg",
-        "pms": "4177U"
-      },
-      {
-        "name": "Toast",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_Toast_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_toast_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_toast_flat_frontTN.jpg",
-        "pms": "7574C"
-      },
-      {
-        "name": "True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_trueroyal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_trueroyal_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_trueroyal_flat_frontTN.jpg",
-        "pms": "7684CP"
-      },
-      {
-        "name": "Turquoise",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_turquoise.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/BC3001_turquoise_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_turquoise_flat_frontTN.jpg",
-        "pms": "638C"
-      },
-      {
-        "name": "Vintage Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_vintageblack.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_vintageblack_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintageblack_flat_frontTN.jpg",
-        "pms": "419C"
-      },
-      {
-        "name": "Vintage Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_VintageBrown_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_vintagebrown_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintagebrown_flat_frontTN.jpg",
-        "pms": "7575U"
-      },
-      {
-        "name": "Vintage Denim",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_VintageDenim_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_vintagedenim_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintagedenim_flat_frontTN.jpg",
-        "pms": "2178U"
-      },
-      {
-        "name": "Vintage Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_VintageNavy_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_vintagenavy_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintagenavy_flat_frontTN.jpg",
-        "pms": "303UP"
-      },
-      {
-        "name": "Vintage Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC3001_VintageRed_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f12/BC3001_vintagered_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintagered_flat_frontTN.jpg",
-        "pms": "4059UP"
-      },
-      {
-        "name": "Vintage White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/BC_VintageWhite_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2019/f8/BC3001_vintagewhite_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_vintagewhite_flat_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_white.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_white_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_white_flat_frontTN.jpg",
-        "pms": "WHITE C"
-      },
-      {
-        "name": "Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/bc_yellow.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/BC3001sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2018/f3/BC3001_yellow_flat_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/BC3001_yellow_flat_frontTN.jpg",
-        "pms": "100CP"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 5.8,
-    "msrp": 9.6,
-    "pieceWeight": 0.22
   },
   {
     "style": "MM3032",
@@ -107335,6 +109755,131 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.42
   },
   {
+    "style": "SF600",
+    "title": "Gildan Softstyle Midweight Fleece Full-Zip Hooded Sweatshirt",
+    "brand": "Gildan",
+    "category": "Sweatshirts/Fleece",
+    "subcategory": "",
+    "description": "8.4-ounce 80/20 ring spun cotton/polyester 75/25 ring spun cotton/poly (Ring Spun Sport Grey) Brushed interior and a 100% ring spun cotton face Two-piece dyed-to-match jersey fabric-lined hood Drop shoulder Metal zipper Front pouch pocket 1x1 rib knit with spandex cuffs and bottom band Classic fit seamless body Recy...",
+    "availableSizes": "Adult Sizes: S-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_ringspunsportgrey_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_ringspunsportgrey_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_SF600.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/54873/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_SF600.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Black.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_black_model_frontTN.jpg",
+        "pms": "426C"
+      },
+      {
+        "name": "Dark Heather",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_DarkHeather_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f4/SF600_darkheather_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_darkheather_model_frontTN.jpg",
+        "pms": "7545C"
+      },
+      {
+        "name": "Dusty Rose",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_DustyRose_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/SF600_dustyrose_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_dustyrose_model_frontTN.jpg",
+        "pms": "7605C"
+      },
+      {
+        "name": "Maroon",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Maroon_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f4/SF600_maroon_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_maroon_model_frontTN.jpg",
+        "pms": "7644C"
+      },
+      {
+        "name": "Military Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_MilitaryGreen.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_militarygreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_militarygreen_model_frontTN.jpg",
+        "pms": "5615C"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Navy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Off White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_OffWhite_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f4/SF600_offwhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_offwhite_model_frontTN.jpg",
+        "pms": "9161C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Red_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f4/SF600_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_red_model_frontTN.jpg",
+        "pms": "199C"
+      },
+      {
+        "name": "Ring Spun Sport Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_RingSpunSportGrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_ringspunsportgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_ringspunsportgrey_model_frontTN.jpg",
+        "pms": "COOL GRAY 7C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Royal_06202025.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f4/SF600_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_royal_model_frontTN.jpg",
+        "pms": "7686C"
+      },
+      {
+        "name": "Sand",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_Sand.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_sand_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_sand_model_frontTN.jpg",
+        "pms": "7528C"
+      },
+      {
+        "name": "Stone Blue",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SF600_StoneBlue.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/SF600sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f16/SF600_stoneblue_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/SF600_stoneblue_model_frontTN.jpg",
+        "pms": "2164C"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 20.46,
+    "msrp": 32.92,
+    "pieceWeight": 1.09
+  },
+  {
     "style": "C819",
     "title": "Port Authority Pigment Print Camouflage Cap.",
     "brand": "Port Authority",
@@ -115972,444 +118517,6 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.27
   },
   {
-    "style": "996M",
-    "title": "Jerzees NuBlend Pullover Hooded Sweatshirt.",
-    "brand": "Jerzees",
-    "category": "Sweatshirts/Fleece",
-    "subcategory": "",
-    "description": "8-ounce 50/50 cotton/poly NuBlend pill-resistant fleeceHigh stitch density for a smooth printing canvas Two-ply hood with grommets and dyed-to-match tipped and knotted drawcord1x1 rib knit in cuffs and waistband Front pouch pocket Double-needle coverseamed neck armholes and waistband Ash (formerly Birch)Due to the n...",
-    "availableSizes": "Adult Sizes: S-5XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_ash_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_ash_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_996M.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/1491/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_996M.pdf",
-    "companionStyle": "996M|996Y|995Y|993B|995M|562M|993M|562B|973M",
-    "colors": [
-      {
-        "name": "Ash",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_birch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_ash_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_ash_model_frontTN.jpg",
-        "pms": "427C"
-      },
-      {
-        "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_athleticheather_996M.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_athleticheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_athleticheather_model_frontTN.jpg",
-        "pms": "COOL GRAY 6C"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_black_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Black Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/NIKE_blackheather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_blackheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_blackheather_model_frontTN.jpg",
-        "pms": "7540C"
-      },
-      {
-        "name": "Blush Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_996M_blushpink_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/996M_blushpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_blushpink_model_frontTN.jpg",
-        "pms": "7611C"
-      },
-      {
-        "name": "Burnt Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_BURNTORANGE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_burntorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_burntorange_model_frontTN.jpg",
-        "pms": "172C"
-      },
-      {
-        "name": "California Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_CaliforniaBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_californiablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_californiablue_model_frontTN.jpg",
-        "pms": "632C"
-      },
-      {
-        "name": "Cardinal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_cardinal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_cardinal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_cardinal_model_frontTN.jpg",
-        "pms": "188C"
-      },
-      {
-        "name": "Charcoal Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_CharcoalGrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_charcoalgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_charcoalgrey_model_frontTN.jpg",
-        "pms": "COOL GRAY 11C"
-      },
-      {
-        "name": "Chocolate",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/NewEra_chocolate.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f18/996M_chocolate_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_chocolate_model_frontTN.jpg",
-        "pms": "7519C"
-      },
-      {
-        "name": "Classic Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_ClassicPink_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_classicpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_classicpink_model_frontTN.jpg",
-        "pms": "510C"
-      },
-      {
-        "name": "Columbia Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_ColumbiaBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_columbiablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_columbiablue_model_frontTN.jpg",
-        "pms": "646C"
-      },
-      {
-        "name": "Cool Mint",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_CoolMint_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_coolmint_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_coolmint_model_frontTN.jpg",
-        "pms": "338C"
-      },
-      {
-        "name": "Cyber Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_CyberPink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_cyberpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_cyberpink_model_frontTN.jpg",
-        "pms": "215C"
-      },
-      {
-        "name": "Deep Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_DEEPPURPLE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_deeppurple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_deeppurple_model_frontTN.jpg",
-        "pms": "2695C"
-      },
-      {
-        "name": "Denim",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_Denim_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_denim_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_denim_model_frontTN.jpg",
-        "pms": "5405C"
-      },
-      {
-        "name": "Forest Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_forest.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_forestgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_forestgreen_model_frontTN.jpg",
-        "pms": "567C"
-      },
-      {
-        "name": "Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_GOLD.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_gold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_gold_model_frontTN.jpg",
-        "pms": "1235C"
-      },
-      {
-        "name": "Golden Pecan",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_996M_goldenpecan_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/996M_goldenpecan_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_goldenpecan_model_frontTN.jpg",
-        "pms": "7511C"
-      },
-      {
-        "name": "J. Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_truenavy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f31/996M_jnavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_jnavy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Kelly",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_KELLY.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_kelly_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_kelly_model_frontTN.jpg",
-        "pms": "348C"
-      },
-      {
-        "name": "Khaki",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_khaki.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_khaki_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_khaki_model_frontTN.jpg",
-        "pms": "7536C"
-      },
-      {
-        "name": "Kiwi",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_Kiwi.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/996M_kiwi_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_kiwi_model_frontTN.jpg",
-        "pms": "360C"
-      },
-      {
-        "name": "Light Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_LIGHTBLUE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/996M_lightblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_lightblue_model_frontTN.jpg",
-        "pms": "278C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_MAROON.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_maroon_model_frontTN.jpg",
-        "pms": "504C"
-      },
-      {
-        "name": "Military Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_militarygreen_996M.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_militarygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_militarygreen_model_frontTN.jpg",
-        "pms": "5747C"
-      },
-      {
-        "name": "Military Green Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_996M_militarygreenheather_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/996M_militarygreenheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_militarygreenheather_model_frontTN.jpg",
-        "pms": "5615C"
-      },
-      {
-        "name": "Mustard Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_996M_mustardheather_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/996M_mustardheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_mustardheather_model_frontTN.jpg",
-        "pms": "1245C"
-      },
-      {
-        "name": "Neon Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_neongreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/996M_neongreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_neongreen_model_frontTN.jpg",
-        "pms": "367C"
-      },
-      {
-        "name": "Neon Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_neonpink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/996M_neonpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_neonpink_model_frontTN.jpg",
-        "pms": "806C"
-      },
-      {
-        "name": "Oatmeal Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/jerzees_oatmealheather_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f17/996M_oatmealheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_oatmealheather_model_frontTN.jpg",
-        "pms": "7534C"
-      },
-      {
-        "name": "Oxford",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_OXFORD.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_oxford_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_oxford_model_frontTN.jpg",
-        "pms": "423C"
-      },
-      {
-        "name": "Periwinkle Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_PeriwinkleBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_periwinkleblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_periwinkleblue_model_frontTN.jpg",
-        "pms": "7456C"
-      },
-      {
-        "name": "Retro Heather Coral",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_RetroHeatherCoral_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_retroheathercoral_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_retroheathercoral_model_frontTN.jpg",
-        "pms": "805C"
-      },
-      {
-        "name": "Rock",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_Rock_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f7/996M_rock_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_rock_model_frontTN.jpg",
-        "pms": "COOL GREY 8C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_royal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_royal_model_frontTN.jpg",
-        "pms": "7686C"
-      },
-      {
-        "name": "Safari",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_Safari_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_safari_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_safari_model_frontTN.jpg",
-        "pms": "7531C"
-      },
-      {
-        "name": "Safety Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_safetygreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f3/996M_safetygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_safetygreen_model_frontTN.jpg",
-        "pms": "379C"
-      },
-      {
-        "name": "Safety Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_safetyorange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f3/996M_safetyorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_safetyorange_model_frontTN.jpg",
-        "pms": "1645C"
-      },
-      {
-        "name": "Sage",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_Sage_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_sage_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_sage_model_frontTN.jpg",
-        "pms": "5503C"
-      },
-      {
-        "name": "Sandstone",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_Sandstone_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_sandstone_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_sandstone_model_frontTN.jpg",
-        "pms": "4755C"
-      },
-      {
-        "name": "Scuba Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_ScubaBlue_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_scubablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_scubablue_model_frontTN.jpg",
-        "pms": "325C"
-      },
-      {
-        "name": "Sunset Coral",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/996M_SunsetCoral_06202025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f5/996M_sunsetcoral_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_sunsetcoral_model_frontTN.jpg",
-        "pms": "2348C"
-      },
-      {
-        "name": "Sweet Cream Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Jerzees_996M_sweetcreamheather_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/996M_sweetcreamheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_sweetcreamheather_model_frontTN.jpg",
-        "pms": "468C"
-      },
-      {
-        "name": "T Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_TexasOrange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_texasorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_texasorange_model_frontTN.jpg",
-        "pms": "1605C"
-      },
-      {
-        "name": "True Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_truered.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_truered_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_truered_model_frontTN.jpg",
-        "pms": "187C"
-      },
-      {
-        "name": "Vintage Heather Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_vintageheatherblue_996M.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_vintageheatherblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_vintageheatherblue_model_frontTN.jpg",
-        "pms": "653C"
-      },
-      {
-        "name": "Vintage Heather Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_vintageheathermaroon_996M.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_vintageheathermaroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_vintageheathermaroon_model_frontTN.jpg",
-        "pms": "505C"
-      },
-      {
-        "name": "Vintage Heather Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_vintageheathernavy_996M.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_vintageheathernavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_vintageheathernavy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Vintage Heather Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_vintageheatherred_996M.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_vintageheatherred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_vintageheatherred_model_frontTN.jpg",
-        "pms": "7419C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/JERZEES_white.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/996Msw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f14/996M_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/996M_white_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 17.28,
-    "msrp": 26.56,
-    "pieceWeight": 0.82
-  },
-  {
     "style": "C914",
     "title": "Port Authority Six-Panel Unstructured Twill Cap.",
     "brand": "Port Authority",
@@ -122482,6 +124589,82 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.71
   },
   {
+    "style": "2200",
+    "title": "Gildan - Ultra Cotton 100% US Cotton Tank Top.",
+    "brand": "Gildan",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "6-ounce 100% US cotton90/10 cotton/poly (Sport Grey) 99/1 cotton/poly (Ash) Banded neck and armholes Double-needle hem Classic fit seamless bodyRecycled high-performing black tear-away label",
+    "availableSizes": "Adult Sizes: S-3XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_white_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_white_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_2200.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/781/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_2200.pdf",
+    "companionStyle": "2200|2000|2000L|2000B|2300|G2400|2400B|2410|2700",
+    "colors": [
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Black.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_black_model_frontTN.jpg",
+        "pms": "426C"
+      },
+      {
+        "name": "Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Navy.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_navy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_navy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Red.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_red_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_red_model_frontTN.jpg",
+        "pms": "199C"
+      },
+      {
+        "name": "Royal",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Royal.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_royal_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_royal_model_frontTN.jpg",
+        "pms": "7686C"
+      },
+      {
+        "name": "Sport Grey",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_SportGrey.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_sportgrey_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_sportgrey_model_frontTN.jpg",
+        "pms": ""
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/2200sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f12/2200_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/2200_white_model_frontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "priceFrom": 4.73,
+    "msrp": 7.46,
+    "pieceWeight": 0.3
+  },
+  {
     "style": "K585",
     "title": "Port Authority Shadow Stripe Polo.",
     "brand": "Port Authority",
@@ -124673,356 +126856,6 @@ export const sanmarCatalogProducts = [
     "priceFrom": 22.99,
     "msrp": 37.98,
     "pieceWeight": 2.42
-  },
-  {
-    "style": "8000",
-    "title": "Gildan DryBlend 50 Cotton/50 Poly T-Shirt.",
-    "brand": "Gildan",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "5.5-ounce 50 US cotton/50 poly65 US cotton/35 poly (Heathers)DryBlend moisture-wicking propertiesRecycled high-performing black tear-away labelNon-topstitched classic width rib collar Taped neck and shouldersClassic fit seamless bodySafety Green is compliant with ANSI/ISEA 107 high-visibility standards for backgroun...",
-    "availableSizes": "Adult Sizes: S-5XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_white_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_white_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_8000.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/1104/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_8000.pdf",
-    "companionStyle": "8000|8300|8400|8000B",
-    "colors": [
-      {
-        "name": "Ash",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Ash_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_ash_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_ash_model_frontTN.jpg",
-        "pms": "COOL GRAY 3C"
-      },
-      {
-        "name": "Azalea",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/Gildan_Azalea.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_azalea_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_azalea_model_frontTN.jpg",
-        "pms": "2045C"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Black_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_black_model_frontTN.jpg",
-        "pms": "426C"
-      },
-      {
-        "name": "Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_CarolinaBlue_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_carolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_carolinablue_model_frontTN.jpg",
-        "pms": "659C"
-      },
-      {
-        "name": "Daisy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Daisy_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_daisy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_daisy_model_frontTN.jpg",
-        "pms": "122C"
-      },
-      {
-        "name": "Dark Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_DarkGreen_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_sportdarkgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sportdarkgreen_model_frontTN.jpg",
-        "pms": "554C"
-      },
-      {
-        "name": "Dark Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_DarkHeather_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_darkheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_darkheather_model_frontTN.jpg",
-        "pms": "7545C"
-      },
-      {
-        "name": "Dark Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_DarkNavy_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_sportdarknavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sportdarknavy_model_frontTN.jpg",
-        "pms": "289C"
-      },
-      {
-        "name": "Deep Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_DeepRoyal_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f9/8000_sportroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sportroyal_model_frontTN.jpg",
-        "pms": "288C"
-      },
-      {
-        "name": "Electric Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_ElectricGreen_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f6/8000_electricgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_electricgreen_model_frontTN.jpg",
-        "pms": "361C"
-      },
-      {
-        "name": "Forest Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_ForestGreen_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_forestgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_forestgreen_model_frontTN.jpg",
-        "pms": "5535C"
-      },
-      {
-        "name": "Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Gold_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_gold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_gold_model_frontTN.jpg",
-        "pms": "1235C"
-      },
-      {
-        "name": "Graphite Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_GraphiteHeather_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_graphiteheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_graphiteheather_model_frontTN.jpg",
-        "pms": "424 C"
-      },
-      {
-        "name": "Gravel",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Gravel_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_gravel_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_gravel_model_frontTN.jpg",
-        "pms": "COOL GRAY 8C"
-      },
-      {
-        "name": "Heather Dark Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_HeatherDarkNavy_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f7/8000_heatherdarknavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_heatherdarknavy_model_frontTN.jpg",
-        "pms": "5275C"
-      },
-      {
-        "name": "Heather Deep Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_HeatherDeepRoyal_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f17/8000_heathersportroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_heathersportroyal_model_frontTN.jpg",
-        "pms": "7684C"
-      },
-      {
-        "name": "Heather Scarlet Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_HeatherScarletRed_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_heathersportscarlet_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_heathersportscarlet_model_frontTN.jpg",
-        "pms": "703C"
-      },
-      {
-        "name": "Heliconia",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Heliconia_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_heliconia_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_heliconia_model_frontTN.jpg",
-        "pms": "213C"
-      },
-      {
-        "name": "Irish Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_IrishGreen_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_irishgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_irishgreen_model_frontTN.jpg",
-        "pms": "2252C"
-      },
-      {
-        "name": "Jade Dome",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_JadeDome_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_jadedome_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_jadedome_model_frontTN.jpg",
-        "pms": "7717C"
-      },
-      {
-        "name": "Kelly Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_KellyGreen_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_kellygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_kellygreen_model_frontTN.jpg",
-        "pms": "335C"
-      },
-      {
-        "name": "Light Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_LightBlue_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_lightblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_lightblue_model_frontTN.jpg",
-        "pms": "543C"
-      },
-      {
-        "name": "Light Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_LightPink_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_lightpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_lightpink_model_frontTN.jpg",
-        "pms": "684C"
-      },
-      {
-        "name": "Lime",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Lime_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_lime_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_lime_model_frontTN.jpg",
-        "pms": "7488C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Maroon_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_maroon_model_frontTN.jpg",
-        "pms": "7644C"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Navy_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_navy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Orange_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_orange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_orange_model_frontTN.jpg",
-        "pms": "2026C"
-      },
-      {
-        "name": "Orchid",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Orchid_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_orchid_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_orchid_model_frontTN.jpg",
-        "pms": "2635C"
-      },
-      {
-        "name": "Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Purple_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_purple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_purple_model_frontTN.jpg",
-        "pms": "2112C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Red_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_red_model_frontTN.jpg",
-        "pms": "199C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Royal_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_royal_model_frontTN.jpg",
-        "pms": "7686C"
-      },
-      {
-        "name": "S. Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_SOrange_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_sorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sorange_model_frontTN.jpg",
-        "pms": "021C"
-      },
-      {
-        "name": "Safety Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_SafetyGreen_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_safetygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_safetygreen_model_frontTN.jpg",
-        "pms": "382C"
-      },
-      {
-        "name": "Sand",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Sand_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_sand_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sand_model_frontTN.jpg",
-        "pms": "7528C"
-      },
-      {
-        "name": "Sapphire",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_Sapphire_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_sapphire_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sapphire_model_frontTN.jpg",
-        "pms": "641C"
-      },
-      {
-        "name": "Scarlet Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_ScarletRed_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f15/8000_sportscarletred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sportscarletred_model_frontTN.jpg",
-        "pms": "200C"
-      },
-      {
-        "name": "Sport Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_SportGrey_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_sportgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_sportgrey_model_frontTN.jpg",
-        "pms": "COOL GRAY 7C"
-      },
-      {
-        "name": "Tennessee Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_TennesseeOrange_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_tennesseeorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_tennesseeorange_model_frontTN.jpg",
-        "pms": "151C"
-      },
-      {
-        "name": "Texas Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_TexasOrange_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_texasorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_texasorange_model_frontTN.jpg",
-        "pms": "7592C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/8000_White_swatch_2025.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/8000sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f10/8000_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/8000_white_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 4.1,
-    "msrp": 6.2,
-    "pieceWeight": 0.35
   },
   {
     "style": "K540LS",
@@ -172171,6 +174004,140 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.19
   },
   {
+    "style": "ST104",
+    "title": "Sport-Tek Competitor United Polo",
+    "brand": "Sport-Tek",
+    "category": "Polos/Knits",
+    "subcategory": "",
+    "description": "Support your team with this moisture-wicking polo. 3.8-ounce 100% poly interlock with PosiCharge technology UPF rating of 30+ Moisture-wicking Perfect for all-around team uniforming Flat knit collar Self-fabric neck tape 3-button placket Dyed-to-match buttons Colorblock shoulder panels Tear-away label",
+    "availableSizes": "Adult Sizes: XS-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_blackgold_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_blackgold_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_ST104.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/46788/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_ST104.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Black/ Deep Red",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_Black_DeepRed.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_blackdeepred_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_blackdeepred_model_frontTN.jpg",
+        "pms": "201C"
+      },
+      {
+        "name": "Black/ Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_Black_Gold.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_blackgold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_blackgold_model_frontTN.jpg",
+        "pms": "1235C"
+      },
+      {
+        "name": "Black/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_Black_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_blackwhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_blackwhite_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Carolina Blue/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_CarolinaBlue_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_carolinabluewhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_carolinabluewhite_model_frontTN.jpg",
+        "pms": "646C"
+      },
+      {
+        "name": "Deep Red/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_DeepRed_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_deepredwhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_deepredwhite_model_frontTN.jpg",
+        "pms": "201C"
+      },
+      {
+        "name": "Forest Green/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_ForestGreen_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_forestgreenwhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_forestgreenwhite_model_frontTN.jpg",
+        "pms": "553C"
+      },
+      {
+        "name": "Iron Grey/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_IronGrey_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_irongreywhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_irongreywhite_model_frontTN.jpg",
+        "pms": "7540C"
+      },
+      {
+        "name": "Maroon/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_Maroon_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_maroonwhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_maroonwhite_model_frontTN.jpg",
+        "pms": "504C"
+      },
+      {
+        "name": "Purple/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_Purple_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_purplewhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_purplewhite_model_frontTN.jpg",
+        "pms": "7672C"
+      },
+      {
+        "name": "True Navy/ Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_TrueNavy_Gold.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_truenavygold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_truenavygold_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "True Navy/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_TrueNavy_White.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_truenavywhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_truenavywhite_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "True Royal/ Gold",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_TrueRoyalGold.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_trueroyalgold_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_trueroyalgold_model_frontTN.jpg",
+        "pms": "7687C"
+      },
+      {
+        "name": "True Royal/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST104_TrueRoyalWhite.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST104sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f10/ST104_trueroyalwhite_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST104_trueroyalwhite_model_frontTN.jpg",
+        "pms": "7687C"
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 10.77,
+    "msrp": 17.54,
+    "pieceWeight": 0.19
+  },
+  {
     "style": "OG861",
     "title": "OGIO Transcend 1/4-Zip",
     "brand": "OGIO",
@@ -189767,437 +191734,6 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 1.95
   },
   {
-    "style": "PC55",
-    "title": "Port & Co Core Blend Tee.",
-    "brand": "Port & Co",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "A reliable choice for comfort softness and durability. 5.5-ounce 50/50 cotton/poly 1x1 rib knit collar Shoulder to shoulder back neck tapeTear-away labelPlease note: This product is transitioning from white to black tear-away labels. Your order may contain a combination of both colored labels.Due to the nature of 50...",
-    "availableSizes": "Adult Sizes: S-6XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_ash_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC55_ash_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_PC55.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/1626/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_PC55.pdf",
-    "companionStyle": "PC55|LPC55|PC55LS|PC55P|PC55T|PC55PT|PC55LST|PC55Y",
-    "colors": [
-      {
-        "name": "Aquatic Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_aquaticblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_aquaticblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_aquaticblue_model_frontTN.jpg",
-        "pms": "2389C"
-      },
-      {
-        "name": "Ash",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_ash.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_ash_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_ash_model_frontTN.jpg",
-        "pms": "COOL GRAY 3C"
-      },
-      {
-        "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_athleticheather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_athleticheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_athleticheather_model_frontTN.jpg",
-        "pms": "COOL GRAY 7C"
-      },
-      {
-        "name": "Athletic Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_athleticmaroon.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_athleticmaroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_athleticmaroon_model_frontTN.jpg",
-        "pms": "209C"
-      },
-      {
-        "name": "Black Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_BLACKHEATHER.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC55_blackheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_blackheather_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_brown.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_brown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_brown_model_frontTN.jpg",
-        "pms": "7519C"
-      },
-      {
-        "name": "Candy Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_candypink2.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_candypink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_candypink_model_frontTN.jpg",
-        "pms": "189C"
-      },
-      {
-        "name": "Cardinal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PORTANDCO_cardinal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_cardinal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_cardinal_model_frontTN.jpg",
-        "pms": "7638C"
-      },
-      {
-        "name": "Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_carolinablue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_carolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_carolinablue_model_frontTN.jpg",
-        "pms": "7682C"
-      },
-      {
-        "name": "Charcoal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_charcoal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_charcoal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_charcoal_model_frontTN.jpg",
-        "pms": "COOL GRAY 11C"
-      },
-      {
-        "name": "Coyote Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_CoyoteBrown.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_coyotebrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_coyotebrown_model_frontTN.jpg",
-        "pms": "2326C"
-      },
-      {
-        "name": "Dark Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_DarkGreen_MRF26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_darkgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_darkgreen_model_frontTN.jpg",
-        "pms": "560C"
-      },
-      {
-        "name": "Dark Heather Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_darkheathergrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_darkheathergrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_darkheathergrey_model_frontTN.jpg",
-        "pms": "7540C"
-      },
-      {
-        "name": "Desert Sand",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sand.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_desertsand_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_desertsand_model_frontTN.jpg",
-        "pms": "2324C"
-      },
-      {
-        "name": "Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_harvestgold.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_gold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_gold_model_frontTN.jpg",
-        "pms": "137C"
-      },
-      {
-        "name": "Graphite Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_GRAPHITEHEATHER.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC55_graphiteheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_graphiteheather_model_frontTN.jpg",
-        "pms": "COOL GRAY 10C"
-      },
-      {
-        "name": "Heather Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_HEATHERNAVY.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC55_heathernavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_heathernavy_model_frontTN.jpg",
-        "pms": "2379C"
-      },
-      {
-        "name": "Heather Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_HeatherPurple.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_heatherpurple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_heatherpurple_model_frontTN.jpg",
-        "pms": "7672C"
-      },
-      {
-        "name": "Heather Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_HeatherRed.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_heatherred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_heatherred_model_frontTN.jpg",
-        "pms": "703C"
-      },
-      {
-        "name": "Heather Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_HEATHERROYAL.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC55_heatherroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_heatherroyal_model_frontTN.jpg",
-        "pms": "7684C"
-      },
-      {
-        "name": "Jade Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_jadegreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_jadegreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_jadegreen_model_frontTN.jpg",
-        "pms": "7717C"
-      },
-      {
-        "name": "Jet Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC55_jetblack_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_jetblack_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Kelly",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_kelly.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_kelly_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_kelly_model_frontTN.jpg",
-        "pms": "340C"
-      },
-      {
-        "name": "Light Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lightblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_lightblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_lightblue_model_frontTN.jpg",
-        "pms": "278C"
-      },
-      {
-        "name": "Lime",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lime.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_lime_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_lime_model_frontTN.jpg",
-        "pms": "367C"
-      },
-      {
-        "name": "Medium Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_medgrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_mediumgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_mediumgrey_model_frontTN.jpg",
-        "pms": "2332C"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_navy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_navy_model_frontTN.jpg",
-        "pms": "2380C"
-      },
-      {
-        "name": "Neon Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_NeonBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_neonblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_neonblue_model_frontTN.jpg",
-        "pms": "801C"
-      },
-      {
-        "name": "Neon Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_NeonPink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_neonpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_neonpink_model_frontTN.jpg",
-        "pms": "926C"
-      },
-      {
-        "name": "Oatmeal Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_OATMEALHEATHER.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC55_oatmealheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_oatmealheather_model_frontTN.jpg",
-        "pms": "COOL GRAY 2C"
-      },
-      {
-        "name": "Olive Drab Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_OliveDrabGreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_olivedrabgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_olivedrabgreen_model_frontTN.jpg",
-        "pms": "7771C"
-      },
-      {
-        "name": "Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_orange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_orange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_orange_model_frontTN.jpg",
-        "pms": "172C"
-      },
-      {
-        "name": "Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_purple.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_purple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_purple_model_frontTN.jpg",
-        "pms": "7672C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_red.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_red_model_frontTN.jpg",
-        "pms": "200C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_Royal_SmSwatch_LGCY.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_royal_model_frontTN.jpg",
-        "pms": "2133C"
-      },
-      {
-        "name": "Safety Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_safetygreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_safetygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_safetygreen_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Safety Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_safetyorange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_safetyorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_safetyorange_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Sangria",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sangria.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_sangria_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_sangria_model_frontTN.jpg",
-        "pms": "2046C"
-      },
-      {
-        "name": "Sapphire",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sapphire.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC55_sapphire_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_sapphire_model_frontTN.jpg",
-        "pms": "2185C"
-      },
-      {
-        "name": "Silver",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_Silver.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_silver_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_silver_model_frontTN.jpg",
-        "pms": "435C"
-      },
-      {
-        "name": "Steel Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_SteelBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_steelblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_steelblue_model_frontTN.jpg",
-        "pms": "2376C"
-      },
-      {
-        "name": "True Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_TrueNavy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_truenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_truenavy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_TrueRoyal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_trueroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_trueroyal_model_frontTN.jpg",
-        "pms": "7687C"
-      },
-      {
-        "name": "Vintage Jade Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_VintageJadeGreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_vintagejadegreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_vintagejadegreen_model_frontTN.jpg",
-        "pms": "7717C"
-      },
-      {
-        "name": "Vintage Kelly",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_VintageKelly.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_vintagekelly_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_vintagekelly_model_frontTN.jpg",
-        "pms": "340C"
-      },
-      {
-        "name": "Vintage Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_VintageRed.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_vintagered_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_vintagered_model_frontTN.jpg",
-        "pms": "200C"
-      },
-      {
-        "name": "Vintage Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_VintageRoyal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_vintageroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_vintageroyal_model_frontTN.jpg",
-        "pms": "7687C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_white.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_white_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Woodland Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC55_WoodlandBrown.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC55_woodlandbrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_woodlandbrown_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_yellow.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC55sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f7/PC55_yellow_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC55_yellow_model_frontTN.jpg",
-        "pms": "127C"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "6XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 3.88,
-    "msrp": 5.76,
-    "pieceWeight": 0.35
-  },
-  {
     "style": "L469",
     "title": "Sport-Tek Women's Dri-Mesh V-Neck Polo.",
     "brand": "Sport-Tek",
@@ -194132,693 +195668,6 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 2.33
   },
   {
-    "style": "PC54",
-    "title": "Port & Co Core Cotton Tee.",
-    "brand": "Port & Co",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "An indispensable t-shirt in our classic silhouettewith a very friendly price.5.4-ounce 100% cotton98/2 cotton/poly (Ash)90/10 cotton/poly (Athletic Heather)50/50 cotton/poly (Black Heather Dark Heather Grey Graphite Heather Heather Athletic Maroon Heather Dark Chocolate Brown Heather Navy Heather Purple Heather Red...",
-    "availableSizes": "Adult Sizes: S-6XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_ash_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_ash_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_PC54.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/3985/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_PC54.pdf",
-    "companionStyle": "PC54|PC54Y|LPC54|PC54LS|PC54V|PC54YLS|LPC54LS|CAR54T|CAR54I|PC54TT|LPC54TT|PC54R|LPC54VC|PC54C|PC54P|LPC54V|PC54SL|PC54T",
-    "colors": [
-      {
-        "name": "Aquatic Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_AquaticBlue_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_aquaticblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_aquaticblue_model_frontTN.jpg",
-        "pms": "2389C"
-      },
-      {
-        "name": "Ash",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Ash_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_ash_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_ash_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_AthleticHeather_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_athleticheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_athleticheather_model_frontTN.jpg",
-        "pms": "COOL GRAY 7C"
-      },
-      {
-        "name": "Athletic Kelly",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_AthleticKelly_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_athletickelly_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_athletickelly_model_frontTN.jpg",
-        "pms": "7728C"
-      },
-      {
-        "name": "Athletic Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_AthleticMaroon_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_athleticmaroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_athleticmaroon_model_frontTN.jpg",
-        "pms": "209C"
-      },
-      {
-        "name": "Black Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_BlackHeather_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_blackheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_blackheather_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Bright Aqua",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_BrightAqua_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_brightaqua_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_brightaqua_model_frontTN.jpg",
-        "pms": "322C"
-      },
-      {
-        "name": "Candy Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CandyPink_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_candypink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_candypink_model_frontTN.jpg",
-        "pms": "189C"
-      },
-      {
-        "name": "Cardinal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Cardinal_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_cardinal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_cardinal_model_frontTN.jpg",
-        "pms": "7638C"
-      },
-      {
-        "name": "Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CarolinaBlue_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC54_carolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_carolinablue_model_frontTN.jpg",
-        "pms": "7682C"
-      },
-      {
-        "name": "Charcoal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Charcoal_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_charcoal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_charcoal_model_frontTN.jpg",
-        "pms": "COOL GRAY 11C"
-      },
-      {
-        "name": "Cherry Blossom",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CherryBlossom_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_cherryblossom_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_cherryblossom_model_frontTN.jpg",
-        "pms": "2050C"
-      },
-      {
-        "name": "Clover Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CloverGreen_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC54_clovergreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_clovergreen_model_frontTN.jpg",
-        "pms": "347C"
-      },
-      {
-        "name": "Coal Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CoalGrey_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_coalgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_coalgrey_model_frontTN.jpg",
-        "pms": "4287C"
-      },
-      {
-        "name": "Coral",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Coral_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC54_coral_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_coral_model_frontTN.jpg",
-        "pms": "178C"
-      },
-      {
-        "name": "Coyote Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_CoyoteBrown_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_coyotebrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_coyotebrown_model_frontTN.jpg",
-        "pms": "2326C"
-      },
-      {
-        "name": "Creme",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Creme_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_cream_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_cream_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Dark Chocolate Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_DarkChocolateBrown_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_darkchocolatebrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_darkchocolatebrown_model_frontTN.jpg",
-        "pms": "412C"
-      },
-      {
-        "name": "Dark Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_DarkGreen_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_darkgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_darkgreen_model_frontTN.jpg",
-        "pms": "560C"
-      },
-      {
-        "name": "Dark Heather Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_DarkHeatherGrey_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_darkheathergrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_darkheathergrey_model_frontTN.jpg",
-        "pms": "7540C"
-      },
-      {
-        "name": "Duck Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_DuckBrown_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_duckbrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_duckbrown_model_frontTN.jpg",
-        "pms": "7575C"
-      },
-      {
-        "name": "Flush Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_FlushPink_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC54_flushpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_flushpink_model_frontTN.jpg",
-        "pms": "215C"
-      },
-      {
-        "name": "Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Gold_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_gold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_gold_model_frontTN.jpg",
-        "pms": "137C"
-      },
-      {
-        "name": "Graphite Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_GraphiteHeather_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_graphiteheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_graphiteheather_model_frontTN.jpg",
-        "pms": "COOL GREY 10C"
-      },
-      {
-        "name": "Heather Athletic Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherAthleticMaroon_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heatherathleticmaroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heatherathleticmaroon_model_frontTN.jpg",
-        "pms": "7644C"
-      },
-      {
-        "name": "Heather Dark Chocolate Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherDarkChocolateBrown_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heatherdarkchocolatebrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heatherdarkchocolatebrown_model_frontTN.jpg",
-        "pms": "411C"
-      },
-      {
-        "name": "Heather Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherNavy_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heathernavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heathernavy_model_frontTN.jpg",
-        "pms": "2379C"
-      },
-      {
-        "name": "Heather Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherPurple_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heatherpurple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heatherpurple_model_frontTN.jpg",
-        "pms": "7672C"
-      },
-      {
-        "name": "Heather Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherRed_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heatherred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heatherred_model_frontTN.jpg",
-        "pms": "703C"
-      },
-      {
-        "name": "Heather Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherRoyal_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heatherroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heatherroyal_model_frontTN.jpg",
-        "pms": "7684C"
-      },
-      {
-        "name": "Heather Sangria",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatherSangria_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_heathersangria_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heathersangria_model_frontTN.jpg",
-        "pms": "2046C"
-      },
-      {
-        "name": "Heathered Dusty Peach",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_HeatheredDustyPeach_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_heathereddustypeach_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_heathereddustypeach_model_frontTN.jpg",
-        "pms": "7513C"
-      },
-      {
-        "name": "Ivory",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Ivory_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_ivory_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_ivory_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Jade Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_JadeGreen_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_jadegreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_jadegreen_model_frontTN.jpg",
-        "pms": "7717C"
-      },
-      {
-        "name": "Jadeite",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Jadeite_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_jadeite_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_jadeite_model_frontTN.jpg",
-        "pms": "337C"
-      },
-      {
-        "name": "Jet Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_JetBlack_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_jetblack_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_jetblack_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Kelly",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Kelly_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_kelly_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_kelly_model_frontTN.jpg",
-        "pms": "340C"
-      },
-      {
-        "name": "Laurel Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_LaurelGreen_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_laurelgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_laurelgreen_model_frontTN.jpg",
-        "pms": "4198C"
-      },
-      {
-        "name": "Lavender",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Lavender_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_lavender_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_lavender_model_frontTN.jpg",
-        "pms": "2071C"
-      },
-      {
-        "name": "Lemon Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_LemonYellow_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_lemonyellow_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_lemonyellow_model_frontTN.jpg",
-        "pms": "7406C"
-      },
-      {
-        "name": "Light Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_LightBlue_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_lightblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_lightblue_model_frontTN.jpg",
-        "pms": "278C"
-      },
-      {
-        "name": "Light Sand",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_LightSand_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_lightsand_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_lightsand_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Lime",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Lime_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_lime_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_lime_model_frontTN.jpg",
-        "pms": "367C"
-      },
-      {
-        "name": "Medium Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_MediumGrey_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_mediumgrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_mediumgrey_model_frontTN.jpg",
-        "pms": "2332C"
-      },
-      {
-        "name": "Natural",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Natural_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_natural_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_natural_model_frontTN.jpg",
-        "pms": "9185C"
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Navy_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_navy_model_frontTN.jpg",
-        "pms": "2380C"
-      },
-      {
-        "name": "Neon Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeonBlue_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC54_neonblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neonblue_model_frontTN.jpg",
-        "pms": "801C"
-      },
-      {
-        "name": "Neon Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeonGreen_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_neongreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neongreen_model_frontTN.jpg",
-        "pms": "902C"
-      },
-      {
-        "name": "Neon Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeonOrange_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f12/PC54_neonorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neonorange_model_frontTN.jpg",
-        "pms": "811C"
-      },
-      {
-        "name": "Neon Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeonPink_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_neonpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neonpink_model_frontTN.jpg",
-        "pms": "926C"
-      },
-      {
-        "name": "Neon Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeonYellow_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_neonyellow_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neonyellow_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Neptune Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_NeptuneBlue_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_neptuneblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_neptuneblue_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Oatmeal Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_OatmealHeather_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_oatmealheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_oatmealheather_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Olive",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Olive_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC54_olive_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_olive_model_frontTN.jpg",
-        "pms": "5743C"
-      },
-      {
-        "name": "Olive Drab Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_OliveDrabGreen_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_olivedrabgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_olivedrabgreen_model_frontTN.jpg",
-        "pms": "7771C"
-      },
-      {
-        "name": "Olive Drab Green Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_OliveDrabGreenHeather_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_olivedrabgreenheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_olivedrabgreenheather_model_frontTN.jpg",
-        "pms": "4229C"
-      },
-      {
-        "name": "Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Orange_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_orange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_orange_model_frontTN.jpg",
-        "pms": "172C"
-      },
-      {
-        "name": "Pale Blush",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_PaleBlush_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_paleblush_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_paleblush_model_frontTN.jpg",
-        "pms": "5025C"
-      },
-      {
-        "name": "Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Purple_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_purple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_purple_model_frontTN.jpg",
-        "pms": "7672C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Red_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_red_model_frontTN.jpg",
-        "pms": "200C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Royal_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_royal_model_frontTN.jpg",
-        "pms": "2133C"
-      },
-      {
-        "name": "S. Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_S.Green_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_sgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_sgreen_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "S. Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_S.Orange_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_sorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_sorange_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Sand",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Sand_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_sand_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_sand_model_frontTN.jpg",
-        "pms": "2312C"
-      },
-      {
-        "name": "Sangria",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Sangria_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_sangria_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_sangria_model_frontTN.jpg",
-        "pms": "2046C"
-      },
-      {
-        "name": "Sapphire",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Sapphire_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_sapphire_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_sapphire_model_frontTN.jpg",
-        "pms": "2185C"
-      },
-      {
-        "name": "Silver",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Silver_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC54_silver_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_silver_model_frontTN.jpg",
-        "pms": "435C"
-      },
-      {
-        "name": "Steel Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_SteelBlue_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_steelblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_steelblue_model_frontTN.jpg",
-        "pms": "2376C"
-      },
-      {
-        "name": "Stonewashed Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_StonewashedBlue_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f3/PC54_stonewashedblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_stonewashedblue_model_frontTN.jpg",
-        "pms": "5425C"
-      },
-      {
-        "name": "Teal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Teal_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_teal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_teal_model_frontTN.jpg",
-        "pms": "2224C"
-      },
-      {
-        "name": "Team Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TeamPurple_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_teampurple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_teampurple_model_frontTN.jpg",
-        "pms": "669C"
-      },
-      {
-        "name": "Tennessee Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TennesseeOrange_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC54_tennesseeorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_tennesseeorange_model_frontTN.jpg",
-        "pms": "2018C"
-      },
-      {
-        "name": "Tidal Wave",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TidalWave_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_tidalwave_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_tidalwave_model_frontTN.jpg",
-        "pms": "305C"
-      },
-      {
-        "name": "True Celadon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TrueCeladon_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_trueceladon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_trueceladon_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "True Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TrueNavy_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_truenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_truenavy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TrueRoyal_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_trueroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_trueroyal_model_frontTN.jpg",
-        "pms": "7687C"
-      },
-      {
-        "name": "Tundra Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_TundraBlue_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_tundrablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_tundrablue_model_frontTN.jpg",
-        "pms": "645C"
-      },
-      {
-        "name": "Violet",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Violet_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f30/PC54_violet_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_violet_model_frontTN.jpg",
-        "pms": "2046C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_White_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_white_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Woodland Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_WoodlandBrown_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_woodlandbrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_woodlandbrown_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Yellow_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f11/PC54_yellow_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_yellow_model_frontTN.jpg",
-        "pms": "127C"
-      },
-      {
-        "name": "Zinnia",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC54_Zinnia_SP26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC54sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f20/PC54_zinnia_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC54_zinnia_model_frontTN.jpg",
-        "pms": "7419C"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "6XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 3.7,
-    "msrp": 5.4,
-    "pieceWeight": 0.35
-  },
-  {
     "style": "LST685",
     "title": "Sport-Tek Women's PosiCharge Micro-Mesh Colorblock Polo.",
     "brand": "Sport-Tek",
@@ -198356,533 +199205,6 @@ export const sanmarCatalogProducts = [
     "priceFrom": 104.55,
     "msrp": 157.58,
     "pieceWeight": 1.36
-  },
-  {
-    "style": "PC61",
-    "title": "Port & Co Essential Tee.",
-    "brand": "Port & Co",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "A year-round essential our best-selling t-shirt has been voted most popular by groups teams clubs and schools across America.6.1-ounce 100% soft spun cotton98/2 cotton/poly (Ash)90/10 cotton/poly (Athletic Heather) 50/50 cotton/poly (Dark Heather Grey S. Green S. Orange) Natural: Minimally processed to keep the natu...",
-    "availableSizes": "Adult Sizes: S-6XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_white_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_white_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_PC61.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/1634/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_PC61.pdf",
-    "companionStyle": "PC61|PC61P|PC61LS|PC61LSP|PC61M|PC61PT|PC61T|PC61LST|PC61LSPT|LPC61|PC61Y|PC61YLS|PC61R",
-    "colors": [
-      {
-        "name": "Aquatic Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_aqua.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_aquaticblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_aquaticblue_model_frontTN.jpg",
-        "pms": "2389C"
-      },
-      {
-        "name": "Ash",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_ash.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_ash_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_ash_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Athletic Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_athleticheather.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_athleticheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_athleticheather_model_frontTN.jpg",
-        "pms": "COOL GRAY 7C"
-      },
-      {
-        "name": "Athletic Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_athleticmaroon.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_athleticmaroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_athleticmaroon_model_frontTN.jpg",
-        "pms": "209C"
-      },
-      {
-        "name": "Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_brown.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_brown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_brown_model_frontTN.jpg",
-        "pms": "7519C"
-      },
-      {
-        "name": "Candy Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_candypink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_candypink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_candypink_model_frontTN.jpg",
-        "pms": "189C"
-      },
-      {
-        "name": "Cardinal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_cardinalred.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_cardinal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_cardinal_model_frontTN.jpg",
-        "pms": "7638C"
-      },
-      {
-        "name": "Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_carolinablue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_carolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_carolinablue_model_frontTN.jpg",
-        "pms": "7682C"
-      },
-      {
-        "name": "Charcoal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_charcoal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_charcoal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_charcoal_model_frontTN.jpg",
-        "pms": "COOL GRAY 11C"
-      },
-      {
-        "name": "Colonial Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_colonialblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_colonialblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_colonialblue_model_frontTN.jpg",
-        "pms": "2150C"
-      },
-      {
-        "name": "Coyote Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_CoyoteBrown.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC61_coyotebrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_coyotebrown_model_frontTN.jpg",
-        "pms": "2326C"
-      },
-      {
-        "name": "Daffodil Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_daffodilyellow.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_daffodilyellow_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_daffodilyellow_model_frontTN.jpg",
-        "pms": "7401C"
-      },
-      {
-        "name": "Dark Chocolate Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_darkchocobrwn.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_darkchocolatebrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_darkchocolatebrown_model_frontTN.jpg",
-        "pms": "412C"
-      },
-      {
-        "name": "Dark Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_forestgreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_darkgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_darkgreen_model_frontTN.jpg",
-        "pms": "560C"
-      },
-      {
-        "name": "Dark Heather Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_darkheathergrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_darkheathergrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_darkheathergrey_model_frontTN.jpg",
-        "pms": "7540C"
-      },
-      {
-        "name": "Deep Marine",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_deepmarine.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_deepmarine_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_deepmarine_model_frontTN.jpg",
-        "pms": "3584C"
-      },
-      {
-        "name": "Deep Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PORTANDCO_deepnavy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_deepnavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_deepnavy_model_frontTN.jpg",
-        "pms": "532C"
-      },
-      {
-        "name": "Dill Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_dillgreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_dillgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_dillgreen_model_frontTN.jpg",
-        "pms": "2263C"
-      },
-      {
-        "name": "Dusty Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_dustybrown.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_dustybrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_dustybrown_model_frontTN.jpg",
-        "pms": "2325C"
-      },
-      {
-        "name": "Eggplant",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_eggplant.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC61_eggplant_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_eggplant_model_frontTN.jpg",
-        "pms": "5185C"
-      },
-      {
-        "name": "Fiery Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_enginered.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_fieryred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_fieryred_model_frontTN.jpg",
-        "pms": "485C"
-      },
-      {
-        "name": "Flush Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_FlushPink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC61_flushpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_flushpink_model_frontTN.jpg",
-        "pms": "215C"
-      },
-      {
-        "name": "Forest Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_darkgreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_forestgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_forestgreen_model_frontTN.jpg",
-        "pms": "7736C"
-      },
-      {
-        "name": "Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_athleticgold.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_gold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_gold_model_frontTN.jpg",
-        "pms": "137C"
-      },
-      {
-        "name": "Jade Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_jadegreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_jadegreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_jadegreen_model_frontTN.jpg",
-        "pms": "7717C"
-      },
-      {
-        "name": "Jet Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f11/PC61_jetblack_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_jetblack_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Kelly",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_kelly.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_kelly_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_kelly_model_frontTN.jpg",
-        "pms": "340C"
-      },
-      {
-        "name": "Lavender",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lavender.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_lavender_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_lavender_model_frontTN.jpg",
-        "pms": "2071C"
-      },
-      {
-        "name": "Lemon Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lemon.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_lemonyellow_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_lemonyellow_model_frontTN.jpg",
-        "pms": "7406C"
-      },
-      {
-        "name": "Light Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lightblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_lightblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_lightblue_model_frontTN.jpg",
-        "pms": "278C"
-      },
-      {
-        "name": "Light Sand",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lightsand.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_lightsand_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_lightsand_model_frontTN.jpg",
-        "pms": "7528C"
-      },
-      {
-        "name": "Lime",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lime.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_lime_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_lime_model_frontTN.jpg",
-        "pms": "367C"
-      },
-      {
-        "name": "Medium Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_MediumGrey_MRF26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f21/PC61_mediumgray_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_mediumgray_model_frontTN.jpg",
-        "pms": "2332C"
-      },
-      {
-        "name": "Natural",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_natural.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_natural_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_natural_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_navy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_navy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_navy_model_frontTN.jpg",
-        "pms": "2380C"
-      },
-      {
-        "name": "Olive",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_olive.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_olive_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_olive_model_frontTN.jpg",
-        "pms": "5743C"
-      },
-      {
-        "name": "Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_orange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_orange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_orange_model_frontTN.jpg",
-        "pms": "172C"
-      },
-      {
-        "name": "Orange Sherbet",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_orangesherbet.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f19/PC61_orangesherbet_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_orangesherbet_model_frontTN.jpg",
-        "pms": "2025C"
-      },
-      {
-        "name": "Pale Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lightpink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_palepink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_palepink_model_frontTN.jpg",
-        "pms": "684C"
-      },
-      {
-        "name": "Pistachio",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_pistachio.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_pistachio_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_pistachio_model_frontTN.jpg",
-        "pms": "577C"
-      },
-      {
-        "name": "Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_purple.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_purple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_purple_model_frontTN.jpg",
-        "pms": "7672C"
-      },
-      {
-        "name": "Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_red.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_red_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_red_model_frontTN.jpg",
-        "pms": "200C"
-      },
-      {
-        "name": "Rich Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_richred.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_richred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_richred_model_frontTN.jpg",
-        "pms": "7427C"
-      },
-      {
-        "name": "Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_royal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_royal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_royal_model_frontTN.jpg",
-        "pms": "2133C"
-      },
-      {
-        "name": "S. Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_SGREEN.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f19/PC61_sgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_sgreen_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "S. Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_SORANGE.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f19/PC61_sorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_sorange_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Sand",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sand.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_sand_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_sand_model_frontTN.jpg",
-        "pms": "2312C"
-      },
-      {
-        "name": "Sangria",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sangria.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_sangria_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_sangria_model_frontTN.jpg",
-        "pms": "2046C"
-      },
-      {
-        "name": "Sapphire",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_sapphire.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_sapphire_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_sapphire_model_frontTN.jpg",
-        "pms": "2185C"
-      },
-      {
-        "name": "Silver",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_Silver.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC61_silver_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_silver_model_frontTN.jpg",
-        "pms": "435C"
-      },
-      {
-        "name": "Steel Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_steelblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_steelblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_steelblue_model_frontTN.jpg",
-        "pms": "2376C"
-      },
-      {
-        "name": "Stonewashed Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_stonewashedblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_stonewashedblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_stonewashedblue_model_frontTN.jpg",
-        "pms": "2157C"
-      },
-      {
-        "name": "Stonewashed Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_stonewashedgreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_stonewashedgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_stonewashedgreen_model_frontTN.jpg",
-        "pms": "7538C"
-      },
-      {
-        "name": "Teal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_teal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f12/PC61_teal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_teal_model_frontTN.jpg",
-        "pms": "2224C"
-      },
-      {
-        "name": "Texas Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_texasorange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_texasorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_texasorange_model_frontTN.jpg",
-        "pms": "7585C"
-      },
-      {
-        "name": "True Celadon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_TrueCeladon.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC61_trueceladon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_trueceladon_model_frontTN.jpg",
-        "pms": "7464C"
-      },
-      {
-        "name": "Tundra Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/PC61_TundraBlue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f17/PC61_tundrablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_tundrablue_model_frontTN.jpg",
-        "pms": "645C"
-      },
-      {
-        "name": "Turquoise",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_turquoise.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_turquoise_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_turquoise_model_frontTN.jpg",
-        "pms": "7704C"
-      },
-      {
-        "name": "Ultramarine Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_ultramarine.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_ultramarineblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_ultramarineblue_model_frontTN.jpg",
-        "pms": "2129C"
-      },
-      {
-        "name": "Violet",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_lilac.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/PC61_violet_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_violet_model_frontTN.jpg",
-        "pms": "2114C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_white.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_white_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/port_yellow.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/PC61sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f14/PC61_yellow_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/PC61_yellow_model_frontTN.jpg",
-        "pms": "127C"
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "6XL",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
-    "priceFrom": 3.94,
-    "msrp": 5.88,
-    "pieceWeight": 0.39
   },
   {
     "style": "LST740",
@@ -220083,6 +220405,148 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 1.11
   },
   {
+    "style": "ST100",
+    "title": "Sport-Tek Competitor United Crew",
+    "brand": "Sport-Tek",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "Put yourself at the top of the game with this Competitor United crew that features moisture wicking and sun protection. 3.8-ounce 100% poly interlock with PosiCharge technology UPF rating of 30+ Tear-away label Contrast colorblocking on shoulders",
+    "availableSizes": "Adult Sizes: XS-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_BLACKLIMESHOCK_Model_Front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_BLACKLIMESHOCK_Model_Back.jpg",
+    "specSheet": "SpecSheetMeasurements_ST100.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/38680/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_ST100.pdf",
+    "companionStyle": "",
+    "colors": [
+      {
+        "name": "Black/ Lime Shock",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_BLACK_LIMESHOCK.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_BLACKLIMESHOCK_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_BLACKLIMESHOCK_Model_FrontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Black/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_BLACK_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_BLACKWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_BLACKWHITE_Model_FrontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Carolina Blue/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_CAROLINABLUE_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_CAROLINABLUEWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_CAROLINABLUEWHITE_Model_FrontTN.jpg",
+        "pms": "646C"
+      },
+      {
+        "name": "Deep Orange/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_DEEPORANGE_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_DEEPORANGEWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_DEEPORANGEWHITE_Model_FrontTN.jpg",
+        "pms": "173C"
+      },
+      {
+        "name": "Deep Red/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_DEEPRED_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_DEEPREDWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_DEEPREDWHITE_Model_FrontTN.jpg",
+        "pms": "201C"
+      },
+      {
+        "name": "Forest Green/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_FORESTGREEN_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_FORESTGREENWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_FORESTGREENWHITE_Model_FrontTN.jpg",
+        "pms": "553C"
+      },
+      {
+        "name": "Gold/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_GOLD_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_GOLDWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_GOLDWHITE_Model_FrontTN.jpg",
+        "pms": "1235C"
+      },
+      {
+        "name": "Iron Grey/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_IRONGREY_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_IRONGREYWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_IRONGREYWHITE_Model_FrontTN.jpg",
+        "pms": "7540C"
+      },
+      {
+        "name": "Maroon/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_MAROON_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_MAROONWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_MAROONWHITE_Model_FrontTN.jpg",
+        "pms": "504C"
+      },
+      {
+        "name": "Purple/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_PURPLE_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_PURPLEWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_PURPLEWHITE_Model_FrontTN.jpg",
+        "pms": "7672C"
+      },
+      {
+        "name": "True Navy/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_TRUENAVY_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_TRUENAVYWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_TRUENAVYWHITE_Model_FrontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "True Royal/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_TRUEROYAL_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_TRUEROYALWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_TRUEROYALWHITE_Model_FrontTN.jpg",
+        "pms": "7687C"
+      },
+      {
+        "name": "White/ Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_WHITE_BLACK.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_WHITEBLACK_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_WHITEBLACK_Model_FrontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "White/ White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST100_WHITE_WHITE.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST100sw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f12/ST100_WHITEWHITE_Model_Front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST100_WHITEWHITE_Model_FrontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 8.02,
+    "msrp": 12.04,
+    "pieceWeight": 0.28
+  },
+  {
     "style": "L804",
     "title": "Port Authority Women's Smooth Fleece 1/4-Zip",
     "brand": "Port Authority",
@@ -221885,6 +222349,76 @@ export const sanmarCatalogProducts = [
     "pieceWeight": 0.56
   },
   {
+    "style": "ST460LS",
+    "title": "Sport-Tek Long Sleeve Digi Camo Tee.",
+    "brand": "Sport-Tek",
+    "category": "T-Shirts",
+    "subcategory": "",
+    "description": "A subtle digi camo pattern gives this moisture-wicking breathable performance tee a unique edge.3.8-ounce 100% polyester interlock with sublimated digi camo print Removable tag for comfort and relabeling Digi camo print on sleeves",
+    "availableSizes": "Adult Sizes: XS-4XL",
+    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_black_model_front.jpg",
+    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_black_model_back.jpg",
+    "specSheet": "SpecSheetMeasurements_ST460LS.pdf",
+    "decorationSpecSheet": "https://www.sanmar.com/p/10171/decorationSpecSheet",
+    "productMeasurements": "SpecSheetMeasurements_ST460LS.pdf",
+    "companionStyle": "ST460LS|ST460",
+    "colors": [
+      {
+        "name": "Black",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST460LS_Black_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST460LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_black_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST460LS_black_model_frontTN.jpg",
+        "pms": "BLACK C"
+      },
+      {
+        "name": "Grey Concrete",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST460LS_GreyConcrete_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST460LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_greyconcrete_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST460LS_greyconcrete_model_frontTN.jpg",
+        "pms": "COOL GRAY 10C"
+      },
+      {
+        "name": "Olive Drab Green",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST460LS_OliveDrabGreen_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST460LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_olivedrabgreen_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST460LS_olivedrabgreen_model_frontTN.jpg",
+        "pms": "7771C"
+      },
+      {
+        "name": "True Navy",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST460LS_TrueNavy_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST460LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_truenavy_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST460LS_truenavy_model_frontTN.jpg",
+        "pms": "533C"
+      },
+      {
+        "name": "White",
+        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST460LS_White_swatch.gif",
+        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST460LSsw.jpg",
+        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f17/ST460LS_white_model_front.jpg",
+        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST460LS_white_model_frontTN.jpg",
+        "pms": ""
+      }
+    ],
+    "sizes": [
+      "2XL",
+      "3XL",
+      "4XL",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS"
+    ],
+    "priceFrom": 10.49,
+    "msrp": 16.98,
+    "pieceWeight": 0.34
+  },
+  {
     "style": "RY7200LSH",
     "title": "Richardson Youth Charge Performance Fleece Long Sleeve Hoodie",
     "brand": "Richardson",
@@ -222370,236 +222904,6 @@ export const sanmarCatalogProducts = [
     "priceFrom": 33.05,
     "msrp": 58.1,
     "pieceWeight": 1.08
-  },
-  {
-    "style": "ST350LS",
-    "title": "Sport-Tek Long Sleeve PosiCharge Competitor Tee.",
-    "brand": "Sport-Tek",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Lightweight roomy and highly breathable these moisture-wicking value-priced tees feature PosiCharge technology to lock in color and prevent logos from fading.3.8-ounce 100% polyester interlock with PosiCharge technology Removable tag for comfort and relabelingSet-in sleevesGiven the extreme heat required for sublima...",
-    "availableSizes": "Adult Sizes: XS-4XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_black_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_black_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_ST350LS.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/4352/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_ST350LS.pdf",
-    "companionStyle": "ST350LS|ST350|ST351|ST352|ST355|LST353LS|LST350|LST353|LST351|LST352|TST350LS|TST351|TST350|YST350LS|YST355|YST350|ST354|LST354|YST354|ST357|LST357|ST355P|YST355P|YST460|LST550|ST358|LST358|YST358|STC36|YST357|ST356|STA35|LST356|ST550",
-    "colors": [
-      {
-        "name": "Atomic Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_atomicblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_atomicblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_atomicblue_model_frontTN.jpg",
-        "pms": "2203C"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_black_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_carolinablue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_carolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_carolinablue_model_frontTN.jpg",
-        "pms": "646C"
-      },
-      {
-        "name": "Coyote Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_CoyoteBrown_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_coyotebrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_coyotebrown_model_frontTN.jpg",
-        "pms": "2326C"
-      },
-      {
-        "name": "Deep Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_deeporange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/ST350LS_deeporange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_deeporange_model_frontTN.jpg",
-        "pms": "173C"
-      },
-      {
-        "name": "Deep Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350LS_DEEP-RED.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f6/ST350LS_deepred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_deepred_model_frontTN.jpg",
-        "pms": "201C"
-      },
-      {
-        "name": "Forest Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_forestgreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_forestgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_forestgreen_model_frontTN.jpg",
-        "pms": "553C"
-      },
-      {
-        "name": "Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_gold.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/ST350LS_gold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_gold_model_frontTN.jpg",
-        "pms": "1235C"
-      },
-      {
-        "name": "Grey Concrete",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350LS_GreyConcrete_MRF26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_greyconcrete_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_greyconcrete_model_frontTN.jpg",
-        "pms": "COOL GRAY 10C"
-      },
-      {
-        "name": "Grey Concrete Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350LS_GREYCONCRETEHEATHER.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_greyconcreteheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_greyconcreteheather_model_frontTN.jpg",
-        "pms": "COOL GRAY 10C"
-      },
-      {
-        "name": "Iron Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_irongrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/ST350LS_irongrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_irongrey_model_frontTN.jpg",
-        "pms": "7540C"
-      },
-      {
-        "name": "Iron Grey Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350LS_IRONGREYHEATHER.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_irongreyheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_irongreyheather_model_frontTN.jpg",
-        "pms": "7540C"
-      },
-      {
-        "name": "Lime Shock",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_limeshock.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2013/f14/ST350LS_limeshock_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_limeshock_model_frontTN.jpg",
-        "pms": "375C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_maroon.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_maroon_model_frontTN.jpg",
-        "pms": "504C"
-      },
-      {
-        "name": "Neon Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonorange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_neonorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_neonorange_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Neon Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonpink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_neonpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_neonpink_model_frontTN.jpg",
-        "pms": "806C"
-      },
-      {
-        "name": "Neon Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonyellow.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_neonyellow_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_neonyellow_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Olive Drab Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_OliveDrabGreen_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_olivedrabgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_olivedrabgreen_model_frontTN.jpg",
-        "pms": "7771C"
-      },
-      {
-        "name": "Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_purple.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_purple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_purple_model_frontTN.jpg",
-        "pms": "7672C"
-      },
-      {
-        "name": "Silver",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_silver.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2022/f2/ST350LS_silver_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_silver_model_frontTN.jpg",
-        "pms": "429C"
-      },
-      {
-        "name": "True Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_truenavy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_truenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_truenavy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "True Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_truered.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_truered_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_truered_model_frontTN.jpg",
-        "pms": "200C"
-      },
-      {
-        "name": "True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_trueroyal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f13/ST350LS_trueroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_trueroyal_model_frontTN.jpg",
-        "pms": "7687C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_white.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_white_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Woodland Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_WoodlandBrown_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350LSsw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2025/f18/ST350LS_woodlandbrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350LS_woodlandbrown_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 6.16,
-    "msrp": 10.32,
-    "pieceWeight": 0.31
   },
   {
     "style": "RU400",
@@ -223788,310 +224092,6 @@ export const sanmarCatalogProducts = [
     "priceFrom": 5.13,
     "msrp": 8.26,
     "pieceWeight": 0.23
-  },
-  {
-    "style": "ST350",
-    "title": "Sport-Tek PosiCharge Competitor Tee.",
-    "brand": "Sport-Tek",
-    "category": "T-Shirts",
-    "subcategory": "",
-    "description": "Lightweight roomy and highly breathable these moisture-wicking value-priced tees feature PosiCharge technology to lock in color and prevent logos from fading.3.8-ounce 100% polyester interlock with PosiCharge technology Removable tag for comfort and relabeling Set-in sleevesGiven the extreme heat required for sublim...",
-    "availableSizes": "Adult Sizes: XS-6XL",
-    "image": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_black_model_front.jpg",
-    "backImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_black_model_back.jpg",
-    "specSheet": "SpecSheetMeasurements_ST350.pdf",
-    "decorationSpecSheet": "https://www.sanmar.com/p/4349/decorationSpecSheet",
-    "productMeasurements": "SpecSheetMeasurements_ST350.pdf",
-    "companionStyle": "ST350|ST350LS|ST351|ST355|ST352|LST350|LST351|LST352|LST353|LST353LS|TST350LS|TST350|TST351|YST355|YST350|YST350LS|ST354|LST354|YST354|ST357|LST357|ST355P|YST355P|YST460|LST550|ST358|LST358|YST358|STC36|YST357|ST356|STA35|LST356|ST550",
-    "colors": [
-      {
-        "name": "Atomic Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_atomicblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_atomicblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_atomicblue_model_frontTN.jpg",
-        "pms": "2203C"
-      },
-      {
-        "name": "Black",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_black.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_black_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_black_model_frontTN.jpg",
-        "pms": "BLACK C"
-      },
-      {
-        "name": "Cardinal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_cardinal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_cardinal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_cardinal_model_frontTN.jpg",
-        "pms": "7421C"
-      },
-      {
-        "name": "Carolina Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_carolinablue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_carolinablue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_carolinablue_model_frontTN.jpg",
-        "pms": "646C"
-      },
-      {
-        "name": "Coyote Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_CoyoteBrown_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_coyotebrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_coyotebrown_model_frontTN.jpg",
-        "pms": "2326C"
-      },
-      {
-        "name": "Deep Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_deeporange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_deeporange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_deeporange_model_frontTN.jpg",
-        "pms": "173C"
-      },
-      {
-        "name": "Deep Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350_DEEP-RED.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2023/f6/ST350_deepred_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_deepred_model_frontTN.jpg",
-        "pms": "201C"
-      },
-      {
-        "name": "Forest Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_forestgreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_forestgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_forestgreen_model_frontTN.jpg",
-        "pms": "553C"
-      },
-      {
-        "name": "Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_gold.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_gold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_gold_model_frontTN.jpg",
-        "pms": "1235C"
-      },
-      {
-        "name": "Grey Concrete",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350_GreyConcrete_MRF26.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_greyconcrete_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_greyconcrete_model_frontTN.jpg",
-        "pms": "COOL GRAY 10C"
-      },
-      {
-        "name": "Grey Concrete Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/LST350_IronGrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f18/ST350_greyconcreteheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_greyconcreteheather_model_frontTN.jpg",
-        "pms": "COOL GRAY 10C"
-      },
-      {
-        "name": "Iron Grey",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_irongrey.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_irongrey_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_irongrey_model_frontTN.jpg",
-        "pms": "7540C"
-      },
-      {
-        "name": "Iron Grey Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/LST350_IRONGREYHEATHER.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f18/ST350_irongreyheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_irongreyheather_model_frontTN.jpg",
-        "pms": "7540C"
-      },
-      {
-        "name": "Kelly Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_kellygreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_kellygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_kellygreen_model_frontTN.jpg",
-        "pms": "341C"
-      },
-      {
-        "name": "Lime Shock",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_limeshock.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_limeshock_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_limeshock_model_frontTN.jpg",
-        "pms": "375C"
-      },
-      {
-        "name": "Maroon",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_maroon.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_maroon_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_maroon_model_frontTN.jpg",
-        "pms": "504C"
-      },
-      {
-        "name": "Neon Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonorange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_neonorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_neonorange_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Neon Pink",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonpink.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_neonpink_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_neonpink_model_frontTN.jpg",
-        "pms": "806C"
-      },
-      {
-        "name": "Neon Yellow",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_neonyellow.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_neonyellow_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_neonyellow_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Olive Drab Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_OliveDrabGreen_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_olivedrabgreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_olivedrabgreen_model_frontTN.jpg",
-        "pms": "7771C"
-      },
-      {
-        "name": "Purple",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_purple.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_purple_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_purple_model_frontTN.jpg",
-        "pms": "7672C"
-      },
-      {
-        "name": "Sand",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350_Sand.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_sand_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_sand_model_frontTN.jpg",
-        "pms": "453C"
-      },
-      {
-        "name": "Silver",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_silver.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_silver_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_silver_model_frontTN.jpg",
-        "pms": "429C"
-      },
-      {
-        "name": "Texas Orange",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_texasorange.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_texasorange_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_texasorange_model_frontTN.jpg",
-        "pms": "7584C"
-      },
-      {
-        "name": "Tropic Blue",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_tropicblue.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_tropicblue_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_tropicblue_model_frontTN.jpg",
-        "pms": "7474C"
-      },
-      {
-        "name": "True Kelly Green",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST350_TrueKellyGreen.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2024/f5/ST350_truekellygreen_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_truekellygreen_model_frontTN.jpg",
-        "pms": "348C"
-      },
-      {
-        "name": "True Navy",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_truenavy.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_truenavy_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_truenavy_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "True Navy Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_truenavyheather_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f18/ST350_truenavyheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_truenavyheather_model_frontTN.jpg",
-        "pms": "533C"
-      },
-      {
-        "name": "True Red",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_truered.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_truered_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_truered_model_frontTN.jpg",
-        "pms": "200C"
-      },
-      {
-        "name": "True Royal",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_trueroyal.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_trueroyal_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_trueroyal_model_frontTN.jpg",
-        "pms": "7687C"
-      },
-      {
-        "name": "True Royal Heather",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_trueroyalheather_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2020/f18/ST350_trueroyalheather_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_trueroyalheather_model_frontTN.jpg",
-        "pms": "7686C"
-      },
-      {
-        "name": "Vegas Gold",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/sporttek_vegasgold.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_vegasgold_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_vegasgold_model_frontTN.jpg",
-        "pms": "4525C"
-      },
-      {
-        "name": "White",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/SportTek_white.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_white_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_white_model_frontTN.jpg",
-        "pms": ""
-      },
-      {
-        "name": "Woodland Brown",
-        "swatchImage": "https://cdnm.sanmar.com/swatch/gifs/ST_WoodlandBrown_swatch.gif",
-        "colorSwatchImage": "https://cdnm.sanmar.com/catalog/images/ST350sw.jpg",
-        "productImage": "https://cdnm.sanmar.com/imglib/mresjpg/2021/f8/ST350_woodlandbrown_model_front.jpg",
-        "thumbnailImage": "https://cdnm.sanmar.com/catalog/images/ST350_woodlandbrown_model_frontTN.jpg",
-        "pms": ""
-      }
-    ],
-    "sizes": [
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "6XL",
-      "L",
-      "M",
-      "S",
-      "XL",
-      "XS"
-    ],
-    "priceFrom": 5.13,
-    "msrp": 8.26,
-    "pieceWeight": 0.27
   },
   {
     "style": "STF204",

@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { InkColorExplorer } from "@/components/InkColorExplorer";
 import { QuoteSection } from "@/components/QuoteSection";
 import { ScreenPrintEstimator } from "@/components/ScreenPrintEstimator";
+import { sanmarCatalogProducts } from "@/data/sanmarCatalog.generated";
 import { workImagesByFolder } from "@/data/workImages.generated";
 import { createSeoMetadata } from "@/lib/seo";
 
@@ -78,6 +79,123 @@ const processSteps = [
     visual: "production",
   },
 ];
+
+const screenPrintNavigatorStyles = [
+  "PC54",
+  "5000",
+  "8000",
+  "29M",
+  "PC55",
+  "PC61",
+  "2000",
+  "64000",
+  "G2400",
+  "5400",
+  "BC3001",
+  "BC3001CVC",
+  "NL6210",
+  "ST350",
+  "ST350LS",
+  "ST450",
+  "ST420",
+  "ST700",
+  "A4N3402",
+  "A4N3142",
+  "PC54Y",
+  "5000B",
+  "PC61Y",
+  "BC3001Y",
+  "YST350",
+  "YST350LS",
+  "IC48M",
+  "PC850",
+  "DT6104",
+  "PC78",
+  "562M",
+  "562B",
+  "18000",
+  "18000B",
+  "BC3945",
+  "1566",
+  "DT1106",
+  "NKFD9863",
+  "SF000",
+  "PC90",
+  "PC90T",
+  "DT6100",
+  "DT6100Y",
+  "IC49M",
+  "PC850H",
+  "PC850YH",
+  "PC78H",
+  "PC78HT",
+  "LPC78H",
+  "996M",
+  "996Y",
+  "18500",
+  "18500B",
+  "AL4000",
+  "CTK121",
+  "DT1101",
+  "SXU003",
+  "SF500",
+  "PC90H",
+  "DT6102",
+  "PC850ZH",
+  "ST258",
+  "PC78ZH",
+  "LPC78ZH",
+  "993M",
+  "993B",
+  "18600",
+  "18600B",
+  "CTK122",
+  "NEA511",
+  "LNEA511",
+  "SXU005",
+  "NKDR1513",
+  "SF600",
+  "PC90ZH",
+  "PC850Q",
+  "ST561",
+  "LST561",
+  "DT6106",
+  "PC78Q",
+  "K807",
+  "995M",
+  "OG813",
+  "NF0A8C5G",
+  "NEA512",
+  "K829",
+  "ST253",
+  "F244",
+  "YST244",
+  "ST850",
+  "TST850",
+  "LST850",
+  "PC590",
+  "PC590Q",
+  "PC590H",
+  "PC590YH",
+  "NKFD9735",
+  "NKDX6718",
+  "NKFQ4762",
+  "ST857",
+  "ST241",
+  "LST241",
+  "YST241",
+  "SXU028",
+  "SXU029",
+  "DT6600",
+];
+
+const screenPrintNavigatorProducts = screenPrintNavigatorStyles
+  .map((style) =>
+    sanmarCatalogProducts.find((product) => product.style === style),
+  )
+  .filter((product): product is (typeof sanmarCatalogProducts)[number] =>
+    Boolean(product),
+  );
 
 export default function ScreenPrintingPage() {
   const galleryImages = screenPrintingImages.slice(0, 10);
@@ -168,7 +286,9 @@ export default function ScreenPrintingPage() {
           </div>
         </section>
 
-        <ScreenPrintEstimator />
+        <ScreenPrintEstimator
+          products={screenPrintNavigatorProducts}
+        />
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
           <div className="mx-auto grid max-w-7xl overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.78fr_1.22fr]">

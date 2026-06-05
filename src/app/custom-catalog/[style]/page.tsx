@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CatalogStartingPrice } from "@/components/CatalogStartingPrice";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ProductCatalogQuoteButton } from "@/components/ProductCatalogQuoteButton";
 import { sanmarCatalogProducts } from "@/data/sanmarCatalog.generated";
 import { createSeoMetadata } from "@/lib/seo";
 
@@ -11,14 +13,6 @@ type ProductDetailPageProps = {
     style: string;
   }>;
 };
-
-function formatPrice(price?: number) {
-  if (price === undefined) {
-    return "Request pricing";
-  }
-
-  return `$${price.toFixed(2)}`;
-}
 
 function specSheetUrl(fileName: string) {
   if (!fileName) {
@@ -138,35 +132,22 @@ export default async function ProductDetailPage({
                   {product.description}
                 </p>
 
-                <div className="mt-8 grid gap-px overflow-hidden rounded-sm bg-white/14 ring-1 ring-white/16 sm:grid-cols-3">
-                  {[
-                    ["Price from", formatPrice(product.priceFrom)],
-                    ["MSRP", formatPrice(product.msrp)],
-                    [
-                      "Piece weight",
-                      product.pieceWeight
+                <div className="mt-8 grid gap-px overflow-hidden rounded-sm bg-white/14 ring-1 ring-white/16 sm:grid-cols-2">
+                  <CatalogStartingPrice product={product} />
+                  <div className="bg-white/8 p-5">
+                    <p className="text-xs font-black uppercase tracking-[0.16em] text-white/50">
+                      Piece weight
+                    </p>
+                    <p className="mt-2 text-xl font-black text-white">
+                      {product.pieceWeight
                         ? `${product.pieceWeight.toFixed(2)} lb`
-                        : "Varies",
-                    ],
-                  ].map(([label, value]) => (
-                    <div key={label} className="bg-white/8 p-5">
-                      <p className="text-xs font-black uppercase tracking-[0.16em] text-white/50">
-                        {label}
-                      </p>
-                      <p className="mt-2 text-xl font-black text-white">
-                        {value}
-                      </p>
-                    </div>
-                  ))}
+                        : "Varies"}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    href={`/request-a-quote?style=${encodeURIComponent(product.style)}`}
-                    className="inline-flex justify-center rounded-md bg-accent px-7 py-4 text-sm font-black uppercase text-white shadow-[0_18px_42px_rgba(31,115,190,0.34)] transition hover:-translate-y-0.5 hover:bg-[#2a86d8]"
-                  >
-                    Request quote for this style
-                  </Link>
+                  <ProductCatalogQuoteButton product={product} />
                   <a
                     href="https://www.companycasuals.com/huegraphics/start.jsp"
                     target="_blank"

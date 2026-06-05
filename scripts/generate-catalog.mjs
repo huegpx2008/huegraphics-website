@@ -23,6 +23,22 @@ const preferredCategories = new Set(preferredCategoryOrder);
 const starterBrandOrder = ["Gildan", "Bella + Canvas", "Sport-Tek"];
 const starterTypeOrder = ["T-Shirts", "Hoodies", "Long Sleeves", "Polos"];
 const starterProductCount = 48;
+const topSellerStyleOrder = [
+  "2000",
+  "2400",
+  "G240",
+  "996M",
+  "BC3001",
+  "BC3001CVC",
+  "ST350",
+  "ST350LS",
+  "PC61",
+  "PC55",
+  "PC54",
+  "8000",
+  "5000",
+];
+const topSellerStyles = new Set(topSellerStyleOrder);
 
 async function fileExists(filePath) {
   try {
@@ -156,6 +172,10 @@ function starterType(product) {
   const title = product.title.toLowerCase();
   const description = product.description.toLowerCase();
   const combinedText = `${title} ${description}`;
+
+  if (/\binfant\b|\btoddler\b|\bbaby\b/.test(combinedText)) {
+    return "";
+  }
 
   if (product.category === "T-Shirts" && /long sleeve|l\/s|long-sleeve/.test(combinedText)) {
     return "Long Sleeves";
@@ -359,6 +379,17 @@ for (const bucket of starterBuckets.values()) {
 }
 
 const starterProducts = [];
+
+for (const style of topSellerStyleOrder) {
+  const product = sortedProducts.find(
+    (item) => item.style.toUpperCase() === style
+  );
+
+  if (product && !starterProducts.some((item) => item.style === product.style)) {
+    starterProducts.push(product);
+  }
+}
+
 let hasStarterProducts = true;
 
 while (starterProducts.length < starterProductCount && hasStarterProducts) {
@@ -369,7 +400,7 @@ while (starterProducts.length < starterProductCount && hasStarterProducts) {
       const bucket = starterBuckets.get(`${type}:${brand}`);
       const product = bucket?.shift();
 
-      if (product) {
+      if (product && !topSellerStyles.has(product.style.toUpperCase())) {
         starterProducts.push(product);
         hasStarterProducts = true;
       }

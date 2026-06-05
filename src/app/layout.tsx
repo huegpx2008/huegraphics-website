@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { FloatingQuoteBasket } from "@/components/FloatingQuoteBasket";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -82,6 +83,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <FloatingQuoteBasket />
       </body>
     </html>
   );

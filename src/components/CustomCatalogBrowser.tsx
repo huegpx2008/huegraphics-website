@@ -2,23 +2,21 @@
 
 import Link from "next/link";
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import {
+  addItemToFloatingQuoteBasket,
+  openFloatingQuoteBasket,
+  type QuoteBasketItem,
+} from "@/components/FloatingQuoteBasket";
 import type { CatalogProduct } from "@/data/sanmarCatalog.generated";
+import {
+  getScreenPrintRecommendation,
+  screenPrintMinimumQuantity,
+} from "@/lib/catalog-screenprint";
 
 type CustomCatalogBrowserProps = {
   products: CatalogProduct[];
   categories: readonly string[];
   brands: readonly string[];
-};
-
-type ProjectItem = {
-  id: string;
-  productName: string;
-  style: string;
-  brand: string;
-  color: string;
-  quantity: number;
-  estimatedEach?: number | string;
-  estimatedTotal?: number | string;
 };
 
 type EstimateState = {
@@ -61,8 +59,6 @@ type DetailEstimatorState = {
   frontColors: string;
   backColors: string;
   sameDesign: boolean;
-  darkGarment: boolean;
-  whiteUnderbase: boolean;
   estimate: ScreenprintEstimate | null;
   error: string;
   isLoading: boolean;
@@ -70,6 +66,14 @@ type DetailEstimatorState = {
 
 const visibleProductLimit = 48;
 const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
+const frontColorOptions = ["1", "2", "3", "4"];
+const backColorOptions = [
+  { label: "No back print", value: "0" },
+  { label: "1 color", value: "1" },
+  { label: "2 colors", value: "2" },
+  { label: "3 colors", value: "3" },
+  { label: "4 colors", value: "4" },
+];
 
 function shortDescription(description: string) {
   if (description.length <= 180) {
@@ -96,7 +100,9 @@ function formatPrice(value: number | string | undefined, currency = "USD") {
 
 function normalizeQuantity(value: string | number) {
   const numeric = Number(value);
-  return Number.isFinite(numeric) ? Math.max(1, Math.floor(numeric)) : 1;
+  return Number.isFinite(numeric)
+    ? Math.max(screenPrintMinimumQuantity, Math.floor(numeric))
+    : screenPrintMinimumQuantity;
 }
 
 function productSizeOrder(product: CatalogProduct) {
@@ -131,6 +137,22 @@ function buildDetailSizes(product: CatalogProduct, quantity: number) {
   );
 }
 
+function numericSizeQuantities(sizes: Record<string, string | number>) {
+  return Object.fromEntries(
+    Object.entries(sizes).map(([size, quantity]) => [
+      size,
+      Math.max(0, Math.floor(Number(quantity || 0))),
+    ]),
+  ) as Record<string, number>;
+}
+
+function getTotalQuantity(sizes: Record<string, string | number>): number {
+  return Object.values(sizes).reduce<number>(
+    (total, quantity) => total + Math.max(0, Math.floor(Number(quantity || 0))),
+    0,
+  );
+}
+
 function buildScreenprintPayload({
   product,
   color,
@@ -138,8 +160,6 @@ function buildScreenprintPayload({
   frontColors,
   backColors,
   sameDesign,
-  darkGarment,
-  whiteUnderbase,
 }: {
   product: CatalogProduct;
   color: string;
@@ -147,8 +167,6 @@ function buildScreenprintPayload({
   frontColors: number;
   backColors: number;
   sameDesign: boolean;
-  darkGarment: boolean;
-  whiteUnderbase: boolean;
 }) {
   return {
     lineItems: [
@@ -173,8 +191,6 @@ function buildScreenprintPayload({
       },
     ],
     sameDesign,
-    darkGarments: darkGarment,
-    whiteUnderbase,
   };
 }
 
@@ -228,21 +244,18 @@ export function CustomCatalogBrowser({
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
   const [brand, setBrand] = useState("All");
-  const [projectItems, setProjectItems] = useState<ProjectItem[]>([]);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [quickQuantity, setQuickQuantity] = useState("24");
+  const [quickQuantity, setQuickQuantity] = useState(
+    String(screenPrintMinimumQuantity),
+  );
   const [quickFrontColors, setQuickFrontColors] = useState("1");
   const [quickBackColors, setQuickBackColors] = useState("0");
   const [quickSameDesign, setQuickSameDesign] = useState(true);
-  const [quickDarkGarment, setQuickDarkGarment] = useState(false);
-  const [quickWhiteUnderbase, setQuickWhiteUnderbase] = useState(false);
+  const [minimumSuggestion, setMinimumSuggestion] = useState("");
   const [debouncedQuickSettings, setDebouncedQuickSettings] = useState({
-    quantity: "24",
+    quantity: String(screenPrintMinimumQuantity),
     frontColors: "1",
     backColors: "0",
     sameDesign: true,
-    darkGarment: false,
-    whiteUnderbase: false,
   });
   const [catalogEstimates, setCatalogEstimates] = useState<
     Record<string, EstimateState>
@@ -286,12 +299,10 @@ export function CustomCatalogBrowser({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [visibleProductKey],
   );
-  const estimatedQuoteTotal = projectItems.reduce(
-    (total, item) =>
-      total +
-      (typeof item.estimatedTotal === "number" ? item.estimatedTotal : 0),
-    0,
-  );
+  const isStartingEstimate =
+    quickQuantity === String(screenPrintMinimumQuantity) &&
+    quickFrontColors === "1" &&
+    quickBackColors === "0";
 
   useEffect(() => {
     const timeout = window.setTimeout(() => {
@@ -300,19 +311,15 @@ export function CustomCatalogBrowser({
         frontColors: quickFrontColors,
         backColors: quickBackColors,
         sameDesign: quickSameDesign,
-        darkGarment: quickDarkGarment,
-        whiteUnderbase: quickWhiteUnderbase,
       });
     }, 600);
 
     return () => window.clearTimeout(timeout);
   }, [
     quickBackColors,
-    quickDarkGarment,
     quickFrontColors,
     quickQuantity,
     quickSameDesign,
-    quickWhiteUnderbase,
   ]);
 
   useEffect(() => {
@@ -323,13 +330,23 @@ export function CustomCatalogBrowser({
     setCatalogEstimates((current) => {
       const next = { ...current };
       productsToEstimate.forEach((product) => {
-        next[product.style] = { status: "loading" };
+        const recommendation = getScreenPrintRecommendation(product);
+
+        next[product.style] = recommendation.canEstimate
+          ? { status: "loading" }
+          : { status: "unavailable", warnings: [recommendation.message] };
       });
       return next;
     });
 
     async function loadEstimates() {
       for (const product of productsToEstimate) {
+        const recommendation = getScreenPrintRecommendation(product);
+
+        if (!recommendation.canEstimate) {
+          continue;
+        }
+
         const payload = buildScreenprintPayload({
           product,
           color: defaultColor(product),
@@ -337,8 +354,6 @@ export function CustomCatalogBrowser({
           frontColors: Number(debouncedQuickSettings.frontColors),
           backColors: Number(debouncedQuickSettings.backColors),
           sameDesign: debouncedQuickSettings.sameDesign,
-          darkGarment: debouncedQuickSettings.darkGarment,
-          whiteUnderbase: debouncedQuickSettings.whiteUnderbase,
         });
 
         try {
@@ -379,65 +394,68 @@ export function CustomCatalogBrowser({
     };
   }, [debouncedQuickSettings, visibleProductKey, visibleProductsForEstimates]);
 
-  function addToProject(product: CatalogProduct) {
-    const estimate = catalogEstimates[product.style];
+  function handleQuickQuantityChange(value: string) {
+    const numeric = Number(value);
 
-    setProjectItems((currentItems) => [
-      ...currentItems,
-      {
-        id: `${product.style}-${Date.now()}-${Math.random()
-          .toString(16)
-          .slice(2)}`,
-        productName: product.title,
-        style: product.style,
-        brand: product.brand,
-        color: defaultColor(product),
-        quantity: Number(estimate?.quantity) || normalizeQuantity(quickQuantity),
-        estimatedEach: estimate?.each,
-        estimatedTotal: estimate?.total,
-      },
-    ]);
-    setIsDrawerOpen(true);
-  }
-
-  function addDetailEstimateToProject() {
-    if (!detailEstimator?.estimate) {
+    if (value && Number.isFinite(numeric) && numeric < screenPrintMinimumQuantity) {
+      setQuickQuantity(String(screenPrintMinimumQuantity));
+      setMinimumSuggestion(
+        "Screen printing usually starts at 24 pieces. For lower quantities, DTF or DTG may be a better option.",
+      );
       return;
     }
 
-    const estimate = detailEstimator.estimate;
-    const product = detailEstimator.product;
-
-    setProjectItems((currentItems) => [
-      ...currentItems,
-      {
-        id: `${product.style}-${Date.now()}-${Math.random()
-          .toString(16)
-          .slice(2)}`,
-        productName: product.title,
-        style: product.style,
-        brand: product.brand,
-        color: detailEstimator.color,
-        quantity:
-          Number(estimate.summary?.totalQuantity) ||
-          Object.values(detailEstimator.sizes).reduce(
-            (total, quantity) => total + Number(quantity || 0),
-            0,
-          ),
-        estimatedEach: estimate.price?.each,
-        estimatedTotal: estimate.price?.retail,
-      },
-    ]);
-    setIsDrawerOpen(true);
+    setQuickQuantity(value);
+    setMinimumSuggestion("");
   }
 
-  function removeProjectItem(id: string) {
-    setProjectItems((currentItems) =>
-      currentItems.filter((item) => item.id !== id),
-    );
+  function addToProject(product: CatalogProduct) {
+    openDetailEstimator(product);
+  }
+
+  function addDetailToBasket() {
+    if (!detailEstimator) {
+      return;
+    }
+
+    const product = detailEstimator.product;
+    const sizes = numericSizeQuantities(detailEstimator.sizes);
+    const totalQty = getTotalQuantity(sizes);
+
+    if (totalQty <= 0) {
+      updateDetail({
+        error: "Please enter at least one garment quantity.",
+      });
+      return;
+    }
+
+    const item: QuoteBasketItem = {
+      id: `${product.style}-${Date.now()}-${Math.random()
+        .toString(16)
+        .slice(2)}`,
+      productName: product.title,
+      style: product.style,
+      brand: product.brand,
+      color: detailEstimator.color,
+      sizes,
+      quantity: totalQty,
+      frontColors: detailEstimator.frontColors,
+      backColors: detailEstimator.backColors,
+      estimatedEach: detailEstimator.estimate?.price?.each,
+      estimatedTotal: detailEstimator.estimate?.price?.retail,
+    };
+
+    addItemToFloatingQuoteBasket(item);
+    setDetailEstimator(null);
   }
 
   function openDetailEstimator(product: CatalogProduct) {
+    const recommendation = getScreenPrintRecommendation(product);
+
+    if (!recommendation.canEstimate) {
+      return;
+    }
+
     setDetailEstimator({
       product,
       color: defaultColor(product),
@@ -445,8 +463,6 @@ export function CustomCatalogBrowser({
       frontColors: quickFrontColors,
       backColors: quickBackColors,
       sameDesign: quickSameDesign,
-      darkGarment: quickDarkGarment,
-      whiteUnderbase: quickWhiteUnderbase,
       estimate: null,
       error: "",
       isLoading: false,
@@ -489,20 +505,21 @@ export function CustomCatalogBrowser({
       return;
     }
 
-    const sizeQuantities = Object.fromEntries(
-      Object.entries(detailEstimator.sizes).map(([size, quantity]) => [
-        size,
-        Number(quantity || 0),
-      ]),
-    );
-    const totalQty = Object.values(sizeQuantities).reduce(
-      (total, quantity) => total + quantity,
-      0,
-    );
+    const sizeQuantities = numericSizeQuantities(detailEstimator.sizes);
+    const totalQty = getTotalQuantity(sizeQuantities);
 
     if (totalQty <= 0) {
       updateDetail({
         error: "Please enter at least one garment quantity.",
+        estimate: null,
+      });
+      return;
+    }
+
+    if (totalQty < screenPrintMinimumQuantity) {
+      updateDetail({
+        error:
+          "This item is under 24 pieces. You can still add it to the quote basket and combine it with compatible styles using the same artwork.",
         estimate: null,
       });
       return;
@@ -519,8 +536,6 @@ export function CustomCatalogBrowser({
           frontColors: Number(detailEstimator.frontColors),
           backColors: Number(detailEstimator.backColors),
           sameDesign: detailEstimator.sameDesign,
-          darkGarment: detailEstimator.darkGarment,
-          whiteUnderbase: detailEstimator.whiteUnderbase,
         }),
       );
 
@@ -598,47 +613,47 @@ export function CustomCatalogBrowser({
                 Screen printing only
               </p>
             </div>
-            <div className="mt-4 grid gap-3 md:grid-cols-3 xl:grid-cols-6">
+            <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
               <label className="block">
                 <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
                   Est. quantity
                 </span>
                 <input
                   type="number"
-                  min={1}
+                  min={screenPrintMinimumQuantity}
                   value={quickQuantity}
-                  onChange={(event) => setQuickQuantity(event.target.value)}
+                  onChange={(event) => handleQuickQuantityChange(event.target.value)}
                   className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
                 />
               </label>
               <label className="block">
                 <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                  Front colors
+                  How many colors on front?
                 </span>
                 <select
                   value={quickFrontColors}
                   onChange={(event) => setQuickFrontColors(event.target.value)}
                   className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
                 >
-                  {[0, 1, 2, 3, 4].map((count) => (
+                  {frontColorOptions.map((count) => (
                     <option key={count} value={count}>
-                      {count}
+                      {count} {count === "1" ? "color" : "colors"}
                     </option>
                   ))}
                 </select>
               </label>
               <label className="block">
                 <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                  Back colors
+                  How many colors on back?
                 </span>
                 <select
                   value={quickBackColors}
                   onChange={(event) => setQuickBackColors(event.target.value)}
                   className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
                 >
-                  {[0, 1, 2, 3, 4].map((count) => (
-                    <option key={count} value={count}>
-                      {count}
+                  {backColorOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
                     </option>
                   ))}
                 </select>
@@ -648,16 +663,6 @@ export function CustomCatalogBrowser({
                   label: "Same design",
                   checked: quickSameDesign,
                   setter: setQuickSameDesign,
-                },
-                {
-                  label: "Dark garment",
-                  checked: quickDarkGarment,
-                  setter: setQuickDarkGarment,
-                },
-                {
-                  label: "White underbase",
-                  checked: quickWhiteUnderbase,
-                  setter: setQuickWhiteUnderbase,
                 },
               ].map((option) => (
                 <label
@@ -674,6 +679,11 @@ export function CustomCatalogBrowser({
                 </label>
               ))}
             </div>
+            {minimumSuggestion ? (
+              <p className="mt-3 rounded-md border border-[#b9dcff] bg-[#eef6ff] p-3 text-xs font-bold leading-5 text-[#125b99]">
+                {minimumSuggestion}
+              </p>
+            ) : null}
           </div>
 
           <div className="mt-4 flex flex-col gap-3 text-sm text-[#65717e] sm:flex-row sm:items-center sm:justify-between">
@@ -684,10 +694,10 @@ export function CustomCatalogBrowser({
             <div className="flex flex-wrap gap-3">
               <button
                 type="button"
-                onClick={() => setIsDrawerOpen(true)}
+                onClick={openFloatingQuoteBasket}
                 className="rounded-md bg-[#07111f] px-4 py-2 text-xs font-black uppercase text-white transition hover:bg-accent"
               >
-                Project quote ({projectItems.length})
+                Open quote basket
               </button>
               <a
                 href="https://www.companycasuals.com/huegraphics/start.jsp"
@@ -704,6 +714,7 @@ export function CustomCatalogBrowser({
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visibleProducts.map((product) => {
             const estimate = catalogEstimates[product.style];
+            const recommendation = getScreenPrintRecommendation(product);
 
             return (
               <article
@@ -748,15 +759,35 @@ export function CustomCatalogBrowser({
                     </p>
                     <div className="mt-4 rounded-md bg-[#07111f] px-4 py-3 text-white">
                       <p className="text-[0.66rem] font-black uppercase tracking-[0.16em] text-[#9fc8ef]">
-                        Decorated estimate
+                        {recommendation.canEstimate
+                          ? isStartingEstimate
+                            ? "Starting price"
+                            : "Quick estimate"
+                          : "Screen print guidance"}
                       </p>
                       <p className="mt-1 text-sm font-black">
-                        {estimate?.status === "ready"
-                          ? `Estimated from ${formatPrice(estimate.each)} each`
+                        {!recommendation.canEstimate
+                          ? recommendation.label
+                          : estimate?.status === "ready"
+                          ? `${formatPrice(estimate.each)} each`
                           : estimate?.status === "loading"
-                            ? "Loading estimate..."
-                            : "Estimate unavailable"}
+                            ? "Loading starting price..."
+                            : "Request pricing"}
                       </p>
+                      <p className="mt-1 text-[0.66rem] font-black uppercase tracking-wide text-white/58">
+                        {recommendation.canEstimate
+                          ? isStartingEstimate
+                            ? "24 pc minimum - 1 color / 1 side"
+                            : "Based on current settings"
+                          : recommendation.method === "dtf"
+                            ? "DTF recommended"
+                            : "Embroidery recommended"}
+                      </p>
+                      {!recommendation.canEstimate ? (
+                        <p className="mt-2 text-xs font-semibold leading-5 text-white/70">
+                          {recommendation.message}
+                        </p>
+                      ) : null}
                     </div>
                     <div className="mt-4 flex flex-wrap gap-2">
                       <span className="rounded-full bg-[#eef6ff] px-3 py-1 text-xs font-black text-[#125b99]">
@@ -777,24 +808,20 @@ export function CustomCatalogBrowser({
                     <button
                       type="button"
                       onClick={() => addToProject(product)}
-                      className="rounded-md bg-accent px-4 py-3 text-xs font-black uppercase text-white transition hover:bg-[#2a86d8]"
+                      disabled={!recommendation.canEstimate}
+                      className="rounded-md bg-accent px-4 py-3 text-xs font-black uppercase text-white transition hover:bg-[#2a86d8] disabled:cursor-not-allowed disabled:bg-[#9aa5b1]"
                     >
-                      Add to project quote
+                      {recommendation.canEstimate
+                        ? "Add to project quote"
+                        : recommendation.label}
                     </button>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid gap-2">
                       <Link
                         href={`/custom-catalog/${encodeURIComponent(product.style)}`}
                         className="rounded-md border border-black/10 px-4 py-2 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
                       >
                         Details
                       </Link>
-                      <button
-                        type="button"
-                        onClick={() => openDetailEstimator(product)}
-                        className="rounded-md border border-black/10 px-4 py-2 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
-                      >
-                        Get price now
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -811,127 +838,13 @@ export function CustomCatalogBrowser({
         ) : null}
       </div>
 
-      <div
-        className={[
-          "fixed inset-0 z-[70] transition",
-          isDrawerOpen ? "pointer-events-auto" : "pointer-events-none",
-        ].join(" ")}
-        aria-hidden={!isDrawerOpen}
-      >
-        <button
-          type="button"
-          aria-label="Close project quote drawer"
-          onClick={() => setIsDrawerOpen(false)}
-          className={[
-            "absolute inset-0 bg-black/50 transition-opacity",
-            isDrawerOpen ? "opacity-100" : "opacity-0",
-          ].join(" ")}
-        />
-        <aside
-          className={[
-            "absolute right-0 top-0 flex h-full w-full max-w-xl flex-col bg-white shadow-[0_24px_90px_rgba(0,0,0,0.38)] transition-transform duration-300",
-            isDrawerOpen ? "translate-x-0" : "translate-x-full",
-          ].join(" ")}
-        >
-          <div className="border-b border-black/10 p-5">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
-                  Project quote
-                </p>
-                <h2 className="mt-2 text-3xl font-black uppercase text-[#07111f]">
-                  Screen print estimate cart
-                </h2>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsDrawerOpen(false)}
-                className="rounded-full border border-black/10 px-3 py-1 text-sm font-black text-[#07111f] transition hover:border-accent hover:text-accent"
-              >
-                X
-              </button>
-            </div>
-            <p className="mt-4 rounded-sm bg-[#eef6ff] p-4 text-sm leading-6 text-[#314154]">
-              Catalog estimates are based on your quick estimate settings.
-              Final pricing may change after exact sizes, artwork, and
-              production review.
-            </p>
-          </div>
-
-          <div className="flex-1 overflow-y-auto p-5">
-            {projectItems.length ? (
-              <div className="grid gap-4">
-                {projectItems.map((item) => (
-                  <div
-                    key={item.id}
-                    className="rounded-sm border border-black/10 bg-[#f7f8fa] p-4"
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <p className="text-xs font-black uppercase tracking-[0.14em] text-accent">
-                          {item.brand} - {item.style}
-                        </p>
-                        <h3 className="mt-1 text-base font-black text-[#07111f]">
-                          {item.productName}
-                        </h3>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => removeProjectItem(item.id)}
-                        className="text-xs font-black uppercase text-[#8a3440] transition hover:text-red-600"
-                      >
-                        Remove
-                      </button>
-                    </div>
-                    <div className="mt-4 grid gap-2 text-sm font-bold text-[#314154]">
-                      <p>Color: {item.color}</p>
-                      <p>Estimated quantity: {item.quantity}</p>
-                      <p>
-                        Estimated each price:{" "}
-                        {formatPrice(item.estimatedEach)}
-                      </p>
-                      <p>
-                        Estimated total: {formatPrice(item.estimatedTotal)}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="rounded-sm border border-dashed border-black/20 p-8 text-center">
-                <p className="text-sm font-semibold text-[#65717e]">
-                  Add products from the catalog to start a project quote.
-                </p>
-              </div>
-            )}
-          </div>
-
-          <div className="border-t border-black/10 bg-white p-5">
-            <div className="mb-4 flex items-center justify-between gap-3 text-sm">
-              <span className="font-black uppercase text-[#65717e]">
-                Estimated quote total
-              </span>
-              <span className="text-2xl font-black text-[#07111f]">
-                {formatPrice(estimatedQuoteTotal)}
-              </span>
-            </div>
-            <Link
-              href="/request-a-quote"
-              className="block rounded-md bg-accent px-5 py-4 text-center text-sm font-black uppercase text-white transition hover:bg-[#2a86d8]"
-            >
-              Request official quote
-            </Link>
-          </div>
-        </aside>
-      </div>
-
       {detailEstimator ? (
         <div className="fixed inset-0 z-[80] overflow-y-auto bg-black/60 px-5 py-8">
           <div className="mx-auto max-w-4xl overflow-hidden rounded-sm bg-white shadow-[0_24px_90px_rgba(0,0,0,0.38)]">
             <div className="flex items-start justify-between gap-4 border-b border-black/10 p-5">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
-                  Get price now
+                  Add to project quote
                 </p>
                 <h2 className="mt-2 text-3xl font-black uppercase text-[#07111f]">
                   {detailEstimator.product.style} -{" "}
@@ -950,26 +863,46 @@ export function CustomCatalogBrowser({
             <div className="grid gap-px bg-[#d7e3ee] lg:grid-cols-[1fr_0.9fr]">
               <form onSubmit={submitDetailEstimate} className="bg-white p-5">
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="block">
-                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                      Color
-                    </span>
-                    <select
-                      value={detailEstimator.color}
-                      onChange={(event) =>
-                        updateDetail({
-                          color: event.target.value,
-                          estimate: null,
-                          error: "",
-                        })
-                      }
-                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
-                    >
-                      {detailEstimator.product.colors.map((color) => (
-                        <option key={color.name}>{color.name}</option>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      Product color
+                    </p>
+                    <div className="mt-2 grid max-h-44 gap-2 overflow-y-auto rounded-md border border-black/12 bg-[#f7f8fa] p-2">
+                      {detailEstimator.product.colors.map((productColor) => (
+                        <button
+                          key={productColor.name}
+                          type="button"
+                          onClick={() =>
+                            updateDetail({
+                              color: productColor.name,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className={[
+                            "flex items-center gap-3 rounded-md border px-3 py-2 text-left text-sm font-bold transition",
+                            detailEstimator.color === productColor.name
+                              ? "border-accent bg-white text-[#07111f] shadow-sm"
+                              : "border-transparent text-[#314154] hover:border-black/10 hover:bg-white",
+                          ].join(" ")}
+                        >
+                          <span className="grid h-7 w-7 shrink-0 place-items-center overflow-hidden rounded-full border border-black/12 bg-white">
+                            {productColor.swatchImage ? (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img
+                                src={productColor.swatchImage}
+                                alt={`${productColor.name} swatch`}
+                                className="h-full w-full object-cover"
+                              />
+                            ) : (
+                              <span className="h-full w-full bg-[#d8dde4]" />
+                            )}
+                          </span>
+                          <span>{productColor.name}</span>
+                        </button>
                       ))}
-                    </select>
-                  </label>
+                    </div>
+                  </div>
                   <label className="block">
                     <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
                       Same design
@@ -1019,7 +952,7 @@ export function CustomCatalogBrowser({
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">
                   <label className="block">
                     <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                      Front colors
+                      How many colors on front?
                     </span>
                     <select
                       value={detailEstimator.frontColors}
@@ -1032,16 +965,16 @@ export function CustomCatalogBrowser({
                       }
                       className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
                     >
-                      {[0, 1, 2, 3, 4].map((count) => (
+                      {frontColorOptions.map((count) => (
                         <option key={count} value={count}>
-                          {count}
+                          {count} {count === "1" ? "color" : "colors"}
                         </option>
                       ))}
                     </select>
                   </label>
                   <label className="block">
                     <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                      Back colors
+                      How many colors on back?
                     </span>
                     <select
                       value={detailEstimator.backColors}
@@ -1054,39 +987,23 @@ export function CustomCatalogBrowser({
                       }
                       className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
                     >
-                      {[0, 1, 2, 3, 4].map((count) => (
-                        <option key={count} value={count}>
-                          {count}
+                      {backColorOptions.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
                         </option>
                       ))}
                     </select>
                   </label>
-                  {[
-                    ["Dark garment", "darkGarment"],
-                    ["White underbase", "whiteUnderbase"],
-                  ].map(([label, field]) => (
-                    <label
-                      key={field}
-                      className="flex h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154]"
-                    >
-                      <span>{label}</span>
-                      <input
-                        type="checkbox"
-                        checked={Boolean(
-                          detailEstimator[field as "darkGarment" | "whiteUnderbase"],
-                        )}
-                        onChange={(event) =>
-                          updateDetail({
-                            [field]: event.target.checked,
-                            estimate: null,
-                            error: "",
-                          })
-                        }
-                        className="h-5 w-5 accent-[#1f73be]"
-                      />
-                    </label>
-                  ))}
                 </div>
+                <p className="mt-3 text-xs font-semibold leading-5 text-[#65717e]">
+                  Final pricing may change after artwork review, garment color,
+                  and exact production setup.
+                </p>
+                <p className="mt-2 rounded-md bg-[#eef6ff] p-3 text-xs font-bold leading-5 text-[#125b99]">
+                  Current item quantity:{" "}
+                  {getTotalQuantity(detailEstimator.sizes)}. You can add this
+                  item to the quote basket now and keep browsing.
+                </p>
 
                 <button
                   type="submit"
@@ -1136,17 +1053,27 @@ export function CustomCatalogBrowser({
                     ) : null}
                     <button
                       type="button"
-                      onClick={addDetailEstimateToProject}
+                      onClick={addDetailToBasket}
                       className="rounded-md bg-[#07111f] px-5 py-4 text-sm font-black uppercase text-white transition hover:bg-accent"
                     >
-                      Add estimate to project quote
+                      Add to quote basket
                     </button>
                   </div>
                 ) : (
-                  <p className="mt-5 rounded-md border border-dashed border-[#b5c6d6] bg-white/70 p-5 text-sm leading-7 text-[#52677d]">
-                    Enter exact color, sizes, and print details to request a
-                    live screen printing estimate.
-                  </p>
+                  <div className="mt-5 grid gap-4">
+                    <p className="rounded-md border border-dashed border-[#b5c6d6] bg-white/70 p-5 text-sm leading-7 text-[#52677d]">
+                      Enter exact color, sizes, and print details to request a
+                      live screen printing estimate, or add this item to the
+                      quote basket and keep building the project.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={addDetailToBasket}
+                      className="rounded-md bg-[#07111f] px-5 py-4 text-sm font-black uppercase text-white transition hover:bg-accent"
+                    >
+                      Add to quote basket
+                    </button>
+                  </div>
                 )}
               </div>
             </div>

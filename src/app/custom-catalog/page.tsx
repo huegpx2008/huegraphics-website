@@ -13,7 +13,7 @@ import { createSeoMetadata } from "@/lib/seo";
 export const metadata = createSeoMetadata({
   title: "Custom Apparel Catalog | Hue Graphics & Apparel",
   description:
-    "Browse a custom apparel catalog from Hue Graphics featuring premium SanMar styles, brands, colors, and product options for screen printing and embroidery.",
+    "Browse Hue Graphics custom apparel styles with built-in screen printing estimate guidance, product details, colors, brands, and quote cart tools.",
   path: "/custom-catalog",
 });
 
@@ -33,20 +33,20 @@ export default function CustomCatalogPage() {
                 Custom catalog
               </p>
               <h1 className="mt-5 max-w-4xl font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.88] text-white sm:text-7xl">
-                Browse apparel styles before your next order.
+                Browse products. Build a quote starter.
               </h1>
               <p className="mt-7 max-w-3xl text-lg leading-8 text-white/78">
-                This custom catalog is built from our SanMar product data so
-                you can search across every loaded style by brand, category,
-                color, style number, or product name before sending a quote
-                request.
+                This custom catalog is built from our apparel product data with
+                built-in estimate guidance, so you can search styles, compare
+                colors, add items to a project quote, and get a realistic
+                starting point before final artwork review.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/request-a-quote"
                   className="inline-flex justify-center rounded-md bg-accent px-7 py-4 text-sm font-black uppercase text-white shadow-[0_18px_42px_rgba(31,115,190,0.34)] transition hover:-translate-y-0.5 hover:bg-[#2a86d8]"
                 >
-                  Request a quote
+                  Send files or general quote
                 </Link>
                 <a
                   href="https://www.companycasuals.com/huegraphics/start.jsp"
