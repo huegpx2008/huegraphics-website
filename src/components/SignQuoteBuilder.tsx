@@ -1,6 +1,10 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import {
+  addItemToFloatingQuoteBasket,
+  type QuoteBasketItem,
+} from "@/components/FloatingQuoteBasket";
 
 type FieldOption = {
   label: string;
@@ -38,14 +42,6 @@ type ApiEstimate = {
     message?: string;
     fields?: Record<string, string>;
   };
-};
-
-type QuoteItem = {
-  id: string;
-  productName: string;
-  description: string;
-  estimatedPrice?: number | string;
-  currency: string;
 };
 
 const products: ProductConfig[] = [
@@ -282,6 +278,42 @@ function getSummaryText(productName: string, estimate: ApiEstimate) {
     .join(" - ");
 }
 
+function getQuantity(values: Record<string, string | boolean>) {
+  const quantity = Number(values.quantity);
+  return Number.isFinite(quantity) && quantity > 0 ? quantity : 1;
+}
+
+function getSelectedOptionLabel(
+  field: QuoteField,
+  value: string | boolean,
+) {
+  if (typeof value === "boolean") {
+    return value ? field.label : "";
+  }
+
+  return (
+    field.options?.find((option) => option.value === value)?.label || value
+  );
+}
+
+function getConfigurationText(
+  product: ProductConfig,
+  values: Record<string, string | boolean>,
+) {
+  return product.fields
+    .map((field) => {
+      const value = values[field.name];
+
+      if (field.type === "checkbox") {
+        return value ? field.label : "";
+      }
+
+      return `${field.label}: ${getSelectedOptionLabel(field, value)}`;
+    })
+    .filter(Boolean)
+    .join(", ");
+}
+
 function toPayload(product: ProductConfig, values: Record<string, string | boolean>) {
   return Object.fromEntries(
     product.fields.map((field) => {
@@ -304,7 +336,6 @@ export function SignQuoteBuilder() {
     getDefaultValues(activeProduct),
   );
   const [estimate, setEstimate] = useState<ApiEstimate | null>(null);
-  const [quoteItems, setQuoteItems] = useState<QuoteItem[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -313,13 +344,6 @@ export function SignQuoteBuilder() {
     setEstimate(null);
     setError("");
   }, [activeProduct]);
-
-  const quoteCurrency = quoteItems[0]?.currency ?? "USD";
-  const quoteTotal = quoteItems.reduce(
-    (total, item) =>
-      total + (typeof item.estimatedPrice === "number" ? item.estimatedPrice : 0),
-    0,
-  );
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -379,22 +403,31 @@ export function SignQuoteBuilder() {
       return;
     }
 
-    setQuoteItems((currentItems) => [
-      ...currentItems,
-      {
-        id: `${Date.now()}-${currentItems.length}`,
-        productName: activeProduct.name,
-        description: getSummaryText(activeProduct.name, estimate),
-        estimatedPrice: estimate.price?.retail,
-        currency: estimate.currency ?? "USD",
-      },
-    ]);
-  }
+    const quantity = getQuantity(values);
+    const configuration = getConfigurationText(activeProduct, values);
+    const item: QuoteBasketItem = {
+      id: `sign-${activeProduct.id}-${Date.now()}`,
+      productName: activeProduct.name,
+      style: activeProduct.name,
+      brand: "Hue Graphics",
+      color: "Full color sign print",
+      sizes: { Each: quantity },
+      quantity,
+      service: "Signs & Banners",
+      frontColors: "Full color",
+      backColors: "0",
+      decorationSummary: [
+        getSummaryText(activeProduct.name, estimate),
+        configuration && `Configuration: ${configuration}`,
+      ]
+        .filter(Boolean)
+        .join(" | "),
+      estimatedEach: estimate.price?.each,
+      estimatedTotal: estimate.price?.retail,
+      currency: estimate.currency ?? "USD",
+    };
 
-  function removeQuoteItem(id: string) {
-    setQuoteItems((currentItems) =>
-      currentItems.filter((quoteItem) => quoteItem.id !== id),
-    );
+    addItemToFloatingQuoteBasket(item);
   }
 
   return (
@@ -558,7 +591,7 @@ export function SignQuoteBuilder() {
                     onClick={addEstimateToQuote}
                     className="inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-[#07111f] px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#13243a]"
                   >
-                    Add To Quote
+                    Add To Quote Basket
                   </button>
                 </div>
               ) : (
@@ -572,59 +605,11 @@ export function SignQuoteBuilder() {
         </div>
 
         <div className="border-t border-white/10 bg-[#07111f] p-5 sm:p-7">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="eyebrow text-accent">Local quote cart</p>
-              <h3 className="mt-2 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-3xl font-black uppercase leading-none text-white">
-                Estimate summary
-              </h3>
-            </div>
-            <div className="rounded-md bg-white px-5 py-3 text-right">
-              <p className="text-xs font-black uppercase tracking-[0.16em] text-[#678197]">
-                Estimated quote total
-              </p>
-              <p className="text-xl font-black text-[#07111f] sm:text-2xl">
-                {formatPrice(quoteTotal, quoteCurrency)}
-              </p>
-            </div>
-          </div>
-
-          {quoteItems.length ? (
-            <div className="mt-5 grid gap-3 lg:grid-cols-2">
-              {quoteItems.map((item) => (
-                <div
-                  key={item.id}
-                  className="rounded-md border border-white/10 bg-white/[0.06] p-4"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-xs font-black uppercase tracking-[0.16em] text-accent">
-                        {item.productName}
-                      </p>
-                      <p className="mt-2 text-sm font-bold leading-6 text-[#d6e3f0]">
-                        {item.description}
-                      </p>
-                      <p className="mt-3 text-lg font-black text-white">
-                        {formatPrice(item.estimatedPrice, item.currency)}
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => removeQuoteItem(item.id)}
-                      className="inline-flex min-h-10 items-center rounded-md border border-white/15 px-3 text-xs font-black uppercase tracking-wide text-[#d6e3f0] transition hover:border-accent hover:text-white"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="mt-5 rounded-md border border-dashed border-white/15 bg-white/[0.04] p-5 text-sm leading-7 text-[#9fb4c8]">
-              Add estimates to build a local quote summary. This proof of
-              concept does not submit the cart yet.
-            </div>
-          )}
+          <p className="eyebrow text-accent">Shared quote basket</p>
+          <p className="mt-3 max-w-3xl text-sm font-bold leading-7 text-[#d6e3f0]">
+            Add a sign estimate and it will open in the sitewide quote basket
+            with your apparel, embroidery, and other project items.
+          </p>
         </div>
       </div>
     </section>

@@ -16,6 +16,7 @@ export type QuoteBasketItem = {
   decorationSummary?: string;
   estimatedEach?: number | string;
   estimatedTotal?: number | string;
+  currency?: string;
 };
 
 const storageKey = "hue-quote-basket";
@@ -61,9 +62,10 @@ function formatBasketDetails(items: QuoteBasketItem[], notes: string) {
       const estimate =
         item.estimatedTotal === undefined
           ? "Estimate not calculated yet"
-          : `Estimated total ${formatPrice(item.estimatedTotal)} (${formatPrice(
-              item.estimatedEach,
-            )} each)`;
+          : `Estimated total ${formatPrice(
+              item.estimatedTotal,
+              item.currency,
+            )} (${formatPrice(item.estimatedEach, item.currency)} each)`;
 
       return [
         `${index + 1}. ${item.brand} ${item.style} - ${item.productName}`,
@@ -81,7 +83,7 @@ function formatBasketDetails(items: QuoteBasketItem[], notes: string) {
 
   return [
     "Website quote basket",
-    `Total garments: ${items.reduce((total, item) => total + item.quantity, 0)}`,
+    `Total items: ${items.reduce((total, item) => total + item.quantity, 0)}`,
     "",
     itemDetails,
     notes ? `\nCustomer notes:\n${notes}` : "",
@@ -117,6 +119,11 @@ export function FloatingQuoteBasket() {
     type: "success" | "error";
     message: string;
   } | null>(null);
+  const hasConfigurationError =
+    status?.type === "error" &&
+    (status.message.includes("RESEND_API_KEY") ||
+      status.message.includes("Email sending is not configured") ||
+      status.message.includes("email is not configured"));
 
   useEffect(() => {
     setItems(readStoredBasket());
@@ -174,7 +181,11 @@ export function FloatingQuoteBasket() {
     const formData = new FormData(form);
     const notes = String(formData.get("notes") || "");
 
-    formData.set("interest", "Screen Printing");
+    const services = Array.from(
+      new Set(items.map((item) => item.service || "Screen Printing")),
+    );
+
+    formData.set("interest", services.join(", "));
     formData.set("details", formatBasketDetails(items, notes));
 
     setIsSubmitting(true);
@@ -196,7 +207,8 @@ export function FloatingQuoteBasket() {
       setFileNames([]);
       setStatus({
         type: "success",
-        message: "Quote basket sent. We will review it and follow up.",
+        message:
+          "Quote sent. Your quote basket was emailed to Hue Graphics and we will review it and follow up.",
       });
     } catch (error) {
       setStatus({
@@ -280,6 +292,34 @@ export function FloatingQuoteBasket() {
               combined when they use the same artwork, print location, size,
               and ink setup. Total quantity: <strong>{totalQuantity}</strong>.
             </p>
+            {status ? (
+              <div
+                role="status"
+                aria-live="polite"
+                className={[
+                  "mt-4 rounded-md border p-4 shadow-[0_12px_28px_rgba(7,17,31,0.08)]",
+                  status.type === "success"
+                    ? "border-green-300 bg-green-50 text-green-900"
+                    : "border-red-200 bg-red-50 text-red-800",
+                ].join(" ")}
+              >
+                <p className="text-xs font-black uppercase tracking-[0.18em]">
+                  {status.type === "success"
+                    ? "Quote sent successfully"
+                    : "Quote not sent"}
+                </p>
+                <p className="mt-2 text-lg font-black leading-6">
+                  {status.type === "success"
+                    ? "We received your quote basket."
+                    : hasConfigurationError
+                      ? "The quote basket is ready, but email sending is not configured here."
+                      : "Please check the quote basket."}
+                </p>
+                <p className="mt-2 text-sm font-bold leading-6">
+                  {status.message}
+                </p>
+              </div>
+            ) : null}
           </div>
 
           <div className="flex-1 overflow-y-auto p-4 sm:p-5">
@@ -327,13 +367,13 @@ export function FloatingQuoteBasket() {
                             <p>
                               Estimated each:{" "}
                               <span className="font-black text-[#07111f]">
-                                {formatPrice(item.estimatedEach)}
+                                {formatPrice(item.estimatedEach, item.currency)}
                               </span>
                             </p>
                             <p>
                               Estimated total:{" "}
                               <span className="font-black text-[#07111f]">
-                                {formatPrice(item.estimatedTotal)}
+                                {formatPrice(item.estimatedTotal, item.currency)}
                               </span>
                             </p>
                           </div>
@@ -436,18 +476,6 @@ export function FloatingQuoteBasket() {
               >
                 {isSubmitting ? "Sending..." : "Email quote basket"}
               </button>
-              {status ? (
-                <p
-                  className={[
-                    "mt-4 rounded-md p-4 text-sm font-bold leading-6",
-                    status.type === "success"
-                      ? "border border-green-200 bg-green-50 text-green-800"
-                      : "border border-red-200 bg-red-50 text-red-700",
-                  ].join(" ")}
-                >
-                  {status.message}
-                </p>
-              ) : null}
             </form>
           </div>
         </aside>

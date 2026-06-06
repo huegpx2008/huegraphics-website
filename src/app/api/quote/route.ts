@@ -53,7 +53,10 @@ export async function POST(request: Request) {
 
   if (!resendApiKey) {
     return NextResponse.json(
-      { error: "Quote form email is not configured yet." },
+      {
+        error:
+          "Email sending is not configured on this server. Add RESEND_API_KEY to the local environment and restart the dev server.",
+      },
       { status: 500 }
     );
   }
