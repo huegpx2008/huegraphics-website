@@ -35,9 +35,6 @@ type DetailEstimatorState = {
   frontColors: string;
   backColors: string;
   dtfPlacement: string;
-  dtfWidth: string;
-  dtfHeight: string;
-  bringYourOwnApparel: boolean;
   placement: string;
   stitchCount: string;
   threadColors: string;
@@ -56,12 +53,9 @@ const frontColorOptions = ["1", "2", "3", "4", "dtf"];
 const stitchCountOptions = ["5000", "8000", "10000", "12000", "15000"];
 const threadColorOptions = ["1", "2", "3", "4", "5", "6", "8"];
 const dtfPlacementOptions = [
-  "Full Front",
-  "Full Back",
-  "Left Chest",
-  "Right Chest",
-  "Sleeve",
-  "Neck Label",
+  { label: "Full Front", value: "front", width: 10, height: 12 },
+  { label: "Full Back", value: "back", width: 10, height: 12 },
+  { label: "Left Chest", value: "leftChest", width: 4, height: 4 },
 ];
 const placementOptions = [
   "Left Chest",
@@ -162,15 +156,12 @@ export function ProductCatalogQuoteButton({
         isEmbroidery
           ? embroideryMinimumQuantity
           : isDtf
-            ? 12
+            ? 1
             : screenPrintMinimumQuantity,
       ),
       frontColors: "1",
       backColors: "0",
-      dtfPlacement: "Full Front",
-      dtfWidth: "10",
-      dtfHeight: "12",
-      bringYourOwnApparel: false,
+      dtfPlacement: "front",
       placement: product.category === "Caps" ? "Hat Front" : "Left Chest",
       stitchCount: "5000",
       threadColors: "2",
@@ -216,9 +207,7 @@ export function ProductCatalogQuoteButton({
               ...current,
               sizes,
               service: shouldSwitchToDtf ? "dtf" : current.service,
-              dtfPlacement: shouldSwitchToDtf ? "Full Front" : current.dtfPlacement,
-              dtfWidth: shouldSwitchToDtf ? "10" : current.dtfWidth,
-              dtfHeight: shouldSwitchToDtf ? "12" : current.dtfHeight,
+              dtfPlacement: shouldSwitchToDtf ? "front" : current.dtfPlacement,
               estimate: null,
               error: shouldSwitchToDtf
                 ? "Switched to DTF because this item is under the 24-piece screen printing minimum."
@@ -310,36 +299,29 @@ export function ProductCatalogQuoteButton({
               }
             : detail.service === "dtf"
               ? {
-                  lineItems: [
-                    {
-                      style: detail.bringYourOwnApparel
-                        ? "CUSTOMER-SUPPLIED"
-                        : product.style,
-                      title: detail.bringYourOwnApparel
-                        ? `Customer supplied apparel - ${product.title}`
-                        : product.title,
-                      color: detail.color,
-                      sizes,
-                      sizeQty: sizes,
-                      customerSupplied: detail.bringYourOwnApparel,
-                    },
-                  ],
-                  locations: [
-                    {
-                      id: detail.dtfPlacement.toLowerCase().replaceAll(" ", "-"),
-                      name: detail.dtfPlacement,
-                      placement: detail.dtfPlacement,
-                      width: Number(detail.dtfWidth),
-                      height: Number(detail.dtfHeight),
-                      widthInches: Number(detail.dtfWidth),
-                      heightInches: Number(detail.dtfHeight),
-                      colors: "full-color",
-                    },
-                  ],
-                  options: {
-                    bringYourOwnApparel: detail.bringYourOwnApparel,
-                    customerSupplied: detail.bringYourOwnApparel,
+                  apparel: {
+                    style: product.style,
+                    title: product.title,
+                    color: detail.color,
+                    sizes,
+                    sizeQty: sizes,
                   },
+                  printLocations: [
+                    {
+                      placement: detail.dtfPlacement,
+                      enabled: true,
+                      size: {
+                        width:
+                          dtfPlacementOptions.find(
+                            (option) => option.value === detail.dtfPlacement,
+                          )?.width ?? 10,
+                        height:
+                          dtfPlacementOptions.find(
+                            (option) => option.value === detail.dtfPlacement,
+                          )?.height ?? 12,
+                      },
+                    },
+                  ],
                   sameDesign: true,
                 }
             : {
@@ -438,9 +420,9 @@ export function ProductCatalogQuoteButton({
               .join(" / ")
           : detail.service === "dtf"
             ? [
-                detail.dtfPlacement,
-                `${detail.dtfWidth} x ${detail.dtfHeight} in.`,
-                detail.bringYourOwnApparel ? "Customer supplied apparel" : "",
+                dtfPlacementOptions.find(
+                  (option) => option.value === detail.dtfPlacement,
+                )?.label ?? "Full Front",
               ]
                 .filter(Boolean)
                 .join(" / ")
@@ -695,10 +677,7 @@ export function ProductCatalogQuoteButton({
                           if (event.target.value === "dtf") {
                             updateDetail({
                               service: "dtf",
-                              dtfPlacement: "Full Front",
-                              dtfWidth: "10",
-                              dtfHeight: "12",
-                              bringYourOwnApparel: false,
+                              dtfPlacement: "front",
                               estimate: null,
                               error:
                                 "Switched to DTF because this artwork needs more than 4 screen print colors.",
@@ -733,10 +712,7 @@ export function ProductCatalogQuoteButton({
                           if (event.target.value === "dtf") {
                             updateDetail({
                               service: "dtf",
-                              dtfPlacement: "Full Back",
-                              dtfWidth: "10",
-                              dtfHeight: "12",
-                              bringYourOwnApparel: false,
+                              dtfPlacement: "back",
                               estimate: null,
                               error:
                                 "Switched to DTF because this artwork needs more than 4 screen print colors.",
@@ -779,64 +755,13 @@ export function ProductCatalogQuoteButton({
                           className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
                         >
                           {dtfPlacementOptions.map((option) => (
-                            <option key={option}>{option}</option>
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
                           ))}
                         </select>
                       </label>
-                      <label className="block">
-                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                          Width
-                        </span>
-                        <input
-                          type="number"
-                          min={1}
-                          step="0.25"
-                          value={detail.dtfWidth}
-                          onChange={(event) =>
-                            updateDetail({
-                              dtfWidth: event.target.value,
-                              estimate: null,
-                              error: "",
-                            })
-                          }
-                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
-                        />
-                      </label>
-                      <label className="block">
-                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                          Height
-                        </span>
-                        <input
-                          type="number"
-                          min={1}
-                          step="0.25"
-                          value={detail.dtfHeight}
-                          onChange={(event) =>
-                            updateDetail({
-                              dtfHeight: event.target.value,
-                              estimate: null,
-                              error: "",
-                            })
-                          }
-                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
-                        />
-                      </label>
                     </div>
-                    <label className="mt-4 flex h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154]">
-                      <span>Bring your own apparel</span>
-                      <input
-                        type="checkbox"
-                        checked={detail.bringYourOwnApparel}
-                        onChange={(event) =>
-                          updateDetail({
-                            bringYourOwnApparel: event.target.checked,
-                            estimate: null,
-                            error: "",
-                          })
-                        }
-                        className="h-5 w-5 accent-[#1f73be]"
-                      />
-                    </label>
                   </>
                 )}
 

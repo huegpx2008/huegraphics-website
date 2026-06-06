@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
+import { DtfBringYourOwnForm } from "@/components/DtfBringYourOwnForm";
 import { DtfEstimator } from "@/components/DtfEstimator";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -82,6 +83,8 @@ export default function DtfTransfersPage() {
         <section id="dtf-price-guide" className="scroll-mt-24">
           <DtfEstimator products={sanmarCatalogProducts} />
         </section>
+
+        <DtfBringYourOwnForm />
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
           <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.85fr_1.15fr]">

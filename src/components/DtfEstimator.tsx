@@ -44,9 +44,6 @@ type DetailEstimatorState = {
   color: string;
   sizes: Record<string, string>;
   placement: string;
-  printWidth: string;
-  printHeight: string;
-  bringYourOwnApparel: boolean;
   estimate: DtfEstimate | null;
   error: string;
   isLoading: boolean;
@@ -68,12 +65,9 @@ type DtfEstimate = {
 const dtfMinimumQuantity = 1;
 const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
 const dtfPlacementOptions = [
-  "Full Front",
-  "Full Back",
-  "Left Chest",
-  "Right Chest",
-  "Sleeve",
-  "Neck Label",
+  { label: "Full Front", value: "front", width: 10, height: 12 },
+  { label: "Full Back", value: "back", width: 10, height: 12 },
+  { label: "Left Chest", value: "leftChest", width: 4, height: 4 },
 ];
 
 const navigatorGroups: NavigatorGroup[] = [
@@ -554,49 +548,36 @@ function buildDtfPayload({
   color,
   sizeQuantities,
   placement,
-  printWidth,
-  printHeight,
-  bringYourOwnApparel,
   sameDesign = true,
 }: {
   product: CatalogProduct;
   color: string;
   sizeQuantities: Record<string, number>;
   placement: string;
-  printWidth: number;
-  printHeight: number;
-  bringYourOwnApparel: boolean;
   sameDesign?: boolean;
 }) {
+  const placementOption =
+    dtfPlacementOptions.find((option) => option.value === placement) ??
+    dtfPlacementOptions[0];
+
   return {
-    lineItems: [
-      {
-        style: bringYourOwnApparel ? "CUSTOMER-SUPPLIED" : product.style,
-        title: bringYourOwnApparel
-          ? `Customer supplied apparel - ${product.title}`
-          : product.title,
-        color,
-        sizes: sizeQuantities,
-        sizeQty: sizeQuantities,
-        customerSupplied: bringYourOwnApparel,
-      },
-    ],
-    locations: [
-      {
-        id: placement.toLowerCase().replaceAll(" ", "-"),
-        name: placement,
-        placement,
-        width: printWidth,
-        height: printHeight,
-        widthInches: printWidth,
-        heightInches: printHeight,
-        colors: "full-color",
-      },
-    ],
-    options: {
-      bringYourOwnApparel,
-      customerSupplied: bringYourOwnApparel,
+    apparel: {
+      style: product.style,
+      title: product.title,
+      color,
+      sizes: sizeQuantities,
+      sizeQty: sizeQuantities,
     },
+    printLocations: [
+      {
+        placement: placementOption.value,
+        enabled: true,
+        size: {
+          width: placementOption.width,
+          height: placementOption.height,
+        },
+      },
+    ],
     sameDesign,
   };
 }
@@ -607,11 +588,8 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
     [products],
   );
   const [activeGroup, setActiveGroup] = useState<NavigatorCategory>("tees");
-  const [quantity, setQuantity] = useState("12");
-  const [placement, setPlacement] = useState("Full Front");
-  const [printWidth, setPrintWidth] = useState("10");
-  const [printHeight, setPrintHeight] = useState("12");
-  const [bringYourOwnApparel, setBringYourOwnApparel] = useState(false);
+  const [quantity, setQuantity] = useState("1");
+  const [placement, setPlacement] = useState("front");
   const [minimumMessage, setMinimumMessage] = useState("");
   const [estimates, setEstimates] = useState<Record<string, EstimateState>>({});
   const [openTiers, setOpenTiers] = useState<Record<string, boolean>>({
@@ -670,9 +648,6 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
                 color: defaultColor(product),
                 sizeQuantities: buildDefaultSizes(product, normalizedQuantity),
                 placement,
-                printWidth: Number(printWidth),
-                printHeight: Number(printHeight),
-                bringYourOwnApparel,
               }),
             ),
           });
@@ -726,11 +701,8 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       window.clearTimeout(timeout);
     };
   }, [
-    bringYourOwnApparel,
     normalizedQuantity,
     placement,
-    printHeight,
-    printWidth,
     visibleProducts,
   ]);
 
@@ -755,9 +727,6 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       color: defaultColor(product),
       sizes: buildDetailSizes(product, normalizedQuantity),
       placement,
-      printWidth,
-      printHeight,
-      bringYourOwnApparel,
       estimate: null,
       error: "",
       isLoading: false,
@@ -861,9 +830,6 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
             color: detailEstimator.color,
             sizeQuantities: numericSizes,
             placement: detailEstimator.placement,
-            printWidth: Number(detailEstimator.printWidth),
-            printHeight: Number(detailEstimator.printHeight),
-            bringYourOwnApparel: detailEstimator.bringYourOwnApparel,
           }),
         ),
       });
@@ -922,9 +888,9 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       frontColors: "Full color",
       backColors: "0",
       decorationSummary: [
-        detailEstimator.placement,
-        `${detailEstimator.printWidth} x ${detailEstimator.printHeight} in.`,
-        detailEstimator.bringYourOwnApparel ? "Customer supplied apparel" : "",
+        dtfPlacementOptions.find(
+          (option) => option.value === detailEstimator.placement,
+        )?.label ?? "Full Front",
       ]
         .filter(Boolean)
         .join(" / "),
@@ -978,50 +944,13 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
                   className="mt-2 h-11 w-full rounded-md border border-white/14 bg-white px-3 text-sm font-black text-[#07111f]"
                 >
                   {dtfPlacementOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
+                    <option key={option.value} value={option.value}>
+                      {option.label}
                     </option>
                   ))}
                 </select>
               </label>
-              <label className="block">
-                <span className="text-xs font-black uppercase tracking-[0.14em] text-[#9fb4c8]">
-                  Width
-                </span>
-                <input
-                  type="number"
-                  min={1}
-                  step="0.25"
-                  value={printWidth}
-                  onChange={(event) => setPrintWidth(event.target.value)}
-                  className="mt-2 h-11 w-full rounded-md border border-white/14 bg-white px-3 text-sm font-black text-[#07111f]"
-                />
-              </label>
-              <label className="block">
-                <span className="text-xs font-black uppercase tracking-[0.14em] text-[#9fb4c8]">
-                  Height
-                </span>
-                <input
-                  type="number"
-                  min={1}
-                  step="0.25"
-                  value={printHeight}
-                  onChange={(event) => setPrintHeight(event.target.value)}
-                  className="mt-2 h-11 w-full rounded-md border border-white/14 bg-white px-3 text-sm font-black text-[#07111f]"
-                />
-              </label>
               <div className="flex flex-col gap-2 md:pt-6">
-                <label className="inline-flex min-h-11 cursor-pointer items-center justify-between gap-3 rounded-md border border-white/22 px-4 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10">
-                  <span>BYO apparel</span>
-                  <input
-                    type="checkbox"
-                    checked={bringYourOwnApparel}
-                    onChange={(event) =>
-                      setBringYourOwnApparel(event.target.checked)
-                    }
-                    className="h-5 w-5 accent-[#1f73be]"
-                  />
-                </label>
                 <Link
                   href="/custom-catalog?service=dtf"
                   className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#2a86d8]"
@@ -1378,71 +1307,17 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
                       className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
                     >
                       {dtfPlacementOptions.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
+                        <option key={option.value} value={option.value}>
+                          {option.label}
                         </option>
                       ))}
                     </select>
-                  </label>
-                  <label className="block">
-                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                      Print width
-                    </span>
-                    <input
-                      type="number"
-                      min={1}
-                      step="0.25"
-                      value={detailEstimator.printWidth}
-                      onChange={(event) =>
-                        updateDetail({
-                          printWidth: event.target.value,
-                          estimate: null,
-                          error: "",
-                        })
-                      }
-                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
-                    />
-                  </label>
-                  <label className="block">
-                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                      Print height
-                    </span>
-                    <input
-                      type="number"
-                      min={1}
-                      step="0.25"
-                      value={detailEstimator.printHeight}
-                      onChange={(event) =>
-                        updateDetail({
-                          printHeight: event.target.value,
-                          estimate: null,
-                          error: "",
-                        })
-                      }
-                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
-                    />
-                  </label>
-                  <label className="flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154] sm:mt-6">
-                    <span>Bring your own apparel</span>
-                    <input
-                      type="checkbox"
-                      checked={detailEstimator.bringYourOwnApparel}
-                      onChange={(event) =>
-                        updateDetail({
-                          bringYourOwnApparel: event.target.checked,
-                          estimate: null,
-                          error: "",
-                        })
-                      }
-                      className="h-5 w-5 accent-[#1f73be]"
-                    />
                   </label>
                 </div>
 
                 <div className="mt-5 rounded-md bg-[#eef6ff] p-4 text-sm font-bold leading-6 text-[#125b99]">
                   Item quantity: {getTotalQuantity(detailEstimator.sizes)}. DTF
-                  supports short runs, detailed full-color art, and customer
-                  supplied garments after review.
+                  supports short runs and detailed full-color artwork.
                 </div>
 
                 <div className="mt-5 grid gap-3 sm:grid-cols-2">
