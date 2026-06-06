@@ -111,6 +111,7 @@ export function FloatingQuoteBasket() {
   const [items, setItems] = useState<QuoteBasketItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isReady, setIsReady] = useState(false);
+  const [fileNames, setFileNames] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{
     type: "success" | "error";
@@ -192,6 +193,7 @@ export function FloatingQuoteBasket() {
 
       setItems([]);
       form.reset();
+      setFileNames([]);
       setStatus({
         type: "success",
         message: "Quote basket sent. We will review it and follow up.",
@@ -376,6 +378,11 @@ export function FloatingQuoteBasket() {
                   className="rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-3 text-sm text-[#07111f]"
                 />
                 <input
+                  name="businessName"
+                  placeholder="Business name"
+                  className="rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-3 text-sm text-[#07111f]"
+                />
+                <input
                   name="email"
                   type="email"
                   required
@@ -395,6 +402,33 @@ export function FloatingQuoteBasket() {
                 rows={4}
                 className="mt-3 w-full rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-3 text-sm text-[#07111f]"
               />
+              <div className="mt-3 rounded-md border border-black/10 bg-[#f4f8fc] p-4">
+                <label className="inline-flex min-h-11 cursor-pointer items-center gap-3 rounded-md border border-accent/30 bg-white px-4 text-sm font-black uppercase tracking-wide text-[#07111f] transition hover:border-accent hover:text-accent">
+                  <span className="text-lg text-accent">+</span>
+                  Attach File
+                  <input
+                    name="files"
+                    type="file"
+                    multiple
+                    className="sr-only"
+                    onChange={(event) =>
+                      setFileNames(
+                        Array.from(event.currentTarget.files || []).map(
+                          (file) => file.name,
+                        ),
+                      )
+                    }
+                  />
+                </label>
+                <p className="mt-2 text-xs leading-5 text-[#536273]">
+                  JPG, PNG, PDF, SVG, ZIP, and common artwork files.
+                </p>
+                {fileNames.length > 0 ? (
+                  <p className="mt-2 text-xs font-semibold leading-5 text-[#314154]">
+                    {fileNames.join(", ")}
+                  </p>
+                ) : null}
+              </div>
               <button
                 type="submit"
                 disabled={isSubmitting}

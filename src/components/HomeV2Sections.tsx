@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { homeWorkImages } from "@/data/homeWorkImages.generated";
+import { HomeHeroRotator } from "@/components/HomeHeroRotator";
 import { ProductionVideoPlayer } from "@/components/ProductionVideoPlayer";
 import { HomePhotoWall } from "@/components/HomePhotoWall";
 import { workImagesByFolder } from "@/data/workImages.generated";
@@ -179,77 +180,7 @@ const workFallbackImages = [
 ];
 
 export function HomeV2Hero() {
-  return (
-    <section className="relative isolate overflow-hidden bg-[#05070b]">
-      <div className="absolute inset-0 -z-30 bg-[#05070b]">
-        <Image
-          src="/images/press-h.png"
-          alt="Hue Graphics production press"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[66%_center] opacity-78 grayscale-[0.18]"
-        />
-      </div>
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#05070b_0%,rgba(5,7,11,0.94)_28%,rgba(5,7,11,0.62)_58%,rgba(5,7,11,0.25)_100%)]" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(5,7,11,0)_0%,rgba(5,7,11,0.12)_56%,#f4f8fc_100%)]" />
-
-      <div className="mx-auto grid min-h-[620px] max-w-7xl items-center px-5 py-14 sm:px-8 lg:px-10 lg:py-20">
-        <div className="max-w-4xl">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-[#50a8ff] sm:text-sm">
-            Custom apparel. Screen printing. Embroidery. Signs.
-          </p>
-          <h1 className="mt-5 max-w-3xl font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.88] text-white sm:text-6xl lg:text-7xl">
-            We don&apos;t just print. We build brands.
-          </h1>
-          <p className="mt-7 max-w-xl text-base font-semibold leading-8 text-white/86 sm:text-lg">
-            Family-owned in Bethlehem, Georgia. Hue Graphics helps businesses,
-            schools, churches, teams, and organizations turn ideas into apparel,
-            graphics, signage, and print pieces people are proud to use.
-          </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/request-a-quote"
-              className="inline-flex justify-center rounded-md bg-accent px-7 py-4 text-sm font-black uppercase text-white shadow-[0_18px_42px_rgba(31,115,190,0.34)] transition hover:-translate-y-0.5 hover:bg-[#2a86d8]"
-            >
-              Request a quote
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex justify-center rounded-md border border-white/44 bg-black/20 px-7 py-4 text-sm font-black uppercase text-white backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-accent hover:bg-accent/12"
-            >
-              Our services
-            </Link>
-          </div>
-          <a
-            href="https://www.google.com/search?q=hue+graphics+reviews"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-6 inline-flex flex-wrap items-center gap-2 rounded-full bg-black/30 px-1.5 py-1.5 pr-4 text-sm font-bold text-white/90 backdrop-blur-sm transition hover:bg-black/44 hover:text-white sm:gap-3"
-          >
-            <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full bg-white p-1">
-              <Image
-                src="/images/Google-logo.svg.png"
-                alt="Google"
-                fill
-                sizes="32px"
-                className="object-contain p-1"
-              />
-            </span>
-            <span
-              aria-label="5 stars"
-              className="shrink-0 text-[22px] font-black leading-none tracking-[0.08em] text-[#ffd24a] drop-shadow-[0_1px_3px_rgba(0,0,0,0.35)] sm:text-[24px]"
-            >
-              ★★★★★
-            </span>
-            <span className="whitespace-nowrap text-white/92">
-              4.9 Stars · 118+ Google Reviews
-            </span>
-          </a>
-        </div>
-      </div>
-    </section>
-  );
+  return <HomeHeroRotator />;
 }
 
 export function HomeV2TrustBar() {

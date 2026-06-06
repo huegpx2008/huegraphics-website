@@ -60,6 +60,7 @@ export async function POST(request: Request) {
 
   const formData = await request.formData();
   const name = getFormValue(formData, "name");
+  const businessName = getFormValue(formData, "businessName");
   const email = getFormValue(formData, "email");
   const phone = getFormValue(formData, "phone");
   const interest = getFormValue(formData, "interest");
@@ -126,6 +127,7 @@ export async function POST(request: Request) {
         <div style="padding:24px;">
           <table style="width:100%;border-collapse:collapse;">
             ${renderField("Name", name)}
+            ${renderField("Business name", businessName)}
             ${renderField("Email", email)}
             ${renderField("Phone", phone)}
             ${renderField("Interested in", interest)}
