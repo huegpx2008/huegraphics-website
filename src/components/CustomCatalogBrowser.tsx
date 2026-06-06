@@ -24,7 +24,7 @@ type CustomCatalogBrowserProps = {
   brands: readonly string[];
 };
 
-type PricingService = "screenprint" | "embroidery";
+type PricingService = "screenprint" | "embroidery" | "dtf";
 
 type EstimateState = {
   status: "loading" | "ready" | "unavailable";
@@ -82,6 +82,10 @@ type DetailEstimatorState = {
   sizes: Record<string, string>;
   frontColors: string;
   backColors: string;
+  dtfPlacement: string;
+  dtfWidth: string;
+  dtfHeight: string;
+  bringYourOwnApparel: boolean;
   placement: string;
   stitchCount: string;
   threadColors: string;
@@ -98,10 +102,19 @@ type DetailEstimatorState = {
 const visibleProductLimit = 48;
 const returnUrlKey = "hue-catalog-return-url";
 const returnScrollKey = "hue-catalog-return-scroll-y";
+const dtfMinimumQuantity = 1;
 const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
-const frontColorOptions = ["1", "2", "3", "4"];
+const frontColorOptions = ["1", "2", "3", "4", "dtf"];
 const stitchCountOptions = ["5000", "8000", "10000", "12000", "15000"];
 const threadColorOptions = ["1", "2", "3", "4", "5", "6", "8"];
+const dtfPlacementOptions = [
+  "Full Front",
+  "Full Back",
+  "Left Chest",
+  "Right Chest",
+  "Sleeve",
+  "Neck Label",
+];
 const placementOptions = [
   "Left Chest",
   "Right Chest",
@@ -115,6 +128,7 @@ const backColorOptions = [
   { label: "2 colors", value: "2" },
   { label: "3 colors", value: "3" },
   { label: "4 colors", value: "4" },
+  { label: "More than 4 colors - choose DTF", value: "dtf" },
 ];
 
 function shortDescription(description: string) {
@@ -322,6 +336,75 @@ async function requestEmbroideryEstimate(payload: unknown) {
   return data;
 }
 
+function buildDtfPayload({
+  product,
+  color,
+  sizeQuantities,
+  placement,
+  width,
+  height,
+  bringYourOwnApparel,
+  sameDesign,
+}: {
+  product: CatalogProduct;
+  color: string;
+  sizeQuantities: Record<string, number>;
+  placement: string;
+  width: number;
+  height: number;
+  bringYourOwnApparel: boolean;
+  sameDesign: boolean;
+}) {
+  return {
+    lineItems: [
+      {
+        style: bringYourOwnApparel ? "CUSTOMER-SUPPLIED" : product.style,
+        title: bringYourOwnApparel
+          ? `Customer supplied apparel - ${product.title}`
+          : product.title,
+        color,
+        sizes: sizeQuantities,
+        sizeQty: sizeQuantities,
+        customerSupplied: bringYourOwnApparel,
+      },
+    ],
+    locations: [
+      {
+        id: placement.toLowerCase().replaceAll(" ", "-"),
+        name: placement,
+        placement,
+        width,
+        height,
+        widthInches: width,
+        heightInches: height,
+        colors: "full-color",
+      },
+    ],
+    options: {
+      bringYourOwnApparel,
+      customerSupplied: bringYourOwnApparel,
+    },
+    sameDesign,
+  };
+}
+
+async function requestDtfEstimate(payload: unknown) {
+  const response = await fetch("/api/pricing/dtf", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+  const data = (await response.json()) as ScreenprintEstimate;
+
+  if (!response.ok || data.ok === false) {
+    throw new Error(data.error?.message || "Estimate unavailable");
+  }
+
+  return data;
+}
+
 function getEstimateSummary(product: CatalogProduct, estimate: ScreenprintEstimate) {
   const line = estimate.summary?.lineItems?.[0];
   const sizes = line?.sizes
@@ -350,7 +433,7 @@ function getErrorMessage(error: unknown) {
 function productDetailHref(product: CatalogProduct, service: PricingService) {
   const path = `/custom-catalog/${encodeURIComponent(product.style)}`;
 
-  return service === "embroidery" ? `${path}?service=embroidery` : path;
+  return service === "screenprint" ? path : `${path}?service=${service}`;
 }
 
 function saveReturnState() {
@@ -377,6 +460,11 @@ export function CustomCatalogBrowser({
   const [quickFrontColors, setQuickFrontColors] = useState("1");
   const [quickBackColors, setQuickBackColors] = useState("0");
   const [quickSameDesign, setQuickSameDesign] = useState(true);
+  const [quickDtfPlacement, setQuickDtfPlacement] = useState("Full Front");
+  const [quickDtfWidth, setQuickDtfWidth] = useState("10");
+  const [quickDtfHeight, setQuickDtfHeight] = useState("12");
+  const [quickBringYourOwnApparel, setQuickBringYourOwnApparel] =
+    useState(false);
   const [quickPlacement, setQuickPlacement] = useState("Left Chest");
   const [quickStitchCount, setQuickStitchCount] = useState("5000");
   const [quickThreadColors, setQuickThreadColors] = useState("2");
@@ -391,6 +479,10 @@ export function CustomCatalogBrowser({
     frontColors: "1",
     backColors: "0",
     sameDesign: true,
+    dtfPlacement: "Full Front",
+    dtfWidth: "10",
+    dtfHeight: "12",
+    bringYourOwnApparel: false,
     placement: "Left Chest",
     stitchCount: "5000",
     threadColors: "2",
@@ -410,6 +502,10 @@ export function CustomCatalogBrowser({
       setPricingService("embroidery");
       setQuickQuantity(String(embroideryMinimumQuantity));
       setCategory("All");
+    } else if (window.location.search.includes("service=dtf")) {
+      setPricingService("dtf");
+      setQuickQuantity("12");
+      setCategory("All");
     }
   }, []);
 
@@ -421,7 +517,7 @@ export function CustomCatalogBrowser({
         category === "All" || product.category === category;
       const matchesBrand = brand === "All" || product.brand === brand;
       const matchesService =
-        pricingService === "screenprint" ||
+        pricingService !== "embroidery" ||
         category !== "All" ||
         isEmbroideryFriendlyProduct(product);
       const matchesQuery =
@@ -491,6 +587,10 @@ export function CustomCatalogBrowser({
         frontColors: quickFrontColors,
         backColors: quickBackColors,
         sameDesign: quickSameDesign,
+        dtfPlacement: quickDtfPlacement,
+        dtfWidth: quickDtfWidth,
+        dtfHeight: quickDtfHeight,
+        bringYourOwnApparel: quickBringYourOwnApparel,
         placement: quickPlacement,
         stitchCount: quickStitchCount,
         threadColors: quickThreadColors,
@@ -505,6 +605,10 @@ export function CustomCatalogBrowser({
   }, [
     quickBackColors,
     quickDigitizingRequired,
+    quickBringYourOwnApparel,
+    quickDtfHeight,
+    quickDtfPlacement,
+    quickDtfWidth,
     quickFrontColors,
     quickNamesEnabled,
     quickNumbersEnabled,
@@ -523,10 +627,15 @@ export function CustomCatalogBrowser({
     const quantity =
       debouncedQuickSettings.service === "screenprint"
         ? normalizeQuantity(debouncedQuickSettings.quantity)
-        : Math.max(
+        : debouncedQuickSettings.service === "embroidery"
+          ? Math.max(
             embroideryMinimumQuantity,
             Math.floor(Number(debouncedQuickSettings.quantity) || embroideryMinimumQuantity),
-          );
+          )
+          : Math.max(
+              dtfMinimumQuantity,
+              Math.floor(Number(debouncedQuickSettings.quantity) || dtfMinimumQuantity),
+            );
 
     setCatalogEstimates((current) => {
       const next = { ...current };
@@ -534,7 +643,13 @@ export function CustomCatalogBrowser({
         const recommendation =
           debouncedQuickSettings.service === "screenprint"
             ? getScreenPrintRecommendation(product)
-            : getEmbroideryRecommendation(product);
+            : debouncedQuickSettings.service === "embroidery"
+              ? getEmbroideryRecommendation(product)
+              : {
+                  canEstimate: true,
+                  label: "DTF ready",
+                  message: "This style can be estimated for DTF transfers.",
+                };
 
         next[product.style] = recommendation.canEstimate
           ? { status: "loading" }
@@ -548,7 +663,13 @@ export function CustomCatalogBrowser({
         const recommendation =
           debouncedQuickSettings.service === "screenprint"
             ? getScreenPrintRecommendation(product)
-            : getEmbroideryRecommendation(product);
+            : debouncedQuickSettings.service === "embroidery"
+              ? getEmbroideryRecommendation(product)
+              : {
+                  canEstimate: true,
+                  label: "DTF ready",
+                  message: "This style can be estimated for DTF transfers.",
+                };
 
         if (!recommendation.canEstimate) {
           continue;
@@ -567,22 +688,36 @@ export function CustomCatalogBrowser({
                     sameDesign: debouncedQuickSettings.sameDesign,
                   }),
                 )
-              : await requestEmbroideryEstimate(
-                  buildEmbroideryPayload({
-                    product,
-                    color: defaultColor(product),
-                    sizeQuantities: buildDefaultSizes(product, quantity),
-                    placement: debouncedQuickSettings.placement,
-                    stitchCount: Number(debouncedQuickSettings.stitchCount),
-                    threadColors: Number(debouncedQuickSettings.threadColors),
-                    digitizingRequired:
-                      debouncedQuickSettings.digitizingRequired,
-                    puff3mm: debouncedQuickSettings.puff3mm,
-                    namesEnabled: debouncedQuickSettings.namesEnabled,
-                    numbersEnabled: debouncedQuickSettings.numbersEnabled,
-                    sameDesign: debouncedQuickSettings.sameDesign,
-                  }),
-                );
+              : debouncedQuickSettings.service === "embroidery"
+                ? await requestEmbroideryEstimate(
+                    buildEmbroideryPayload({
+                      product,
+                      color: defaultColor(product),
+                      sizeQuantities: buildDefaultSizes(product, quantity),
+                      placement: debouncedQuickSettings.placement,
+                      stitchCount: Number(debouncedQuickSettings.stitchCount),
+                      threadColors: Number(debouncedQuickSettings.threadColors),
+                      digitizingRequired:
+                        debouncedQuickSettings.digitizingRequired,
+                      puff3mm: debouncedQuickSettings.puff3mm,
+                      namesEnabled: debouncedQuickSettings.namesEnabled,
+                      numbersEnabled: debouncedQuickSettings.numbersEnabled,
+                      sameDesign: debouncedQuickSettings.sameDesign,
+                    }),
+                  )
+                : await requestDtfEstimate(
+                    buildDtfPayload({
+                      product,
+                      color: defaultColor(product),
+                      sizeQuantities: buildDefaultSizes(product, quantity),
+                      placement: debouncedQuickSettings.dtfPlacement,
+                      width: Number(debouncedQuickSettings.dtfWidth),
+                      height: Number(debouncedQuickSettings.dtfHeight),
+                      bringYourOwnApparel:
+                        debouncedQuickSettings.bringYourOwnApparel,
+                      sameDesign: debouncedQuickSettings.sameDesign,
+                    }),
+                  );
 
           if (isCancelled) {
             return;
@@ -624,20 +759,62 @@ export function CustomCatalogBrowser({
     const minimum =
       pricingService === "screenprint"
         ? screenPrintMinimumQuantity
-        : embroideryMinimumQuantity;
+        : pricingService === "embroidery"
+          ? embroideryMinimumQuantity
+          : dtfMinimumQuantity;
+
+    if (
+      pricingService === "screenprint" &&
+      value &&
+      Number.isFinite(numeric) &&
+      numeric < screenPrintMinimumQuantity
+    ) {
+      setPricingService("dtf");
+      setQuickQuantity(String(Math.max(dtfMinimumQuantity, Math.floor(numeric))));
+      setMinimumSuggestion(
+        "Switched to DTF because screen printing starts at 24 pieces.",
+      );
+      return;
+    }
 
     if (value && Number.isFinite(numeric) && numeric < minimum) {
       setQuickQuantity(String(minimum));
       setMinimumSuggestion(
-        pricingService === "screenprint"
-          ? "Screen printing usually starts at 24 pieces. For lower quantities, DTF or DTG may be a better option."
-          : "Embroidery estimates start at 5 pieces. Send very small projects in for review and we can help.",
+        pricingService === "embroidery"
+          ? "Embroidery estimates start at 5 pieces. Send very small projects in for review and we can help."
+          : "DTF pricing can start at one piece.",
       );
       return;
     }
 
     setQuickQuantity(value);
     setMinimumSuggestion("");
+  }
+
+  function switchQuickService(service: PricingService) {
+    setPricingService(service);
+    setCategory("All");
+    setQuickQuantity(
+      service === "screenprint"
+        ? String(screenPrintMinimumQuantity)
+        : service === "embroidery"
+          ? String(embroideryMinimumQuantity)
+          : "12",
+    );
+    setMinimumSuggestion("");
+  }
+
+  function switchScreenPrintColorsToDtf() {
+    setPricingService("dtf");
+    setQuickQuantity((currentQuantity) => {
+      const numeric = Math.floor(Number(currentQuantity) || 12);
+      return String(Math.max(dtfMinimumQuantity, numeric));
+    });
+    setQuickFrontColors("1");
+    setQuickBackColors("0");
+    setMinimumSuggestion(
+      "Switched to DTF because the artwork needs more than 4 screen print colors.",
+    );
   }
 
   function addToProject(product: CatalogProduct) {
@@ -673,7 +850,9 @@ export function CustomCatalogBrowser({
       service:
         detailEstimator.service === "screenprint"
           ? "Screen Printing"
-          : "Embroidery",
+          : detailEstimator.service === "embroidery"
+            ? "Embroidery"
+            : "DTF Transfers",
       frontColors: detailEstimator.frontColors,
       backColors: detailEstimator.backColors,
       decorationSummary:
@@ -689,9 +868,20 @@ export function CustomCatalogBrowser({
             ]
               .filter(Boolean)
               .join(" / ")
-          : undefined,
+          : detailEstimator.service === "dtf"
+            ? [
+                detailEstimator.dtfPlacement,
+                `${detailEstimator.dtfWidth} x ${detailEstimator.dtfHeight} in.`,
+                detailEstimator.bringYourOwnApparel
+                  ? "Customer supplied apparel"
+                  : "",
+              ]
+                .filter(Boolean)
+                .join(" / ")
+            : undefined,
       estimatedEach: detailEstimator.estimate?.price?.each,
       estimatedTotal: detailEstimator.estimate?.price?.retail,
+      currency: detailEstimator.estimate?.currency,
     };
 
     addItemToFloatingQuoteBasket(item);
@@ -702,7 +892,9 @@ export function CustomCatalogBrowser({
     const recommendation =
       pricingService === "screenprint"
         ? getScreenPrintRecommendation(product)
-        : getEmbroideryRecommendation(product);
+        : pricingService === "embroidery"
+          ? getEmbroideryRecommendation(product)
+          : { canEstimate: true };
 
     if (!recommendation.canEstimate) {
       return;
@@ -716,13 +908,22 @@ export function CustomCatalogBrowser({
         product,
         pricingService === "screenprint"
           ? normalizeQuantity(quickQuantity)
-          : Math.max(
-              embroideryMinimumQuantity,
-              Math.floor(Number(quickQuantity) || embroideryMinimumQuantity),
-            ),
+          : pricingService === "embroidery"
+            ? Math.max(
+                embroideryMinimumQuantity,
+                Math.floor(Number(quickQuantity) || embroideryMinimumQuantity),
+              )
+            : Math.max(
+                dtfMinimumQuantity,
+                Math.floor(Number(quickQuantity) || dtfMinimumQuantity),
+              ),
       ),
       frontColors: quickFrontColors,
       backColors: quickBackColors,
+      dtfPlacement: quickDtfPlacement,
+      dtfWidth: quickDtfWidth,
+      dtfHeight: quickDtfHeight,
+      bringYourOwnApparel: quickBringYourOwnApparel,
       placement: quickPlacement,
       stitchCount: quickStitchCount,
       threadColors: quickThreadColors,
@@ -753,15 +954,32 @@ export function CustomCatalogBrowser({
   function updateDetailSize(size: string, value: string) {
     setDetailEstimator((current) =>
       current
-        ? {
-            ...current,
-            sizes: {
+        ? (() => {
+            const sizes = {
               ...current.sizes,
               [size]: value,
-            },
-            estimate: null,
-            error: "",
-          }
+            };
+            const totalQuantity = getTotalQuantity(sizes);
+            const shouldSwitchToDtf =
+              current.service === "screenprint" &&
+              totalQuantity > 0 &&
+              totalQuantity < screenPrintMinimumQuantity;
+
+            return {
+              ...current,
+              sizes,
+              service: shouldSwitchToDtf ? "dtf" : current.service,
+              dtfPlacement: shouldSwitchToDtf
+                ? "Full Front"
+                : current.dtfPlacement,
+              dtfWidth: shouldSwitchToDtf ? "10" : current.dtfWidth,
+              dtfHeight: shouldSwitchToDtf ? "12" : current.dtfHeight,
+              estimate: null,
+              error: shouldSwitchToDtf
+                ? "Switched to DTF because this item is under the 24-piece screen printing minimum."
+                : "",
+            };
+          })()
         : current,
     );
   }
@@ -787,14 +1005,18 @@ export function CustomCatalogBrowser({
     const minimum =
       detailEstimator.service === "screenprint"
         ? screenPrintMinimumQuantity
-        : embroideryMinimumQuantity;
+        : detailEstimator.service === "embroidery"
+          ? embroideryMinimumQuantity
+          : dtfMinimumQuantity;
 
     if (totalQty < minimum) {
       updateDetail({
         error:
           detailEstimator.service === "screenprint"
             ? "This item is under 24 pieces. You can still add it to the quote basket and combine it with compatible styles using the same artwork."
-            : "Embroidery estimates start at 5 pieces.",
+            : detailEstimator.service === "embroidery"
+              ? "Embroidery estimates start at 5 pieces."
+              : "Please enter at least one garment quantity.",
         estimate: null,
       });
       return;
@@ -815,21 +1037,35 @@ export function CustomCatalogBrowser({
                 sameDesign: detailEstimator.sameDesign,
               }),
             )
-          : await requestEmbroideryEstimate(
-              buildEmbroideryPayload({
-                product: detailEstimator.product,
-                color: detailEstimator.color,
-                sizeQuantities,
-                placement: detailEstimator.placement,
-                stitchCount: Number(detailEstimator.stitchCount),
-                threadColors: Number(detailEstimator.threadColors),
-                digitizingRequired: detailEstimator.digitizingRequired,
-                puff3mm: detailEstimator.puff3mm,
-                namesEnabled: detailEstimator.namesEnabled,
-                numbersEnabled: detailEstimator.numbersEnabled,
-                sameDesign: detailEstimator.sameDesign,
-              }),
-            );
+          : detailEstimator.service === "embroidery"
+            ? await requestEmbroideryEstimate(
+                buildEmbroideryPayload({
+                  product: detailEstimator.product,
+                  color: detailEstimator.color,
+                  sizeQuantities,
+                  placement: detailEstimator.placement,
+                  stitchCount: Number(detailEstimator.stitchCount),
+                  threadColors: Number(detailEstimator.threadColors),
+                  digitizingRequired: detailEstimator.digitizingRequired,
+                  puff3mm: detailEstimator.puff3mm,
+                  namesEnabled: detailEstimator.namesEnabled,
+                  numbersEnabled: detailEstimator.numbersEnabled,
+                  sameDesign: detailEstimator.sameDesign,
+                }),
+              )
+            : await requestDtfEstimate(
+                buildDtfPayload({
+                  product: detailEstimator.product,
+                  color: detailEstimator.color,
+                  sizeQuantities,
+                  placement: detailEstimator.dtfPlacement,
+                  width: Number(detailEstimator.dtfWidth),
+                  height: Number(detailEstimator.dtfHeight),
+                  bringYourOwnApparel:
+                    detailEstimator.bringYourOwnApparel,
+                  sameDesign: detailEstimator.sameDesign,
+                }),
+              );
 
       updateDetail({ estimate, isLoading: false });
     } catch (error) {
@@ -904,7 +1140,9 @@ export function CustomCatalogBrowser({
               <p className="text-xs font-black uppercase tracking-wide text-[#65717e]">
                 {pricingService === "screenprint"
                   ? "Screen printing"
-                  : "Embroidery"}
+                  : pricingService === "embroidery"
+                    ? "Embroidery"
+                    : "DTF transfers"}
               </p>
             </div>
             <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -916,18 +1154,12 @@ export function CustomCatalogBrowser({
                   value={pricingService}
                   onChange={(event) => {
                     const service = event.target.value as PricingService;
-                    setPricingService(service);
-                    setCategory("All");
-                    setQuickQuantity(
-                      service === "screenprint"
-                        ? String(screenPrintMinimumQuantity)
-                        : String(embroideryMinimumQuantity),
-                    );
-                    setMinimumSuggestion("");
+                    switchQuickService(service);
                   }}
                   className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
                 >
                   <option value="screenprint">Screen Printing</option>
+                  <option value="dtf">DTF Transfers</option>
                   <option value="embroidery">Embroidery</option>
                 </select>
               </label>
@@ -940,7 +1172,9 @@ export function CustomCatalogBrowser({
                   min={
                     pricingService === "screenprint"
                       ? screenPrintMinimumQuantity
-                      : embroideryMinimumQuantity
+                      : pricingService === "embroidery"
+                        ? embroideryMinimumQuantity
+                        : dtfMinimumQuantity
                   }
                   value={quickQuantity}
                   onChange={(event) => handleQuickQuantityChange(event.target.value)}
@@ -955,12 +1189,21 @@ export function CustomCatalogBrowser({
                     </span>
                     <select
                       value={quickFrontColors}
-                      onChange={(event) => setQuickFrontColors(event.target.value)}
+                      onChange={(event) => {
+                        if (event.target.value === "dtf") {
+                          switchScreenPrintColorsToDtf();
+                          return;
+                        }
+
+                        setQuickFrontColors(event.target.value);
+                      }}
                       className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
                     >
                       {frontColorOptions.map((count) => (
                         <option key={count} value={count}>
-                          {count} {count === "1" ? "color" : "colors"}
+                          {count === "dtf"
+                            ? "More than 4 colors - choose DTF"
+                            : `${count} ${count === "1" ? "color" : "colors"}`}
                         </option>
                       ))}
                     </select>
@@ -971,7 +1214,14 @@ export function CustomCatalogBrowser({
                     </span>
                     <select
                       value={quickBackColors}
-                      onChange={(event) => setQuickBackColors(event.target.value)}
+                      onChange={(event) => {
+                        if (event.target.value === "dtf") {
+                          switchScreenPrintColorsToDtf();
+                          return;
+                        }
+
+                        setQuickBackColors(event.target.value);
+                      }}
                       className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
                     >
                       {backColorOptions.map((option) => (
@@ -982,7 +1232,7 @@ export function CustomCatalogBrowser({
                     </select>
                   </label>
                 </>
-              ) : (
+              ) : pricingService === "embroidery" ? (
                 <>
                   <label className="block">
                     <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
@@ -1013,6 +1263,49 @@ export function CustomCatalogBrowser({
                         <option key={option}>{option}</option>
                       ))}
                     </select>
+                  </label>
+                </>
+              ) : (
+                <>
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      DTF placement
+                    </span>
+                    <select
+                      value={quickDtfPlacement}
+                      onChange={(event) => setQuickDtfPlacement(event.target.value)}
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                    >
+                      {dtfPlacementOptions.map((option) => (
+                        <option key={option}>{option}</option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      Width
+                    </span>
+                    <input
+                      type="number"
+                      min={1}
+                      step="0.25"
+                      value={quickDtfWidth}
+                      onChange={(event) => setQuickDtfWidth(event.target.value)}
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                    />
+                  </label>
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      Height
+                    </span>
+                    <input
+                      type="number"
+                      min={1}
+                      step="0.25"
+                      value={quickDtfHeight}
+                      onChange={(event) => setQuickDtfHeight(event.target.value)}
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                    />
                   </label>
                 </>
               )}
@@ -1090,6 +1383,26 @@ export function CustomCatalogBrowser({
                 ))}
               </div>
             ) : null}
+            {pricingService === "dtf" ? (
+              <div className="mt-3 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+                <label className="flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-white px-3 text-xs font-black uppercase tracking-wide text-[#314154]">
+                  <span>Bring your own apparel</span>
+                  <input
+                    type="checkbox"
+                    checked={quickBringYourOwnApparel}
+                    onChange={(event) =>
+                      setQuickBringYourOwnApparel(event.target.checked)
+                    }
+                    className="h-5 w-5 accent-[#1f73be]"
+                  />
+                </label>
+                <div className="rounded-md border border-black/12 bg-white px-3 py-3 text-xs font-bold leading-5 text-[#52677d] xl:col-span-3">
+                  DTF is best for full-color art, short runs, names, numbers,
+                  small youth sizes, and artwork that would push screen printing
+                  past four colors.
+                </div>
+              </div>
+            ) : null}
             {minimumSuggestion ? (
               <p className="mt-3 rounded-md border border-[#b9dcff] bg-[#eef6ff] p-3 text-xs font-bold leading-5 text-[#125b99]">
                 {minimumSuggestion}
@@ -1128,13 +1441,26 @@ export function CustomCatalogBrowser({
             const recommendation =
               pricingService === "screenprint"
                 ? getScreenPrintRecommendation(product)
-                : getEmbroideryRecommendation(product);
+                : pricingService === "embroidery"
+                  ? getEmbroideryRecommendation(product)
+                  : {
+                      canEstimate: true,
+                      method: "dtf",
+                      label: "DTF ready",
+                      message: "This style can be estimated for DTF transfers.",
+                    };
             const serviceLabel =
               pricingService === "screenprint"
                 ? "Screen print"
-                : "Embroidery";
+                : pricingService === "embroidery"
+                  ? "Embroidery"
+                  : "DTF";
             const minimumLabel =
-              pricingService === "screenprint" ? "24 pc minimum" : "5 pc minimum";
+              pricingService === "screenprint"
+                ? "24 pc minimum"
+                : pricingService === "embroidery"
+                  ? "5 pc minimum"
+                  : "1 pc minimum";
 
             return (
               <article
@@ -1436,7 +1762,7 @@ export function CustomCatalogBrowser({
                       </select>
                     </label>
                   </div>
-                ) : (
+                ) : detailEstimator.service === "embroidery" ? (
                   <>
                     <div className="mt-5 grid gap-4 sm:grid-cols-3">
                       <label className="block">
@@ -1545,6 +1871,84 @@ export function CustomCatalogBrowser({
                         </label>
                       ))}
                     </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                      <label className="block">
+                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                          DTF placement
+                        </span>
+                        <select
+                          value={detailEstimator.dtfPlacement}
+                          onChange={(event) =>
+                            updateDetail({
+                              dtfPlacement: event.target.value,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        >
+                          {dtfPlacementOptions.map((option) => (
+                            <option key={option}>{option}</option>
+                          ))}
+                        </select>
+                      </label>
+                      <label className="block">
+                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                          Width
+                        </span>
+                        <input
+                          type="number"
+                          min={1}
+                          step="0.25"
+                          value={detailEstimator.dtfWidth}
+                          onChange={(event) =>
+                            updateDetail({
+                              dtfWidth: event.target.value,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        />
+                      </label>
+                      <label className="block">
+                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                          Height
+                        </span>
+                        <input
+                          type="number"
+                          min={1}
+                          step="0.25"
+                          value={detailEstimator.dtfHeight}
+                          onChange={(event) =>
+                            updateDetail({
+                              dtfHeight: event.target.value,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        />
+                      </label>
+                    </div>
+                    <label className="mt-4 flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154]">
+                      <span>Bring your own apparel</span>
+                      <input
+                        type="checkbox"
+                        checked={detailEstimator.bringYourOwnApparel}
+                        onChange={(event) =>
+                          updateDetail({
+                            bringYourOwnApparel: event.target.checked,
+                            estimate: null,
+                            error: "",
+                          })
+                        }
+                        className="h-5 w-5 accent-[#1f73be]"
+                      />
+                    </label>
                   </>
                 )}
                 <p className="mt-3 text-xs font-semibold leading-5 text-[#65717e]">

@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
+import { DtfEstimator } from "@/components/DtfEstimator";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { QuoteSection } from "@/components/QuoteSection";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
+import { sanmarCatalogProducts } from "@/data/sanmarCatalog.generated";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
@@ -68,12 +71,16 @@ export default function DtfTransfersPage() {
               churches, teams, and businesses in Northeast Georgia.
             </p>
             <Link
-              href="/request-a-quote"
+              href="#dtf-price-guide"
               className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-accent px-7 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8] sm:mt-9 sm:w-auto"
             >
-              Request DTF pricing -&gt;
+              Open live DTF pricing -&gt;
             </Link>
           </div>
+        </section>
+
+        <section id="dtf-price-guide" className="scroll-mt-24">
+          <DtfEstimator products={sanmarCatalogProducts} />
         </section>
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
@@ -121,6 +128,7 @@ export default function DtfTransfersPage() {
           </div>
         </section>
 
+        <QuoteSection />
         <CTASection />
       </main>
       <Footer />

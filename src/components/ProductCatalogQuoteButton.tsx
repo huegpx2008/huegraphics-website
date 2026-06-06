@@ -13,7 +13,7 @@ type ProductCatalogQuoteButtonProps = {
   product: CatalogProduct;
 };
 
-type PricingService = "screenprint" | "embroidery";
+type PricingService = "screenprint" | "embroidery" | "dtf";
 
 type ScreenprintEstimate = {
   ok?: boolean;
@@ -34,6 +34,10 @@ type DetailEstimatorState = {
   sizes: Record<string, string>;
   frontColors: string;
   backColors: string;
+  dtfPlacement: string;
+  dtfWidth: string;
+  dtfHeight: string;
+  bringYourOwnApparel: boolean;
   placement: string;
   stitchCount: string;
   threadColors: string;
@@ -47,9 +51,18 @@ type DetailEstimatorState = {
 };
 
 const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
-const frontColorOptions = ["1", "2", "3", "4"];
+const dtfMinimumQuantity = 1;
+const frontColorOptions = ["1", "2", "3", "4", "dtf"];
 const stitchCountOptions = ["5000", "8000", "10000", "12000", "15000"];
 const threadColorOptions = ["1", "2", "3", "4", "5", "6", "8"];
+const dtfPlacementOptions = [
+  "Full Front",
+  "Full Back",
+  "Left Chest",
+  "Right Chest",
+  "Sleeve",
+  "Neck Label",
+];
 const placementOptions = [
   "Left Chest",
   "Right Chest",
@@ -63,6 +76,7 @@ const backColorOptions = [
   { label: "2 colors", value: "2" },
   { label: "3 colors", value: "3" },
   { label: "4 colors", value: "4" },
+  { label: "More than 4 colors - choose DTF", value: "dtf" },
 ];
 
 function defaultColor(product: CatalogProduct) {
@@ -131,21 +145,32 @@ export function ProductCatalogQuoteButton({
   useEffect(() => {
     if (window.location.search.includes("service=embroidery")) {
       setService("embroidery");
+    } else if (window.location.search.includes("service=dtf")) {
+      setService("dtf");
     }
   }, []);
 
   function openDetail() {
     const isEmbroidery = service === "embroidery";
+    const isDtf = service === "dtf";
 
     setDetail({
       service,
       color: defaultColor(product),
       sizes: buildDefaultSizes(
         product,
-        isEmbroidery ? embroideryMinimumQuantity : screenPrintMinimumQuantity,
+        isEmbroidery
+          ? embroideryMinimumQuantity
+          : isDtf
+            ? 12
+            : screenPrintMinimumQuantity,
       ),
       frontColors: "1",
       backColors: "0",
+      dtfPlacement: "Full Front",
+      dtfWidth: "10",
+      dtfHeight: "12",
+      bringYourOwnApparel: false,
       placement: product.category === "Caps" ? "Hat Front" : "Left Chest",
       stitchCount: "5000",
       threadColors: "2",
@@ -176,15 +201,30 @@ export function ProductCatalogQuoteButton({
   function updateSize(size: string, value: string) {
     setDetail((current) =>
       current
-        ? {
-            ...current,
-            sizes: {
+        ? (() => {
+            const sizes = {
               ...current.sizes,
               [size]: value,
-            },
-            estimate: null,
-            error: "",
-          }
+            };
+            const totalQuantity = getTotalQuantity(sizes);
+            const shouldSwitchToDtf =
+              current.service === "screenprint" &&
+              totalQuantity > 0 &&
+              totalQuantity < screenPrintMinimumQuantity;
+
+            return {
+              ...current,
+              sizes,
+              service: shouldSwitchToDtf ? "dtf" : current.service,
+              dtfPlacement: shouldSwitchToDtf ? "Full Front" : current.dtfPlacement,
+              dtfWidth: shouldSwitchToDtf ? "10" : current.dtfWidth,
+              dtfHeight: shouldSwitchToDtf ? "12" : current.dtfHeight,
+              estimate: null,
+              error: shouldSwitchToDtf
+                ? "Switched to DTF because this item is under the 24-piece screen printing minimum."
+                : "",
+            };
+          })()
         : current,
     );
   }
@@ -210,14 +250,18 @@ export function ProductCatalogQuoteButton({
     const minimum =
       detail.service === "embroidery"
         ? embroideryMinimumQuantity
-        : screenPrintMinimumQuantity;
+        : detail.service === "dtf"
+          ? dtfMinimumQuantity
+          : screenPrintMinimumQuantity;
 
     if (totalQty < minimum) {
       updateDetail({
         error:
           detail.service === "embroidery"
             ? "Embroidery estimates start at 5 pieces."
-            : "This item is under 24 pieces. You can still add it to the quote basket and combine it with compatible styles using the same artwork.",
+            : detail.service === "dtf"
+              ? "Please enter at least one garment quantity."
+              : "This item is under 24 pieces. You can still add it to the quote basket and combine it with compatible styles using the same artwork.",
         estimate: null,
       });
       return;
@@ -229,6 +273,8 @@ export function ProductCatalogQuoteButton({
       const response = await fetch(
         detail.service === "embroidery"
           ? "/api/pricing/embroidery"
+          : detail.service === "dtf"
+            ? "/api/pricing/dtf"
           : "/api/pricing/screenprint",
         {
         method: "POST",
@@ -262,6 +308,40 @@ export function ProductCatalogQuoteButton({
                 },
                 sameDesign: true,
               }
+            : detail.service === "dtf"
+              ? {
+                  lineItems: [
+                    {
+                      style: detail.bringYourOwnApparel
+                        ? "CUSTOMER-SUPPLIED"
+                        : product.style,
+                      title: detail.bringYourOwnApparel
+                        ? `Customer supplied apparel - ${product.title}`
+                        : product.title,
+                      color: detail.color,
+                      sizes,
+                      sizeQty: sizes,
+                      customerSupplied: detail.bringYourOwnApparel,
+                    },
+                  ],
+                  locations: [
+                    {
+                      id: detail.dtfPlacement.toLowerCase().replaceAll(" ", "-"),
+                      name: detail.dtfPlacement,
+                      placement: detail.dtfPlacement,
+                      width: Number(detail.dtfWidth),
+                      height: Number(detail.dtfHeight),
+                      widthInches: Number(detail.dtfWidth),
+                      heightInches: Number(detail.dtfHeight),
+                      colors: "full-color",
+                    },
+                  ],
+                  options: {
+                    bringYourOwnApparel: detail.bringYourOwnApparel,
+                    customerSupplied: detail.bringYourOwnApparel,
+                  },
+                  sameDesign: true,
+                }
             : {
                 lineItems: [
                   {
@@ -336,7 +416,11 @@ export function ProductCatalogQuoteButton({
       sizes,
       quantity: totalQty,
       service:
-        detail.service === "embroidery" ? "Embroidery" : "Screen Printing",
+        detail.service === "embroidery"
+          ? "Embroidery"
+          : detail.service === "dtf"
+            ? "DTF Transfers"
+            : "Screen Printing",
       frontColors: detail.frontColors,
       backColors: detail.backColors,
       decorationSummary:
@@ -352,9 +436,18 @@ export function ProductCatalogQuoteButton({
             ]
               .filter(Boolean)
               .join(" / ")
-          : undefined,
+          : detail.service === "dtf"
+            ? [
+                detail.dtfPlacement,
+                `${detail.dtfWidth} x ${detail.dtfHeight} in.`,
+                detail.bringYourOwnApparel ? "Customer supplied apparel" : "",
+              ]
+                .filter(Boolean)
+                .join(" / ")
+            : undefined,
       estimatedEach: detail.estimate?.price?.each,
       estimatedTotal: detail.estimate?.price?.retail,
+      currency: detail.estimate?.currency,
     };
 
     addItemToFloatingQuoteBasket(item);
@@ -368,7 +461,13 @@ export function ProductCatalogQuoteButton({
         onClick={openDetail}
         className="inline-flex justify-center rounded-md bg-accent px-7 py-4 text-sm font-black uppercase text-white shadow-[0_18px_42px_rgba(31,115,190,0.34)] transition hover:-translate-y-0.5 hover:bg-[#2a86d8]"
       >
-        Add to {service === "embroidery" ? "embroidery" : "project"} quote
+        Add to{" "}
+        {service === "embroidery"
+          ? "embroidery"
+          : service === "dtf"
+            ? "DTF"
+            : "project"}{" "}
+        quote
       </button>
 
       {detail ? (
@@ -379,6 +478,8 @@ export function ProductCatalogQuoteButton({
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
                   {detail.service === "embroidery"
                     ? "Embroidery quote"
+                    : detail.service === "dtf"
+                      ? "DTF quote"
                     : "Add to project quote"}
                 </p>
                 <h2 className="mt-2 text-3xl font-black uppercase text-[#07111f]">
@@ -582,7 +683,7 @@ export function ProductCatalogQuoteButton({
                       ))}
                     </div>
                   </>
-                ) : (
+                ) : detail.service === "screenprint" ? (
                   <div className="mt-5 grid gap-4 sm:grid-cols-2">
                     <label className="block">
                       <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
@@ -590,18 +691,34 @@ export function ProductCatalogQuoteButton({
                       </span>
                       <select
                         value={detail.frontColors}
-                        onChange={(event) =>
+                        onChange={(event) => {
+                          if (event.target.value === "dtf") {
+                            updateDetail({
+                              service: "dtf",
+                              dtfPlacement: "Full Front",
+                              dtfWidth: "10",
+                              dtfHeight: "12",
+                              bringYourOwnApparel: false,
+                              estimate: null,
+                              error:
+                                "Switched to DTF because this artwork needs more than 4 screen print colors.",
+                            });
+                            return;
+                          }
+
                           updateDetail({
                             frontColors: event.target.value,
                             estimate: null,
                             error: "",
-                          })
-                        }
+                          });
+                        }}
                         className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
                       >
                         {frontColorOptions.map((count) => (
                           <option key={count} value={count}>
-                            {count} {count === "1" ? "color" : "colors"}
+                            {count === "dtf"
+                              ? "More than 4 colors - choose DTF"
+                              : `${count} ${count === "1" ? "color" : "colors"}`}
                           </option>
                         ))}
                       </select>
@@ -612,13 +729,27 @@ export function ProductCatalogQuoteButton({
                       </span>
                       <select
                         value={detail.backColors}
-                        onChange={(event) =>
+                        onChange={(event) => {
+                          if (event.target.value === "dtf") {
+                            updateDetail({
+                              service: "dtf",
+                              dtfPlacement: "Full Back",
+                              dtfWidth: "10",
+                              dtfHeight: "12",
+                              bringYourOwnApparel: false,
+                              estimate: null,
+                              error:
+                                "Switched to DTF because this artwork needs more than 4 screen print colors.",
+                            });
+                            return;
+                          }
+
                           updateDetail({
                             backColors: event.target.value,
                             estimate: null,
                             error: "",
-                          })
-                        }
+                          });
+                        }}
                         className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
                       >
                         {backColorOptions.map((option) => (
@@ -629,6 +760,84 @@ export function ProductCatalogQuoteButton({
                       </select>
                     </label>
                   </div>
+                ) : (
+                  <>
+                    <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                      <label className="block">
+                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                          DTF placement
+                        </span>
+                        <select
+                          value={detail.dtfPlacement}
+                          onChange={(event) =>
+                            updateDetail({
+                              dtfPlacement: event.target.value,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        >
+                          {dtfPlacementOptions.map((option) => (
+                            <option key={option}>{option}</option>
+                          ))}
+                        </select>
+                      </label>
+                      <label className="block">
+                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                          Width
+                        </span>
+                        <input
+                          type="number"
+                          min={1}
+                          step="0.25"
+                          value={detail.dtfWidth}
+                          onChange={(event) =>
+                            updateDetail({
+                              dtfWidth: event.target.value,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        />
+                      </label>
+                      <label className="block">
+                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                          Height
+                        </span>
+                        <input
+                          type="number"
+                          min={1}
+                          step="0.25"
+                          value={detail.dtfHeight}
+                          onChange={(event) =>
+                            updateDetail({
+                              dtfHeight: event.target.value,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        />
+                      </label>
+                    </div>
+                    <label className="mt-4 flex h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154]">
+                      <span>Bring your own apparel</span>
+                      <input
+                        type="checkbox"
+                        checked={detail.bringYourOwnApparel}
+                        onChange={(event) =>
+                          updateDetail({
+                            bringYourOwnApparel: event.target.checked,
+                            estimate: null,
+                            error: "",
+                          })
+                        }
+                        className="h-5 w-5 accent-[#1f73be]"
+                      />
+                    </label>
+                  </>
                 )}
 
                 <p className="mt-3 text-xs font-semibold leading-5 text-[#65717e]">
