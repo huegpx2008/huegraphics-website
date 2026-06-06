@@ -398,12 +398,12 @@ export function SignQuoteBuilder() {
   }
 
   return (
-    <section className="px-5 py-8 sm:px-8 lg:px-10">
+    <section className="px-4 py-8 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-sm bg-[#07111f] shadow-[0_24px_70px_rgba(7,17,31,0.16)] ring-1 ring-black/10">
         <div className="grid gap-px bg-white/10 lg:grid-cols-[0.68fr_1.32fr]">
           <div className="bg-[#07111f] p-6 sm:p-8">
             <p className="eyebrow text-accent">Signs & banners quote builder</p>
-            <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.94] text-white sm:text-5xl">
+            <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-3xl font-black uppercase leading-[0.94] text-white sm:text-5xl">
               Estimate sign projects from live pricing APIs.
             </h2>
             <p className="mt-6 text-sm leading-7 text-[#d6e3f0]">
@@ -416,7 +416,7 @@ export function SignQuoteBuilder() {
                   key={product.id}
                   type="button"
                   onClick={() => setActiveProductId(product.id)}
-                  className={`rounded-md border p-4 text-left transition ${
+                  className={`min-h-20 rounded-md border p-4 text-left transition ${
                     product.id === activeProduct.id
                       ? "border-accent bg-accent text-white shadow-[0_16px_32px_rgba(31,115,190,0.28)]"
                       : "border-white/10 bg-white/[0.04] text-[#d6e3f0] hover:border-accent"
@@ -434,7 +434,7 @@ export function SignQuoteBuilder() {
           </div>
 
           <div className="grid gap-px bg-white/10 xl:grid-cols-[1fr_0.9fr]">
-            <form onSubmit={handleSubmit} className="bg-white p-5 sm:p-7">
+            <form onSubmit={handleSubmit} className="bg-white p-4 sm:p-7">
               <p className="eyebrow">Estimator</p>
               <h3 className="mt-2 text-2xl font-black uppercase tracking-tight text-[#07111f]">
                 {activeProduct.name}
@@ -446,7 +446,7 @@ export function SignQuoteBuilder() {
                     return (
                       <label
                         key={field.name}
-                        className="flex cursor-pointer items-center justify-between rounded-md border border-[#c9d7e6] bg-[#f4f8fc] px-4 py-3 text-sm font-black uppercase tracking-wide text-[#07111f] transition hover:border-accent"
+                        className="flex min-h-12 cursor-pointer items-center justify-between rounded-md border border-[#c9d7e6] bg-[#f4f8fc] px-4 py-3 text-sm font-black uppercase tracking-wide text-[#07111f] transition hover:border-accent"
                       >
                         <span>{field.label}</span>
                         <input
@@ -508,7 +508,7 @@ export function SignQuoteBuilder() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-accent px-6 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8] disabled:cursor-wait disabled:opacity-70"
+                    className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-accent px-6 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8] disabled:cursor-wait disabled:opacity-70"
               >
                 {isLoading ? "Getting estimate..." : "Get Estimate"}
               </button>
@@ -520,7 +520,7 @@ export function SignQuoteBuilder() {
               ) : null}
             </form>
 
-            <div className="bg-[#eef4fa] p-5 sm:p-7">
+            <div className="bg-[#eef4fa] p-4 sm:p-7">
               <p className="eyebrow">Estimate</p>
               {estimate ? (
                 <div className="mt-5 space-y-4">
@@ -528,7 +528,7 @@ export function SignQuoteBuilder() {
                     <p className="text-xs font-black uppercase tracking-[0.16em] text-[#678197]">
                       Estimated price
                     </p>
-                    <p className="mt-2 text-4xl font-black text-[#07111f]">
+                    <p className="mt-2 text-3xl font-black text-[#07111f] sm:text-4xl">
                       {formatPrice(estimate.price?.retail, estimate.currency)}
                     </p>
                     <p className="mt-2 text-sm font-black uppercase tracking-wide text-[#52677d]">
@@ -556,7 +556,7 @@ export function SignQuoteBuilder() {
                   <button
                     type="button"
                     onClick={addEstimateToQuote}
-                    className="inline-flex w-full items-center justify-center rounded-lg bg-[#07111f] px-6 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#13243a]"
+                    className="inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-[#07111f] px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#13243a]"
                   >
                     Add To Quote
                   </button>
@@ -583,7 +583,7 @@ export function SignQuoteBuilder() {
               <p className="text-xs font-black uppercase tracking-[0.16em] text-[#678197]">
                 Estimated quote total
               </p>
-              <p className="text-2xl font-black text-[#07111f]">
+              <p className="text-xl font-black text-[#07111f] sm:text-2xl">
                 {formatPrice(quoteTotal, quoteCurrency)}
               </p>
             </div>
@@ -611,7 +611,7 @@ export function SignQuoteBuilder() {
                     <button
                       type="button"
                       onClick={() => removeQuoteItem(item.id)}
-                      className="rounded-md border border-white/15 px-3 py-2 text-xs font-black uppercase tracking-wide text-[#d6e3f0] transition hover:border-accent hover:text-white"
+                      className="inline-flex min-h-10 items-center rounded-md border border-white/15 px-3 text-xs font-black uppercase tracking-wide text-[#d6e3f0] transition hover:border-accent hover:text-white"
                     >
                       Remove
                     </button>

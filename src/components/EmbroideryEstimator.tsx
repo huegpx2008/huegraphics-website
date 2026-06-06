@@ -998,14 +998,14 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
   }
 
   return (
-    <section className="px-5 py-8 sm:px-8 lg:px-10">
+    <section className="px-4 py-8 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-[96rem] overflow-hidden rounded-sm bg-[#f4f8fc] shadow-[0_24px_70px_rgba(7,17,31,0.16)] ring-1 ring-black/10">
         <div className="relative bg-[#07111f] p-5 text-white sm:p-7 lg:p-8">
           <div className="absolute inset-x-0 top-0 h-1 bg-accent" />
           <div className="grid gap-6 xl:grid-cols-[0.85fr_1.15fr] xl:items-end">
             <div>
               <p className="eyebrow text-accent">Embroidery navigator</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.94] text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-3xl font-black uppercase leading-[0.94] text-white sm:text-5xl">
                 Quick live price guide.
               </h2>
               <p className="mt-4 max-w-3xl text-sm leading-7 text-[#d6e3f0]">
@@ -1076,7 +1076,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
               <button
                 type="button"
                 onClick={openFloatingQuoteBasket}
-                className="h-11 self-end rounded-md border border-white/20 px-4 text-xs font-black uppercase text-white transition hover:border-accent hover:bg-accent/20"
+                className="min-h-11 self-end rounded-md border border-white/20 px-4 text-xs font-black uppercase text-white transition hover:border-accent hover:bg-accent/20"
               >
                 Basket
               </button>
@@ -1100,7 +1100,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
             ].map((option) => (
               <label
                 key={option.label}
-                className="flex h-11 cursor-pointer items-center justify-between rounded-md border border-white/10 bg-white/[0.04] px-3 text-xs font-black uppercase tracking-wide text-[#d6e3f0]"
+                className="flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-white/10 bg-white/[0.04] px-3 text-xs font-black uppercase tracking-wide text-[#d6e3f0]"
               >
                 <span>{option.label}</span>
                 <input
@@ -1136,7 +1136,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                     setPlacement(item.id === "headwear" ? "Hat Front" : "Left Chest");
                   }}
                   className={[
-                    "rounded-md border px-4 py-3 text-left text-xs font-black uppercase tracking-wide transition",
+                    "min-h-11 rounded-md border px-4 py-3 text-left text-xs font-black uppercase tracking-wide transition",
                     activeGroup === item.id
                       ? "border-accent bg-accent text-white"
                       : "border-white/10 bg-white/[0.03] text-[#cfe0f1] hover:border-accent/60",
@@ -1150,13 +1150,13 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
               href={group.pdf}
               target="_blank"
               rel="noreferrer"
-              className="mt-5 inline-flex rounded-md border border-white/18 px-4 py-3 text-xs font-black uppercase text-white transition hover:border-accent hover:bg-accent/12"
+              className="mt-5 inline-flex min-h-11 items-center rounded-md border border-white/18 px-4 text-xs font-black uppercase text-white transition hover:border-accent hover:bg-accent/12"
             >
               Open {group.label} PDF
             </a>
             <Link
               href="/custom-catalog?service=embroidery"
-              className="mt-3 inline-flex rounded-md bg-white px-4 py-3 text-xs font-black uppercase text-[#07111f] transition hover:bg-[#d8ecff]"
+              className="mt-3 inline-flex min-h-11 items-center rounded-md bg-white px-4 text-xs font-black uppercase text-[#07111f] transition hover:bg-[#d8ecff]"
             >
               Full catalog
             </Link>
@@ -1180,7 +1180,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                     type="button"
                     onClick={() => setActiveSectionId(section.id)}
                     className={[
-                      "rounded-full border px-4 py-2 text-xs font-black uppercase tracking-wide transition",
+                      "min-h-10 rounded-full border px-4 text-xs font-black uppercase tracking-wide transition",
                       activeSection.id === section.id
                         ? "border-accent bg-accent text-white"
                         : "border-black/10 bg-white text-[#314154] hover:border-accent hover:text-accent",
@@ -1273,14 +1273,14 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                       <button
                         type="button"
                         onClick={() => openDetailEstimator(product)}
-                        className="rounded-md bg-accent px-4 py-3 text-xs font-black uppercase text-white transition hover:bg-[#2a86d8]"
+                        className="min-h-11 rounded-md bg-accent px-4 text-xs font-black uppercase text-white transition hover:bg-[#2a86d8]"
                       >
                         Get price now
                       </button>
                       <Link
                         href={`/custom-catalog/${encodeURIComponent(product.style)}?service=embroidery`}
                         onClick={saveReturnState}
-                        className="rounded-md border border-black/10 px-4 py-2 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
+                        className="flex min-h-11 items-center justify-center rounded-md border border-black/10 px-4 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
                       >
                         Details
                       </Link>
@@ -1302,14 +1302,14 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
       </div>
 
       {detailEstimator ? (
-        <div className="fixed inset-0 z-[80] overflow-y-auto bg-black/60 px-5 py-8">
+        <div className="fixed inset-0 z-[80] overflow-y-auto bg-black/60 px-4 py-4 sm:px-5 sm:py-8">
           <div className="mx-auto max-w-4xl overflow-hidden rounded-sm bg-white shadow-[0_24px_90px_rgba(0,0,0,0.38)]">
             <div className="flex items-start justify-between gap-4 border-b border-black/10 p-5">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
                   Embroidery estimate
                 </p>
-                <h2 className="mt-2 text-3xl font-black uppercase text-[#07111f]">
+                <h2 className="mt-2 text-2xl font-black uppercase leading-7 text-[#07111f] sm:text-3xl">
                   {detailEstimator.product.style} -{" "}
                   {detailEstimator.product.title}
                 </h2>
@@ -1317,7 +1317,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
               <button
                 type="button"
                 onClick={() => setDetailEstimator(null)}
-                className="rounded-full border border-black/10 px-3 py-1 text-sm font-black text-[#07111f] transition hover:border-accent hover:text-accent"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-black/10 px-3 text-sm font-black text-[#07111f] transition hover:border-accent hover:text-accent"
               >
                 X
               </button>
@@ -1343,7 +1343,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                             })
                           }
                           className={[
-                            "flex items-center gap-3 rounded-md border px-3 py-2 text-left text-sm font-bold transition",
+                            "flex min-h-11 items-center gap-3 rounded-md border px-3 py-2 text-left text-sm font-bold transition",
                             detailEstimator.color === productColor.name
                               ? "border-accent bg-white text-[#07111f] shadow-sm"
                               : "border-transparent text-[#314154] hover:border-black/10 hover:bg-white",
@@ -1504,7 +1504,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                   ].map((option) => (
                     <label
                       key={option.label}
-                      className="flex h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154]"
+                      className="flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154]"
                     >
                       <span>{option.label}</span>
                       <input
@@ -1531,7 +1531,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                 <button
                   type="submit"
                   disabled={detailEstimator.isLoading}
-                  className="mt-6 w-full rounded-md bg-accent px-5 py-4 text-sm font-black uppercase text-white transition hover:bg-[#2a86d8] disabled:cursor-wait disabled:opacity-70"
+                  className="mt-6 min-h-12 w-full rounded-md bg-accent px-5 text-sm font-black uppercase text-white transition hover:bg-[#2a86d8] disabled:cursor-wait disabled:opacity-70"
                 >
                   {detailEstimator.isLoading ? "Getting estimate..." : "Get estimate"}
                 </button>
@@ -1577,7 +1577,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                     <button
                       type="button"
                       onClick={addDetailToBasket}
-                      className="rounded-md bg-[#07111f] px-5 py-4 text-sm font-black uppercase text-white transition hover:bg-accent"
+                      className="min-h-12 rounded-md bg-[#07111f] px-5 text-sm font-black uppercase text-white transition hover:bg-accent"
                     >
                       Add to quote basket
                     </button>
@@ -1592,7 +1592,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                     <button
                       type="button"
                       onClick={addDetailToBasket}
-                      className="rounded-md bg-[#07111f] px-5 py-4 text-sm font-black uppercase text-white transition hover:bg-accent"
+                      className="min-h-12 rounded-md bg-[#07111f] px-5 text-sm font-black uppercase text-white transition hover:bg-accent"
                     >
                       Add to quote basket
                     </button>

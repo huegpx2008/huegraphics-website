@@ -103,7 +103,7 @@ export function QuoteSection() {
               <button
                 type="button"
                 onClick={() => setStatus(null)}
-                className="mt-8 rounded-lg bg-accent px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8]"
+                className="mt-8 inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-7 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8]"
               >
                 Send another quote
               </button>
@@ -190,7 +190,7 @@ export function QuoteSection() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="rounded-lg bg-accent px-8 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8]"
+              className="min-h-12 w-full rounded-lg bg-accent px-8 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8] sm:w-auto"
             >
               {isSubmitting ? "Sending..." : "Send ->"}
             </button>

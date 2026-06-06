@@ -46,7 +46,7 @@ export default function DtfTransfersPage() {
     <>
       <Header />
       <main className="bg-[#f4f8fc]">
-        <section className="relative isolate overflow-hidden px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+        <section className="relative isolate overflow-hidden px-4 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-24">
           <Image
             src="/images/dtf-main2.png"
             alt="DTF transfer production with full-color film"
@@ -58,10 +58,10 @@ export default function DtfTransfersPage() {
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(5,7,11,0.96),rgba(5,7,11,0.78)_42%,rgba(5,7,11,0.28)),linear-gradient(180deg,rgba(5,7,11,0.1),#f4f8fc)]" />
           <div className="mx-auto max-w-7xl">
             <p className="eyebrow">DTF transfers</p>
-            <h1 className="mt-5 max-w-3xl font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
+            <h1 className="mt-4 max-w-3xl font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-[2.9rem] font-black uppercase leading-[0.9] tracking-tight text-white sm:mt-5 sm:text-7xl">
               Full-color apparel graphics with flexible production runs.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-[#d6e3f0]">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-[#d6e3f0] sm:mt-7 sm:text-lg sm:leading-8">
               DTF transfers are a strong option for colorful logos, detailed
               artwork, team orders, short runs, and jobs that need clean prints
               without overbuilding the production setup for local schools,
@@ -69,7 +69,7 @@ export default function DtfTransfersPage() {
             </p>
             <Link
               href="/request-a-quote"
-              className="mt-9 inline-flex rounded-lg bg-accent px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
+              className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-accent px-7 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8] sm:mt-9 sm:w-auto"
             >
               Request DTF pricing -&gt;
             </Link>

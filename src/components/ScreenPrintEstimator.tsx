@@ -557,22 +557,31 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
   const [backColors, setBackColors] = useState("0");
   const [minimumMessage, setMinimumMessage] = useState("");
   const [estimates, setEstimates] = useState<Record<string, EstimateState>>({});
+  const [openTiers, setOpenTiers] = useState<Record<string, boolean>>({
+    [navigatorGroups[0].tiers[0].id]: true,
+  });
   const [detailEstimator, setDetailEstimator] =
     useState<DetailEstimatorState | null>(null);
 
-  const group = navigatorGroups.find((item) => item.id === activeGroup) ?? navigatorGroups[0];
+  const group =
+    navigatorGroups.find((item) => item.id === activeGroup) ??
+    navigatorGroups[0];
   const activePdf =
     activeGroup === "sweatshirts"
       ? "/Fleece-Navigator-2025-0303Update-SMLinks.pdf"
       : "/Tee-Navigator-2026-0302-SM-Links.pdf";
   const visibleProducts = useMemo(
     () =>
-      group.tiers.flatMap((tier) =>
-        tier.styles
-          .map((style) => productByStyle.get(style))
-          .filter((product): product is CatalogProduct => Boolean(product)),
+      group.tiers.flatMap((tier, index) =>
+        (openTiers[tier.id] ?? index === 0)
+          ? tier.styles
+              .map((style) => productByStyle.get(style))
+              .filter((product): product is CatalogProduct =>
+                Boolean(product),
+              )
+          : [],
       ),
-    [group, productByStyle],
+    [group, openTiers, productByStyle],
   );
   const normalizedQuantity = Math.max(24, Math.floor(Number(quantity) || 24));
 
@@ -697,6 +706,35 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
       error: "",
       isLoading: false,
     });
+  }
+
+  function isTierOpen(tier: NavigatorTier, index: number) {
+    return openTiers[tier.id] ?? index === 0;
+  }
+
+  function toggleTier(tier: NavigatorTier, index: number) {
+    setOpenTiers((current) => ({
+      ...current,
+      [tier.id]: !(current[tier.id] ?? index === 0),
+    }));
+  }
+
+  function tierProductCount(tier: NavigatorTier) {
+    return tier.styles.filter((style) => productByStyle.has(style)).length;
+  }
+
+  function openTierAndScroll(tier: NavigatorTier) {
+    setOpenTiers((current) => ({
+      ...current,
+      [tier.id]: true,
+    }));
+
+    window.setTimeout(() => {
+      document.getElementById(tier.id)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 0);
   }
 
   function updateDetail(updates: Partial<DetailEstimatorState>) {
@@ -849,14 +887,14 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
   }
 
   return (
-    <section className="px-5 py-8 sm:px-8 lg:px-10">
+    <section className="px-4 py-8 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-[96rem] overflow-hidden rounded-sm bg-[#f4f8fc] shadow-[0_24px_70px_rgba(7,17,31,0.16)] ring-1 ring-black/10">
         <div className="relative bg-[#07111f] p-5 text-white sm:p-7 lg:p-8">
           <div className="absolute inset-x-0 top-0 h-1 bg-accent" />
           <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr] xl:items-end">
             <div>
               <p className="eyebrow text-accent">Screen print navigator</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.94] text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-3xl font-black uppercase leading-[0.94] text-white sm:text-5xl">
                 Quick live price guide.
               </h2>
               <p className="mt-4 max-w-3xl text-sm leading-7 text-[#d6e3f0]">
@@ -915,7 +953,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
               <div className="flex flex-col gap-2 md:pt-6">
                 <Link
                   href="/custom-catalog"
-                  className="rounded-md bg-accent px-4 py-3 text-center text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#2a86d8]"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#2a86d8]"
                 >
                   Full catalog
                 </Link>
@@ -923,7 +961,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
                   href={activePdf}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-md border border-white/22 px-4 py-3 text-center text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/22 px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
                 >
                   PDF
                 </a>
@@ -939,7 +977,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
           <button
             type="button"
             onClick={openFloatingQuoteBasket}
-            className="mt-4 rounded-md border border-white/20 px-5 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
+            className="mt-4 inline-flex min-h-11 items-center rounded-md border border-white/20 px-5 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
           >
             Open quote basket
           </button>
@@ -958,14 +996,14 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
                   {group.summary}
                 </p>
               </div>
-              <div className="flex rounded-md border border-[#c9d7e6] bg-white p-1 shadow-[0_12px_30px_rgba(7,17,31,0.08)]">
+              <div className="grid rounded-md border border-[#c9d7e6] bg-white p-1 shadow-[0_12px_30px_rgba(7,17,31,0.08)] sm:flex">
                 {navigatorGroups.map((item) => (
                   <button
                     key={item.id}
                     type="button"
                     onClick={() => setActiveGroup(item.id)}
                     className={[
-                      "rounded px-4 py-2 text-xs font-black uppercase tracking-wide transition",
+                      "min-h-10 rounded px-4 text-xs font-black uppercase tracking-wide transition",
                       activeGroup === item.id
                         ? "bg-accent text-white"
                         : "text-[#52677d] hover:text-accent",
@@ -983,114 +1021,183 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
               opens a detailed estimate.
             </div>
 
-            <div className="mt-6 grid gap-5">
-              {group.tiers.map((tier) => (
-                <section
-                  key={tier.id}
-                  className="overflow-hidden rounded-sm bg-white shadow-[0_18px_46px_rgba(7,17,31,0.08)] ring-1 ring-black/8"
-                >
-                  <div className="grid gap-px bg-[#d7e3ee]">
-                    <div className="flex flex-col gap-3 bg-[#07111f] p-5 text-white md:flex-row md:items-end md:justify-between">
-                      <div>
-                      <p className="text-xs font-black uppercase tracking-[0.24em] text-[#50a8ff]">
+            <div className="mt-4 rounded-sm bg-[#07111f] p-4 text-white shadow-[0_12px_30px_rgba(7,17,31,0.08)]">
+              <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-[#50a8ff]">
+                    Browse {group.label.toLowerCase()} by tier
+                  </p>
+                  <p className="mt-1 text-sm font-semibold leading-6 text-white/70">
+                    More options are tucked below. Jump straight to the style
+                    level that fits the job.
+                  </p>
+                </div>
+                <div className="flex gap-2 overflow-x-auto pb-1 lg:max-w-[58%]">
+                  {group.tiers.map((tier, index) => {
+                    const isOpen = isTierOpen(tier, index);
+
+                    return (
+                      <button
+                        key={tier.id}
+                        type="button"
+                        data-testid={`tier-shortcut-${tier.id}`}
+                        onClick={() => openTierAndScroll(tier)}
+                        className={[
+                          "inline-flex min-h-11 shrink-0 items-center gap-2 rounded-md border px-3 text-xs font-black uppercase tracking-wide transition",
+                          isOpen
+                            ? "border-accent bg-accent text-white"
+                            : "border-white/16 bg-white/[0.04] text-white/82 hover:border-accent hover:bg-accent/10",
+                        ].join(" ")}
+                      >
                         {tier.label}
-                      </p>
-                      <h4 className="mt-2 text-2xl font-black uppercase leading-7">
-                        {tier.headline}
-                      </h4>
+                        <span className="rounded bg-black/20 px-1.5 py-0.5 text-[0.62rem] text-white/82">
+                          {tierProductCount(tier)}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 grid gap-5">
+              {group.tiers.map((tier, index) => {
+                const isOpen = isTierOpen(tier, index);
+                const productCount = tierProductCount(tier);
+
+                return (
+                  <section
+                    id={tier.id}
+                    key={tier.id}
+                    className="scroll-mt-28 overflow-hidden rounded-sm bg-white shadow-[0_18px_46px_rgba(7,17,31,0.08)] ring-1 ring-black/8"
+                  >
+                    <div className="grid gap-px bg-[#d7e3ee]">
+                      <div className="bg-[#07111f] p-5 text-white">
+                        <button
+                          type="button"
+                          aria-expanded={isOpen}
+                          onClick={() => toggleTier(tier, index)}
+                          className="flex w-full flex-col gap-4 text-left md:flex-row md:items-center md:justify-between"
+                        >
+                          <span className="min-w-0">
+                            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#50a8ff]">
+                              {tier.label}
+                            </span>
+                            <span className="mt-2 block text-2xl font-black uppercase leading-7">
+                              {tier.headline}
+                            </span>
+                            <span className="mt-3 block max-w-4xl text-sm font-semibold leading-6 text-white/70">
+                              {tier.description}
+                            </span>
+                          </span>
+                          <span className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-md border border-white/18 bg-white/[0.04] px-4 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10">
+                            {productCount} styles
+                            <span
+                              className={[
+                                "text-lg leading-none text-accent transition",
+                                isOpen ? "rotate-180" : "",
+                              ].join(" ")}
+                              aria-hidden="true"
+                            >
+                              v
+                            </span>
+                          </span>
+                        </button>
                       </div>
-                      <p className="mt-3 text-sm font-semibold leading-6 text-white/70">
-                        {tier.description}
-                      </p>
-                    </div>
-                    <div className="grid gap-px bg-[#d7e3ee] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-                      {tier.styles.map((style) => {
-                        const product = productByStyle.get(style);
+                      {isOpen ? (
+                        <div className="grid gap-px bg-[#d7e3ee] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                          {tier.styles.map((style) => {
+                            const product = productByStyle.get(style);
 
-                        if (!product) {
-                          return null;
-                        }
+                            if (!product) {
+                              return null;
+                            }
 
-                        const estimate = estimates[product.style];
-                        const image = productImage(product);
+                            const estimate = estimates[product.style];
+                            const image = productImage(product);
 
-                        return (
-                          <article key={product.style} className="bg-white p-4">
-                            <div className="relative aspect-[1.15] rounded bg-[#eef2f6]">
-                              {image ? (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img
-                                  src={image}
-                                  alt={product.title}
-                                  className="h-full w-full object-contain p-4"
-                                  loading="lazy"
-                                />
-                              ) : null}
-                            </div>
-                            <p className="mt-4 text-[0.68rem] font-black uppercase tracking-wide text-accent">
-                              {product.brand} - {product.style}
-                            </p>
-                            <h5 className="mt-1 min-h-10 text-sm font-black leading-5 text-[#07111f]">
-                              {shortTitle(product)}
-                            </h5>
-                            <div className="mt-3 flex -space-x-1">
-                              {product.colors.slice(0, 7).map((color) => (
-                                <span
-                                  key={color.name}
-                                  title={color.name}
-                                  className="h-5 w-5 overflow-hidden rounded-full border border-white bg-[#d8e1ea] shadow-sm ring-1 ring-black/10"
-                                >
-                                  {color.swatchImage ? (
+                            return (
+                              <article
+                                key={product.style}
+                                className="bg-white p-4"
+                              >
+                                <div className="relative aspect-[1.15] rounded bg-[#eef2f6]">
+                                  {image ? (
                                     // eslint-disable-next-line @next/next/no-img-element
                                     <img
-                                      src={color.swatchImage}
-                                      alt=""
-                                      className="h-full w-full object-cover"
+                                      src={image}
+                                      alt={product.title}
+                                      className="h-full w-full object-contain p-4"
                                       loading="lazy"
                                     />
                                   ) : null}
-                                </span>
-                              ))}
-                              {product.colors.length > 7 ? (
-                                <span className="grid h-5 w-5 place-items-center rounded-full bg-[#07111f] text-[0.55rem] font-black text-white">
-                                  +
-                                </span>
-                              ) : null}
-                            </div>
-                            <div className="mt-4 rounded-md bg-[#07111f] px-4 py-3 text-white">
-                              <p className="text-[0.66rem] font-black uppercase tracking-[0.16em] text-[#9fc8ef]">
-                                Quick price
-                              </p>
-                              <p className="mt-1 text-lg font-black">
-                                {estimate?.status === "ready"
-                                  ? `${formatPrice(estimate.each, estimate.currency)} ea`
-                                  : estimate?.status === "loading"
-                                    ? "Loading..."
-                                    : "Request pricing"}
-                              </p>
-                              <p className="mt-1 text-[0.66rem] font-black uppercase tracking-wide text-white/58">
-                                {normalizedQuantity} pcs
-                              </p>
-                            </div>
-                            <button
-                              type="button"
-                              onClick={() => openDetailEstimator(product)}
-                              className="mt-3 block rounded-md border border-black/10 px-3 py-2 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
-                            >
-                              Get detailed estimate
-                            </button>
-                          </article>
-                        );
-                      })}
+                                </div>
+                                <p className="mt-4 text-[0.68rem] font-black uppercase tracking-wide text-accent">
+                                  {product.brand} - {product.style}
+                                </p>
+                                <h5 className="mt-1 min-h-10 text-sm font-black leading-5 text-[#07111f]">
+                                  {shortTitle(product)}
+                                </h5>
+                                <div className="mt-3 flex -space-x-1">
+                                  {product.colors.slice(0, 7).map((color) => (
+                                    <span
+                                      key={color.name}
+                                      title={color.name}
+                                      className="h-5 w-5 overflow-hidden rounded-full border border-white bg-[#d8e1ea] shadow-sm ring-1 ring-black/10"
+                                    >
+                                      {color.swatchImage ? (
+                                        // eslint-disable-next-line @next/next/no-img-element
+                                        <img
+                                          src={color.swatchImage}
+                                          alt=""
+                                          className="h-full w-full object-cover"
+                                          loading="lazy"
+                                        />
+                                      ) : null}
+                                    </span>
+                                  ))}
+                                  {product.colors.length > 7 ? (
+                                    <span className="grid h-5 w-5 place-items-center rounded-full bg-[#07111f] text-[0.55rem] font-black text-white">
+                                      +
+                                    </span>
+                                  ) : null}
+                                </div>
+                                <div className="mt-4 rounded-md bg-[#07111f] px-4 py-3 text-white">
+                                  <p className="text-[0.66rem] font-black uppercase tracking-[0.16em] text-[#9fc8ef]">
+                                    Quick price
+                                  </p>
+                                  <p className="mt-1 text-lg font-black">
+                                    {estimate?.status === "ready"
+                                      ? `${formatPrice(estimate.each, estimate.currency)} ea`
+                                      : estimate?.status === "loading"
+                                        ? "Loading..."
+                                        : "Request pricing"}
+                                  </p>
+                                  <p className="mt-1 text-[0.66rem] font-black uppercase tracking-wide text-white/58">
+                                    {normalizedQuantity} pcs
+                                  </p>
+                                </div>
+                                <button
+                                  type="button"
+                                  onClick={() => openDetailEstimator(product)}
+                                  className="mt-3 flex min-h-11 items-center justify-center rounded-md border border-black/10 px-3 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
+                                >
+                                  Get detailed estimate
+                                </button>
+                              </article>
+                            );
+                          })}
+                        </div>
+                      ) : null}
                     </div>
-                  </div>
-                </section>
-              ))}
+                  </section>
+                );
+              })}
             </div>
           </div>
       </div>
       {detailEstimator ? (
-        <div className="fixed inset-0 z-[80] grid place-items-center bg-black/60 px-4 py-6">
+        <div className="fixed inset-0 z-[80] grid place-items-start overflow-y-auto bg-black/60 px-4 py-4 sm:place-items-center sm:py-6">
           <div className="max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-sm bg-white shadow-[0_24px_90px_rgba(0,0,0,0.38)]">
             <div className="flex items-start justify-between gap-4 border-b border-black/10 p-5">
               <div>
@@ -1107,7 +1214,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
               <button
                 type="button"
                 onClick={() => setDetailEstimator(null)}
-                className="rounded-full border border-black/10 px-3 py-1 text-sm font-black text-[#07111f] transition hover:border-accent hover:text-accent"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-black/10 px-3 text-sm font-black text-[#07111f] transition hover:border-accent hover:text-accent"
               >
                 X
               </button>

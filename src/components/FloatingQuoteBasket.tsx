@@ -228,7 +228,7 @@ export function FloatingQuoteBasket() {
         type="button"
         onClick={() => setIsOpen(true)}
         className={[
-          "fixed bottom-5 right-5 z-[60] rounded-full bg-accent px-5 py-4 text-xs font-black uppercase tracking-wide text-white shadow-[0_18px_42px_rgba(31,115,190,0.36)] transition hover:-translate-y-0.5 hover:bg-[#2a86d8]",
+          "fixed bottom-4 left-4 right-4 z-[60] min-h-12 rounded-full bg-accent px-5 text-xs font-black uppercase tracking-wide text-white shadow-[0_18px_42px_rgba(31,115,190,0.36)] transition hover:-translate-y-0.5 hover:bg-[#2a86d8] sm:bottom-5 sm:left-auto sm:right-5 sm:min-h-0 sm:w-auto sm:py-4",
           items.length ? "opacity-100" : "opacity-92",
         ].join(" ")}
       >
@@ -253,36 +253,36 @@ export function FloatingQuoteBasket() {
         />
         <aside
           className={[
-            "absolute right-0 top-0 flex h-full w-full max-w-xl flex-col bg-white shadow-[0_24px_90px_rgba(0,0,0,0.38)] transition-transform duration-300",
+            "absolute right-0 top-0 flex h-full w-full max-w-xl flex-col bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_24px_90px_rgba(0,0,0,0.38)] transition-transform duration-300",
             isOpen ? "translate-x-0" : "translate-x-full",
           ].join(" ")}
         >
-          <div className="border-b border-black/10 p-5">
+          <div className="border-b border-black/10 p-4 sm:p-5">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
                   Quote basket
                 </p>
-                <h3 className="mt-2 text-3xl font-black uppercase text-[#07111f]">
+                <h3 className="mt-2 text-2xl font-black uppercase text-[#07111f] sm:text-3xl">
                   Project quote
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="rounded-full border border-black/10 px-3 py-1 text-sm font-black text-[#07111f] transition hover:border-accent hover:text-accent"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-black/10 px-3 text-sm font-black text-[#07111f] transition hover:border-accent hover:text-accent"
               >
                 X
               </button>
             </div>
-            <p className="mt-4 rounded-sm bg-[#eef6ff] p-4 text-sm leading-6 text-[#314154]">
+            <p className="mt-4 rounded-sm bg-[#eef6ff] p-3 text-sm leading-6 text-[#314154] sm:p-4">
               Add products as you browse. Compatible styles can often be
               combined when they use the same artwork, print location, size,
               and ink setup. Total quantity: <strong>{totalQuantity}</strong>.
             </p>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-5">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-5">
             {items.length ? (
               <div className="grid gap-4">
                 {items.map((item) => (
@@ -302,7 +302,7 @@ export function FloatingQuoteBasket() {
                       <button
                         type="button"
                         onClick={() => removeItem(item.id)}
-                        className="text-xs font-black uppercase text-[#8a3440] transition hover:text-red-600"
+                        className="inline-flex min-h-10 items-center rounded-md px-2 text-xs font-black uppercase text-[#8a3440] transition hover:bg-red-50 hover:text-red-600"
                       >
                         Remove
                       </button>
@@ -348,7 +348,7 @@ export function FloatingQuoteBasket() {
                   </div>
                 ))}
                 {hasEstimatedPrices ? (
-                  <div className="rounded-sm border border-accent/20 bg-[#eef6ff] p-4">
+                  <div className="sticky bottom-0 rounded-sm border border-accent/20 bg-[#eef6ff] p-4 shadow-[0_-14px_34px_rgba(255,255,255,0.88)]">
                     <p className="text-xs font-black uppercase tracking-[0.16em] text-accent">
                       Estimated quote total
                     </p>
@@ -375,7 +375,7 @@ export function FloatingQuoteBasket() {
                 <input
                   name="name"
                   placeholder="Name"
-                  className="rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-3 text-sm text-[#07111f]"
+                  className="min-h-12 rounded-md border border-black/10 bg-[#f4f8fc] px-4 text-sm text-[#07111f]"
                 />
                 <input
                   name="businessName"
@@ -387,13 +387,13 @@ export function FloatingQuoteBasket() {
                   type="email"
                   required
                   placeholder="Email*"
-                  className="rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-3 text-sm text-[#07111f]"
+                  className="min-h-12 rounded-md border border-black/10 bg-[#f4f8fc] px-4 text-sm text-[#07111f]"
                 />
                 <input
                   name="phone"
                   type="tel"
                   placeholder="Phone"
-                  className="rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-3 text-sm text-[#07111f] sm:col-span-2"
+                  className="min-h-12 rounded-md border border-black/10 bg-[#f4f8fc] px-4 text-sm text-[#07111f] sm:col-span-2"
                 />
               </div>
               <textarea
@@ -432,7 +432,7 @@ export function FloatingQuoteBasket() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-4 w-full rounded-md bg-accent px-5 py-4 text-sm font-black uppercase text-white transition hover:bg-[#2a86d8] disabled:cursor-wait disabled:opacity-70"
+                className="mt-4 min-h-12 w-full rounded-md bg-accent px-5 text-sm font-black uppercase text-white transition hover:bg-[#2a86d8] disabled:cursor-wait disabled:opacity-70"
               >
                 {isSubmitting ? "Sending..." : "Email quote basket"}
               </button>
