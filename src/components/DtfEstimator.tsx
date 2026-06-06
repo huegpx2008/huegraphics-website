@@ -43,7 +43,10 @@ type DetailEstimatorState = {
   product: CatalogProduct;
   color: string;
   sizes: Record<string, string>;
-  placement: string;
+  frontPreset: string;
+  backPreset: string;
+  leftSleeve: boolean;
+  rightSleeve: boolean;
   estimate: DtfEstimate | null;
   error: string;
   isLoading: boolean;
@@ -64,10 +67,21 @@ type DtfEstimate = {
 
 const dtfMinimumQuantity = 1;
 const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
-const dtfPlacementOptions = [
+const dtfLocationOptions = [
   { label: "Full Front", value: "front", width: 10, height: 12 },
   { label: "Full Back", value: "back", width: 10, height: 12 },
   { label: "Left Chest", value: "leftChest", width: 4, height: 4 },
+  { label: "Left Sleeve", value: "leftSleeve", width: 3, height: 12 },
+  { label: "Right Sleeve", value: "rightSleeve", width: 3, height: 12 },
+];
+const frontPrintPresetOptions = [
+  { label: "None", value: "none" },
+  { label: "Full Front", value: "front" },
+  { label: "Left Chest", value: "leftChest" },
+];
+const backPrintPresetOptions = [
+  { label: "None", value: "none" },
+  { label: "Full Back", value: "back" },
 ];
 
 const navigatorGroups: NavigatorGroup[] = [
@@ -547,18 +561,28 @@ function buildDtfPayload({
   product,
   color,
   sizeQuantities,
-  placement,
+  frontPreset,
+  backPreset,
+  leftSleeve,
+  rightSleeve,
   sameDesign = true,
 }: {
   product: CatalogProduct;
   color: string;
   sizeQuantities: Record<string, number>;
-  placement: string;
+  frontPreset: string;
+  backPreset: string;
+  leftSleeve: boolean;
+  rightSleeve: boolean;
   sameDesign?: boolean;
 }) {
-  const placementOption =
-    dtfPlacementOptions.find((option) => option.value === placement) ??
-    dtfPlacementOptions[0];
+  const selectedLocations = [
+    frontPreset !== "none" ? frontPreset : "",
+    backPreset !== "none" ? backPreset : "",
+    leftSleeve ? "leftSleeve" : "",
+    rightSleeve ? "rightSleeve" : "",
+  ].filter(Boolean);
+  const locations = selectedLocations.length ? selectedLocations : ["front"];
 
   return {
     apparel: {
@@ -568,16 +592,20 @@ function buildDtfPayload({
       sizes: sizeQuantities,
       sizeQty: sizeQuantities,
     },
-    printLocations: [
-      {
-        placement: placementOption.value,
+    printLocations: locations.map((placement) => {
+      const option =
+        dtfLocationOptions.find((item) => item.value === placement) ??
+        dtfLocationOptions[0];
+
+      return {
+        placement: option.value,
         enabled: true,
         size: {
-          width: placementOption.width,
-          height: placementOption.height,
+          width: option.width,
+          height: option.height,
         },
-      },
-    ],
+      };
+    }),
     sameDesign,
   };
 }
@@ -589,7 +617,10 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
   );
   const [activeGroup, setActiveGroup] = useState<NavigatorCategory>("tees");
   const [quantity, setQuantity] = useState("1");
-  const [placement, setPlacement] = useState("front");
+  const [frontPreset, setFrontPreset] = useState("front");
+  const [backPreset, setBackPreset] = useState("none");
+  const [leftSleeve, setLeftSleeve] = useState(false);
+  const [rightSleeve, setRightSleeve] = useState(false);
   const [minimumMessage, setMinimumMessage] = useState("");
   const [estimates, setEstimates] = useState<Record<string, EstimateState>>({});
   const [openTiers, setOpenTiers] = useState<Record<string, boolean>>({
@@ -647,7 +678,10 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
                 product,
                 color: defaultColor(product),
                 sizeQuantities: buildDefaultSizes(product, normalizedQuantity),
-                placement,
+                frontPreset,
+                backPreset,
+                leftSleeve,
+                rightSleeve,
               }),
             ),
           });
@@ -702,7 +736,10 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
     };
   }, [
     normalizedQuantity,
-    placement,
+    backPreset,
+    frontPreset,
+    leftSleeve,
+    rightSleeve,
     visibleProducts,
   ]);
 
@@ -726,7 +763,10 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       product,
       color: defaultColor(product),
       sizes: buildDetailSizes(product, normalizedQuantity),
-      placement,
+      frontPreset,
+      backPreset,
+      leftSleeve,
+      rightSleeve,
       estimate: null,
       error: "",
       isLoading: false,
@@ -829,7 +869,10 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
             product: detailEstimator.product,
             color: detailEstimator.color,
             sizeQuantities: numericSizes,
-            placement: detailEstimator.placement,
+            frontPreset: detailEstimator.frontPreset,
+            backPreset: detailEstimator.backPreset,
+            leftSleeve: detailEstimator.leftSleeve,
+            rightSleeve: detailEstimator.rightSleeve,
           }),
         ),
       });
@@ -888,9 +931,18 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       frontColors: "Full color",
       backColors: "0",
       decorationSummary: [
-        dtfPlacementOptions.find(
-          (option) => option.value === detailEstimator.placement,
-        )?.label ?? "Full Front",
+        ...[
+          detailEstimator.frontPreset,
+          detailEstimator.backPreset,
+          detailEstimator.leftSleeve ? "leftSleeve" : "",
+          detailEstimator.rightSleeve ? "rightSleeve" : "",
+        ]
+          .filter((value) => value && value !== "none")
+          .map(
+            (value) =>
+              dtfLocationOptions.find((option) => option.value === value)
+                ?.label || value,
+          ),
       ]
         .filter(Boolean)
         .join(" / "),
@@ -916,12 +968,13 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
               </h2>
               <p className="mt-4 max-w-3xl text-sm leading-7 text-[#d6e3f0]">
                 Built like the screen printing navigator, with live DTF pricing
-                added. Start with quantity, placement, and transfer size, then
-                open a detailed estimate when you are ready for exact sizes.
+                added. Start with quantity, front and back presets, and sleeve
+                options, then open a detailed estimate when you are ready for
+                exact sizes.
               </p>
             </div>
 
-            <div className="grid gap-3 rounded-sm border border-white/10 bg-white/[0.04] p-4 md:grid-cols-[1fr_1fr_1fr_1fr_auto]">
+            <div className="grid items-end gap-3 rounded-sm border border-white/10 bg-white/[0.04] p-4 md:grid-cols-2 xl:grid-cols-[1fr_1fr_1fr_0.9fr_0.9fr_1fr_1fr]">
               <label className="block">
                 <span className="text-xs font-black uppercase tracking-[0.14em] text-[#9fb4c8]">
                   Estimated quantity
@@ -936,36 +989,68 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
               </label>
               <label className="block">
                 <span className="text-xs font-black uppercase tracking-[0.14em] text-[#9fb4c8]">
-                  Placement
+                  Front print preset
                 </span>
                 <select
-                  value={placement}
-                  onChange={(event) => setPlacement(event.target.value)}
+                  value={frontPreset}
+                  onChange={(event) => setFrontPreset(event.target.value)}
                   className="mt-2 h-11 w-full rounded-md border border-white/14 bg-white px-3 text-sm font-black text-[#07111f]"
                 >
-                  {dtfPlacementOptions.map((option) => (
+                  {frontPrintPresetOptions.map((option) => (
                     <option key={option.value} value={option.value}>
                       {option.label}
                     </option>
                   ))}
                 </select>
               </label>
-              <div className="flex flex-col gap-2 md:pt-6">
-                <Link
-                  href="/custom-catalog?service=dtf"
-                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#2a86d8]"
+              <label className="block">
+                <span className="text-xs font-black uppercase tracking-[0.14em] text-[#9fb4c8]">
+                  Back print preset
+                </span>
+                <select
+                  value={backPreset}
+                  onChange={(event) => setBackPreset(event.target.value)}
+                  className="mt-2 h-11 w-full rounded-md border border-white/14 bg-white px-3 text-sm font-black text-[#07111f]"
                 >
-                  Full catalog
-                </Link>
-                <a
-                  href={activePdf}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/22 px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
-                >
-                  PDF
-                </a>
-              </div>
+                  {backPrintPresetOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-white/14 bg-white/[0.03] px-3 text-xs font-black uppercase tracking-wide text-[#d6e3f0]">
+                <span>Left sleeve</span>
+                <input
+                  type="checkbox"
+                  checked={leftSleeve}
+                  onChange={(event) => setLeftSleeve(event.target.checked)}
+                  className="h-5 w-5 accent-[#1f73be]"
+                />
+              </label>
+              <label className="flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-white/14 bg-white/[0.03] px-3 text-xs font-black uppercase tracking-wide text-[#d6e3f0]">
+                <span>Right sleeve</span>
+                <input
+                  type="checkbox"
+                  checked={rightSleeve}
+                  onChange={(event) => setRightSleeve(event.target.checked)}
+                  className="h-5 w-5 accent-[#1f73be]"
+                />
+              </label>
+              <Link
+                href="/custom-catalog?service=dtf"
+                className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#2a86d8]"
+              >
+                Full catalog
+              </Link>
+              <a
+                href={activePdf}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/22 px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
+              >
+                PDF
+              </a>
             </div>
           </div>
 
@@ -1293,25 +1378,77 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">
                   <label className="block">
                     <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                      Placement
+                      Front print preset
                     </span>
                     <select
-                      value={detailEstimator.placement}
+                      value={detailEstimator.frontPreset}
                       onChange={(event) =>
                         updateDetail({
-                          placement: event.target.value,
+                          frontPreset: event.target.value,
                           estimate: null,
                           error: "",
                         })
                       }
                       className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
                     >
-                      {dtfPlacementOptions.map((option) => (
+                      {frontPrintPresetOptions.map((option) => (
                         <option key={option.value} value={option.value}>
                           {option.label}
                         </option>
                       ))}
                     </select>
+                  </label>
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      Back print preset
+                    </span>
+                    <select
+                      value={detailEstimator.backPreset}
+                      onChange={(event) =>
+                        updateDetail({
+                          backPreset: event.target.value,
+                          estimate: null,
+                          error: "",
+                        })
+                      }
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                    >
+                      {backPrintPresetOptions.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154]">
+                    <span>Left sleeve print</span>
+                    <input
+                      type="checkbox"
+                      checked={detailEstimator.leftSleeve}
+                      onChange={(event) =>
+                        updateDetail({
+                          leftSleeve: event.target.checked,
+                          estimate: null,
+                          error: "",
+                        })
+                      }
+                      className="h-5 w-5 accent-[#1f73be]"
+                    />
+                  </label>
+                  <label className="flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154]">
+                    <span>Right sleeve print</span>
+                    <input
+                      type="checkbox"
+                      checked={detailEstimator.rightSleeve}
+                      onChange={(event) =>
+                        updateDetail({
+                          rightSleeve: event.target.checked,
+                          estimate: null,
+                          error: "",
+                        })
+                      }
+                      className="h-5 w-5 accent-[#1f73be]"
+                    />
                   </label>
                 </div>
 

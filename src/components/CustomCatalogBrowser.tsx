@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import {
   addItemToFloatingQuoteBasket,
   openFloatingQuoteBasket,
@@ -82,7 +82,10 @@ type DetailEstimatorState = {
   sizes: Record<string, string>;
   frontColors: string;
   backColors: string;
-  dtfPlacement: string;
+  dtfFrontPreset: string;
+  dtfBackPreset: string;
+  dtfLeftSleeve: boolean;
+  dtfRightSleeve: boolean;
   placement: string;
   stitchCount: string;
   threadColors: string;
@@ -104,10 +107,21 @@ const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
 const frontColorOptions = ["1", "2", "3", "4", "dtf"];
 const stitchCountOptions = ["5000", "8000", "10000", "12000", "15000"];
 const threadColorOptions = ["1", "2", "3", "4", "5", "6", "8"];
-const dtfPlacementOptions = [
+const dtfLocationOptions = [
   { label: "Full Front", value: "front", width: 10, height: 12 },
   { label: "Full Back", value: "back", width: 10, height: 12 },
   { label: "Left Chest", value: "leftChest", width: 4, height: 4 },
+  { label: "Left Sleeve", value: "leftSleeve", width: 3, height: 12 },
+  { label: "Right Sleeve", value: "rightSleeve", width: 3, height: 12 },
+];
+const frontPrintPresetOptions = [
+  { label: "None", value: "none" },
+  { label: "Full Front", value: "front" },
+  { label: "Left Chest", value: "leftChest" },
+];
+const backPrintPresetOptions = [
+  { label: "None", value: "none" },
+  { label: "Full Back", value: "back" },
 ];
 const placementOptions = [
   "Left Chest",
@@ -179,11 +193,9 @@ function buildDefaultSizes(product: CatalogProduct, quantity: number) {
   return result;
 }
 
-function buildDetailSizes(product: CatalogProduct, quantity: number) {
-  const defaults = buildDefaultSizes(product, quantity);
-
+function buildEmptyDetailSizes(product: CatalogProduct) {
   return Object.fromEntries(
-    Object.entries(defaults).map(([size, qty]) => [size, String(qty)]),
+    productSizeOrder(product).map((size) => [size, "0"]),
   );
 }
 
@@ -334,18 +346,28 @@ function buildDtfPayload({
   product,
   color,
   sizeQuantities,
-  placement,
+  frontPreset,
+  backPreset,
+  leftSleeve,
+  rightSleeve,
   sameDesign,
 }: {
   product: CatalogProduct;
   color: string;
   sizeQuantities: Record<string, number>;
-  placement: string;
+  frontPreset: string;
+  backPreset: string;
+  leftSleeve: boolean;
+  rightSleeve: boolean;
   sameDesign: boolean;
 }) {
-  const placementOption =
-    dtfPlacementOptions.find((option) => option.value === placement) ??
-    dtfPlacementOptions[0];
+  const selectedLocations = [
+    frontPreset !== "none" ? frontPreset : "",
+    backPreset !== "none" ? backPreset : "",
+    leftSleeve ? "leftSleeve" : "",
+    rightSleeve ? "rightSleeve" : "",
+  ].filter(Boolean);
+  const locations = selectedLocations.length ? selectedLocations : ["front"];
 
   return {
     apparel: {
@@ -355,16 +377,20 @@ function buildDtfPayload({
       sizes: sizeQuantities,
       sizeQty: sizeQuantities,
     },
-    printLocations: [
-      {
-        placement: placementOption.value,
+    printLocations: locations.map((placement) => {
+      const option =
+        dtfLocationOptions.find((item) => item.value === placement) ??
+        dtfLocationOptions[0];
+
+      return {
+        placement: option.value,
         enabled: true,
         size: {
-          width: placementOption.width,
-          height: placementOption.height,
+          width: option.width,
+          height: option.height,
         },
-      },
-    ],
+      };
+    }),
     sameDesign,
   };
 }
@@ -441,7 +467,10 @@ export function CustomCatalogBrowser({
   const [quickFrontColors, setQuickFrontColors] = useState("1");
   const [quickBackColors, setQuickBackColors] = useState("0");
   const [quickSameDesign, setQuickSameDesign] = useState(true);
-  const [quickDtfPlacement, setQuickDtfPlacement] = useState("front");
+  const [quickDtfFrontPreset, setQuickDtfFrontPreset] = useState("front");
+  const [quickDtfBackPreset, setQuickDtfBackPreset] = useState("none");
+  const [quickDtfLeftSleeve, setQuickDtfLeftSleeve] = useState(false);
+  const [quickDtfRightSleeve, setQuickDtfRightSleeve] = useState(false);
   const [quickPlacement, setQuickPlacement] = useState("Left Chest");
   const [quickStitchCount, setQuickStitchCount] = useState("5000");
   const [quickThreadColors, setQuickThreadColors] = useState("2");
@@ -456,7 +485,10 @@ export function CustomCatalogBrowser({
     frontColors: "1",
     backColors: "0",
     sameDesign: true,
-    dtfPlacement: "front",
+    dtfFrontPreset: "front",
+    dtfBackPreset: "none",
+    dtfLeftSleeve: false,
+    dtfRightSleeve: false,
     placement: "Left Chest",
     stitchCount: "5000",
     threadColors: "2",
@@ -470,18 +502,28 @@ export function CustomCatalogBrowser({
   >({});
   const [detailEstimator, setDetailEstimator] =
     useState<DetailEstimatorState | null>(null);
+  const appliedServiceSearchRef = useRef("");
 
   useEffect(() => {
-    if (window.location.search.includes("service=embroidery")) {
-      setPricingService("embroidery");
-      setQuickQuantity(String(embroideryMinimumQuantity));
-      setCategory("All");
-    } else if (window.location.search.includes("service=dtf")) {
-      setPricingService("dtf");
-      setQuickQuantity("1");
+    const search = window.location.search;
+
+    if (appliedServiceSearchRef.current === search) {
+      return;
+    }
+
+    const requestedService = new URLSearchParams(search).get("service");
+
+    if (requestedService === "embroidery" || requestedService === "dtf") {
+      appliedServiceSearchRef.current = search;
+      setPricingService(requestedService);
+      setQuickQuantity(
+        requestedService === "embroidery"
+          ? String(embroideryMinimumQuantity)
+          : "1",
+      );
       setCategory("All");
     }
-  }, []);
+  }, [pricingService]);
 
   const filteredProducts = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -561,7 +603,10 @@ export function CustomCatalogBrowser({
         frontColors: quickFrontColors,
         backColors: quickBackColors,
         sameDesign: quickSameDesign,
-        dtfPlacement: quickDtfPlacement,
+        dtfFrontPreset: quickDtfFrontPreset,
+        dtfBackPreset: quickDtfBackPreset,
+        dtfLeftSleeve: quickDtfLeftSleeve,
+        dtfRightSleeve: quickDtfRightSleeve,
         placement: quickPlacement,
         stitchCount: quickStitchCount,
         threadColors: quickThreadColors,
@@ -576,7 +621,10 @@ export function CustomCatalogBrowser({
   }, [
     quickBackColors,
     quickDigitizingRequired,
-    quickDtfPlacement,
+    quickDtfBackPreset,
+    quickDtfFrontPreset,
+    quickDtfLeftSleeve,
+    quickDtfRightSleeve,
     quickFrontColors,
     quickNamesEnabled,
     quickNumbersEnabled,
@@ -678,7 +726,10 @@ export function CustomCatalogBrowser({
                       product,
                       color: defaultColor(product),
                       sizeQuantities: buildDefaultSizes(product, quantity),
-                      placement: debouncedQuickSettings.dtfPlacement,
+                      frontPreset: debouncedQuickSettings.dtfFrontPreset,
+                      backPreset: debouncedQuickSettings.dtfBackPreset,
+                      leftSleeve: debouncedQuickSettings.dtfLeftSleeve,
+                      rightSleeve: debouncedQuickSettings.dtfRightSleeve,
                       sameDesign: debouncedQuickSettings.sameDesign,
                     }),
                   );
@@ -834,9 +885,18 @@ export function CustomCatalogBrowser({
               .join(" / ")
           : detailEstimator.service === "dtf"
             ? [
-                dtfPlacementOptions.find(
-                  (option) => option.value === detailEstimator.dtfPlacement,
-                )?.label ?? "Full Front",
+                ...[
+                  detailEstimator.dtfFrontPreset,
+                  detailEstimator.dtfBackPreset,
+                  detailEstimator.dtfLeftSleeve ? "leftSleeve" : "",
+                  detailEstimator.dtfRightSleeve ? "rightSleeve" : "",
+                ]
+                  .filter((value) => value && value !== "none")
+                  .map(
+                    (value) =>
+                      dtfLocationOptions.find((option) => option.value === value)
+                        ?.label,
+                  ),
               ]
                 .filter(Boolean)
                 .join(" / ")
@@ -866,23 +926,13 @@ export function CustomCatalogBrowser({
       product,
       service: pricingService,
       color: defaultColor(product),
-      sizes: buildDetailSizes(
-        product,
-        pricingService === "screenprint"
-          ? normalizeQuantity(quickQuantity)
-          : pricingService === "embroidery"
-            ? Math.max(
-                embroideryMinimumQuantity,
-                Math.floor(Number(quickQuantity) || embroideryMinimumQuantity),
-              )
-            : Math.max(
-                dtfMinimumQuantity,
-                Math.floor(Number(quickQuantity) || dtfMinimumQuantity),
-              ),
-      ),
+      sizes: buildEmptyDetailSizes(product),
       frontColors: quickFrontColors,
       backColors: quickBackColors,
-      dtfPlacement: quickDtfPlacement,
+      dtfFrontPreset: quickDtfFrontPreset,
+      dtfBackPreset: quickDtfBackPreset,
+      dtfLeftSleeve: quickDtfLeftSleeve,
+      dtfRightSleeve: quickDtfRightSleeve,
       placement: quickPlacement,
       stitchCount: quickStitchCount,
       threadColors: quickThreadColors,
@@ -913,30 +963,15 @@ export function CustomCatalogBrowser({
   function updateDetailSize(size: string, value: string) {
     setDetailEstimator((current) =>
       current
-        ? (() => {
-            const sizes = {
+        ? {
+            ...current,
+            sizes: {
               ...current.sizes,
               [size]: value,
-            };
-            const totalQuantity = getTotalQuantity(sizes);
-            const shouldSwitchToDtf =
-              current.service === "screenprint" &&
-              totalQuantity > 0 &&
-              totalQuantity < screenPrintMinimumQuantity;
-
-            return {
-              ...current,
-              sizes,
-              service: shouldSwitchToDtf ? "dtf" : current.service,
-              dtfPlacement: shouldSwitchToDtf
-                ? "front"
-                : current.dtfPlacement,
-              estimate: null,
-              error: shouldSwitchToDtf
-                ? "Switched to DTF because this item is under the 24-piece screen printing minimum."
-                : "",
-            };
-          })()
+            },
+            estimate: null,
+            error: "",
+          }
         : current,
     );
   }
@@ -1015,7 +1050,10 @@ export function CustomCatalogBrowser({
                   product: detailEstimator.product,
                   color: detailEstimator.color,
                   sizeQuantities,
-                  placement: detailEstimator.dtfPlacement,
+                  frontPreset: detailEstimator.dtfFrontPreset,
+                  backPreset: detailEstimator.dtfBackPreset,
+                  leftSleeve: detailEstimator.dtfLeftSleeve,
+                  rightSleeve: detailEstimator.dtfRightSleeve,
                   sameDesign: detailEstimator.sameDesign,
                 }),
               );
@@ -1222,20 +1260,65 @@ export function CustomCatalogBrowser({
                 <>
                   <label className="block">
                     <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                      DTF placement
+                      Front print preset
                     </span>
                     <select
-                      value={quickDtfPlacement}
-                      onChange={(event) => setQuickDtfPlacement(event.target.value)}
+                      value={quickDtfFrontPreset}
+                      onChange={(event) =>
+                        setQuickDtfFrontPreset(event.target.value)
+                      }
                       className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
                     >
-                      {dtfPlacementOptions.map((option) => (
+                      {frontPrintPresetOptions.map((option) => (
                         <option key={option.value} value={option.value}>
                           {option.label}
                         </option>
                       ))}
                     </select>
                   </label>
+                  <label className="block">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                      Back print preset
+                    </span>
+                    <select
+                      value={quickDtfBackPreset}
+                      onChange={(event) =>
+                        setQuickDtfBackPreset(event.target.value)
+                      }
+                      className="mt-2 h-11 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-semibold text-[#07111f]"
+                    >
+                      {backPrintPresetOptions.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  {[
+                    {
+                      label: "Left sleeve",
+                      checked: quickDtfLeftSleeve,
+                      setter: setQuickDtfLeftSleeve,
+                    },
+                    {
+                      label: "Right sleeve",
+                      checked: quickDtfRightSleeve,
+                      setter: setQuickDtfRightSleeve,
+                    },
+                  ].map((option) => (
+                    <label
+                      key={option.label}
+                      className="flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-white px-3 text-xs font-black uppercase tracking-wide text-[#314154] md:mt-6"
+                    >
+                      <span>{option.label}</span>
+                      <input
+                        type="checkbox"
+                        checked={option.checked}
+                        onChange={(event) => option.setter(event.target.checked)}
+                        className="h-5 w-5 accent-[#1f73be]"
+                      />
+                    </label>
+                  ))}
                 </>
               )}
               {[
@@ -1546,12 +1629,12 @@ export function CustomCatalogBrowser({
 
             <div className="grid gap-px bg-[#d7e3ee] lg:grid-cols-[1fr_0.9fr]">
               <form onSubmit={submitDetailEstimate} className="bg-white p-5">
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-4 lg:grid-cols-[1.35fr_0.65fr]">
                   <div>
                     <p className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
                       Product color
                     </p>
-                    <div className="mt-2 grid max-h-44 gap-2 overflow-y-auto rounded-md border border-black/12 bg-[#f7f8fa] p-2">
+                    <div className="mt-2 grid max-h-64 gap-2 overflow-y-auto rounded-md border border-black/12 bg-[#f7f8fa] p-2">
                       {detailEstimator.product.colors.map((productColor) => (
                         <button
                           key={productColor.name}
@@ -1792,29 +1875,82 @@ export function CustomCatalogBrowser({
                   </>
                 ) : (
                   <>
-                    <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                    <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                       <label className="block">
                         <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                          DTF placement
+                          Front print preset
                         </span>
                         <select
-                          value={detailEstimator.dtfPlacement}
+                          value={detailEstimator.dtfFrontPreset}
                           onChange={(event) =>
                             updateDetail({
-                              dtfPlacement: event.target.value,
+                              dtfFrontPreset: event.target.value,
                               estimate: null,
                               error: "",
                             })
                           }
                           className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
                         >
-                          {dtfPlacementOptions.map((option) => (
+                          {frontPrintPresetOptions.map((option) => (
                             <option key={option.value} value={option.value}>
                               {option.label}
                             </option>
                           ))}
                         </select>
                       </label>
+                      <label className="block">
+                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                          Back print preset
+                        </span>
+                        <select
+                          value={detailEstimator.dtfBackPreset}
+                          onChange={(event) =>
+                            updateDetail({
+                              dtfBackPreset: event.target.value,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        >
+                          {backPrintPresetOptions.map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                      {[
+                        {
+                          label: "Left sleeve",
+                          key: "dtfLeftSleeve" as const,
+                          checked: detailEstimator.dtfLeftSleeve,
+                        },
+                        {
+                          label: "Right sleeve",
+                          key: "dtfRightSleeve" as const,
+                          checked: detailEstimator.dtfRightSleeve,
+                        },
+                      ].map((option) => (
+                        <label
+                          key={option.label}
+                          className="flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154] sm:mt-6"
+                        >
+                          <span>{option.label}</span>
+                          <input
+                            type="checkbox"
+                            checked={option.checked}
+                            onChange={(event) =>
+                              updateDetail({
+                                [option.key]: event.target.checked,
+                                estimate: null,
+                                error: "",
+                              })
+                            }
+                            className="h-5 w-5 accent-[#1f73be]"
+                          />
+                        </label>
+                      ))}
                     </div>
                   </>
                 )}

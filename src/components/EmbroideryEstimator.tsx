@@ -1016,7 +1016,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
               </p>
             </div>
 
-            <div className="grid gap-3 rounded-sm border border-white/10 bg-white/[0.04] p-4 md:grid-cols-2 xl:grid-cols-5">
+            <div className="grid items-end gap-3 rounded-sm border border-white/10 bg-white/[0.04] p-4 md:grid-cols-2 xl:grid-cols-5">
               <label className="block">
                 <span className="text-xs font-black uppercase tracking-[0.14em] text-[#9fb4c8]">
                   Estimated quantity
@@ -1076,7 +1076,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
               <button
                 type="button"
                 onClick={openFloatingQuoteBasket}
-                className="min-h-11 self-end rounded-md border border-white/20 px-4 text-xs font-black uppercase text-white transition hover:border-accent hover:bg-accent/20"
+                className="min-h-11 rounded-md border border-white/20 px-4 text-xs font-black uppercase text-white transition hover:border-accent hover:bg-accent/20"
               >
                 Basket
               </button>

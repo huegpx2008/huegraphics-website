@@ -34,7 +34,10 @@ type DetailEstimatorState = {
   sizes: Record<string, string>;
   frontColors: string;
   backColors: string;
-  dtfPlacement: string;
+  dtfFrontPreset: string;
+  dtfBackPreset: string;
+  dtfLeftSleeve: boolean;
+  dtfRightSleeve: boolean;
   placement: string;
   stitchCount: string;
   threadColors: string;
@@ -52,10 +55,21 @@ const dtfMinimumQuantity = 1;
 const frontColorOptions = ["1", "2", "3", "4", "dtf"];
 const stitchCountOptions = ["5000", "8000", "10000", "12000", "15000"];
 const threadColorOptions = ["1", "2", "3", "4", "5", "6", "8"];
-const dtfPlacementOptions = [
+const dtfLocationOptions = [
   { label: "Full Front", value: "front", width: 10, height: 12 },
   { label: "Full Back", value: "back", width: 10, height: 12 },
   { label: "Left Chest", value: "leftChest", width: 4, height: 4 },
+  { label: "Left Sleeve", value: "leftSleeve", width: 3, height: 12 },
+  { label: "Right Sleeve", value: "rightSleeve", width: 3, height: 12 },
+];
+const frontPrintPresetOptions = [
+  { label: "None", value: "none" },
+  { label: "Full Front", value: "front" },
+  { label: "Left Chest", value: "leftChest" },
+];
+const backPrintPresetOptions = [
+  { label: "None", value: "none" },
+  { label: "Full Back", value: "back" },
 ];
 const placementOptions = [
   "Left Chest",
@@ -84,23 +98,8 @@ function productSizeOrder(product: CatalogProduct) {
   return [...preferred, ...rest].slice(0, 8);
 }
 
-function buildDefaultSizes(product: CatalogProduct, quantity: number) {
-  const sizes = productSizeOrder(product);
-  const activeSizes = sizes.filter((size) =>
-    ["S", "M", "L", "XL"].includes(size),
-  );
-  const distributionSizes = activeSizes.length ? activeSizes : sizes.slice(0, 4);
-  const result = Object.fromEntries(sizes.map((size) => [size, 0]));
-
-  distributionSizes.forEach((size, index) => {
-    result[size] =
-      Math.floor(quantity / distributionSizes.length) +
-      (index < quantity % distributionSizes.length ? 1 : 0);
-  });
-
-  return Object.fromEntries(
-    Object.entries(result).map(([size, quantity]) => [size, String(quantity)]),
-  );
+function buildEmptySizes(product: CatalogProduct) {
+  return Object.fromEntries(productSizeOrder(product).map((size) => [size, "0"]));
 }
 
 function numericSizeQuantities(sizes: Record<string, string | number>) {
@@ -117,6 +116,48 @@ function getTotalQuantity(sizes: Record<string, string | number>): number {
     (total, quantity) => total + Math.max(0, Math.floor(Number(quantity || 0))),
     0,
   );
+}
+
+function selectedDtfLocationValues(detail: Pick<
+  DetailEstimatorState,
+  "dtfFrontPreset" | "dtfBackPreset" | "dtfLeftSleeve" | "dtfRightSleeve"
+>) {
+  const values = [
+    detail.dtfFrontPreset,
+    detail.dtfBackPreset,
+    detail.dtfLeftSleeve ? "leftSleeve" : "",
+    detail.dtfRightSleeve ? "rightSleeve" : "",
+  ].filter((value) => value && value !== "none");
+
+  return values.length ? values : ["front"];
+}
+
+function buildDtfPrintLocations(detail: Pick<
+  DetailEstimatorState,
+  "dtfFrontPreset" | "dtfBackPreset" | "dtfLeftSleeve" | "dtfRightSleeve"
+>) {
+  return selectedDtfLocationValues(detail).map((value) => {
+    const location = dtfLocationOptions.find((option) => option.value === value);
+
+    return {
+      placement: value,
+      enabled: true,
+      size: {
+        width: location?.width ?? 10,
+        height: location?.height ?? 12,
+      },
+    };
+  });
+}
+
+function selectedDtfLocationLabels(detail: Pick<
+  DetailEstimatorState,
+  "dtfFrontPreset" | "dtfBackPreset" | "dtfLeftSleeve" | "dtfRightSleeve"
+>) {
+  return selectedDtfLocationValues(detail)
+    .map((value) => dtfLocationOptions.find((option) => option.value === value)?.label)
+    .filter(Boolean)
+    .join(" / ");
 }
 
 function formatPrice(value: number | string | undefined, currency = "USD") {
@@ -145,23 +186,16 @@ export function ProductCatalogQuoteButton({
   }, []);
 
   function openDetail() {
-    const isEmbroidery = service === "embroidery";
-    const isDtf = service === "dtf";
-
     setDetail({
       service,
       color: defaultColor(product),
-      sizes: buildDefaultSizes(
-        product,
-        isEmbroidery
-          ? embroideryMinimumQuantity
-          : isDtf
-            ? 1
-            : screenPrintMinimumQuantity,
-      ),
+      sizes: buildEmptySizes(product),
       frontColors: "1",
       backColors: "0",
-      dtfPlacement: "front",
+      dtfFrontPreset: "front",
+      dtfBackPreset: "none",
+      dtfLeftSleeve: false,
+      dtfRightSleeve: false,
       placement: product.category === "Caps" ? "Hat Front" : "Left Chest",
       stitchCount: "5000",
       threadColors: "2",
@@ -192,28 +226,15 @@ export function ProductCatalogQuoteButton({
   function updateSize(size: string, value: string) {
     setDetail((current) =>
       current
-        ? (() => {
-            const sizes = {
+        ? {
+            ...current,
+            sizes: {
               ...current.sizes,
               [size]: value,
-            };
-            const totalQuantity = getTotalQuantity(sizes);
-            const shouldSwitchToDtf =
-              current.service === "screenprint" &&
-              totalQuantity > 0 &&
-              totalQuantity < screenPrintMinimumQuantity;
-
-            return {
-              ...current,
-              sizes,
-              service: shouldSwitchToDtf ? "dtf" : current.service,
-              dtfPlacement: shouldSwitchToDtf ? "front" : current.dtfPlacement,
-              estimate: null,
-              error: shouldSwitchToDtf
-                ? "Switched to DTF because this item is under the 24-piece screen printing minimum."
-                : "",
-            };
-          })()
+            },
+            estimate: null,
+            error: "",
+          }
         : current,
     );
   }
@@ -306,22 +327,7 @@ export function ProductCatalogQuoteButton({
                     sizes,
                     sizeQty: sizes,
                   },
-                  printLocations: [
-                    {
-                      placement: detail.dtfPlacement,
-                      enabled: true,
-                      size: {
-                        width:
-                          dtfPlacementOptions.find(
-                            (option) => option.value === detail.dtfPlacement,
-                          )?.width ?? 10,
-                        height:
-                          dtfPlacementOptions.find(
-                            (option) => option.value === detail.dtfPlacement,
-                          )?.height ?? 12,
-                      },
-                    },
-                  ],
+                  printLocations: buildDtfPrintLocations(detail),
                   sameDesign: true,
                 }
             : {
@@ -419,13 +425,7 @@ export function ProductCatalogQuoteButton({
               .filter(Boolean)
               .join(" / ")
           : detail.service === "dtf"
-            ? [
-                dtfPlacementOptions.find(
-                  (option) => option.value === detail.dtfPlacement,
-                )?.label ?? "Full Front",
-              ]
-                .filter(Boolean)
-                .join(" / ")
+            ? selectedDtfLocationLabels(detail)
             : undefined,
       estimatedEach: detail.estimate?.price?.each,
       estimatedTotal: detail.estimate?.price?.retail,
@@ -479,12 +479,12 @@ export function ProductCatalogQuoteButton({
 
             <div className="grid gap-px bg-[#d7e3ee] lg:grid-cols-[1fr_0.9fr]">
               <form onSubmit={requestEstimate} className="bg-white p-5">
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-4 lg:grid-cols-[1.35fr_0.65fr]">
                   <div>
                     <p className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
                       Product color
                     </p>
-                    <div className="mt-2 grid max-h-44 gap-2 overflow-y-auto rounded-md border border-black/12 bg-[#f7f8fa] p-2">
+                    <div className="mt-2 grid max-h-64 gap-2 overflow-y-auto rounded-md border border-black/12 bg-[#f7f8fa] p-2">
                       {product.colors.map((productColor) => (
                         <button
                           key={productColor.name}
@@ -497,7 +497,7 @@ export function ProductCatalogQuoteButton({
                             })
                           }
                           className={[
-                            "flex items-center gap-3 rounded-md border px-3 py-2 text-left text-sm font-bold transition",
+                            "flex min-h-11 items-center gap-3 rounded-md border px-3 py-2 text-left text-sm font-bold transition",
                             detail.color === productColor.name
                               ? "border-accent bg-white text-[#07111f] shadow-sm"
                               : "border-transparent text-[#314154] hover:border-black/10 hover:bg-white",
@@ -677,7 +677,10 @@ export function ProductCatalogQuoteButton({
                           if (event.target.value === "dtf") {
                             updateDetail({
                               service: "dtf",
-                              dtfPlacement: "front",
+                              dtfFrontPreset: "front",
+                              dtfBackPreset: "none",
+                              dtfLeftSleeve: false,
+                              dtfRightSleeve: false,
                               estimate: null,
                               error:
                                 "Switched to DTF because this artwork needs more than 4 screen print colors.",
@@ -712,7 +715,10 @@ export function ProductCatalogQuoteButton({
                           if (event.target.value === "dtf") {
                             updateDetail({
                               service: "dtf",
-                              dtfPlacement: "back",
+                              dtfFrontPreset: "none",
+                              dtfBackPreset: "back",
+                              dtfLeftSleeve: false,
+                              dtfRightSleeve: false,
                               estimate: null,
                               error:
                                 "Switched to DTF because this artwork needs more than 4 screen print colors.",
@@ -738,29 +744,82 @@ export function ProductCatalogQuoteButton({
                   </div>
                 ) : (
                   <>
-                    <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                    <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                       <label className="block">
                         <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-                          DTF placement
+                          Front print preset
                         </span>
                         <select
-                          value={detail.dtfPlacement}
+                          value={detail.dtfFrontPreset}
                           onChange={(event) =>
                             updateDetail({
-                              dtfPlacement: event.target.value,
+                              dtfFrontPreset: event.target.value,
                               estimate: null,
                               error: "",
                             })
                           }
                           className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
                         >
-                          {dtfPlacementOptions.map((option) => (
+                          {frontPrintPresetOptions.map((option) => (
                             <option key={option.value} value={option.value}>
                               {option.label}
                             </option>
                           ))}
                         </select>
                       </label>
+                      <label className="block">
+                        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+                          Back print preset
+                        </span>
+                        <select
+                          value={detail.dtfBackPreset}
+                          onChange={(event) =>
+                            updateDetail({
+                              dtfBackPreset: event.target.value,
+                              estimate: null,
+                              error: "",
+                            })
+                          }
+                          className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+                        >
+                          {backPrintPresetOptions.map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                      {[
+                        {
+                          label: "Left sleeve",
+                          key: "dtfLeftSleeve" as const,
+                          checked: detail.dtfLeftSleeve,
+                        },
+                        {
+                          label: "Right sleeve",
+                          key: "dtfRightSleeve" as const,
+                          checked: detail.dtfRightSleeve,
+                        },
+                      ].map((option) => (
+                        <label
+                          key={option.label}
+                          className="flex min-h-11 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154] sm:mt-6"
+                        >
+                          <span>{option.label}</span>
+                          <input
+                            type="checkbox"
+                            checked={option.checked}
+                            onChange={(event) =>
+                              updateDetail({
+                                [option.key]: event.target.checked,
+                                estimate: null,
+                                error: "",
+                              })
+                            }
+                            className="h-5 w-5 accent-[#1f73be]"
+                          />
+                        </label>
+                      ))}
                     </div>
                   </>
                 )}

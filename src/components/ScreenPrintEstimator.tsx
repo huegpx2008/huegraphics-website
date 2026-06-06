@@ -905,7 +905,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
               </p>
             </div>
 
-            <div className="grid gap-3 rounded-sm border border-white/10 bg-white/[0.04] p-4 md:grid-cols-[1fr_1fr_1fr_auto]">
+            <div className="grid items-end gap-3 rounded-sm border border-white/10 bg-white/[0.04] p-4 md:grid-cols-2 xl:grid-cols-[1fr_1fr_1fr_1fr_1fr]">
               <label className="block">
                 <span className="text-xs font-black uppercase tracking-[0.14em] text-[#9fb4c8]">
                   Estimated quantity
@@ -950,22 +950,20 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
                   ))}
                 </select>
               </label>
-              <div className="flex flex-col gap-2 md:pt-6">
-                <Link
-                  href="/custom-catalog"
-                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#2a86d8]"
-                >
-                  Full catalog
-                </Link>
-                <a
-                  href={activePdf}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/22 px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
-                >
-                  PDF
-                </a>
-              </div>
+              <Link
+                href="/custom-catalog"
+                className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#2a86d8]"
+              >
+                Full catalog
+              </Link>
+              <a
+                href={activePdf}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/22 px-4 text-center text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
+              >
+                PDF
+              </a>
             </div>
           </div>
 

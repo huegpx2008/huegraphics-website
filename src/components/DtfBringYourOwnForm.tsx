@@ -6,15 +6,29 @@ import {
   type QuoteBasketItem,
 } from "@/components/FloatingQuoteBasket";
 
-const placementOptions = [
+const locationOptions = [
   { label: "Full Front", value: "front" },
   { label: "Full Back", value: "back" },
   { label: "Left Chest", value: "leftChest" },
+  { label: "Left Sleeve", value: "leftSleeve" },
+  { label: "Right Sleeve", value: "rightSleeve" },
+];
+const frontPrintPresetOptions = [
+  { label: "None", value: "none" },
+  { label: "Full Front", value: "front" },
+  { label: "Left Chest", value: "leftChest" },
+];
+const backPrintPresetOptions = [
+  { label: "None", value: "none" },
+  { label: "Full Back", value: "back" },
 ];
 
 export function DtfBringYourOwnForm() {
   const [quantity, setQuantity] = useState("1");
-  const [placement, setPlacement] = useState("front");
+  const [frontPreset, setFrontPreset] = useState("front");
+  const [backPreset, setBackPreset] = useState("none");
+  const [leftSleeve, setLeftSleeve] = useState(false);
+  const [rightSleeve, setRightSleeve] = useState(false);
   const [apparel, setApparel] = useState("");
   const [message, setMessage] = useState("");
 
@@ -22,9 +36,18 @@ export function DtfBringYourOwnForm() {
     event.preventDefault();
 
     const numericQuantity = Math.max(1, Math.floor(Number(quantity) || 1));
-    const placementLabel =
-      placementOptions.find((option) => option.value === placement)?.label ||
-      "Full Front";
+    const selectedLocations = [
+      frontPreset,
+      backPreset,
+      leftSleeve ? "leftSleeve" : "",
+      rightSleeve ? "rightSleeve" : "",
+    ]
+      .filter((value) => value && value !== "none")
+      .map(
+        (value) =>
+          locationOptions.find((option) => option.value === value)?.label,
+      )
+      .filter(Boolean);
     const item: QuoteBasketItem = {
       id: `dtf-byo-${Date.now()}-${Math.random().toString(16).slice(2)}`,
       productName: "Customer supplied apparel",
@@ -37,7 +60,9 @@ export function DtfBringYourOwnForm() {
       frontColors: "Full color",
       backColors: "0",
       decorationSummary: [
-        placementLabel,
+        selectedLocations.length
+          ? selectedLocations.join(" / ")
+          : "Artwork placement to review",
         "Bring your own apparel",
         apparel.trim() ? `Apparel notes: ${apparel.trim()}` : "",
       ]
@@ -63,7 +88,7 @@ export function DtfBringYourOwnForm() {
             before confirming final pricing.
           </p>
         </div>
-        <form onSubmit={submitForm} className="grid gap-4 bg-white p-6 sm:p-8 lg:grid-cols-3">
+        <form onSubmit={submitForm} className="grid gap-4 bg-white p-6 sm:p-8 lg:grid-cols-4">
           <label className="block">
             <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
               Quantity
@@ -78,21 +103,62 @@ export function DtfBringYourOwnForm() {
           </label>
           <label className="block">
             <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
-              Print location
+              Front print preset
             </span>
             <select
-              value={placement}
-              onChange={(event) => setPlacement(event.target.value)}
+              value={frontPreset}
+              onChange={(event) => setFrontPreset(event.target.value)}
               className="mt-2 h-12 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
             >
-              {placementOptions.map((option) => (
+              {frontPrintPresetOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
               ))}
             </select>
           </label>
-          <label className="block lg:col-span-3">
+          <label className="block">
+            <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
+              Back print preset
+            </span>
+            <select
+              value={backPreset}
+              onChange={(event) => setBackPreset(event.target.value)}
+              className="mt-2 h-12 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
+            >
+              {backPrintPresetOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          {[
+            {
+              label: "Left sleeve",
+              checked: leftSleeve,
+              setter: setLeftSleeve,
+            },
+            {
+              label: "Right sleeve",
+              checked: rightSleeve,
+              setter: setRightSleeve,
+            },
+          ].map((option) => (
+            <label
+              key={option.label}
+              className="flex min-h-12 cursor-pointer items-center justify-between rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-xs font-black uppercase tracking-wide text-[#314154] lg:mt-6"
+            >
+              <span>{option.label}</span>
+              <input
+                type="checkbox"
+                checked={option.checked}
+                onChange={(event) => option.setter(event.target.checked)}
+                className="h-5 w-5 accent-[#1f73be]"
+              />
+            </label>
+          ))}
+          <label className="block lg:col-span-4">
             <span className="text-xs font-black uppercase tracking-[0.14em] text-[#6a7480]">
               Apparel notes
             </span>
@@ -106,12 +172,12 @@ export function DtfBringYourOwnForm() {
           </label>
           <button
             type="submit"
-            className="min-h-12 rounded-md bg-accent px-5 text-sm font-black uppercase text-white transition hover:bg-[#2a86d8] lg:col-span-3"
+            className="min-h-12 rounded-md bg-accent px-5 text-sm font-black uppercase text-white transition hover:bg-[#2a86d8] lg:col-span-4"
           >
             Add BYO apparel to quote basket
           </button>
           {message ? (
-            <p className="rounded-md border border-green-200 bg-green-50 p-3 text-sm font-bold text-green-800 lg:col-span-3">
+            <p className="rounded-md border border-green-200 bg-green-50 p-3 text-sm font-bold text-green-800 lg:col-span-4">
               {message}
             </p>
           ) : null}
