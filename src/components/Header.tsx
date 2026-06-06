@@ -23,10 +23,15 @@ const serviceLinks = [
 
 export function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  function closeMobileMenu() {
+    setIsMobileMenuOpen(false);
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-navy/90 backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-5 py-3 sm:px-8 lg:px-10">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-2.5 sm:gap-3 sm:px-8 lg:px-10 lg:py-3">
         <LogoEasterEgg />
         <nav aria-label="Main navigation" className="hidden items-center gap-7 lg:flex">
           <div
@@ -86,27 +91,84 @@ export function Header() {
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href="https://pay.hue.graphics/payinvoice"
-            className="inline-flex rounded-xl border border-white/14 bg-white/[0.03] px-3 py-2.5 text-xs font-bold text-white/82 transition hover:border-accent/55 hover:bg-accent/10 sm:px-4 sm:text-sm"
+            className="inline-flex min-h-11 items-center rounded-xl border border-white/14 bg-white/[0.03] px-3 text-xs font-bold text-white/82 transition hover:border-accent/55 hover:bg-accent/10 sm:px-4 sm:text-sm"
           >
-            Pay Invoice
+            <span className="sm:hidden">Pay</span>
+            <span className="hidden sm:inline">Pay Invoice</span>
           </a>
           <Link
             href="/quote-app"
-            className="inline-flex rounded-xl border border-accent/45 bg-accent/10 px-3 py-2.5 text-xs font-extrabold text-white transition hover:border-accent hover:bg-accent/18 sm:px-4 sm:text-sm"
+            className="hidden min-h-11 items-center rounded-xl border border-accent/45 bg-accent/10 px-4 text-sm font-extrabold text-white transition hover:border-accent hover:bg-accent/18 sm:inline-flex"
           >
-            <span className="sm:hidden">Beta App</span>
-            <span className="hidden sm:inline">BETA Quote App</span>
+            BETA Quote App
           </Link>
           <Link
             href="/request-a-quote"
-            className="rounded-xl bg-accent px-3 py-2.5 text-xs font-extrabold text-white shadow-glow transition hover:bg-[#2a86d8] sm:px-5 sm:text-sm"
+            className="inline-flex min-h-11 items-center rounded-xl bg-accent px-3 text-xs font-extrabold text-white shadow-glow transition hover:bg-[#2a86d8] sm:px-5 sm:text-sm"
           >
-            Request Quote
+            <span className="sm:hidden">Quote</span>
+            <span className="hidden sm:inline">Request Quote</span>
           </Link>
+          <button
+            type="button"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setIsMobileMenuOpen((current) => !current)}
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-white/14 bg-white/[0.04] px-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent/55 hover:bg-accent/10 lg:hidden"
+          >
+            {isMobileMenuOpen ? "Close" : "Menu"}
+          </button>
         </div>
       </div>
+      {isMobileMenuOpen ? (
+        <nav
+          id="mobile-navigation"
+          aria-label="Mobile navigation"
+          className="border-t border-white/10 bg-[#06101d] px-4 py-4 lg:hidden"
+        >
+          <div className="mx-auto grid max-w-7xl gap-4">
+            <div className="grid gap-2">
+              <p className="text-[0.68rem] font-black uppercase tracking-[0.18em] text-accent">
+                Services
+              </p>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {serviceLinks.map((service) => (
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    onClick={closeMobileMenu}
+                    className="flex min-h-11 items-center justify-between rounded-lg border border-white/10 bg-white/[0.04] px-4 text-sm font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
+                  >
+                    {service.label}
+                    <span className="text-accent">-&gt;</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="grid gap-2 border-t border-white/10 pt-4 sm:grid-cols-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMobileMenu}
+                  className="flex min-h-11 items-center rounded-lg border border-white/10 px-4 text-sm font-bold text-white/82 transition hover:border-accent hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <Link
+                href="/quote-app"
+                onClick={closeMobileMenu}
+                className="flex min-h-11 items-center rounded-lg border border-accent/35 bg-accent/10 px-4 text-sm font-bold text-white transition hover:border-accent sm:hidden"
+              >
+                BETA Quote App
+              </Link>
+            </div>
+          </div>
+        </nav>
+      ) : null}
       <div className="border-t border-white/10 bg-[#06101d]/88">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-5 py-2 text-xs font-bold text-white/66 sm:px-8 lg:px-10">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-2 text-[0.7rem] font-bold text-white/66 sm:gap-3 sm:px-8 sm:text-xs lg:px-10">
           <a
             href="https://www.google.com/maps/search/?api=1&query=741+Harry+McCarty+Road+Suite+101+Bethlehem+GA+30620"
             target="_blank"
@@ -117,7 +179,7 @@ export function Header() {
           </a>
           <a
             href="tel:17708673520"
-            className="shrink-0 rounded-lg border border-accent/35 bg-accent/10 px-3 py-1.5 text-white transition hover:border-accent hover:bg-accent/18"
+            className="inline-flex min-h-10 shrink-0 items-center rounded-lg border border-accent/35 bg-accent/10 px-3 text-white transition hover:border-accent hover:bg-accent/18"
           >
             Call (770) 867-3520
           </a>
