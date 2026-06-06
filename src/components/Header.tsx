@@ -91,9 +91,10 @@ export function Header() {
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href="https://pay.hue.graphics/payinvoice"
-            className="hidden min-h-11 items-center rounded-xl border border-white/14 bg-white/[0.03] px-4 text-sm font-bold text-white/82 transition hover:border-accent/55 hover:bg-accent/10 sm:inline-flex"
+            className="inline-flex min-h-11 items-center rounded-xl border border-white/14 bg-white/[0.03] px-3 text-xs font-bold text-white/82 transition hover:border-accent/55 hover:bg-accent/10 sm:px-4 sm:text-sm"
           >
-            Pay Invoice
+            <span className="sm:hidden">Pay</span>
+            <span className="hidden sm:inline">Pay Invoice</span>
           </a>
           <Link
             href="/quote-app"
@@ -105,7 +106,8 @@ export function Header() {
             href="/request-a-quote"
             className="inline-flex min-h-11 items-center rounded-xl bg-accent px-3 text-xs font-extrabold text-white shadow-glow transition hover:bg-[#2a86d8] sm:px-5 sm:text-sm"
           >
-            Request Quote
+            <span className="sm:hidden">Quote</span>
+            <span className="hidden sm:inline">Request Quote</span>
           </Link>
           <button
             type="button"
@@ -154,13 +156,6 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <a
-                href="https://pay.hue.graphics/payinvoice"
-                onClick={closeMobileMenu}
-                className="flex min-h-11 items-center rounded-lg border border-white/10 px-4 text-sm font-bold text-white/82 transition hover:border-accent hover:text-white sm:hidden"
-              >
-                Pay Invoice
-              </a>
               <Link
                 href="/quote-app"
                 onClick={closeMobileMenu}
