@@ -72,13 +72,14 @@ export function Footer() {
             <div className="mt-4 grid gap-2 text-sm text-[#b9c7d6]">
               <Link href="/about" className="transition hover:text-white">Our Story</Link>
               <Link href="/portfolio" className="transition hover:text-white">Portfolio</Link>
+              <Link href="/resources" className="transition hover:text-white">Resources</Link>
               <Link href="/contact" className="transition hover:text-white">Contact</Link>
             </div>
             <Link
-              href="/#resources"
+              href="/resources"
               className="mt-6 inline-flex rounded-lg border border-white/18 px-5 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10"
             >
-              Customer portal
+              Customer resources
             </Link>
           </div>
         </div>

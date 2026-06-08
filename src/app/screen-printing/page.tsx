@@ -198,7 +198,10 @@ export default function ScreenPrintingPage() {
     <>
       <Header />
       <main className="bg-[#f4f8fc]">
-        <section className="relative isolate overflow-hidden px-4 py-10 sm:px-8 sm:py-14 lg:px-10 lg:py-20">
+        <section
+          id="screen-printing-top"
+          className="relative isolate overflow-hidden px-4 py-10 sm:px-8 sm:py-14 lg:px-10 lg:py-20"
+        >
           <div className="absolute inset-0 -z-30 bg-[#03070d]" />
           <div className="absolute inset-y-0 right-0 -z-30 w-full lg:w-[78%]">
             <EarlyLoopVideo
@@ -235,14 +238,12 @@ export default function ScreenPrintingPage() {
                 >
                   Request a quote
                 </Link>
-                <a
-                  href="https://www.companycasuals.com/huegraphics/start.jsp"
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  href="/custom-catalog"
                   className="rounded-lg border border-white/28 bg-black/28 px-7 py-4 text-center text-sm font-black uppercase tracking-wide text-white backdrop-blur-sm transition hover:border-accent/70 hover:bg-accent/10"
                 >
                   Browse apparel catalog
-                </a>
+                </Link>
               </div>
             </div>
             <div className="rounded-sm border border-white/18 bg-white/92 p-5 text-[#07111f] shadow-[0_26px_90px_rgba(0,0,0,0.28)] backdrop-blur">
@@ -266,17 +267,29 @@ export default function ScreenPrintingPage() {
         <section className="bg-[#f4f8fc] px-5 pt-8 sm:px-8 lg:px-10">
           <div className="mx-auto flex max-w-7xl flex-wrap gap-3">
             <Link
-              href="/screen-printing"
-              className="rounded-lg bg-accent px-5 py-3 text-xs font-black uppercase tracking-wide text-white shadow-[0_14px_30px_rgba(31,115,190,0.22)]"
-            >
-              Screen printing overview
-            </Link>
-            <Link
               href="/screen-printing/color-guide"
               className="rounded-lg border border-accent/25 bg-white px-5 py-3 text-xs font-black uppercase tracking-wide text-accent shadow-[0_10px_28px_rgba(7,17,31,0.08)] transition hover:border-accent hover:bg-accent hover:text-white"
             >
               Ink & shirt color guide
             </Link>
+            <a
+              href="#ink-color-explorer"
+              className="rounded-lg bg-[#07111f] px-5 py-3 text-xs font-black uppercase tracking-wide text-white shadow-[0_10px_28px_rgba(7,17,31,0.12)] transition hover:bg-accent"
+            >
+              Ink color explorer
+            </a>
+            <a
+              href="#screen-printing-gallery"
+              className="rounded-lg bg-[#07111f] px-5 py-3 text-xs font-black uppercase tracking-wide text-white shadow-[0_10px_28px_rgba(7,17,31,0.12)] transition hover:bg-accent"
+            >
+              Photo gallery
+            </a>
+            <a
+              href="#screen-printing-faq"
+              className="rounded-lg bg-[#07111f] px-5 py-3 text-xs font-black uppercase tracking-wide text-white shadow-[0_10px_28px_rgba(7,17,31,0.12)] transition hover:bg-accent"
+            >
+              Screen printing FAQ
+            </a>
           </div>
         </section>
 
@@ -379,7 +392,10 @@ export default function ScreenPrintingPage() {
         <InkColorExplorer />
 
         {galleryImages.length > 0 ? (
-          <section className="px-5 py-8 sm:px-8 lg:px-10">
+          <section
+            id="screen-printing-gallery"
+            className="scroll-mt-28 px-5 py-8 sm:px-8 lg:px-10"
+          >
             <div className="mx-auto max-w-7xl">
               <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
@@ -394,6 +410,12 @@ export default function ScreenPrintingPage() {
                 >
                   View more work
                 </Link>
+                <a
+                  href="#screen-printing-top"
+                  className="inline-flex min-h-10 items-center rounded-md border border-accent/25 bg-white px-4 text-xs font-black uppercase tracking-wide text-accent shadow-[0_10px_24px_rgba(7,17,31,0.08)] transition hover:border-accent hover:bg-accent hover:text-white"
+                >
+                  Back to top
+                </a>
               </div>
               <div className="grid gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 sm:grid-cols-2 lg:grid-cols-3">
                 {galleryImages.map((image) => (
@@ -416,13 +438,26 @@ export default function ScreenPrintingPage() {
           </section>
         ) : null}
 
-        <section className="px-5 py-8 sm:px-8 lg:px-10">
+        <section
+          id="screen-printing-faq"
+          className="scroll-mt-28 px-5 py-8 sm:px-8 lg:px-10"
+        >
           <div className="mx-auto max-w-7xl overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10">
             <div className="bg-white p-6 sm:p-8">
-              <p className="eyebrow">Screen printing FAQ</p>
-              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
-                Questions before you order.
-              </h2>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <p className="eyebrow">Screen printing FAQ</p>
+                  <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
+                    Questions before you order.
+                  </h2>
+                </div>
+                <a
+                  href="#screen-printing-top"
+                  className="inline-flex min-h-10 shrink-0 items-center justify-center rounded-md border border-accent/25 bg-white px-4 text-xs font-black uppercase tracking-wide text-accent shadow-[0_10px_24px_rgba(7,17,31,0.08)] transition hover:border-accent hover:bg-accent hover:text-white"
+                >
+                  Back to top
+                </a>
+              </div>
             </div>
             <div className="grid gap-px bg-[#d7e3ee] md:grid-cols-2">
               {faqs.map((faq) => (

@@ -6,7 +6,10 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ProductCatalogQuoteButton } from "@/components/ProductCatalogQuoteButton";
-import { sanmarCatalogProducts } from "@/data/sanmarCatalog.generated";
+import {
+  sanmarCatalogProducts,
+  type CatalogProduct,
+} from "@/data/sanmarCatalog.generated";
 import { createSeoMetadata } from "@/lib/seo";
 
 type ProductDetailPageProps = {
@@ -32,6 +35,49 @@ function splitCompanionStyles(value: string) {
     .split("|")
     .map((style) => style.trim())
     .filter(Boolean);
+}
+
+function compactProductTitle(title: string, brand: string) {
+  return title
+    .replace(`${brand} `, "")
+    .replace("BELLA+CANVAS ", "")
+    .replace("Port & Co ", "")
+    .replace("Gildan - ", "")
+    .replace("Gildan ", "")
+    .replace("Sport-Tek ", "");
+}
+
+function styleFamilyBase(style: string) {
+  const suffixes = ["YLS", "LST", "LS", "LT", "YH", "Y", "T", "L", "B"];
+
+  for (const suffix of suffixes) {
+    if (style.endsWith(suffix) && style.length - suffix.length >= 3) {
+      return style.slice(0, -suffix.length);
+    }
+  }
+
+  return style;
+}
+
+function companionProductList(product: CatalogProduct) {
+  const directStyles = new Set(splitCompanionStyles(product.companionStyle));
+  const productBase = styleFamilyBase(product.style);
+
+  return sanmarCatalogProducts.filter((item) => {
+    if (item.style === product.style) {
+      return false;
+    }
+
+    const itemCompanions = splitCompanionStyles(item.companionStyle);
+    const hasDirectRelationship =
+      directStyles.has(item.style) || itemCompanions.includes(product.style);
+    const hasMatchingFamilyBase =
+      item.brand === product.brand &&
+      item.category === product.category &&
+      styleFamilyBase(item.style) === productBase;
+
+    return hasDirectRelationship || hasMatchingFamilyBase;
+  });
 }
 
 export async function generateMetadata({ params }: ProductDetailPageProps) {
@@ -67,7 +113,7 @@ export default async function ProductDetailPage({
     notFound();
   }
 
-  const companionStyles = splitCompanionStyles(product.companionStyle);
+  const companionProducts = companionProductList(product);
   const relatedProducts = sanmarCatalogProducts
     .filter(
       (item) =>
@@ -229,19 +275,32 @@ export default async function ProductDetailPage({
                     {product.sizes.join(", ")}
                   </dd>
                 </div>
-                {companionStyles.length ? (
+                {companionProducts.length ? (
                   <div>
                     <dt className="font-black uppercase text-[#7a8794]">
-                      Companion styles
+                      Also available as
                     </dt>
-                    <dd className="mt-2 flex flex-wrap gap-2">
-                      {companionStyles.map((companionStyle) => (
+                    <dd className="mt-3 grid gap-2">
+                      {companionProducts.map((companionProduct) => (
                         <Link
-                          key={companionStyle}
-                          href={`/custom-catalog/${encodeURIComponent(companionStyle)}`}
-                          className="rounded-full bg-[#eef6ff] px-3 py-1 text-xs font-black text-[#125b99] transition hover:bg-accent hover:text-white"
+                          key={companionProduct.style}
+                          href={`/custom-catalog/${encodeURIComponent(companionProduct.style)}`}
+                          className="group rounded-md border border-black/8 bg-[#f7f8fa] p-3 transition hover:border-accent/50 hover:bg-[#eef6ff]"
                         >
-                          {companionStyle}
+                          <span className="flex flex-wrap items-center gap-2">
+                            <span className="rounded bg-[#07111f] px-2 py-1 text-[0.68rem] font-black uppercase tracking-wide text-white transition group-hover:bg-accent">
+                              {companionProduct.style}
+                            </span>
+                            <span className="text-xs font-black uppercase tracking-wide text-[#667382]">
+                              {companionProduct.category}
+                            </span>
+                          </span>
+                          <span className="mt-2 block text-sm font-black leading-5 text-[#07111f] transition group-hover:text-accent">
+                            {compactProductTitle(
+                              companionProduct.title,
+                              companionProduct.brand,
+                            )}
+                          </span>
                         </Link>
                       ))}
                     </dd>

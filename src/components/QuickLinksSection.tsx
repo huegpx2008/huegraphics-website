@@ -1,13 +1,16 @@
+import Link from "next/link";
+
 const quickLinks = [
   {
     title: "Online Catalog",
     description: "Browse apparel styles, colors, sizing, and product options.",
-    href: "https://www.companycasuals.com/huegraphics/start.jsp",
+    href: "/custom-catalog",
   },
   {
     title: "Graduation Banners",
     description: "Jump straight to senior and graduation banner ordering.",
     href: "https://huegraphics.company.site/Senior-Graduation-Banners-c149396760",
+    external: true,
   },
 ];
 
@@ -37,28 +40,42 @@ export function QuickLinksSection() {
           </span>
         </a>
         <div className="grid gap-px bg-white/12">
-          {quickLinks.map((link) => (
-            <a
-              key={link.title}
-              href={link.href}
-              target="_blank"
-              rel="noreferrer"
-              className="group bg-[#08111f] p-6 transition hover:bg-[#0b1728] sm:p-8"
-            >
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-accent">
-                Quick link
-              </p>
-              <h3 className="mt-3 text-2xl font-black uppercase tracking-wide text-white">
-                {link.title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-[#b9c7d6]">
-                {link.description}
-              </p>
-              <span className="mt-5 inline-flex text-lg font-black text-accent transition group-hover:translate-x-1 group-hover:text-white">
-                -&gt;
-              </span>
-            </a>
-          ))}
+          {quickLinks.map((link) => {
+            const className =
+              "group bg-[#08111f] p-6 transition hover:bg-[#0b1728] sm:p-8";
+            const content = (
+              <>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-accent">
+                  Quick link
+                </p>
+                <h3 className="mt-3 text-2xl font-black uppercase tracking-wide text-white">
+                  {link.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#b9c7d6]">
+                  {link.description}
+                </p>
+                <span className="mt-5 inline-flex text-lg font-black text-accent transition group-hover:translate-x-1 group-hover:text-white">
+                  -&gt;
+                </span>
+              </>
+            );
+
+            return link.external ? (
+              <a
+                key={link.title}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className={className}
+              >
+                {content}
+              </a>
+            ) : (
+              <Link key={link.title} href={link.href} className={className}>
+                {content}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

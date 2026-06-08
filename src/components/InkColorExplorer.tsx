@@ -77,13 +77,26 @@ export function InkColorExplorer() {
   }, [activeGroup]);
 
   return (
-    <section className="px-5 py-8 sm:px-8 lg:px-10">
+    <section
+      id="ink-color-explorer"
+      className="scroll-mt-28 px-5 py-8 sm:px-8 lg:px-10"
+    >
       <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.42fr_1fr]">
         <div className="bg-white p-6 sm:p-8">
-          <p className="eyebrow">Ink color explorer</p>
-          <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
-            Preview common print colors.
-          </h2>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between lg:block">
+            <div>
+              <p className="eyebrow">Ink color explorer</p>
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] text-[#07111f] sm:text-5xl">
+                Preview common print colors.
+              </h2>
+            </div>
+            <a
+              href="#screen-printing-top"
+              className="inline-flex min-h-10 shrink-0 items-center justify-center rounded-md border border-accent/25 bg-white px-4 text-xs font-black uppercase tracking-wide text-accent shadow-[0_10px_24px_rgba(7,17,31,0.08)] transition hover:border-accent hover:bg-accent hover:text-white lg:mt-6"
+            >
+              Back to top
+            </a>
+          </div>
           <div className="mt-7 h-1 w-16 rounded-full bg-accent" />
           <div className="mt-7 overflow-hidden rounded-sm border border-black/10 bg-[#101b2c] shadow-[0_18px_48px_rgba(7,17,31,0.12)]">
             <div
