@@ -100,6 +100,15 @@ const materialBrands = [
   "MaxMetal",
 ];
 
+const galleryLabels = [
+  "Banners",
+  "Yard signs",
+  "Decals",
+  "Rigid panels",
+  "Storefront graphics",
+  "Event signs",
+];
+
 const gallery = [
   "618657266_18555735766009873_133435053101636559_n.jpg",
   "639531227_18569535229009873_1734010140289635921_n.jpg",
@@ -339,7 +348,12 @@ export default function SignsBannersPage() {
                 Need something specific? Request a quote -&gt;
               </Link>
             </div>
-            <RandomImageGallery folder="sign-banners" fallbackImages={gallery} />
+            <RandomImageGallery
+              folder="sign-banners"
+              fallbackImages={gallery}
+              variant="showcase"
+              labels={galleryLabels}
+            />
           </div>
         </section>
 
