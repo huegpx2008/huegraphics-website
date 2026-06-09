@@ -239,7 +239,7 @@ function formatPrice(value: number | string | undefined, currency = "USD") {
     }).format(value);
   }
 
-  return value || "Returned by API";
+  return value || "Returned after review";
 }
 
 function getErrorMessage(data: ApiEstimate, fallback: string) {
@@ -378,7 +378,7 @@ export function SignQuoteBuilder() {
 
       if (!response.ok || data.ok === false) {
         setError(
-          getErrorMessage(data, "The pricing API could not return an estimate."),
+          getErrorMessage(data, "The estimator could not return a price."),
         );
         return;
       }
@@ -437,11 +437,12 @@ export function SignQuoteBuilder() {
           <div className="bg-[#07111f] p-6 sm:p-8">
             <p className="eyebrow text-accent">Signs & banners quote builder</p>
             <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-3xl font-black uppercase leading-[0.94] text-white sm:text-5xl">
-              Estimate sign projects from live pricing APIs.
+              Build a quick starting estimate for common sign projects.
             </h2>
             <p className="mt-6 text-sm leading-7 text-[#d6e3f0]">
-              Choose a product, enter the details, and the website will request
-              pricing from the matching quote app API.
+              Choose a product and enter the details to get a helpful starting
+              point. Final pricing can be reviewed around quantity, artwork,
+              material choice, finishing, and production details.
             </p>
             <div className="mt-8 grid gap-3">
               {products.map((product) => (
@@ -596,8 +597,9 @@ export function SignQuoteBuilder() {
                 </div>
               ) : (
                 <div className="mt-5 rounded-md border border-dashed border-[#b5c6d6] bg-white/70 p-5 text-sm leading-7 text-[#52677d]">
-                  Select a product and request an estimate. Results from the
-                  pricing API will appear here.
+                  Select a product and request an estimate. Your starting price
+                  will appear here, then you can add it to the quote basket for
+                  review.
                 </div>
               )}
             </div>
