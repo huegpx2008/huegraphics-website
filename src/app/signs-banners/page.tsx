@@ -8,6 +8,7 @@ import {
   type SignProjectSlide,
 } from "@/components/SignProjectShowcase";
 import { SignQuoteBuilder } from "@/components/SignQuoteBuilder";
+import { workImagesByFolder } from "@/data/workImages.generated";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
@@ -103,7 +104,7 @@ const materialBrands = [
   "MaxMetal",
 ];
 
-const projectSlides: SignProjectSlide[] = [
+const featuredProjectSlides: SignProjectSlide[] = [
   {
     src: "/images/sign-banners/639531227_18569535229009873_1734010140289635921_n.jpg",
     category: "Banner",
@@ -160,6 +161,27 @@ const projectSlides: SignProjectSlide[] = [
     description:
       "Small-format printed pieces for branded giveaways, internal programs, and specialty projects.",
   },
+];
+
+const featuredProjectSources = new Set(
+  featuredProjectSlides.map((slide) => slide.src),
+);
+
+const folderProjectSlides: SignProjectSlide[] = workImagesByFolder[
+  "sign-banners"
+]
+  .filter((src) => !featuredProjectSources.has(src))
+  .map((src, index) => ({
+    src,
+    category: "Signs & Banners",
+    title: `Shop Sign Project ${String(index + 1).padStart(2, "0")}`,
+    description:
+      "Additional sign, banner, decal, or display work from the Hue Graphics production folder.",
+  }));
+
+const projectSlides: SignProjectSlide[] = [
+  ...featuredProjectSlides,
+  ...folderProjectSlides,
 ];
 
 export default function SignsBannersPage() {

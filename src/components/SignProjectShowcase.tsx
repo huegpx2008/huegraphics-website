@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 
 export type SignProjectSlide = {
   src: string;
-  category: "Banner" | "ACM Sign" | "Vinyl" | "Yard Sign" | "Vehicle Graphics";
+  category: string;
   title: string;
   description: string;
 };
