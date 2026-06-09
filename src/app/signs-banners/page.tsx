@@ -3,7 +3,10 @@ import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { RandomImageGallery } from "@/components/RandomImageGallery";
+import {
+  SignProjectShowcase,
+  type SignProjectSlide,
+} from "@/components/SignProjectShowcase";
 import { SignQuoteBuilder } from "@/components/SignQuoteBuilder";
 import { createSeoMetadata } from "@/lib/seo";
 
@@ -100,23 +103,64 @@ const materialBrands = [
   "MaxMetal",
 ];
 
-const galleryLabels = [
-  "Banners",
-  "Yard signs",
-  "Decals",
-  "Rigid panels",
-  "Storefront graphics",
-  "Event signs",
+const projectSlides: SignProjectSlide[] = [
+  {
+    src: "/images/sign-banners/639531227_18569535229009873_1734010140289635921_n.jpg",
+    category: "Banner",
+    title: "Roadside Mesh Banners",
+    description:
+      "Large-format outdoor banners printed for high-visibility roadside promotion.",
+  },
+  {
+    src: "/images/sign-banners/2026-06-03%2009.22.35.jpg",
+    category: "ACM Sign",
+    title: "Custom Shaped Panel",
+    description:
+      "Rigid sign panel with a custom profile, clean edge detail, and durable outdoor finish.",
+  },
+  {
+    src: "/images/sign-banners/signs1.jpg",
+    category: "Yard Sign",
+    title: "Real Estate Frame Sign",
+    description:
+      "Readable property sign setup with interchangeable panels for open house promotion.",
+  },
+  {
+    src: "/images/sign-banners/672444216_18584145094009873_5071688867988805225_n.jpg",
+    category: "ACM Sign",
+    title: "Hiring Site Sign",
+    description:
+      "Bold rigid-panel hiring sign designed for quick scanning and QR-code response.",
+  },
+  {
+    src: "/images/sign-banners/618657266_18555735766009873_133435053101636559_n.jpg",
+    category: "Vinyl",
+    title: "Numbered Vinyl Sets",
+    description:
+      "Printed and cut vinyl sets prepared for organized installation and repeat use.",
+  },
+  {
+    src: "/images/sign-banners/639985671_18569535244009873_4983119230006870802_n.jpg",
+    category: "Banner",
+    title: "Support Banner",
+    description:
+      "Finished banner with grommets for durable hanging at events, job sites, and community spaces.",
+  },
+  {
+    src: "/images/sign-banners/645501324_18571217419009873_5145212769391887043_n.jpg",
+    category: "Vinyl",
+    title: "Printed Promo Surface",
+    description:
+      "Full-color vinyl-style branded surface produced with sharp detail and saturated color.",
+  },
+  {
+    src: "/images/sign-banners/642470483_18571217428009873_4887144359931898686_n.jpg",
+    category: "Vinyl",
+    title: "Custom Decal Pieces",
+    description:
+      "Small-format printed pieces for branded giveaways, internal programs, and specialty projects.",
+  },
 ];
-
-const gallery = [
-  "618657266_18555735766009873_133435053101636559_n.jpg",
-  "639531227_18569535229009873_1734010140289635921_n.jpg",
-  "639985671_18569535244009873_4983119230006870802_n.jpg",
-  "642470483_18571217428009873_4887144359931898686_n.jpg",
-  "645501324_18571217419009873_5145212769391887043_n.jpg",
-  "672444216_18584145094009873_5071688867988805225_n.jpg",
-].map((image) => `/images/sign-banners/${image}`);
 
 export default function SignsBannersPage() {
   return (
@@ -322,7 +366,7 @@ export default function SignsBannersPage() {
         </section>
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
-          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+          <div className="mx-auto grid max-w-7xl gap-8 xl:grid-cols-[0.58fr_1.42fr]">
             <div className="rounded-sm bg-white p-6 shadow-[0_18px_55px_rgba(7,17,31,0.1)] ring-1 ring-black/10 sm:p-8">
               <p className="eyebrow">Common materials</p>
               <p className="mt-4 text-sm leading-7 text-[#314154]">
@@ -348,12 +392,7 @@ export default function SignsBannersPage() {
                 Need something specific? Request a quote -&gt;
               </Link>
             </div>
-            <RandomImageGallery
-              folder="sign-banners"
-              fallbackImages={gallery}
-              variant="showcase"
-              labels={galleryLabels}
-            />
+            <SignProjectShowcase slides={projectSlides} />
           </div>
         </section>
 
