@@ -389,6 +389,9 @@ export function HomeV2Services({
               <p className="p-5 text-sm leading-6 text-[#35475a]">
                 {service.text}
               </p>
+              <span className="mx-5 mb-5 inline-flex text-xs font-black uppercase tracking-wide text-accent transition group-hover:translate-x-1 group-hover:text-[#07111f]">
+                View service -&gt;
+              </span>
             </Link>
           ))}
         </div>

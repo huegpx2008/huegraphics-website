@@ -96,12 +96,12 @@ export function Header() {
             <span className="sm:hidden">Pay</span>
             <span className="hidden sm:inline">Pay Invoice</span>
           </a>
-          <Link
-            href="/quote-app"
+          <a
+            href="http://huegraphics.company.site/"
             className="hidden min-h-11 items-center rounded-xl border border-accent/45 bg-accent/10 px-4 text-sm font-extrabold text-white transition hover:border-accent hover:bg-accent/18 sm:inline-flex"
           >
-            BETA Quote App
-          </Link>
+            Shop Hue
+          </a>
           <Link
             href="/request-a-quote"
             className="inline-flex min-h-11 items-center rounded-xl bg-accent px-3 text-xs font-extrabold text-white shadow-glow transition hover:bg-[#2a86d8] sm:px-5 sm:text-sm"
@@ -156,13 +156,13 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                href="/quote-app"
+              <a
+                href="http://huegraphics.company.site/"
                 onClick={closeMobileMenu}
                 className="flex min-h-11 items-center rounded-lg border border-accent/35 bg-accent/10 px-4 text-sm font-bold text-white transition hover:border-accent sm:hidden"
               >
-                BETA Quote App
-              </Link>
+                Shop Hue
+              </a>
             </div>
           </div>
         </nav>

@@ -25,6 +25,7 @@ type CustomCatalogBrowserProps = {
 };
 
 type PricingService = "screenprint" | "embroidery" | "dtf";
+type PriceSort = "featured" | "cheap" | "expensive";
 
 type EstimateState = {
   status: "loading" | "ready" | "unavailable";
@@ -451,6 +452,23 @@ function saveReturnState() {
   window.sessionStorage.setItem(returnScrollKey, String(window.scrollY));
 }
 
+function productSortPrice(
+  product: CatalogProduct,
+  estimates: Record<string, EstimateState>,
+) {
+  const estimate = estimates[product.style];
+  const estimatedEach =
+    estimate?.status === "ready" ? Number(estimate.each) : Number.NaN;
+
+  if (Number.isFinite(estimatedEach)) {
+    return estimatedEach;
+  }
+
+  return typeof product.priceFrom === "number"
+    ? product.priceFrom
+    : Number.POSITIVE_INFINITY;
+}
+
 export function CustomCatalogBrowser({
   products,
   categories,
@@ -461,6 +479,7 @@ export function CustomCatalogBrowser({
     useState<PricingService>("screenprint");
   const [category, setCategory] = useState("All");
   const [brand, setBrand] = useState("All");
+  const [priceSort, setPriceSort] = useState<PriceSort>("featured");
   const [quickQuantity, setQuickQuantity] = useState(
     String(screenPrintMinimumQuantity),
   );
@@ -556,7 +575,25 @@ export function CustomCatalogBrowser({
     });
   }, [brand, category, pricingService, products, query]);
 
-  const visibleProducts = filteredProducts.slice(0, visibleProductLimit);
+  const sortedProducts = useMemo(() => {
+    if (priceSort === "featured") {
+      return filteredProducts;
+    }
+
+    return [...filteredProducts].sort((a, b) => {
+      const aPrice = productSortPrice(a, catalogEstimates);
+      const bPrice = productSortPrice(b, catalogEstimates);
+      const direction = priceSort === "cheap" ? 1 : -1;
+
+      if (aPrice === bPrice) {
+        return a.title.localeCompare(b.title);
+      }
+
+      return (aPrice - bPrice) * direction;
+    });
+  }, [catalogEstimates, filteredProducts, priceSort]);
+
+  const visibleProducts = sortedProducts.slice(0, visibleProductLimit);
   const visibleProductKey = visibleProducts
     .map((product) => product.style)
     .join("|");
@@ -1072,7 +1109,7 @@ export function CustomCatalogBrowser({
     <section className="bg-[#f7f8fa] px-4 py-10 text-[#07111f] sm:px-8 sm:py-12 lg:px-10 lg:py-16">
       <div className="mx-auto max-w-7xl">
         <div className="rounded-sm bg-white p-4 shadow-[0_22px_70px_rgba(7,17,31,0.08)] ring-1 ring-black/8 sm:p-5">
-          <div className="grid gap-3 lg:grid-cols-[1fr_220px_220px]">
+          <div className="grid gap-3 lg:grid-cols-[1fr_220px_220px_220px]">
             <label className="block">
               <span className="text-xs font-black uppercase tracking-[0.16em] text-[#6a7480]">
                 Search catalog
@@ -1112,6 +1149,22 @@ export function CustomCatalogBrowser({
                 {brands.map((item) => (
                   <option key={item}>{item}</option>
                 ))}
+              </select>
+            </label>
+            <label className="block">
+              <span className="text-xs font-black uppercase tracking-[0.16em] text-[#6a7480]">
+                Sort by price
+              </span>
+              <select
+                value={priceSort}
+                onChange={(event) =>
+                  setPriceSort(event.target.value as PriceSort)
+                }
+                className="mt-2 h-12 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-4 text-sm font-semibold text-[#07111f] outline-none transition focus:border-accent focus:bg-white"
+              >
+                <option value="featured">Featured</option>
+                <option value="cheap">Cheapest first</option>
+                <option value="expensive">Most expensive first</option>
               </select>
             </label>
           </div>
