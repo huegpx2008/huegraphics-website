@@ -75,13 +75,26 @@ export function DtfBringYourOwnForm() {
   }
 
   return (
-    <section className="px-5 py-8 sm:px-8 lg:px-10">
+    <section
+      id="dtf-bring-your-own"
+      className="scroll-mt-28 px-5 py-8 sm:px-8 lg:px-10"
+    >
       <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 lg:grid-cols-[0.42fr_1fr]">
         <div className="bg-[#07111f] p-6 text-white sm:p-8">
-          <p className="eyebrow text-accent">Bring your own apparel</p>
-          <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] sm:text-5xl">
-            Have shirts already?
-          </h2>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between lg:block">
+            <div>
+              <p className="eyebrow text-accent">Bring your own apparel</p>
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-4xl font-black uppercase leading-[0.95] sm:text-5xl">
+                Have shirts already?
+              </h2>
+            </div>
+            <a
+              href="#dtf-top"
+              className="inline-flex min-h-10 shrink-0 items-center justify-center rounded-md border border-white/20 bg-white/[0.04] px-4 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent hover:bg-accent/10 lg:mt-6"
+            >
+              Back to top
+            </a>
+          </div>
           <p className="mt-6 text-sm leading-7 text-[#d6e3f0]">
             Add customer supplied garments as a quote basket item. We will
             review the apparel, print placement, artwork, and production risk

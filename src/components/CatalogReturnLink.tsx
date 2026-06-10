@@ -5,6 +5,10 @@ import { useRouter } from "next/navigation";
 const returnUrlKey = "hue-catalog-return-url";
 
 function fallbackReturnUrl() {
+  if (window.location.search.includes("service=dtf")) {
+    return "/custom-catalog?service=dtf";
+  }
+
   if (window.location.search.includes("service=embroidery")) {
     return "/custom-catalog?service=embroidery";
   }

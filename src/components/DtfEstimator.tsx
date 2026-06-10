@@ -83,6 +83,7 @@ const backPrintPresetOptions = [
   { label: "None", value: "none" },
   { label: "Full Back", value: "back" },
 ];
+const catalogReturnUrlKey = "hue-catalog-return-url";
 
 const navigatorGroups: NavigatorGroup[] = [
   {
@@ -557,6 +558,10 @@ function shortTitle(product: CatalogProduct) {
     .replace("Sport-Tek ", "");
 }
 
+function productDetailHref(product: CatalogProduct) {
+  return `/custom-catalog/${encodeURIComponent(product.style)}?service=dtf`;
+}
+
 function buildDtfPayload({
   product,
   color,
@@ -771,6 +776,13 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       error: "",
       isLoading: false,
     });
+  }
+
+  function saveCatalogReturnState() {
+    window.sessionStorage.setItem(
+      catalogReturnUrlKey,
+      `${window.location.pathname}${window.location.search}`,
+    );
   }
 
   function isTierOpen(tier: NavigatorTier, index: number) {
@@ -1204,68 +1216,74 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
                             return (
                               <article
                                 key={product.style}
-                                className="bg-white p-4"
+                                className="group bg-white p-4 transition hover:bg-[#f9fbfd]"
                               >
-                                <div className="relative aspect-[1.15] rounded bg-[#eef2f6]">
-                                  {image ? (
-                                    // eslint-disable-next-line @next/next/no-img-element
-                                    <img
-                                      src={image}
-                                      alt={product.title}
-                                      className="h-full w-full object-contain p-4"
-                                      loading="lazy"
-                                    />
-                                  ) : null}
-                                </div>
-                                <p className="mt-4 text-[0.68rem] font-black uppercase tracking-wide text-accent">
-                                  {product.brand} - {product.style}
-                                </p>
-                                <h5 className="mt-1 min-h-10 text-sm font-black leading-5 text-[#07111f]">
-                                  {shortTitle(product)}
-                                </h5>
-                                <div className="mt-3 flex -space-x-1">
-                                  {product.colors.slice(0, 7).map((color) => (
-                                    <span
-                                      key={color.name}
-                                      title={color.name}
-                                      className="h-5 w-5 overflow-hidden rounded-full border border-white bg-[#d8e1ea] shadow-sm ring-1 ring-black/10"
-                                    >
-                                      {color.swatchImage ? (
-                                        // eslint-disable-next-line @next/next/no-img-element
-                                        <img
-                                          src={color.swatchImage}
-                                          alt=""
-                                          className="h-full w-full object-cover"
-                                          loading="lazy"
-                                        />
-                                      ) : null}
-                                    </span>
-                                  ))}
-                                  {product.colors.length > 7 ? (
-                                    <span className="grid h-5 w-5 place-items-center rounded-full bg-[#07111f] text-[0.55rem] font-black text-white">
-                                      +
-                                    </span>
-                                  ) : null}
-                                </div>
-                                <div className="mt-4 rounded-md bg-[#07111f] px-4 py-3 text-white">
-                                  <p className="text-[0.66rem] font-black uppercase tracking-[0.16em] text-[#9fc8ef]">
-                                    Quick price
+                                <Link
+                                  href={productDetailHref(product)}
+                                  onClick={saveCatalogReturnState}
+                                  className="block rounded-sm outline-none transition focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                                >
+                                  <div className="relative aspect-[1.15] rounded bg-[#eef2f6]">
+                                    {image ? (
+                                      // eslint-disable-next-line @next/next/no-img-element
+                                      <img
+                                        src={image}
+                                        alt={product.title}
+                                        className="h-full w-full object-contain p-4 transition duration-500 group-hover:scale-105"
+                                        loading="lazy"
+                                      />
+                                    ) : null}
+                                  </div>
+                                  <p className="mt-4 text-[0.68rem] font-black uppercase tracking-wide text-accent">
+                                    {product.brand} - {product.style}
                                   </p>
-                                  <p className="mt-1 text-lg font-black">
-                                    {estimate?.status === "ready"
-                                      ? `${formatPrice(estimate.each, estimate.currency)} ea`
-                                      : estimate?.status === "loading"
-                                        ? "Loading..."
-                                        : "Request pricing"}
-                                  </p>
-                                  <p className="mt-1 text-[0.66rem] font-black uppercase tracking-wide text-white/58">
-                                    {normalizedQuantity} pcs
-                                  </p>
-                                </div>
+                                  <h5 className="mt-1 min-h-10 text-sm font-black leading-5 text-[#07111f] transition group-hover:text-accent">
+                                    {shortTitle(product)}
+                                  </h5>
+                                  <div className="mt-3 flex -space-x-1">
+                                    {product.colors.slice(0, 7).map((color) => (
+                                      <span
+                                        key={color.name}
+                                        title={color.name}
+                                        className="h-5 w-5 overflow-hidden rounded-full border border-white bg-[#d8e1ea] shadow-sm ring-1 ring-black/10"
+                                      >
+                                        {color.swatchImage ? (
+                                          // eslint-disable-next-line @next/next/no-img-element
+                                          <img
+                                            src={color.swatchImage}
+                                            alt=""
+                                            className="h-full w-full object-cover"
+                                            loading="lazy"
+                                          />
+                                        ) : null}
+                                      </span>
+                                    ))}
+                                    {product.colors.length > 7 ? (
+                                      <span className="grid h-5 w-5 place-items-center rounded-full bg-[#07111f] text-[0.55rem] font-black text-white">
+                                        +
+                                      </span>
+                                    ) : null}
+                                  </div>
+                                  <div className="mt-4 rounded-md bg-[#07111f] px-4 py-3 text-white transition group-hover:bg-[#0b1b31]">
+                                    <p className="text-[0.66rem] font-black uppercase tracking-[0.16em] text-[#9fc8ef]">
+                                      Quick price
+                                    </p>
+                                    <p className="mt-1 text-lg font-black">
+                                      {estimate?.status === "ready"
+                                        ? `${formatPrice(estimate.each, estimate.currency)} ea`
+                                        : estimate?.status === "loading"
+                                          ? "Loading..."
+                                          : "Request pricing"}
+                                    </p>
+                                    <p className="mt-1 text-[0.66rem] font-black uppercase tracking-wide text-white/58">
+                                      {normalizedQuantity} pcs
+                                    </p>
+                                  </div>
+                                </Link>
                                 <button
                                   type="button"
                                   onClick={() => openDetailEstimator(product)}
-                                  className="mt-3 flex min-h-11 items-center justify-center rounded-md border border-black/10 px-3 text-center text-xs font-black uppercase text-[#07111f] transition hover:border-accent hover:text-accent"
+                                  className="mt-3 flex min-h-12 w-full items-center justify-center rounded-md bg-accent px-3 text-center text-xs font-black uppercase tracking-wide text-white shadow-[0_14px_30px_rgba(31,115,190,0.24)] transition hover:-translate-y-0.5 hover:bg-[#2a86d8]"
                                 >
                                   Get detailed estimate
                                 </button>
