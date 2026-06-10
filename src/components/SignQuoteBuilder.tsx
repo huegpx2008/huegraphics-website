@@ -23,7 +23,7 @@ type QuoteField = {
 type ProductConfig = {
   id: string;
   name: string;
-  apiSlug: string;
+  apiSlug?: string;
   description: string;
   fields: QuoteField[];
 };
@@ -47,7 +47,7 @@ type ApiEstimate = {
 const products: ProductConfig[] = [
   {
     id: "banner",
-    name: "Vinyl Banner",
+    name: "Vinyl Banners",
     apiSlug: "banner",
     description: "Indoor and outdoor banners with finishing options.",
     fields: [
@@ -74,8 +74,21 @@ const products: ProductConfig[] = [
     ],
   },
   {
+    id: "mesh-banner",
+    name: "Mesh Banners",
+    description: "Outdoor mesh banners for windy areas, fences, and large-format visibility.",
+    fields: [
+      { name: "width", label: "Width (inches)", type: "number", defaultValue: "96", step: "0.25" },
+      { name: "height", label: "Height (inches)", type: "number", defaultValue: "48", step: "0.25" },
+      { name: "quantity", label: "Quantity", type: "number", defaultValue: "1", step: "1" },
+      { name: "grommets", label: "Grommets", type: "checkbox", defaultValue: true },
+      { name: "hemmedEdges", label: "Hemmed Edges", type: "checkbox", defaultValue: true },
+      { name: "rush", label: "Rush", type: "checkbox", defaultValue: false },
+    ],
+  },
+  {
     id: "yard-sign",
-    name: "Yard Sign",
+    name: "Coroplast Yard Signs",
     apiSlug: "yard-sign",
     description: "18 x 24 coroplast yard signs with stake options.",
     fields: [
@@ -138,6 +151,147 @@ const products: ProductConfig[] = [
     ],
   },
   {
+    id: "poster-paper",
+    name: "Poster Paper",
+    description: "Poster prints for indoor promotions, events, menus, and temporary displays.",
+    fields: [
+      { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
+      { name: "height", label: "Height (inches)", type: "number", defaultValue: "36", step: "0.25" },
+      { name: "quantity", label: "Quantity", type: "number", defaultValue: "1", step: "1" },
+      {
+        name: "finish",
+        label: "Finish",
+        type: "select",
+        defaultValue: "standard",
+        options: [
+          { label: "Standard", value: "standard" },
+          { label: "Gloss", value: "gloss" },
+          { label: "Matte", value: "matte" },
+        ],
+      },
+      { name: "rush", label: "Rush", type: "checkbox", defaultValue: false },
+    ],
+  },
+  {
+    id: "acrylic",
+    name: "Acrylic",
+    description: "Rigid acrylic signage for clean indoor displays and specialty sign projects.",
+    fields: [
+      { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
+      { name: "height", label: "Height (inches)", type: "number", defaultValue: "18", step: "0.25" },
+      { name: "quantity", label: "Quantity", type: "number", defaultValue: "1", step: "1" },
+      {
+        name: "thickness",
+        label: "Thickness",
+        type: "select",
+        defaultValue: "3mm",
+        options: [
+          { label: "3mm", value: "3mm" },
+          { label: "6mm", value: "6mm" },
+        ],
+      },
+      { name: "contourCut", label: "Contour Cut", type: "checkbox", defaultValue: false },
+      { name: "rush", label: "Rush", type: "checkbox", defaultValue: false },
+    ],
+  },
+  {
+    id: "foamcore",
+    name: "Foamcore",
+    description: "Lightweight indoor boards for presentations, events, and temporary displays.",
+    fields: [
+      { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
+      { name: "height", label: "Height (inches)", type: "number", defaultValue: "18", step: "0.25" },
+      { name: "quantity", label: "Quantity", type: "number", defaultValue: "1", step: "1" },
+      {
+        name: "sides",
+        label: "Print Sides",
+        type: "select",
+        defaultValue: "single",
+        options: [
+          { label: "Single-Sided", value: "single" },
+          { label: "Double-Sided", value: "double" },
+        ],
+      },
+      { name: "rush", label: "Rush", type: "checkbox", defaultValue: false },
+    ],
+  },
+  {
+    id: "pvc",
+    name: "PVC",
+    description: "Rigid PVC signs for indoor, outdoor, menu, directional, and display use.",
+    fields: [
+      { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
+      { name: "height", label: "Height (inches)", type: "number", defaultValue: "18", step: "0.25" },
+      { name: "quantity", label: "Quantity", type: "number", defaultValue: "1", step: "1" },
+      {
+        name: "thickness",
+        label: "Thickness",
+        type: "select",
+        defaultValue: "3mm",
+        options: [
+          { label: "3mm", value: "3mm" },
+          { label: "6mm", value: "6mm" },
+        ],
+      },
+      {
+        name: "sides",
+        label: "Print Sides",
+        type: "select",
+        defaultValue: "single",
+        options: [
+          { label: "Single-Sided", value: "single" },
+          { label: "Double-Sided", value: "double" },
+        ],
+      },
+      { name: "contourCut", label: "Contour Cut", type: "checkbox", defaultValue: false },
+      { name: "rush", label: "Rush", type: "checkbox", defaultValue: false },
+    ],
+  },
+  {
+    id: "polystyrene",
+    name: "Polystyrene .03",
+    description: "Thin flexible sign material for indoor displays, inserts, and light-duty panels.",
+    fields: [
+      { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
+      { name: "height", label: "Height (inches)", type: "number", defaultValue: "18", step: "0.25" },
+      { name: "quantity", label: "Quantity", type: "number", defaultValue: "1", step: "1" },
+      {
+        name: "sides",
+        label: "Print Sides",
+        type: "select",
+        defaultValue: "single",
+        options: [
+          { label: "Single-Sided", value: "single" },
+          { label: "Double-Sided", value: "double" },
+        ],
+      },
+      { name: "rush", label: "Rush", type: "checkbox", defaultValue: false },
+    ],
+  },
+  {
+    id: "aluminum",
+    name: "Aluminum",
+    description: "Aluminum sign panels for durable outdoor identification and directional signage.",
+    fields: [
+      { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
+      { name: "height", label: "Height (inches)", type: "number", defaultValue: "18", step: "0.25" },
+      { name: "quantity", label: "Quantity", type: "number", defaultValue: "1", step: "1" },
+      {
+        name: "sides",
+        label: "Print Sides",
+        type: "select",
+        defaultValue: "single",
+        options: [
+          { label: "Single-Sided", value: "single" },
+          { label: "Double-Sided", value: "double" },
+        ],
+      },
+      { name: "roundedCorners", label: "Rounded Corners", type: "checkbox", defaultValue: false },
+      { name: "holes", label: "Drilled Holes", type: "checkbox", defaultValue: false },
+      { name: "rush", label: "Rush", type: "checkbox", defaultValue: false },
+    ],
+  },
+  {
     id: "vinyl",
     name: "Printed Vinyl",
     apiSlug: "vinyl",
@@ -176,7 +330,7 @@ const products: ProductConfig[] = [
   },
   {
     id: "custom-cut-coroplast",
-    name: "Custom Cut Coroplast",
+    name: "Custom Cut Coro Signs",
     apiSlug: "custom-cut-coroplast",
     description: "Custom-size coroplast signs beyond standard yard sign presets.",
     fields: [
@@ -211,7 +365,7 @@ const products: ProductConfig[] = [
   },
   {
     id: "vehicle-magnet",
-    name: "Vehicle Magnet",
+    name: "Vehicle Magnets",
     apiSlug: "vehicle-magnet",
     description: "Magnetic vehicle signs with rectangle, rounded, or contour-cut options.",
     fields: [
@@ -337,18 +491,21 @@ export function SignQuoteBuilder() {
   );
   const [estimate, setEstimate] = useState<ApiEstimate | null>(null);
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setValues(getDefaultValues(activeProduct));
     setEstimate(null);
     setError("");
+    setMessage("");
   }, [activeProduct]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
     setEstimate(null);
+    setMessage("");
 
     const payload = toPayload(activeProduct, values);
 
@@ -360,6 +517,11 @@ export function SignQuoteBuilder() {
 
     if (missingNumber) {
       setError("Please enter valid numbers before requesting an estimate.");
+      return;
+    }
+
+    if (!activeProduct.apiSlug) {
+      addConfiguredProductToQuote();
       return;
     }
 
@@ -392,20 +554,21 @@ export function SignQuoteBuilder() {
   }
 
   function updateValue(field: QuoteField, value: string | boolean) {
+    setMessage("");
     setValues((currentValues) => ({
       ...currentValues,
       [field.name]: value,
     }));
   }
 
-  function addEstimateToQuote() {
-    if (!estimate) {
-      return;
-    }
-
+  function buildQuoteBasketItem(sourceEstimate?: ApiEstimate): QuoteBasketItem {
     const quantity = getQuantity(values);
     const configuration = getConfigurationText(activeProduct, values);
-    const item: QuoteBasketItem = {
+    const summaryText = sourceEstimate
+      ? getSummaryText(activeProduct.name, sourceEstimate)
+      : activeProduct.name;
+
+    return {
       id: `sign-${activeProduct.id}-${Date.now()}`,
       productName: activeProduct.name,
       style: activeProduct.name,
@@ -417,17 +580,30 @@ export function SignQuoteBuilder() {
       frontColors: "Full color",
       backColors: "0",
       decorationSummary: [
-        getSummaryText(activeProduct.name, estimate),
+        summaryText,
         configuration && `Configuration: ${configuration}`,
+        !sourceEstimate && "Manual review needed for final pricing.",
       ]
         .filter(Boolean)
         .join(" | "),
-      estimatedEach: estimate.price?.each,
-      estimatedTotal: estimate.price?.retail,
-      currency: estimate.currency ?? "USD",
+      estimatedEach: sourceEstimate?.price?.each,
+      estimatedTotal: sourceEstimate?.price?.retail,
+      currency: sourceEstimate?.currency ?? "USD",
     };
+  }
 
-    addItemToFloatingQuoteBasket(item);
+  function addConfiguredProductToQuote() {
+    addItemToFloatingQuoteBasket(buildQuoteBasketItem());
+    setMessage(`${activeProduct.name} was added to the quote basket for review.`);
+  }
+
+  function addEstimateToQuote() {
+    if (!estimate) {
+      return;
+    }
+
+    addItemToFloatingQuoteBasket(buildQuoteBasketItem(estimate));
+    setMessage(`${activeProduct.name} estimate was added to the quote basket.`);
   }
 
   return (
@@ -542,9 +718,13 @@ export function SignQuoteBuilder() {
               <button
                 type="submit"
                 disabled={isLoading}
-                    className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-accent px-6 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8] disabled:cursor-wait disabled:opacity-70"
+                className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-accent px-6 text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_36px_rgba(31,115,190,0.28)] transition hover:bg-[#2a86d8] disabled:cursor-wait disabled:opacity-70"
               >
-                {isLoading ? "Getting estimate..." : "Get Estimate"}
+                {isLoading
+                  ? "Getting estimate..."
+                  : activeProduct.apiSlug
+                    ? "Get Estimate"
+                    : "Add To Quote Basket"}
               </button>
 
               {error ? (
@@ -552,11 +732,46 @@ export function SignQuoteBuilder() {
                   {error}
                 </div>
               ) : null}
+
+              {message ? (
+                <div className="mt-4 rounded-md border border-accent/25 bg-[#eef6ff] px-4 py-3 text-sm font-bold leading-6 text-[#174a78]">
+                  {message}
+                </div>
+              ) : null}
             </form>
 
             <div className="bg-[#eef4fa] p-4 sm:p-7">
               <p className="eyebrow">Estimate</p>
-              {estimate ? (
+              {!activeProduct.apiSlug ? (
+                <div className="mt-5 space-y-4">
+                  <div className="rounded-md bg-white p-5 shadow-[0_12px_32px_rgba(7,17,31,0.08)] ring-1 ring-black/8">
+                    <p className="text-xs font-black uppercase tracking-[0.16em] text-[#678197]">
+                      Quote review item
+                    </p>
+                    <p className="mt-2 text-2xl font-black text-[#07111f]">
+                      Final pricing after review
+                    </p>
+                    <p className="mt-3 text-sm font-bold leading-6 text-[#52677d]">
+                      This product is available to request, but it is not tied
+                      to the instant pricing API yet. Add it to the basket and
+                      we will price it around the exact size, material, artwork,
+                      finishing, and quantity.
+                    </p>
+                  </div>
+
+                  <div className="rounded-md bg-white px-4 py-3 text-sm font-bold leading-6 text-[#314154] ring-1 ring-black/8">
+                    {getConfigurationText(activeProduct, values)}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={addConfiguredProductToQuote}
+                    className="inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-[#07111f] px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#13243a]"
+                  >
+                    Add To Quote Basket
+                  </button>
+                </div>
+              ) : estimate ? (
                 <div className="mt-5 space-y-4">
                   <div className="rounded-md bg-white p-5 shadow-[0_12px_32px_rgba(7,17,31,0.08)] ring-1 ring-black/8">
                     <p className="text-xs font-black uppercase tracking-[0.16em] text-[#678197]">
