@@ -76,6 +76,7 @@ const products: ProductConfig[] = [
   {
     id: "mesh-banner",
     name: "Mesh Banners",
+    apiSlug: "mesh-banner",
     description: "Outdoor mesh banners for windy areas, fences, and large-format visibility.",
     fields: [
       { name: "width", label: "Width (inches)", type: "number", defaultValue: "96", step: "0.25" },
@@ -153,6 +154,7 @@ const products: ProductConfig[] = [
   {
     id: "poster-paper",
     name: "Poster Paper",
+    apiSlug: "poster",
     description: "Poster prints for indoor promotions, events, menus, and temporary displays.",
     fields: [
       { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
@@ -175,6 +177,7 @@ const products: ProductConfig[] = [
   {
     id: "acrylic",
     name: "Acrylic",
+    apiSlug: "acrylic",
     description: "Rigid acrylic signage for clean indoor displays and specialty sign projects.",
     fields: [
       { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
@@ -197,6 +200,7 @@ const products: ProductConfig[] = [
   {
     id: "foamcore",
     name: "Foamcore",
+    apiSlug: "foamcore",
     description: "Lightweight indoor boards for presentations, events, and temporary displays.",
     fields: [
       { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
@@ -218,6 +222,7 @@ const products: ProductConfig[] = [
   {
     id: "pvc",
     name: "PVC",
+    apiSlug: "pvc",
     description: "Rigid PVC signs for indoor, outdoor, menu, directional, and display use.",
     fields: [
       { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
@@ -250,6 +255,7 @@ const products: ProductConfig[] = [
   {
     id: "polystyrene",
     name: "Polystyrene .03",
+    apiSlug: "polystyrene",
     description: "Thin flexible sign material for indoor displays, inserts, and light-duty panels.",
     fields: [
       { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
@@ -271,11 +277,23 @@ const products: ProductConfig[] = [
   {
     id: "aluminum",
     name: "Aluminum",
+    apiSlug: "aluminum",
     description: "Aluminum sign panels for durable outdoor identification and directional signage.",
     fields: [
       { name: "width", label: "Width (inches)", type: "number", defaultValue: "24", step: "0.25" },
       { name: "height", label: "Height (inches)", type: "number", defaultValue: "18", step: "0.25" },
       { name: "quantity", label: "Quantity", type: "number", defaultValue: "1", step: "1" },
+      {
+        name: "thickness",
+        label: "Thickness",
+        type: "select",
+        defaultValue: "040",
+        options: [
+          { label: ".040", value: "040" },
+          { label: ".063", value: "063" },
+          { label: ".080", value: "080" },
+        ],
+      },
       {
         name: "sides",
         label: "Print Sides",
@@ -377,6 +395,22 @@ const products: ProductConfig[] = [
       { name: "rush", label: "Rush", type: "checkbox", defaultValue: false },
     ],
   },
+];
+
+const productDisplayOrder = [
+  "yard-sign",
+  "custom-cut-coroplast",
+  "banner",
+  "mesh-banner",
+  "acm",
+  "poster-paper",
+  "acrylic",
+  "foamcore",
+  "pvc",
+  "polystyrene",
+  "aluminum",
+  "vinyl",
+  "vehicle-magnet",
 ];
 
 function getDefaultValues(product: ProductConfig) {
@@ -481,10 +515,21 @@ function toPayload(product: ProductConfig, values: Record<string, string | boole
 }
 
 export function SignQuoteBuilder() {
-  const [activeProductId, setActiveProductId] = useState(products[0].id);
+  const orderedProducts = useMemo(
+    () =>
+      [...products].sort(
+        (first, second) =>
+          productDisplayOrder.indexOf(first.id) -
+          productDisplayOrder.indexOf(second.id),
+      ),
+    [],
+  );
+  const [activeProductId, setActiveProductId] = useState(orderedProducts[0].id);
   const activeProduct = useMemo(
-    () => products.find((product) => product.id === activeProductId) ?? products[0],
-    [activeProductId],
+    () =>
+      orderedProducts.find((product) => product.id === activeProductId) ??
+      orderedProducts[0],
+    [activeProductId, orderedProducts],
   );
   const [values, setValues] = useState<Record<string, string | boolean>>(
     getDefaultValues(activeProduct),
@@ -609,39 +654,53 @@ export function SignQuoteBuilder() {
   return (
     <section className="px-4 py-8 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-sm bg-[#07111f] shadow-[0_24px_70px_rgba(7,17,31,0.16)] ring-1 ring-black/10">
-        <div className="grid gap-px bg-white/10 lg:grid-cols-[0.68fr_1.32fr]">
-          <div className="bg-[#07111f] p-6 sm:p-8">
+        <div className="bg-[#07111f] p-5 sm:p-7">
+          <div className="grid gap-5 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
+            <div>
             <p className="eyebrow text-accent">Signs & banners quote builder</p>
-            <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-3xl font-black uppercase leading-[0.94] text-white sm:text-5xl">
+              <h2 className="mt-4 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-3xl font-black uppercase leading-[0.94] text-white sm:text-5xl">
               Build a quick starting estimate for common sign projects.
             </h2>
-            <p className="mt-6 text-sm leading-7 text-[#d6e3f0]">
+              <p className="mt-5 text-sm leading-7 text-[#d6e3f0]">
               Choose a product and enter the details to get a helpful starting
               point. Final pricing can be reviewed around quantity, artwork,
               material choice, finishing, and production details.
             </p>
-            <div className="mt-8 grid gap-3">
-              {products.map((product) => (
+            </div>
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#8eb8dc]">
+                Available products
+              </p>
+              <div className="mt-3 flex max-h-[12rem] flex-wrap gap-2 overflow-y-auto pr-1 sm:max-h-none sm:overflow-visible">
+                {orderedProducts.map((product) => (
                 <button
                   key={product.id}
                   type="button"
                   onClick={() => setActiveProductId(product.id)}
-                  className={`min-h-20 rounded-md border p-4 text-left transition ${
+                    className={`rounded-md border px-3 py-2 text-left text-xs font-black uppercase tracking-wide transition sm:text-[0.8rem] ${
                     product.id === activeProduct.id
-                      ? "border-accent bg-accent text-white shadow-[0_16px_32px_rgba(31,115,190,0.28)]"
-                      : "border-white/10 bg-white/[0.04] text-[#d6e3f0] hover:border-accent"
+                        ? "border-accent bg-accent text-white shadow-[0_12px_26px_rgba(31,115,190,0.32)]"
+                        : "border-white/14 bg-white/[0.04] text-[#d6e3f0] hover:border-accent hover:bg-white/[0.08]"
                   }`}
                 >
-                  <span className="block text-sm font-black uppercase tracking-wide">
                     {product.name}
-                  </span>
-                  <span className="mt-1 block text-xs leading-5 opacity-85">
-                    {product.description}
-                  </span>
                 </button>
               ))}
+              </div>
+              <div className="mt-4 rounded-md border border-white/10 bg-white/[0.05] px-4 py-3">
+                <p className="text-xs font-black uppercase tracking-[0.16em] text-accent">
+                  Selected
+                </p>
+                <p className="mt-1 text-sm font-black text-white">
+                  {activeProduct.name}
+                </p>
+                <p className="mt-1 text-xs leading-5 text-[#d6e3f0]">
+                  {activeProduct.description}
+                </p>
+              </div>
             </div>
           </div>
+        </div>
 
           <div className="grid gap-px bg-white/10 xl:grid-cols-[1fr_0.9fr]">
             <form onSubmit={handleSubmit} className="bg-white p-4 sm:p-7">
@@ -819,7 +878,6 @@ export function SignQuoteBuilder() {
               )}
             </div>
           </div>
-        </div>
 
         <div className="border-t border-white/10 bg-[#07111f] p-5 sm:p-7">
           <p className="eyebrow text-accent">Shared quote basket</p>

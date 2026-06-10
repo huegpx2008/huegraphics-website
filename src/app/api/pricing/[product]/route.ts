@@ -2,8 +2,15 @@ import { NextResponse } from "next/server";
 
 const allowedProducts = new Set([
   "banner",
+  "mesh-banner",
   "yard-sign",
   "acm",
+  "poster",
+  "acrylic",
+  "foamcore",
+  "pvc",
+  "polystyrene",
+  "aluminum",
   "vinyl",
   "custom-cut-coroplast",
   "vehicle-magnet",
