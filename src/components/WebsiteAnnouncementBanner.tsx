@@ -40,14 +40,8 @@ export function WebsiteAnnouncementBanner() {
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:shrink-0">
           <Link
-            href="/request-a-quote"
-            className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-5 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:bg-[#2a86d8]"
-          >
-            Start a Quote
-          </Link>
-          <Link
             href="/custom-catalog"
-            className="inline-flex min-h-11 items-center justify-center rounded-md border border-[#9eb4c6] px-5 text-sm font-black uppercase tracking-[0.08em] text-[#07111f] transition hover:border-accent hover:text-accent"
+            className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-5 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:bg-[#2a86d8]"
           >
             Browse Catalog
           </Link>

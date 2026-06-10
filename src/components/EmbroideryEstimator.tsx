@@ -14,6 +14,10 @@ import {
   loadGroupedSizePriceBreakdown,
   type ApparelSizePriceBreakdown,
 } from "@/lib/apparel-size-breakdown";
+import {
+  findUnavailableSelectedSizes,
+  removeUnavailableSizes,
+} from "@/lib/pricing-availability";
 
 type EmbroideryEstimatorProps = {
   products: CatalogProduct[];
@@ -940,22 +944,23 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
       sizePriceBreakdown: [],
     });
 
+    const numericSizes = numericSizeQuantities(detailEstimator.sizes);
+    const buildPayload = (sizeQuantities: Record<string, number>) =>
+      buildEmbroideryPayload({
+        product: detailEstimator.product,
+        color: detailEstimator.color,
+        sizeQuantities,
+        placement: detailEstimator.placement,
+        stitchCount: Number(detailEstimator.stitchCount),
+        threadColors: Number(detailEstimator.threadColors),
+        digitizingRequired: detailEstimator.digitizingRequired,
+        puff3mm: detailEstimator.puff3mm,
+        namesEnabled: detailEstimator.namesEnabled,
+        numbersEnabled: detailEstimator.numbersEnabled,
+        sameDesign: detailEstimator.sameDesign,
+      });
+
     try {
-      const numericSizes = numericSizeQuantities(detailEstimator.sizes);
-      const buildPayload = (sizeQuantities: Record<string, number>) =>
-        buildEmbroideryPayload({
-          product: detailEstimator.product,
-          color: detailEstimator.color,
-          sizeQuantities,
-          placement: detailEstimator.placement,
-          stitchCount: Number(detailEstimator.stitchCount),
-          threadColors: Number(detailEstimator.threadColors),
-          digitizingRequired: detailEstimator.digitizingRequired,
-          puff3mm: detailEstimator.puff3mm,
-          namesEnabled: detailEstimator.namesEnabled,
-          numbersEnabled: detailEstimator.numbersEnabled,
-          sameDesign: detailEstimator.sameDesign,
-        });
       const estimate = await requestEmbroideryEstimate(buildPayload(numericSizes));
       const sizePriceBreakdown = await loadGroupedSizePriceBreakdown({
         sizes: numericSizes,
@@ -967,6 +972,27 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
 
       updateDetail({ estimate, sizePriceBreakdown, isLoading: false });
     } catch (error) {
+      const unavailableSizes = await findUnavailableSelectedSizes({
+        sizes: numericSizeQuantities(detailEstimator.sizes),
+        probeQuantity: Math.max(totalQty, embroideryMinimumQuantity),
+        requestEstimate: (sizes) => requestEmbroideryEstimate(buildPayload(sizes)),
+      });
+
+      if (unavailableSizes.length) {
+        updateDetail({
+          error: `${detailEstimator.color} does not appear to be available in ${unavailableSizes.join(
+            ", ",
+          )} for ${detailEstimator.product.style}, so ${
+            unavailableSizes.length === 1 ? "that size was" : "those sizes were"
+          } removed from this estimate. Please review the remaining sizes and get the estimate again.`,
+          sizes: removeUnavailableSizes(detailEstimator.sizes, unavailableSizes),
+          estimate: null,
+          sizePriceBreakdown: [],
+          isLoading: false,
+        });
+        return;
+      }
+
       updateDetail({
         error:
           error instanceof Error

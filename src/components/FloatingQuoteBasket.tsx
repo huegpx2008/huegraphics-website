@@ -104,6 +104,152 @@ function screenPrintGroups(items: QuoteBasketItem[]) {
   return [...groups.values()];
 }
 
+function basketMergeKey(item: QuoteBasketItem) {
+  return [
+    item.service || "Screen Printing",
+    item.style,
+    item.brand,
+    item.productName,
+    item.color,
+    item.frontColors,
+    item.backColors,
+    item.decorationSummary || "",
+  ].join("|");
+}
+
+function mergeBasketItem(
+  currentItems: QuoteBasketItem[],
+  incomingItem: QuoteBasketItem,
+) {
+  const incomingKey = basketMergeKey(incomingItem);
+  const existingIndex = currentItems.findIndex(
+    (item) => basketMergeKey(item) === incomingKey,
+  );
+
+  if (existingIndex === -1) {
+    return [...currentItems, incomingItem];
+  }
+
+  return currentItems.map((item, index) => {
+    if (index !== existingIndex) {
+      return item;
+    }
+
+    const sizes = { ...item.sizes };
+
+    Object.entries(incomingItem.sizes).forEach(([size, quantity]) => {
+      sizes[size] = (sizes[size] || 0) + Number(quantity || 0);
+    });
+
+    const quantity = Object.values(sizes).reduce(
+      (total, sizeQuantity) => total + Number(sizeQuantity || 0),
+      0,
+    );
+
+    return {
+      ...item,
+      sizes,
+      quantity,
+      estimatedEach: undefined,
+      estimatedTotal: undefined,
+      currency: item.currency || incomingItem.currency,
+    };
+  });
+}
+
+function formatSizeBreakdown(sizes: Record<string, number>) {
+  return Object.entries(sizes)
+    .filter(([, quantity]) => Number(quantity) > 0)
+    .map(([size, quantity]) => `${size}: ${quantity}`)
+    .join(", ");
+}
+
+function isInvalidPricingInputMessage(message: string) {
+  return /invalid|not available|unavailable/i.test(message);
+}
+
+async function requestScreenPrintBasketEstimate(items: QuoteBasketItem[]) {
+  const firstItem = items[0];
+  const response = await fetch("/api/pricing/screenprint", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      lineItems: items.map((item) => ({
+        style: item.style,
+        title: item.productName,
+        color: item.color,
+        sizes: item.sizes,
+        sizeQty: item.sizes,
+      })),
+      printLines: [
+        {
+          id: "front",
+          name: "Front",
+          colors: Number(firstItem.frontColors || 0),
+        },
+        {
+          id: "back",
+          name: "Back",
+          colors: Number(firstItem.backColors || 0),
+        },
+      ],
+      sameDesign: true,
+    }),
+  });
+  const data = (await response.json()) as BasketScreenprintEstimate;
+
+  if (!response.ok || data.ok === false) {
+    throw new Error(data.error?.message || "Basket estimate unavailable.");
+  }
+
+  return data;
+}
+
+async function findUnavailableBasketSizes(
+  groups: ReturnType<typeof screenPrintGroups>,
+) {
+  const unavailable: { itemId: string; style: string; color: string; size: string }[] =
+    [];
+
+  for (const group of groups) {
+    for (const item of group.items) {
+      for (const [size, quantity] of Object.entries(item.sizes)) {
+        if (Number(quantity) <= 0) {
+          continue;
+        }
+
+        try {
+          await requestScreenPrintBasketEstimate([
+            {
+              ...item,
+              quantity: Math.max(group.quantity, screenPrintMinimumQuantity),
+              sizes: {
+                [size]: Math.max(group.quantity, screenPrintMinimumQuantity),
+              },
+            },
+          ]);
+        } catch (error) {
+          if (
+            error instanceof Error &&
+            isInvalidPricingInputMessage(error.message)
+          ) {
+            unavailable.push({
+              itemId: item.id,
+              style: item.style,
+              color: item.color,
+              size,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  return unavailable;
+}
+
 function formatBasketDetails(items: QuoteBasketItem[], notes: string) {
   const itemDetails = items
     .map((item, index) => {
@@ -195,9 +341,10 @@ export function FloatingQuoteBasket() {
         return;
       }
 
-      setItems((current) => [...current, item]);
+      setItems((current) => mergeBasketItem(current, item));
       setIsOpen(true);
       setStatus(null);
+      setBasketEstimateMessage("");
     }
 
     function handleOpenBasket() {
@@ -248,40 +395,7 @@ export function FloatingQuoteBasket() {
     try {
       const estimates = await Promise.all(
         eligibleGroups.map(async (group) => {
-          const firstItem = group.items[0];
-          const response = await fetch("/api/pricing/screenprint", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              lineItems: group.items.map((item) => ({
-                style: item.style,
-                title: item.productName,
-                color: item.color,
-                sizes: item.sizes,
-                sizeQty: item.sizes,
-              })),
-              printLines: [
-                {
-                  id: "front",
-                  name: "Front",
-                  colors: Number(firstItem.frontColors || 0),
-                },
-                {
-                  id: "back",
-                  name: "Back",
-                  colors: Number(firstItem.backColors || 0),
-                },
-              ],
-              sameDesign: true,
-            }),
-          });
-          const data = (await response.json()) as BasketScreenprintEstimate;
-
-          if (!response.ok || data.ok === false) {
-            throw new Error(data.error?.message || "Basket estimate unavailable.");
-          }
+          const data = await requestScreenPrintBasketEstimate(group.items);
 
           return {
             itemIds: new Set(group.items.map((item) => item.id)),
@@ -326,10 +440,56 @@ export function FloatingQuoteBasket() {
           : "Basket pricing calculated for compatible screen print items.",
       );
     } catch (error) {
-      setBasketEstimateMessage(
+      const errorMessage =
         error instanceof Error
           ? error.message
-          : "Basket estimate unavailable. Please try again.",
+          : "Basket estimate unavailable. Please try again.";
+      const unavailableSizes = isInvalidPricingInputMessage(errorMessage)
+        ? await findUnavailableBasketSizes(eligibleGroups)
+        : [];
+
+      if (unavailableSizes.length) {
+        setItems((current) =>
+          current
+            .map((item) => {
+              const rejectedSizes = unavailableSizes
+                .filter((entry) => entry.itemId === item.id)
+                .map((entry) => entry.size);
+
+              if (!rejectedSizes.length) {
+                return item;
+              }
+
+              const sizes = Object.fromEntries(
+                Object.entries(item.sizes).filter(
+                  ([size]) => !rejectedSizes.includes(size),
+                ),
+              );
+              const quantity = Object.values(sizes).reduce(
+                (total, sizeQuantity) => total + Number(sizeQuantity || 0),
+                0,
+              );
+
+              return {
+                ...item,
+                sizes,
+                quantity,
+                estimatedEach: undefined,
+                estimatedTotal: undefined,
+              };
+            })
+            .filter((item) => item.quantity > 0),
+        );
+        setBasketEstimateMessage(
+          `Some selected sizes were not available for that color and were removed: ${unavailableSizes
+            .map((entry) => `${entry.style} ${entry.color} ${entry.size}`)
+            .join(", ")}. Please review the basket and calculate again.`,
+        );
+        return;
+      }
+
+      setBasketEstimateMessage(
+        errorMessage,
       );
     } finally {
       setIsCalculatingBasket(false);
@@ -583,6 +743,7 @@ export function FloatingQuoteBasket() {
                     <div className="mt-4 grid gap-2 text-sm font-bold text-[#314154]">
                       <p>Color: {item.color}</p>
                       <p>Quantity: {item.quantity}</p>
+                      <p>Sizes: {formatSizeBreakdown(item.sizes) || "Not provided"}</p>
                       <p>Service: {item.service || "Screen Printing"}</p>
                       <p>
                         {item.decorationSummary

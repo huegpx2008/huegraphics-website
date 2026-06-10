@@ -13,6 +13,10 @@ import {
   extractApiSizePriceBreakdown,
   type ApparelSizePriceBreakdown,
 } from "@/lib/apparel-size-breakdown";
+import {
+  findUnavailableSelectedSizes,
+  removeUnavailableSizes,
+} from "@/lib/pricing-availability";
 
 type DtfEstimatorProps = {
   products: CatalogProduct[];
@@ -891,7 +895,7 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       sizePriceBreakdown: [],
     });
 
-    try {
+    const requestEstimate = async (sizeQuantities: Record<string, number>) => {
       const response = await fetch("/api/pricing/dtf", {
         method: "POST",
         headers: {
@@ -901,7 +905,7 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
           buildDtfPayload({
             product: detailEstimator.product,
             color: detailEstimator.color,
-            sizeQuantities: numericSizes,
+            sizeQuantities,
             frontPreset: detailEstimator.frontPreset,
             backPreset: detailEstimator.backPreset,
             leftSleeve: detailEstimator.leftSleeve,
@@ -912,8 +916,35 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       const data = (await response.json()) as DtfEstimate;
 
       if (!response.ok || data.ok === false) {
+        throw new Error(data.error?.message || "Estimate unavailable.");
+      }
+
+      return data;
+    };
+
+    try {
+      const data = await requestEstimate(numericSizes);
+
+      updateDetail({
+        estimate: data,
+        sizePriceBreakdown: extractApiSizePriceBreakdown(data),
+        isLoading: false,
+      });
+    } catch (error) {
+      const unavailableSizes = await findUnavailableSelectedSizes({
+        sizes: numericSizes,
+        probeQuantity: Math.max(totalQty, dtfMinimumQuantity),
+        requestEstimate,
+      });
+
+      if (unavailableSizes.length) {
         updateDetail({
-          error: data.error?.message || "Estimate unavailable.",
+          error: `${detailEstimator.color} does not appear to be available in ${unavailableSizes.join(
+            ", ",
+          )} for ${detailEstimator.product.style}, so ${
+            unavailableSizes.length === 1 ? "that size was" : "those sizes were"
+          } removed from this estimate. Please review the remaining sizes and get the estimate again.`,
+          sizes: removeUnavailableSizes(detailEstimator.sizes, unavailableSizes),
           estimate: null,
           sizePriceBreakdown: [],
           isLoading: false,
@@ -922,13 +953,10 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       }
 
       updateDetail({
-        estimate: data,
-        sizePriceBreakdown: extractApiSizePriceBreakdown(data),
-        isLoading: false,
-      });
-    } catch {
-      updateDetail({
-        error: "Estimate unavailable. Please try again.",
+        error:
+          error instanceof Error
+            ? error.message
+            : "Estimate unavailable. Please try again.",
         estimate: null,
         sizePriceBreakdown: [],
         isLoading: false,

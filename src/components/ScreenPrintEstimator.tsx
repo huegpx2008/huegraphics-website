@@ -13,6 +13,10 @@ import {
   loadGroupedSizePriceBreakdown,
   type ApparelSizePriceBreakdown,
 } from "@/lib/apparel-size-breakdown";
+import {
+  findUnavailableSelectedSizes,
+  removeUnavailableSizes,
+} from "@/lib/pricing-availability";
 
 type ScreenPrintEstimatorProps = {
   products: CatalogProduct[];
@@ -822,48 +826,48 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
       sizePriceBreakdown: [],
     });
 
-    try {
-      const buildPayload = (sizes: Record<string, number>) => ({
-        lineItems: [
-          {
-            style: detailEstimator.product.style,
-            title: detailEstimator.product.title,
-            color: detailEstimator.color,
-            sizes,
-            sizeQty: sizes,
-          },
-        ],
-        printLines: [
-          {
-            id: "front",
-            name: "Front",
-            colors: Number(detailEstimator.frontColors),
-          },
-          {
-            id: "back",
-            name: "Back",
-            colors: Number(detailEstimator.backColors),
-          },
-        ],
-        sameDesign: true,
+    const buildPayload = (sizes: Record<string, number>) => ({
+      lineItems: [
+        {
+          style: detailEstimator.product.style,
+          title: detailEstimator.product.title,
+          color: detailEstimator.color,
+          sizes,
+          sizeQty: sizes,
+        },
+      ],
+      printLines: [
+        {
+          id: "front",
+          name: "Front",
+          colors: Number(detailEstimator.frontColors),
+        },
+        {
+          id: "back",
+          name: "Back",
+          colors: Number(detailEstimator.backColors),
+        },
+      ],
+      sameDesign: true,
+    });
+    const requestEstimate = async (payload: unknown) => {
+      const response = await fetch("/api/pricing/screenprint", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       });
-      const requestEstimate = async (payload: unknown) => {
-        const response = await fetch("/api/pricing/screenprint", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        });
-        const data = (await response.json()) as ScreenprintEstimate;
+      const data = (await response.json()) as ScreenprintEstimate;
 
-        if (!response.ok || data.ok === false) {
-          throw new Error(data.error?.message || "Estimate unavailable.");
-        }
+      if (!response.ok || data.ok === false) {
+        throw new Error(data.error?.message || "Estimate unavailable.");
+      }
 
-        return data;
-      };
+      return data;
+    };
 
+    try {
       const data = await requestEstimate(buildPayload(numericSizes));
       const sizePriceBreakdown = await loadGroupedSizePriceBreakdown({
         sizes: numericSizes,
@@ -875,6 +879,27 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
 
       updateDetail({ estimate: data, sizePriceBreakdown, isLoading: false });
     } catch (error) {
+      const unavailableSizes = await findUnavailableSelectedSizes({
+        sizes: numericSizes,
+        probeQuantity: Math.max(totalQty, 24),
+        requestEstimate: (sizes) => requestEstimate(buildPayload(sizes)),
+      });
+
+      if (unavailableSizes.length) {
+        updateDetail({
+          error: `${detailEstimator.color} does not appear to be available in ${unavailableSizes.join(
+            ", ",
+          )} for ${detailEstimator.product.style}, so ${
+            unavailableSizes.length === 1 ? "that size was" : "those sizes were"
+          } removed from this estimate. Please review the remaining sizes and get the estimate again.`,
+          sizes: removeUnavailableSizes(detailEstimator.sizes, unavailableSizes),
+          estimate: null,
+          sizePriceBreakdown: [],
+          isLoading: false,
+        });
+        return;
+      }
+
       updateDetail({
         error:
           error instanceof Error
