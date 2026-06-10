@@ -7,7 +7,13 @@ import {
   openFloatingQuoteBasket,
   type QuoteBasketItem,
 } from "@/components/FloatingQuoteBasket";
+import { ApparelSizePriceBreakdownList } from "@/components/ApparelSizePriceBreakdown";
 import type { CatalogProduct } from "@/data/sanmarCatalog.generated";
+import {
+  extractApiSizePriceBreakdown,
+  loadGroupedSizePriceBreakdown,
+  type ApparelSizePriceBreakdown,
+} from "@/lib/apparel-size-breakdown";
 import {
   embroideryMinimumQuantity,
   getEmbroideryRecommendation,
@@ -44,6 +50,7 @@ type ScreenprintEstimate = {
   currency?: string;
   summary?: {
     totalQuantity?: number | string;
+    sizePriceBreakdown?: unknown;
     lineItems?: {
       style?: string;
       productName?: string;
@@ -96,6 +103,7 @@ type DetailEstimatorState = {
   numbersEnabled: boolean;
   sameDesign: boolean;
   estimate: ScreenprintEstimate | EmbroideryEstimate | null;
+  sizePriceBreakdown: ApparelSizePriceBreakdown[];
   error: string;
   isLoading: boolean;
 };
@@ -941,6 +949,20 @@ export function CustomCatalogBrowser({
       currency: detailEstimator.estimate?.currency,
     };
 
+    if (detailEstimator.sizePriceBreakdown.length) {
+      item.decorationSummary = [
+        item.decorationSummary,
+        `Size pricing: ${detailEstimator.sizePriceBreakdown
+          .map(
+            (entry) =>
+              `${entry.label} ${entry.quantity} @ ${formatPrice(entry.priceEach)} each`,
+          )
+          .join(", ")}`,
+      ]
+        .filter(Boolean)
+        .join(" | ");
+    }
+
     addItemToFloatingQuoteBasket(item);
     setDetailEstimator(null);
   }
@@ -977,6 +999,7 @@ export function CustomCatalogBrowser({
       numbersEnabled: quickNumbersEnabled,
       sameDesign: quickSameDesign,
       estimate: null,
+      sizePriceBreakdown: [],
       error: "",
       isLoading: false,
     });
@@ -989,6 +1012,10 @@ export function CustomCatalogBrowser({
             ...current,
             ...updates,
             estimate: updates.estimate === undefined ? current.estimate : updates.estimate,
+            sizePriceBreakdown:
+              updates.sizePriceBreakdown === undefined
+                ? current.sizePriceBreakdown
+                : updates.sizePriceBreakdown,
             error: updates.error === undefined ? current.error : updates.error,
           }
         : current,
@@ -1005,6 +1032,7 @@ export function CustomCatalogBrowser({
               [size]: value,
             },
             estimate: null,
+            sizePriceBreakdown: [],
             error: "",
           }
         : current,
@@ -1049,7 +1077,12 @@ export function CustomCatalogBrowser({
       return;
     }
 
-    updateDetail({ isLoading: true, error: "", estimate: null });
+    updateDetail({
+      isLoading: true,
+      error: "",
+      estimate: null,
+      sizePriceBreakdown: [],
+    });
 
     try {
       const estimate =
@@ -1093,11 +1126,49 @@ export function CustomCatalogBrowser({
                 }),
               );
 
-      updateDetail({ estimate, isLoading: false });
+      const apiBreakdown = extractApiSizePriceBreakdown(estimate);
+      const sizePriceBreakdown =
+        apiBreakdown.length || detailEstimator.service === "dtf"
+          ? apiBreakdown
+          : await loadGroupedSizePriceBreakdown({
+              sizes: sizeQuantities,
+              totalQuantity: totalQty,
+              buildPayload: (groupSizes) =>
+                detailEstimator.service === "screenprint"
+                  ? buildScreenprintPayload({
+                      product: detailEstimator.product,
+                      color: detailEstimator.color,
+                      sizeQuantities: groupSizes,
+                      frontColors: Number(detailEstimator.frontColors),
+                      backColors: Number(detailEstimator.backColors),
+                      sameDesign: detailEstimator.sameDesign,
+                    })
+                  : buildEmbroideryPayload({
+                      product: detailEstimator.product,
+                      color: detailEstimator.color,
+                      sizeQuantities: groupSizes,
+                      placement: detailEstimator.placement,
+                      stitchCount: Number(detailEstimator.stitchCount),
+                      threadColors: Number(detailEstimator.threadColors),
+                      digitizingRequired: detailEstimator.digitizingRequired,
+                      puff3mm: detailEstimator.puff3mm,
+                      namesEnabled: detailEstimator.namesEnabled,
+                      numbersEnabled: detailEstimator.numbersEnabled,
+                      sameDesign: detailEstimator.sameDesign,
+                    }),
+              requestEstimate:
+                detailEstimator.service === "screenprint"
+                  ? requestScreenprintEstimate
+                  : requestEmbroideryEstimate,
+              readEach: (groupEstimate) => groupEstimate.price?.each,
+            });
+
+      updateDetail({ estimate, sizePriceBreakdown, isLoading: false });
     } catch (error) {
       updateDetail({
         error: getErrorMessage(error),
         estimate: null,
+        sizePriceBreakdown: [],
         isLoading: false,
       });
     }
@@ -1568,7 +1639,7 @@ export function CustomCatalogBrowser({
                         {!recommendation.canEstimate
                           ? recommendation.label
                           : estimate?.status === "ready"
-                          ? `${formatPrice(estimate.each)} each`
+                          ? `${formatPrice(estimate.each)} avg each`
                           : estimate?.status === "loading"
                             ? "Loading starting price..."
                             : "Request pricing"}
@@ -2044,8 +2115,12 @@ export function CustomCatalogBrowser({
                         {formatPrice(detailEstimator.estimate.price?.retail)}
                       </p>
                       <p className="mt-2 text-sm font-black uppercase text-[#52677d]">
-                        Estimated each:{" "}
+                        Estimated average each:{" "}
                         {formatPrice(detailEstimator.estimate.price?.each)}
+                      </p>
+                      <p className="mt-2 text-xs font-semibold leading-5 text-[#65717e]">
+                        Larger sizes such as 2XL and above are included in the
+                        total when entered above.
                       </p>
                     </div>
                     <p className="rounded-md bg-white p-4 text-sm font-bold leading-6 text-[#314154] ring-1 ring-black/8">
@@ -2054,6 +2129,10 @@ export function CustomCatalogBrowser({
                         detailEstimator.estimate,
                       )}
                     </p>
+                    <ApparelSizePriceBreakdownList
+                      breakdown={detailEstimator.sizePriceBreakdown}
+                      currency={detailEstimator.estimate.currency}
+                    />
                     {detailEstimator.estimate.warnings?.length ? (
                       <div className="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm font-bold leading-6 text-amber-800">
                         {detailEstimator.estimate.warnings.map((warning) => (

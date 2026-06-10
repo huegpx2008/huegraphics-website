@@ -5,7 +5,13 @@ import {
   addItemToFloatingQuoteBasket,
   type QuoteBasketItem,
 } from "@/components/FloatingQuoteBasket";
+import { ApparelSizePriceBreakdownList } from "@/components/ApparelSizePriceBreakdown";
 import type { CatalogProduct } from "@/data/sanmarCatalog.generated";
+import {
+  extractApiSizePriceBreakdown,
+  loadGroupedSizePriceBreakdown,
+  type ApparelSizePriceBreakdown,
+} from "@/lib/apparel-size-breakdown";
 import { embroideryMinimumQuantity } from "@/lib/catalog-embroidery";
 import { screenPrintMinimumQuantity } from "@/lib/catalog-screenprint";
 
@@ -22,6 +28,9 @@ type ScreenprintEstimate = {
     each?: number | string;
   };
   currency?: string;
+  summary?: {
+    sizePriceBreakdown?: unknown;
+  };
   warnings?: string[];
   error?: {
     message?: string;
@@ -46,6 +55,7 @@ type DetailEstimatorState = {
   namesEnabled: boolean;
   numbersEnabled: boolean;
   estimate: ScreenprintEstimate | null;
+  sizePriceBreakdown: ApparelSizePriceBreakdown[];
   error: string;
   isLoading: boolean;
 };
@@ -204,6 +214,7 @@ export function ProductCatalogQuoteButton({
       namesEnabled: false,
       numbersEnabled: false,
       estimate: null,
+      sizePriceBreakdown: [],
       error: "",
       isLoading: false,
     });
@@ -217,6 +228,10 @@ export function ProductCatalogQuoteButton({
             ...updates,
             estimate:
               updates.estimate === undefined ? current.estimate : updates.estimate,
+            sizePriceBreakdown:
+              updates.sizePriceBreakdown === undefined
+                ? current.sizePriceBreakdown
+                : updates.sizePriceBreakdown,
             error: updates.error === undefined ? current.error : updates.error,
           }
         : current,
@@ -233,10 +248,106 @@ export function ProductCatalogQuoteButton({
               [size]: value,
             },
             estimate: null,
+            sizePriceBreakdown: [],
             error: "",
           }
         : current,
     );
+  }
+
+  function buildEstimatePayload(
+    currentDetail: DetailEstimatorState,
+    sizes: Record<string, number>,
+  ) {
+    return currentDetail.service === "embroidery"
+      ? {
+          lineItems: [
+            {
+              style: product.style,
+              title: product.title,
+              color: currentDetail.color,
+              sizes,
+              sizeQty: sizes,
+            },
+          ],
+          locations: [
+            {
+              placement: currentDetail.placement,
+              stitchCount: Number(currentDetail.stitchCount),
+              threadColors: Number(currentDetail.threadColors),
+              puff3mm: currentDetail.puff3mm,
+            },
+          ],
+          options: {
+            digitizingRequired: currentDetail.digitizingRequired,
+            names: { enabled: currentDetail.namesEnabled, large: false },
+            numbers: { enabled: currentDetail.numbersEnabled, large: false },
+          },
+          sameDesign: true,
+        }
+      : currentDetail.service === "dtf"
+        ? {
+            apparel: {
+              style: product.style,
+              title: product.title,
+              color: currentDetail.color,
+              sizes,
+              sizeQty: sizes,
+            },
+            printLocations: buildDtfPrintLocations(currentDetail),
+            sameDesign: true,
+          }
+        : {
+            lineItems: [
+              {
+                style: product.style,
+                title: product.title,
+                color: currentDetail.color,
+                sizes,
+                sizeQty: sizes,
+              },
+            ],
+            printLines: [
+              {
+                id: "front",
+                name: "Front",
+                colors: Number(currentDetail.frontColors),
+              },
+              {
+                id: "back",
+                name: "Back",
+                colors: Number(currentDetail.backColors),
+              },
+            ],
+            sameDesign: true,
+          };
+  }
+
+  async function requestServiceEstimate(
+    currentDetail: DetailEstimatorState,
+    sizes: Record<string, number>,
+  ) {
+    const response = await fetch(
+      currentDetail.service === "embroidery"
+        ? "/api/pricing/embroidery"
+        : currentDetail.service === "dtf"
+          ? "/api/pricing/dtf"
+          : "/api/pricing/screenprint",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(buildEstimatePayload(currentDetail, sizes)),
+      },
+    );
+    const data = (await response.json()) as ScreenprintEstimate;
+
+    if (!response.ok || data.ok === false) {
+      throw new Error(data.error?.message || "Estimate unavailable.");
+    }
+
+    return data;
   }
 
   async function requestEstimate(event: FormEvent<HTMLFormElement>) {
@@ -277,102 +388,58 @@ export function ProductCatalogQuoteButton({
       return;
     }
 
-    updateDetail({ isLoading: true, error: "", estimate: null });
+    updateDetail({
+      isLoading: true,
+      error: "",
+      estimate: null,
+      sizePriceBreakdown: [],
+    });
 
     try {
-      const response = await fetch(
-        detail.service === "embroidery"
-          ? "/api/pricing/embroidery"
-          : detail.service === "dtf"
-            ? "/api/pricing/dtf"
-          : "/api/pricing/screenprint",
-        {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-          detail.service === "embroidery"
-            ? {
-                lineItems: [
+      const data = await requestServiceEstimate(detail, sizes);
+      const apiBreakdown = extractApiSizePriceBreakdown(data);
+      const sizePriceBreakdown =
+        apiBreakdown.length || detail.service === "dtf"
+          ? apiBreakdown
+          : await loadGroupedSizePriceBreakdown({
+              sizes,
+              totalQuantity: totalQty,
+              buildPayload: (groupSizes) => buildEstimatePayload(detail, groupSizes),
+              requestEstimate: async (payload) => {
+                const response = await fetch(
+                  detail.service === "embroidery"
+                    ? "/api/pricing/embroidery"
+                    : detail.service === "dtf"
+                      ? "/api/pricing/dtf"
+                      : "/api/pricing/screenprint",
                   {
-                    style: product.style,
-                    title: product.title,
-                    color: detail.color,
-                    sizes,
-                    sizeQty: sizes,
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(payload),
                   },
-                ],
-                locations: [
-                  {
-                    placement: detail.placement,
-                    stitchCount: Number(detail.stitchCount),
-                    threadColors: Number(detail.threadColors),
-                    puff3mm: detail.puff3mm,
-                  },
-                ],
-                options: {
-                  digitizingRequired: detail.digitizingRequired,
-                  names: { enabled: detail.namesEnabled, large: false },
-                  numbers: { enabled: detail.numbersEnabled, large: false },
-                },
-                sameDesign: true,
-              }
-            : detail.service === "dtf"
-              ? {
-                  apparel: {
-                    style: product.style,
-                    title: product.title,
-                    color: detail.color,
-                    sizes,
-                    sizeQty: sizes,
-                  },
-                  printLocations: buildDtfPrintLocations(detail),
-                  sameDesign: true,
+                );
+                const groupEstimate =
+                  (await response.json()) as ScreenprintEstimate;
+
+                if (!response.ok || groupEstimate.ok === false) {
+                  throw new Error(
+                    groupEstimate.error?.message || "Estimate unavailable.",
+                  );
                 }
-            : {
-                lineItems: [
-                  {
-                    style: product.style,
-                    title: product.title,
-                    color: detail.color,
-                    sizes,
-                    sizeQty: sizes,
-                  },
-                ],
-                printLines: [
-                  {
-                    id: "front",
-                    name: "Front",
-                    colors: Number(detail.frontColors),
-                  },
-                  {
-                    id: "back",
-                    name: "Back",
-                    colors: Number(detail.backColors),
-                  },
-                ],
-                sameDesign: true,
+
+                return groupEstimate;
               },
-        ),
-        },
-      );
-      const data = (await response.json()) as ScreenprintEstimate;
+              readEach: (groupEstimate) => groupEstimate.price?.each,
+            });
 
-      if (!response.ok || data.ok === false) {
-        updateDetail({
-          error: data.error?.message || "Estimate unavailable.",
-          estimate: null,
-          isLoading: false,
-        });
-        return;
-      }
-
-      updateDetail({ estimate: data, isLoading: false });
-    } catch {
+      updateDetail({ estimate: data, sizePriceBreakdown, isLoading: false });
+    } catch (error) {
       updateDetail({
-        error: "Estimate unavailable. Please try again.",
+        error: error instanceof Error ? error.message : "Estimate unavailable. Please try again.",
         estimate: null,
+        sizePriceBreakdown: [],
         isLoading: false,
       });
     }
@@ -431,6 +498,20 @@ export function ProductCatalogQuoteButton({
       estimatedTotal: detail.estimate?.price?.retail,
       currency: detail.estimate?.currency,
     };
+
+    if (detail.sizePriceBreakdown.length) {
+      item.decorationSummary = [
+        item.decorationSummary,
+        `Size pricing: ${detail.sizePriceBreakdown
+          .map(
+            (entry) =>
+              `${entry.label} ${entry.quantity} @ ${formatPrice(entry.priceEach)} each`,
+          )
+          .join(", ")}`,
+      ]
+        .filter(Boolean)
+        .join(" | ");
+    }
 
     addItemToFloatingQuoteBasket(item);
     setDetail(null);
@@ -862,9 +943,17 @@ export function ProductCatalogQuoteButton({
                         {formatPrice(detail.estimate.price?.retail)}
                       </p>
                       <p className="mt-2 text-sm font-black uppercase text-[#52677d]">
-                        Each: {formatPrice(detail.estimate.price?.each)}
+                        Average each: {formatPrice(detail.estimate.price?.each)}
                       </p>
-                    </div>
+                    <p className="mt-2 text-xs font-semibold leading-5 text-[#65717e]">
+                      Larger sizes such as 2XL and above are included in the
+                      total when entered above.
+                    </p>
+                  </div>
+                    <ApparelSizePriceBreakdownList
+                      breakdown={detail.sizePriceBreakdown}
+                      currency={detail.estimate.currency}
+                    />
                     <button
                       type="button"
                       onClick={addToBasket}

@@ -17,6 +17,7 @@ import { QuickLinksSection } from "@/components/QuickLinksSection";
 import { QuoteSection } from "@/components/QuoteSection";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { ServiceAreaSection } from "@/components/ServiceAreaSection";
+import { WebsiteAnnouncementBanner } from "@/components/WebsiteAnnouncementBanner";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
@@ -35,6 +36,7 @@ export default function Home() {
       <Header />
       <main>
         <HomeV2Hero />
+        <WebsiteAnnouncementBanner />
         <HomeV2TrustBar />
         <HomeV2BrandWall />
         <HomeV2ProductionVideo showIntro />

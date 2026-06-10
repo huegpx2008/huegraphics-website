@@ -8,6 +8,11 @@ import {
   openFloatingQuoteBasket,
   type QuoteBasketItem,
 } from "@/components/FloatingQuoteBasket";
+import { ApparelSizePriceBreakdownList } from "@/components/ApparelSizePriceBreakdown";
+import {
+  extractApiSizePriceBreakdown,
+  type ApparelSizePriceBreakdown,
+} from "@/lib/apparel-size-breakdown";
 
 type DtfEstimatorProps = {
   products: CatalogProduct[];
@@ -48,6 +53,7 @@ type DetailEstimatorState = {
   leftSleeve: boolean;
   rightSleeve: boolean;
   estimate: DtfEstimate | null;
+  sizePriceBreakdown: ApparelSizePriceBreakdown[];
   error: string;
   isLoading: boolean;
 };
@@ -59,6 +65,9 @@ type DtfEstimate = {
     each?: number | string;
   };
   currency?: string;
+  summary?: {
+    sizePriceBreakdown?: unknown;
+  };
   warnings?: string[];
   error?: {
     message?: string;
@@ -773,6 +782,7 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       leftSleeve,
       rightSleeve,
       estimate: null,
+      sizePriceBreakdown: [],
       error: "",
       isLoading: false,
     });
@@ -822,6 +832,10 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
             ...updates,
             estimate:
               updates.estimate === undefined ? current.estimate : updates.estimate,
+            sizePriceBreakdown:
+              updates.sizePriceBreakdown === undefined
+                ? current.sizePriceBreakdown
+                : updates.sizePriceBreakdown,
             error: updates.error === undefined ? current.error : updates.error,
           }
         : current,
@@ -838,6 +852,7 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
               [size]: value,
             },
             estimate: null,
+            sizePriceBreakdown: [],
             error: "",
           }
         : current,
@@ -857,6 +872,7 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       updateDetail({
         error: "Please enter at least one garment quantity.",
         estimate: null,
+        sizePriceBreakdown: [],
       });
       return;
     }
@@ -868,7 +884,12 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       ]),
     );
 
-    updateDetail({ isLoading: true, error: "", estimate: null });
+    updateDetail({
+      isLoading: true,
+      error: "",
+      estimate: null,
+      sizePriceBreakdown: [],
+    });
 
     try {
       const response = await fetch("/api/pricing/dtf", {
@@ -894,19 +915,43 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
         updateDetail({
           error: data.error?.message || "Estimate unavailable.",
           estimate: null,
+          sizePriceBreakdown: [],
           isLoading: false,
         });
         return;
       }
 
-      updateDetail({ estimate: data, isLoading: false });
+      updateDetail({
+        estimate: data,
+        sizePriceBreakdown: extractApiSizePriceBreakdown(data),
+        isLoading: false,
+      });
     } catch {
       updateDetail({
         error: "Estimate unavailable. Please try again.",
         estimate: null,
+        sizePriceBreakdown: [],
         isLoading: false,
       });
     }
+  }
+
+  function sizePricingSummary() {
+    if (!detailEstimator?.sizePriceBreakdown.length) {
+      return "";
+    }
+
+    return detailEstimator.sizePriceBreakdown
+      .map((item) =>
+        [
+          item.label,
+          `${item.quantity}`,
+          item.priceEach !== undefined ? `@ ${formatPrice(item.priceEach)} each` : "",
+        ]
+          .filter(Boolean)
+          .join(" "),
+      )
+      .join(", ");
   }
 
   function addDetailToBasket() {
@@ -955,6 +1000,7 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
               dtfLocationOptions.find((option) => option.value === value)
                 ?.label || value,
           ),
+        sizePricingSummary() ? `Size pricing: ${sizePricingSummary()}` : "",
       ]
         .filter(Boolean)
         .join(" / "),
@@ -1270,7 +1316,7 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
                                     </p>
                                     <p className="mt-1 text-lg font-black">
                                       {estimate?.status === "ready"
-                                        ? `${formatPrice(estimate.each, estimate.currency)} ea`
+                                        ? `${formatPrice(estimate.each, estimate.currency)} avg ea`
                                         : estimate?.status === "loading"
                                           ? "Loading..."
                                           : "Request pricing"}
@@ -1503,16 +1549,26 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
                   Estimate
                 </p>
                 {detailEstimator.estimate ? (
-                  <div className="mt-5 rounded-md bg-white p-5 ring-1 ring-black/8">
-                    <p className="text-xs font-black uppercase tracking-[0.16em] text-[#678197]">
-                      Estimated total
-                    </p>
-                    <p className="mt-2 text-4xl font-black text-[#07111f]">
-                      {formatPrice(detailEstimator.estimate.price?.retail)}
-                    </p>
-                    <p className="mt-2 text-sm font-black uppercase tracking-wide text-[#52677d]">
-                      Each: {formatPrice(detailEstimator.estimate.price?.each)}
-                    </p>
+                  <div className="mt-5 grid gap-4">
+                    <div className="rounded-md bg-white p-5 ring-1 ring-black/8">
+                      <p className="text-xs font-black uppercase tracking-[0.16em] text-[#678197]">
+                        Estimated total
+                      </p>
+                      <p className="mt-2 text-4xl font-black text-[#07111f]">
+                        {formatPrice(detailEstimator.estimate.price?.retail)}
+                      </p>
+                      <p className="mt-2 text-sm font-black uppercase tracking-wide text-[#52677d]">
+                        Average each: {formatPrice(detailEstimator.estimate.price?.each)}
+                      </p>
+                      <p className="mt-2 text-xs font-semibold leading-5 text-[#65717e]">
+                        Larger sizes such as 2XL and above are included in the
+                        total when entered above.
+                      </p>
+                    </div>
+                    <ApparelSizePriceBreakdownList
+                      breakdown={detailEstimator.sizePriceBreakdown}
+                      currency={detailEstimator.estimate.currency}
+                    />
                   </div>
                 ) : (
                   <p className="mt-5 rounded-md border border-dashed border-[#b5c6d6] bg-white/70 p-5 text-sm leading-7 text-[#52677d]">

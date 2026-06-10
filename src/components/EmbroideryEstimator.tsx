@@ -7,8 +7,13 @@ import {
   openFloatingQuoteBasket,
   type QuoteBasketItem,
 } from "@/components/FloatingQuoteBasket";
+import { ApparelSizePriceBreakdownList } from "@/components/ApparelSizePriceBreakdown";
 import type { CatalogProduct } from "@/data/sanmarCatalog.generated";
 import { embroideryMinimumQuantity } from "@/lib/catalog-embroidery";
+import {
+  loadGroupedSizePriceBreakdown,
+  type ApparelSizePriceBreakdown,
+} from "@/lib/apparel-size-breakdown";
 
 type EmbroideryEstimatorProps = {
   products: CatalogProduct[];
@@ -88,6 +93,7 @@ type DetailEstimatorState = {
   numbersEnabled: boolean;
   sameDesign: boolean;
   estimate: EmbroideryEstimate | null;
+  sizePriceBreakdown: ApparelSizePriceBreakdown[];
   error: string;
   isLoading: boolean;
 };
@@ -868,6 +874,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
       numbersEnabled,
       sameDesign: true,
       estimate: null,
+      sizePriceBreakdown: [],
       error: "",
       isLoading: false,
     });
@@ -881,6 +888,10 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
             ...updates,
             estimate:
               updates.estimate === undefined ? current.estimate : updates.estimate,
+            sizePriceBreakdown:
+              updates.sizePriceBreakdown === undefined
+                ? current.sizePriceBreakdown
+                : updates.sizePriceBreakdown,
             error: updates.error === undefined ? current.error : updates.error,
           }
         : current,
@@ -897,6 +908,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
               [size]: value,
             },
             estimate: null,
+            sizePriceBreakdown: [],
             error: "",
           }
         : current,
@@ -916,18 +928,25 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
       updateDetail({
         error: "Embroidery estimates start at 5 pieces.",
         estimate: null,
+        sizePriceBreakdown: [],
       });
       return;
     }
 
-    updateDetail({ isLoading: true, error: "", estimate: null });
+    updateDetail({
+      isLoading: true,
+      error: "",
+      estimate: null,
+      sizePriceBreakdown: [],
+    });
 
     try {
-      const estimate = await requestEmbroideryEstimate(
+      const numericSizes = numericSizeQuantities(detailEstimator.sizes);
+      const buildPayload = (sizeQuantities: Record<string, number>) =>
         buildEmbroideryPayload({
           product: detailEstimator.product,
           color: detailEstimator.color,
-          sizeQuantities: numericSizeQuantities(detailEstimator.sizes),
+          sizeQuantities,
           placement: detailEstimator.placement,
           stitchCount: Number(detailEstimator.stitchCount),
           threadColors: Number(detailEstimator.threadColors),
@@ -936,10 +955,17 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
           namesEnabled: detailEstimator.namesEnabled,
           numbersEnabled: detailEstimator.numbersEnabled,
           sameDesign: detailEstimator.sameDesign,
-        }),
-      );
+        });
+      const estimate = await requestEmbroideryEstimate(buildPayload(numericSizes));
+      const sizePriceBreakdown = await loadGroupedSizePriceBreakdown({
+        sizes: numericSizes,
+        totalQuantity: totalQty,
+        buildPayload,
+        requestEstimate: requestEmbroideryEstimate,
+        readEach: (estimate) => estimate.price?.each,
+      });
 
-      updateDetail({ estimate, isLoading: false });
+      updateDetail({ estimate, sizePriceBreakdown, isLoading: false });
     } catch (error) {
       updateDetail({
         error:
@@ -947,9 +973,28 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
             ? error.message
             : "Estimate unavailable. Please try again.",
         estimate: null,
+        sizePriceBreakdown: [],
         isLoading: false,
       });
     }
+  }
+
+  function sizePricingSummary() {
+    if (!detailEstimator?.sizePriceBreakdown.length) {
+      return "";
+    }
+
+    return detailEstimator.sizePriceBreakdown
+      .map((item) =>
+        [
+          item.label,
+          `${item.quantity}`,
+          item.priceEach !== undefined ? `@ ${formatPrice(item.priceEach)} each` : "",
+        ]
+          .filter(Boolean)
+          .join(" "),
+      )
+      .join(", ");
   }
 
   function addDetailToBasket() {
@@ -986,6 +1031,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
         detailEstimator.puff3mm ? "3D puff" : "",
         detailEstimator.namesEnabled ? "Names" : "",
         detailEstimator.numbersEnabled ? "Numbers" : "",
+        sizePricingSummary() ? `Size pricing: ${sizePricingSummary()}` : "",
       ]
         .filter(Boolean)
         .join(" / "),
@@ -1258,7 +1304,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                           </p>
                           <p className="mt-1 text-sm font-black">
                             {estimate?.status === "ready"
-                              ? `${formatPrice(estimate.each)} each`
+                              ? `${formatPrice(estimate.each)} avg each`
                               : estimate?.status === "loading"
                                 ? "Loading estimate..."
                                 : "Estimate unavailable"}
@@ -1557,10 +1603,18 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                         {formatPrice(detailEstimator.estimate.price?.retail)}
                       </p>
                       <p className="mt-2 text-sm font-black uppercase text-[#52677d]">
-                        Estimated each:{" "}
+                        Estimated average each:{" "}
                         {formatPrice(detailEstimator.estimate.price?.each)}
                       </p>
+                      <p className="mt-2 text-xs font-semibold leading-5 text-[#65717e]">
+                        Larger sizes such as 2XL and above are included in the
+                        total when entered above.
+                      </p>
                     </div>
+                    <ApparelSizePriceBreakdownList
+                      breakdown={detailEstimator.sizePriceBreakdown}
+                      currency={detailEstimator.estimate.currency}
+                    />
                     <p className="rounded-md bg-white p-4 text-sm font-bold leading-6 text-[#314154] ring-1 ring-black/8">
                       {getEstimateSummary(
                         detailEstimator.product,

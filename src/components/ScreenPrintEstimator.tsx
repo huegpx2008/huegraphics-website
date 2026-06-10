@@ -8,6 +8,11 @@ import {
   openFloatingQuoteBasket,
   type QuoteBasketItem,
 } from "@/components/FloatingQuoteBasket";
+import { ApparelSizePriceBreakdownList } from "@/components/ApparelSizePriceBreakdown";
+import {
+  loadGroupedSizePriceBreakdown,
+  type ApparelSizePriceBreakdown,
+} from "@/lib/apparel-size-breakdown";
 
 type ScreenPrintEstimatorProps = {
   products: CatalogProduct[];
@@ -46,6 +51,7 @@ type DetailEstimatorState = {
   frontColors: string;
   backColors: string;
   estimate: ScreenprintEstimate | null;
+  sizePriceBreakdown: ApparelSizePriceBreakdown[];
   error: string;
   isLoading: boolean;
 };
@@ -706,6 +712,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
       frontColors,
       backColors,
       estimate: null,
+      sizePriceBreakdown: [],
       error: "",
       isLoading: false,
     });
@@ -755,6 +762,10 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
             ...updates,
             estimate:
               updates.estimate === undefined ? current.estimate : updates.estimate,
+            sizePriceBreakdown:
+              updates.sizePriceBreakdown === undefined
+                ? current.sizePriceBreakdown
+                : updates.sizePriceBreakdown,
             error: updates.error === undefined ? current.error : updates.error,
           }
         : current,
@@ -771,6 +782,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
               [size]: value,
             },
             estimate: null,
+            sizePriceBreakdown: [],
             error: "",
           }
         : current,
@@ -791,6 +803,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
         error:
           "This item is under 24 pieces. You can still add it to the quote basket and combine it with compatible styles using the same artwork.",
         estimate: null,
+        sizePriceBreakdown: [],
       });
       return;
     }
@@ -802,58 +815,94 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
       ]),
     );
 
-    updateDetail({ isLoading: true, error: "", estimate: null });
+    updateDetail({
+      isLoading: true,
+      error: "",
+      estimate: null,
+      sizePriceBreakdown: [],
+    });
 
     try {
-      const response = await fetch("/api/pricing/screenprint", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          lineItems: [
-            {
-              style: detailEstimator.product.style,
-              title: detailEstimator.product.title,
-              color: detailEstimator.color,
-              sizes: numericSizes,
-              sizeQty: numericSizes,
-            },
-          ],
-          printLines: [
-            {
-              id: "front",
-              name: "Front",
-              colors: Number(detailEstimator.frontColors),
-            },
-            {
-              id: "back",
-              name: "Back",
-              colors: Number(detailEstimator.backColors),
-            },
-          ],
-          sameDesign: true,
-        }),
+      const buildPayload = (sizes: Record<string, number>) => ({
+        lineItems: [
+          {
+            style: detailEstimator.product.style,
+            title: detailEstimator.product.title,
+            color: detailEstimator.color,
+            sizes,
+            sizeQty: sizes,
+          },
+        ],
+        printLines: [
+          {
+            id: "front",
+            name: "Front",
+            colors: Number(detailEstimator.frontColors),
+          },
+          {
+            id: "back",
+            name: "Back",
+            colors: Number(detailEstimator.backColors),
+          },
+        ],
+        sameDesign: true,
       });
-      const data = (await response.json()) as ScreenprintEstimate;
-
-      if (!response.ok || data.ok === false) {
-        updateDetail({
-          error: data.error?.message || "Estimate unavailable.",
-          estimate: null,
-          isLoading: false,
+      const requestEstimate = async (payload: unknown) => {
+        const response = await fetch("/api/pricing/screenprint", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
         });
-        return;
-      }
+        const data = (await response.json()) as ScreenprintEstimate;
 
-      updateDetail({ estimate: data, isLoading: false });
-    } catch {
+        if (!response.ok || data.ok === false) {
+          throw new Error(data.error?.message || "Estimate unavailable.");
+        }
+
+        return data;
+      };
+
+      const data = await requestEstimate(buildPayload(numericSizes));
+      const sizePriceBreakdown = await loadGroupedSizePriceBreakdown({
+        sizes: numericSizes,
+        totalQuantity: totalQty,
+        buildPayload,
+        requestEstimate,
+        readEach: (estimate) => estimate.price?.each,
+      });
+
+      updateDetail({ estimate: data, sizePriceBreakdown, isLoading: false });
+    } catch (error) {
       updateDetail({
-        error: "Estimate unavailable. Please try again.",
+        error:
+          error instanceof Error
+            ? error.message
+            : "Estimate unavailable. Please try again.",
         estimate: null,
+        sizePriceBreakdown: [],
         isLoading: false,
       });
     }
+  }
+
+  function sizePricingSummary() {
+    if (!detailEstimator?.sizePriceBreakdown.length) {
+      return "";
+    }
+
+    return detailEstimator.sizePriceBreakdown
+      .map((item) =>
+        [
+          item.label,
+          `${item.quantity}`,
+          item.priceEach !== undefined ? `@ ${formatPrice(item.priceEach)} each` : "",
+        ]
+          .filter(Boolean)
+          .join(" "),
+      )
+      .join(", ");
   }
 
   function addDetailToBasket() {
@@ -888,6 +937,9 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
       quantity: totalQty,
       frontColors: detailEstimator.frontColors,
       backColors: detailEstimator.backColors,
+      decorationSummary: sizePricingSummary()
+        ? `Size pricing: ${sizePricingSummary()}`
+        : "",
       estimatedEach: detailEstimator.estimate?.price?.each,
       estimatedTotal: detailEstimator.estimate?.price?.retail,
     };
@@ -1181,7 +1233,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
                                     </p>
                                     <p className="mt-1 text-lg font-black">
                                       {estimate?.status === "ready"
-                                        ? `${formatPrice(estimate.each, estimate.currency)} ea`
+                                        ? `${formatPrice(estimate.each, estimate.currency)} avg ea`
                                         : estimate?.status === "loading"
                                           ? "Loading..."
                                           : "Request pricing"}
@@ -1393,8 +1445,18 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
                       {formatPrice(detailEstimator.estimate.price?.retail)}
                     </p>
                     <p className="mt-2 text-sm font-black uppercase tracking-wide text-[#52677d]">
-                      Each: {formatPrice(detailEstimator.estimate.price?.each)}
+                      Average each: {formatPrice(detailEstimator.estimate.price?.each)}
                     </p>
+                    <p className="mt-2 text-xs font-semibold leading-5 text-[#65717e]">
+                      Larger sizes such as 2XL and above are included in the
+                      total when entered above.
+                    </p>
+                    <div className="mt-4">
+                      <ApparelSizePriceBreakdownList
+                        breakdown={detailEstimator.sizePriceBreakdown}
+                        currency={detailEstimator.estimate.currency}
+                      />
+                    </div>
                   </div>
                 ) : (
                   <p className="mt-5 rounded-md border border-dashed border-[#b5c6d6] bg-white/70 p-5 text-sm leading-7 text-[#52677d]">

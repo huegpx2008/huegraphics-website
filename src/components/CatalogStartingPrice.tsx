@@ -209,7 +209,7 @@ export function CatalogStartingPrice({ product }: CatalogStartingPriceProps) {
           : isLoading
           ? "Loading..."
           : estimate?.price?.each
-            ? `${formatPrice(estimate.price.each)} each`
+            ? `${formatPrice(estimate.price.each)} avg each`
             : "Request pricing"}
       </p>
       <p className="mt-2 text-xs font-black uppercase tracking-wide text-[#9fc8ef]">

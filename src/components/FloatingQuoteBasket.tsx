@@ -240,11 +240,12 @@ export function FloatingQuoteBasket() {
         type="button"
         onClick={() => setIsOpen(true)}
         className={[
-          "fixed bottom-[calc(env(safe-area-inset-bottom)+1rem)] left-6 right-6 z-[60] min-h-12 rounded-full bg-accent px-5 text-xs font-black uppercase tracking-wide text-white shadow-[0_18px_42px_rgba(31,115,190,0.36)] transition hover:-translate-y-0.5 hover:bg-[#2a86d8] sm:bottom-5 sm:left-auto sm:right-5 sm:min-h-0 sm:w-auto sm:py-4",
+          "fixed bottom-[calc(env(safe-area-inset-bottom)+1rem)] right-4 z-[60] min-h-11 rounded-full bg-accent px-4 text-xs font-black uppercase tracking-wide text-white shadow-[0_18px_42px_rgba(31,115,190,0.36)] transition hover:-translate-y-0.5 hover:bg-[#2a86d8] sm:bottom-5 sm:right-5 sm:min-h-0 sm:px-5 sm:py-4",
           items.length ? "opacity-100" : "opacity-92",
         ].join(" ")}
       >
-        Quote basket ({items.length})
+        <span className="sm:hidden">Basket ({items.length})</span>
+        <span className="hidden sm:inline">Quote basket ({items.length})</span>
       </button>
 
       <div
