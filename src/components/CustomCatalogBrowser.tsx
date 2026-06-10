@@ -25,7 +25,7 @@ type CustomCatalogBrowserProps = {
 };
 
 type PricingService = "screenprint" | "embroidery" | "dtf";
-type PriceSort = "featured" | "cheap" | "expensive";
+type PriceSort = "featured" | "low" | "high";
 
 type EstimateState = {
   status: "loading" | "ready" | "unavailable";
@@ -452,21 +452,8 @@ function saveReturnState() {
   window.sessionStorage.setItem(returnScrollKey, String(window.scrollY));
 }
 
-function productSortPrice(
-  product: CatalogProduct,
-  estimates: Record<string, EstimateState>,
-) {
-  const estimate = estimates[product.style];
-  const estimatedEach =
-    estimate?.status === "ready" ? Number(estimate.each) : Number.NaN;
-
-  if (Number.isFinite(estimatedEach)) {
-    return estimatedEach;
-  }
-
-  return typeof product.priceFrom === "number"
-    ? product.priceFrom
-    : Number.POSITIVE_INFINITY;
+function productSortPrice(product: CatalogProduct) {
+  return typeof product.priceFrom === "number" ? product.priceFrom : null;
 }
 
 export function CustomCatalogBrowser({
@@ -581,17 +568,28 @@ export function CustomCatalogBrowser({
     }
 
     return [...filteredProducts].sort((a, b) => {
-      const aPrice = productSortPrice(a, catalogEstimates);
-      const bPrice = productSortPrice(b, catalogEstimates);
-      const direction = priceSort === "cheap" ? 1 : -1;
+      const aPrice = productSortPrice(a);
+      const bPrice = productSortPrice(b);
+
+      if (aPrice === null && bPrice === null) {
+        return a.title.localeCompare(b.title);
+      }
+
+      if (aPrice === null) {
+        return 1;
+      }
+
+      if (bPrice === null) {
+        return -1;
+      }
 
       if (aPrice === bPrice) {
         return a.title.localeCompare(b.title);
       }
 
-      return (aPrice - bPrice) * direction;
+      return priceSort === "low" ? aPrice - bPrice : bPrice - aPrice;
     });
-  }, [catalogEstimates, filteredProducts, priceSort]);
+  }, [filteredProducts, priceSort]);
 
   const visibleProducts = sortedProducts.slice(0, visibleProductLimit);
   const visibleProductKey = visibleProducts
@@ -1163,8 +1161,8 @@ export function CustomCatalogBrowser({
                 className="mt-2 h-12 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-4 text-sm font-semibold text-[#07111f] outline-none transition focus:border-accent focus:bg-white"
               >
                 <option value="featured">Featured</option>
-                <option value="cheap">Cheapest first</option>
-                <option value="expensive">Most expensive first</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
               </select>
             </label>
           </div>

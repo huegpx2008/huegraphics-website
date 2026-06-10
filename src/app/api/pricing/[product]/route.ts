@@ -14,6 +14,10 @@ const allowedProducts = new Set([
   "vinyl",
   "custom-cut-coroplast",
   "vehicle-magnet",
+  "business-card",
+  "handheld-paper",
+  "carbonless",
+  "door-hanger",
 ]);
 
 export async function POST(

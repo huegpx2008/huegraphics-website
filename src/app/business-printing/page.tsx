@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BusinessPrintingQuoteBuilder } from "@/components/BusinessPrintingQuoteBuilder";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -101,6 +102,8 @@ export default function BusinessPrintingPage() {
             </div>
           </div>
         </section>
+
+        <BusinessPrintingQuoteBuilder />
 
         <section className="px-5 py-8 sm:px-8 lg:px-10">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.7fr_1.3fr]">
