@@ -19,9 +19,22 @@ export type QuoteBasketItem = {
   currency?: string;
 };
 
+type BasketScreenprintEstimate = {
+  ok?: boolean;
+  price?: {
+    retail?: number | string;
+    each?: number | string;
+  };
+  currency?: string;
+  error?: {
+    message?: string;
+  };
+};
+
 const storageKey = "hue-quote-basket";
 const addItemEventName = "hue:add-quote-item";
 const openBasketEventName = "hue:open-quote-basket";
+const screenPrintMinimumQuantity = 24;
 
 function formatPrice(value: number | string | undefined, currency = "USD") {
   if (typeof value === "number") {
@@ -45,6 +58,50 @@ function numericPrice(value: number | string | undefined) {
   }
 
   return null;
+}
+
+function screenPrintSetupKey(item: QuoteBasketItem) {
+  return `${item.frontColors || "0"}-front|${item.backColors || "0"}-back`;
+}
+
+function screenPrintSetupLabel(item: QuoteBasketItem) {
+  return `${item.frontColors || "0"} front / ${
+    Number(item.backColors) > 0 ? `${item.backColors} back` : "front only"
+  }`;
+}
+
+function screenPrintGroups(items: QuoteBasketItem[]) {
+  const groups = new Map<
+    string,
+    {
+      key: string;
+      label: string;
+      items: QuoteBasketItem[];
+      quantity: number;
+    }
+  >();
+
+  items
+    .filter((item) => (item.service || "Screen Printing") === "Screen Printing")
+    .forEach((item) => {
+      const key = screenPrintSetupKey(item);
+      const existing = groups.get(key);
+
+      if (existing) {
+        existing.items.push(item);
+        existing.quantity += item.quantity;
+        return;
+      }
+
+      groups.set(key, {
+        key,
+        label: screenPrintSetupLabel(item),
+        items: [item],
+        quantity: item.quantity,
+      });
+    });
+
+  return [...groups.values()];
 }
 
 function formatBasketDetails(items: QuoteBasketItem[], notes: string) {
@@ -115,6 +172,8 @@ export function FloatingQuoteBasket() {
   const [isReady, setIsReady] = useState(false);
   const [fileNames, setFileNames] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isCalculatingBasket, setIsCalculatingBasket] = useState(false);
+  const [basketEstimateMessage, setBasketEstimateMessage] = useState("");
   const [status, setStatus] = useState<{
     type: "success" | "error";
     message: string;
@@ -164,6 +223,117 @@ export function FloatingQuoteBasket() {
 
   function removeItem(id: string) {
     setItems((current) => current.filter((item) => item.id !== id));
+    setBasketEstimateMessage("");
+  }
+
+  async function calculateScreenPrintBasketPrices() {
+    const groups = screenPrintGroups(items);
+    const eligibleGroups = groups.filter(
+      (group) => group.quantity >= screenPrintMinimumQuantity,
+    );
+    const blockedGroups = groups.filter(
+      (group) => group.quantity > 0 && group.quantity < screenPrintMinimumQuantity,
+    );
+
+    if (!eligibleGroups.length) {
+      setBasketEstimateMessage(
+        "Screen print basket pricing needs at least 24 pieces with the same print color setup.",
+      );
+      return;
+    }
+
+    setIsCalculatingBasket(true);
+    setBasketEstimateMessage("");
+
+    try {
+      const estimates = await Promise.all(
+        eligibleGroups.map(async (group) => {
+          const firstItem = group.items[0];
+          const response = await fetch("/api/pricing/screenprint", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              lineItems: group.items.map((item) => ({
+                style: item.style,
+                title: item.productName,
+                color: item.color,
+                sizes: item.sizes,
+                sizeQty: item.sizes,
+              })),
+              printLines: [
+                {
+                  id: "front",
+                  name: "Front",
+                  colors: Number(firstItem.frontColors || 0),
+                },
+                {
+                  id: "back",
+                  name: "Back",
+                  colors: Number(firstItem.backColors || 0),
+                },
+              ],
+              sameDesign: true,
+            }),
+          });
+          const data = (await response.json()) as BasketScreenprintEstimate;
+
+          if (!response.ok || data.ok === false) {
+            throw new Error(data.error?.message || "Basket estimate unavailable.");
+          }
+
+          return {
+            itemIds: new Set(group.items.map((item) => item.id)),
+            estimate: data,
+          };
+        }),
+      );
+
+      setItems((current) =>
+        current.map((item) => {
+          const groupEstimate = estimates.find((estimate) =>
+            estimate.itemIds.has(item.id),
+          );
+
+          if (!groupEstimate) {
+            return item;
+          }
+
+          const each = groupEstimate.estimate.price?.each;
+          const numericEach = numericPrice(each);
+
+          return {
+            ...item,
+            estimatedEach: each,
+            estimatedTotal:
+              numericEach === null ? undefined : numericEach * item.quantity,
+            currency: groupEstimate.estimate.currency,
+          };
+        }),
+      );
+
+      setBasketEstimateMessage(
+        blockedGroups.length
+          ? `Pricing calculated for groups that reached 24 pieces. Add more items to these setups before calculating them: ${blockedGroups
+              .map(
+                (group) =>
+                  `${group.label} needs ${
+                    screenPrintMinimumQuantity - group.quantity
+                  } more`,
+              )
+              .join("; ")}.`
+          : "Basket pricing calculated for compatible screen print items.",
+      );
+    } catch (error) {
+      setBasketEstimateMessage(
+        error instanceof Error
+          ? error.message
+          : "Basket estimate unavailable. Please try again.",
+      );
+    } finally {
+      setIsCalculatingBasket(false);
+    }
   }
 
   async function submitBasket(event: FormEvent<HTMLFormElement>) {
@@ -228,6 +398,13 @@ export function FloatingQuoteBasket() {
   }, 0);
   const hasEstimatedPrices = items.some(
     (item) => numericPrice(item.estimatedTotal) !== null,
+  );
+  const basketScreenPrintGroups = screenPrintGroups(items);
+  const eligibleScreenPrintGroups = basketScreenPrintGroups.filter(
+    (group) => group.quantity >= screenPrintMinimumQuantity,
+  );
+  const blockedScreenPrintGroups = basketScreenPrintGroups.filter(
+    (group) => group.quantity > 0 && group.quantity < screenPrintMinimumQuantity,
   );
 
   if (!isReady) {
@@ -319,6 +496,61 @@ export function FloatingQuoteBasket() {
                 <p className="mt-2 text-sm font-bold leading-6">
                   {status.message}
                 </p>
+              </div>
+            ) : null}
+            {items.length && basketScreenPrintGroups.length ? (
+              <div className="mt-4 rounded-md border border-accent/20 bg-white p-3 text-sm text-[#314154] shadow-[0_12px_28px_rgba(7,17,31,0.06)] sm:p-4">
+                <p className="text-xs font-black uppercase tracking-[0.16em] text-accent">
+                  Basket pricing
+                </p>
+                <p className="mt-2 font-bold leading-6">
+                  Screen print items can be priced together when the matching
+                  print color setup reaches 24 pieces.
+                </p>
+                <div className="mt-3 grid gap-2">
+                  {basketScreenPrintGroups.map((group) => (
+                    <p
+                      key={group.key}
+                      className="rounded-md bg-[#f4f8fc] px-3 py-2 text-xs font-black uppercase tracking-[0.08em] text-[#52677d]"
+                    >
+                      {group.label}: {group.quantity} pieces
+                      {group.quantity < screenPrintMinimumQuantity
+                        ? ` - add ${
+                            screenPrintMinimumQuantity - group.quantity
+                          } more`
+                        : " - ready to calculate"}
+                    </p>
+                  ))}
+                </div>
+                {eligibleScreenPrintGroups.length ? (
+                  <button
+                    type="button"
+                    onClick={calculateScreenPrintBasketPrices}
+                    disabled={isCalculatingBasket}
+                    className="mt-3 min-h-11 w-full rounded-md bg-accent px-4 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#2a86d8] disabled:cursor-wait disabled:opacity-70"
+                  >
+                    {isCalculatingBasket
+                      ? "Calculating basket pricing..."
+                      : "Calculate basket pricing"}
+                  </button>
+                ) : (
+                  <p className="mt-3 rounded-md border border-amber-200 bg-amber-50 p-3 text-xs font-bold leading-5 text-amber-800">
+                    Add more compatible screen print items to reach 24 pieces
+                    before calculating basket pricing.
+                  </p>
+                )}
+                {blockedScreenPrintGroups.length &&
+                eligibleScreenPrintGroups.length ? (
+                  <p className="mt-3 text-xs font-semibold leading-5 text-[#65717e]">
+                    Groups under 24 will stay unpriced until they meet the
+                    minimum.
+                  </p>
+                ) : null}
+                {basketEstimateMessage ? (
+                  <p className="mt-3 rounded-md bg-[#eef6ff] p-3 text-xs font-bold leading-5 text-[#125b99]">
+                    {basketEstimateMessage}
+                  </p>
+                ) : null}
               </div>
             ) : null}
           </div>

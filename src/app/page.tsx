@@ -35,8 +35,8 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <HomeV2Hero />
         <WebsiteAnnouncementBanner />
+        <HomeV2Hero />
         <HomeV2TrustBar />
         <HomeV2BrandWall />
         <HomeV2ProductionVideo showIntro />

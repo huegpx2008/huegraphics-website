@@ -9,37 +9,37 @@ const heroSlides = [
     service: "SCREEN PRINTING",
     image: "/images/press-h.png",
     alt: "Screen printing press on the Hue Graphics production floor",
-    position: "object-[66%_30%]",
+    position: "object-[62%_30%] sm:object-[64%_30%]",
   },
   {
     service: "EMBROIDERY",
     image: "/images/emb.png",
     alt: "Embroidery production at Hue Graphics",
-    position: "object-[74%_center]",
+    position: "object-[66%_center] sm:object-[70%_center]",
   },
   {
     service: "DTF TRANSFERS",
     image: "/images/dtf-main2.png",
     alt: "DTF printing production at Hue Graphics",
-    position: "object-[58%_center]",
+    position: "object-[54%_center] sm:object-[56%_center]",
   },
   {
     service: "SIGNS & BANNERS",
     image: "/images/banners.png",
     alt: "Signs and banners produced by Hue Graphics",
-    position: "object-[58%_center]",
+    position: "object-[54%_center] sm:object-[56%_center]",
   },
   {
     service: "VEHICLE GRAPHICS",
     image: "/images/truck-2.png",
     alt: "Wrapped truck with Hue Graphics vehicle graphics",
-    position: "object-[62%_center]",
+    position: "object-[58%_center] sm:object-[60%_center]",
   },
   {
     service: "FULL SERVICE",
     image: "/images/store-2.png",
     alt: "Hue Graphics storefront in Bethlehem, Georgia",
-    position: "object-[72%_center]",
+    position: "object-[66%_center] sm:object-[70%_center]",
   },
 ];
 
@@ -105,8 +105,8 @@ export function HomeHeroRotator() {
           );
         })}
       </div>
-      <div className="absolute inset-0 z-10 bg-[linear-gradient(90deg,#05070b_0%,rgba(5,7,11,0.94)_28%,rgba(5,7,11,0.62)_58%,rgba(5,7,11,0.25)_100%)]" />
-      <div className="absolute inset-0 z-20 bg-[linear-gradient(180deg,rgba(5,7,11,0)_0%,rgba(5,7,11,0.06)_70%,#f4f8fc_100%)]" />
+      <div className="absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(5,7,11,0.94)_0%,rgba(5,7,11,0.78)_46%,rgba(5,7,11,0.38)_78%,rgba(5,7,11,0.16)_100%)] sm:bg-[linear-gradient(90deg,#05070b_0%,rgba(5,7,11,0.94)_28%,rgba(5,7,11,0.68)_55%,rgba(5,7,11,0.26)_100%)] lg:bg-[linear-gradient(90deg,#05070b_0%,rgba(5,7,11,0.96)_24%,rgba(5,7,11,0.74)_48%,rgba(5,7,11,0.34)_76%,rgba(5,7,11,0.16)_100%)]" />
+      <div className="absolute inset-0 z-20 bg-[linear-gradient(180deg,rgba(5,7,11,0)_0%,rgba(5,7,11,0.02)_68%,#f4f8fc_100%)]" />
 
       <div className="relative z-30 mx-auto grid min-h-[620px] max-w-7xl items-center px-5 pb-36 pt-14 sm:px-8 sm:py-14 lg:px-10 lg:py-20">
         <div className="max-w-4xl">

@@ -1039,6 +1039,74 @@ export function CustomCatalogBrowser({
     );
   }
 
+  async function requestDetailServiceEstimate(
+    currentDetail: DetailEstimatorState,
+    sizeQuantities: Record<string, number>,
+  ) {
+    return currentDetail.service === "screenprint"
+      ? requestScreenprintEstimate(
+          buildScreenprintPayload({
+            product: currentDetail.product,
+            color: currentDetail.color,
+            sizeQuantities,
+            frontColors: Number(currentDetail.frontColors),
+            backColors: Number(currentDetail.backColors),
+            sameDesign: currentDetail.sameDesign,
+          }),
+        )
+      : currentDetail.service === "embroidery"
+        ? requestEmbroideryEstimate(
+            buildEmbroideryPayload({
+              product: currentDetail.product,
+              color: currentDetail.color,
+              sizeQuantities,
+              placement: currentDetail.placement,
+              stitchCount: Number(currentDetail.stitchCount),
+              threadColors: Number(currentDetail.threadColors),
+              digitizingRequired: currentDetail.digitizingRequired,
+              puff3mm: currentDetail.puff3mm,
+              namesEnabled: currentDetail.namesEnabled,
+              numbersEnabled: currentDetail.numbersEnabled,
+              sameDesign: currentDetail.sameDesign,
+            }),
+          )
+        : requestDtfEstimate(
+            buildDtfPayload({
+              product: currentDetail.product,
+              color: currentDetail.color,
+              sizeQuantities,
+              frontPreset: currentDetail.dtfFrontPreset,
+              backPreset: currentDetail.dtfBackPreset,
+              leftSleeve: currentDetail.dtfLeftSleeve,
+              rightSleeve: currentDetail.dtfRightSleeve,
+              sameDesign: currentDetail.sameDesign,
+            }),
+          );
+  }
+
+  async function findUnavailableSelectedSizes(
+    currentDetail: DetailEstimatorState,
+    sizeQuantities: Record<string, number>,
+    probeQuantity: number,
+  ) {
+    const selectedSizes = Object.entries(sizeQuantities).filter(
+      ([, quantity]) => Number(quantity) > 0,
+    );
+    const unavailable: string[] = [];
+
+    for (const [size] of selectedSizes) {
+      try {
+        await requestDetailServiceEstimate(currentDetail, {
+          [size]: probeQuantity,
+        });
+      } catch {
+        unavailable.push(size);
+      }
+    }
+
+    return unavailable;
+  }
+
   async function submitDetailEstimate(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -1085,46 +1153,10 @@ export function CustomCatalogBrowser({
     });
 
     try {
-      const estimate =
-        detailEstimator.service === "screenprint"
-          ? await requestScreenprintEstimate(
-              buildScreenprintPayload({
-                product: detailEstimator.product,
-                color: detailEstimator.color,
-                sizeQuantities,
-                frontColors: Number(detailEstimator.frontColors),
-                backColors: Number(detailEstimator.backColors),
-                sameDesign: detailEstimator.sameDesign,
-              }),
-            )
-          : detailEstimator.service === "embroidery"
-            ? await requestEmbroideryEstimate(
-                buildEmbroideryPayload({
-                  product: detailEstimator.product,
-                  color: detailEstimator.color,
-                  sizeQuantities,
-                  placement: detailEstimator.placement,
-                  stitchCount: Number(detailEstimator.stitchCount),
-                  threadColors: Number(detailEstimator.threadColors),
-                  digitizingRequired: detailEstimator.digitizingRequired,
-                  puff3mm: detailEstimator.puff3mm,
-                  namesEnabled: detailEstimator.namesEnabled,
-                  numbersEnabled: detailEstimator.numbersEnabled,
-                  sameDesign: detailEstimator.sameDesign,
-                }),
-              )
-            : await requestDtfEstimate(
-                buildDtfPayload({
-                  product: detailEstimator.product,
-                  color: detailEstimator.color,
-                  sizeQuantities,
-                  frontPreset: detailEstimator.dtfFrontPreset,
-                  backPreset: detailEstimator.dtfBackPreset,
-                  leftSleeve: detailEstimator.dtfLeftSleeve,
-                  rightSleeve: detailEstimator.dtfRightSleeve,
-                  sameDesign: detailEstimator.sameDesign,
-                }),
-              );
+      const estimate = await requestDetailServiceEstimate(
+        detailEstimator,
+        sizeQuantities,
+      );
 
       const apiBreakdown = extractApiSizePriceBreakdown(estimate);
       const sizePriceBreakdown =
@@ -1165,6 +1197,31 @@ export function CustomCatalogBrowser({
 
       updateDetail({ estimate, sizePriceBreakdown, isLoading: false });
     } catch (error) {
+      const unavailableSizes = await findUnavailableSelectedSizes(
+        detailEstimator,
+        sizeQuantities,
+        Math.max(totalQty, minimum),
+      );
+
+      if (unavailableSizes.length) {
+        updateDetail({
+          error: `${detailEstimator.color} does not appear to be available in ${unavailableSizes.join(
+            ", ",
+          )} for ${detailEstimator.product.style}, so ${
+            unavailableSizes.length === 1 ? "that size was" : "those sizes were"
+          } removed from this estimate. Please review the remaining sizes and get the estimate again.`,
+          sizes: Object.fromEntries(
+            Object.entries(detailEstimator.sizes).filter(
+              ([size]) => !unavailableSizes.includes(size),
+            ),
+          ),
+          estimate: null,
+          sizePriceBreakdown: [],
+          isLoading: false,
+        });
+        return;
+      }
+
       updateDetail({
         error: getErrorMessage(error),
         estimate: null,

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const dismissedStorageKey = "hue-new-website-announcement-dismissed";
+const dismissedStorageKey = "hue-new-website-announcement-dismissed-v2";
 
 export function WebsiteAnnouncementBanner() {
   const [isDismissed, setIsDismissed] = useState(true);

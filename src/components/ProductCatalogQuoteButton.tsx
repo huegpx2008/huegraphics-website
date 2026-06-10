@@ -350,6 +350,27 @@ export function ProductCatalogQuoteButton({
     return data;
   }
 
+  async function findUnavailableSelectedSizes(
+    currentDetail: DetailEstimatorState,
+    sizes: Record<string, number>,
+    probeQuantity: number,
+  ) {
+    const selectedSizes = Object.entries(sizes).filter(
+      ([, quantity]) => Number(quantity) > 0,
+    );
+    const unavailable: string[] = [];
+
+    for (const [size] of selectedSizes) {
+      try {
+        await requestServiceEstimate(currentDetail, { [size]: probeQuantity });
+      } catch {
+        unavailable.push(size);
+      }
+    }
+
+    return unavailable;
+  }
+
   async function requestEstimate(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -436,6 +457,31 @@ export function ProductCatalogQuoteButton({
 
       updateDetail({ estimate: data, sizePriceBreakdown, isLoading: false });
     } catch (error) {
+      const unavailableSizes = await findUnavailableSelectedSizes(
+        detail,
+        sizes,
+        Math.max(totalQty, minimum),
+      );
+
+      if (unavailableSizes.length) {
+        updateDetail({
+          error: `${detail.color} does not appear to be available in ${unavailableSizes.join(
+            ", ",
+          )} for ${product.style}, so ${
+            unavailableSizes.length === 1 ? "that size was" : "those sizes were"
+          } removed from this estimate. Please review the remaining sizes and get the estimate again.`,
+          sizes: Object.fromEntries(
+            Object.entries(detail.sizes).filter(
+              ([size]) => !unavailableSizes.includes(size),
+            ),
+          ),
+          estimate: null,
+          sizePriceBreakdown: [],
+          isLoading: false,
+        });
+        return;
+      }
+
       updateDetail({
         error: error instanceof Error ? error.message : "Estimate unavailable. Please try again.",
         estimate: null,
