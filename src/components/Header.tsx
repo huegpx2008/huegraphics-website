@@ -88,26 +88,24 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
           <a
             href="https://pay.hue.graphics/payinvoice"
-            className="inline-flex min-h-11 items-center rounded-xl border border-white/14 bg-white/[0.03] px-3 text-xs font-bold text-white/82 transition hover:border-accent/55 hover:bg-accent/10 sm:px-4 sm:text-sm"
+            className="inline-flex min-h-11 items-center rounded-xl border border-white/14 bg-white/[0.03] px-2.5 text-[0.68rem] font-bold text-white/82 transition hover:border-accent/55 hover:bg-accent/10 sm:px-4 sm:text-sm"
           >
-            <span className="sm:hidden">Pay</span>
-            <span className="hidden sm:inline">Pay Invoice</span>
+            Pay Invoice
           </a>
           <a
             href="http://huegraphics.company.site/"
-            className="hidden min-h-11 items-center rounded-xl border border-accent/45 bg-accent/10 px-4 text-sm font-extrabold text-white transition hover:border-accent hover:bg-accent/18 sm:inline-flex"
+            className="inline-flex min-h-11 items-center rounded-xl bg-accent px-2.5 text-[0.68rem] font-extrabold text-white shadow-glow transition hover:bg-[#2a86d8] sm:px-4 sm:text-sm"
           >
             Shop Hue
           </a>
           <Link
             href="/request-a-quote"
-            className="inline-flex min-h-11 items-center rounded-xl bg-accent px-3 text-xs font-extrabold text-white shadow-glow transition hover:bg-[#2a86d8] sm:px-5 sm:text-sm"
+            className="hidden min-h-11 items-center rounded-xl bg-accent px-3 text-xs font-extrabold text-white shadow-glow transition hover:bg-[#2a86d8] sm:inline-flex sm:px-5 sm:text-sm"
           >
-            <span className="sm:hidden">Quote</span>
-            <span className="hidden sm:inline">Request Quote</span>
+            Request Quote
           </Link>
           <button
             type="button"

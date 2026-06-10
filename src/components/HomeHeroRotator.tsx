@@ -44,11 +44,11 @@ const heroSlides = [
 ];
 
 const serviceLabels = [
-  "SCREEN PRINTING",
-  "EMBROIDERY",
-  "DTF TRANSFERS",
-  "SIGNS & BANNERS",
-  "VEHICLE GRAPHICS",
+  { label: "SCREEN PRINTING", href: "/screen-printing" },
+  { label: "EMBROIDERY", href: "/embroidery" },
+  { label: "DTF TRANSFERS", href: "/dtf-transfers" },
+  { label: "SIGNS & BANNERS", href: "/signs-banners" },
+  { label: "VEHICLE GRAPHICS", href: "/vehicle-graphics" },
 ];
 
 export function HomeHeroRotator() {
@@ -108,7 +108,7 @@ export function HomeHeroRotator() {
       <div className="absolute inset-0 z-10 bg-[linear-gradient(90deg,#05070b_0%,rgba(5,7,11,0.94)_28%,rgba(5,7,11,0.62)_58%,rgba(5,7,11,0.25)_100%)]" />
       <div className="absolute inset-0 z-20 bg-[linear-gradient(180deg,rgba(5,7,11,0)_0%,rgba(5,7,11,0.06)_70%,#f4f8fc_100%)]" />
 
-      <div className="relative z-30 mx-auto grid min-h-[620px] max-w-7xl items-center px-5 py-14 sm:px-8 lg:px-10 lg:py-20">
+      <div className="relative z-30 mx-auto grid min-h-[620px] max-w-7xl items-center px-5 pb-36 pt-14 sm:px-8 sm:py-14 lg:px-10 lg:py-20">
         <div className="max-w-4xl">
           <p className="text-xs font-black uppercase tracking-[0.24em] text-[#50a8ff] sm:text-sm">
             Custom apparel. Screen printing. Embroidery. Signs.
@@ -149,12 +149,13 @@ export function HomeHeroRotator() {
           </h1>
           <div className="mt-5 flex max-w-4xl flex-wrap gap-2">
             {serviceLabels.map((service) => {
-              const isActive = activeService === service;
+              const isActive = activeService === service.label;
               const shouldGlow = isActive || isStorefrontSlide;
 
               return (
-                <span
-                  key={service}
+                <Link
+                  key={service.label}
+                  href={service.href}
                   className={[
                     "rounded-md border px-3 py-2 text-[0.66rem] font-black uppercase tracking-[0.14em] backdrop-blur-sm transition duration-700 sm:text-xs",
                     shouldGlow
@@ -162,8 +163,8 @@ export function HomeHeroRotator() {
                       : "border-white/18 bg-black/22 text-white/64",
                   ].join(" ")}
                 >
-                  {service}
-                </span>
+                  {service.label}
+                </Link>
               );
             })}
           </div>
@@ -190,9 +191,9 @@ export function HomeHeroRotator() {
             href="https://www.google.com/search?q=hue+graphics+reviews"
             target="_blank"
             rel="noreferrer"
-            className="mt-6 inline-flex flex-wrap items-center gap-2 rounded-full bg-black/30 px-1.5 py-1.5 pr-4 text-sm font-bold text-white/90 backdrop-blur-sm transition hover:bg-black/44 hover:text-white sm:gap-3"
+            className="mt-6 inline-grid w-full max-w-[22rem] grid-cols-[2.5rem_1fr] items-center gap-x-3 gap-y-1 rounded-full bg-black/36 p-2 pr-4 text-sm font-bold text-white/90 backdrop-blur-sm transition hover:bg-black/44 hover:text-white sm:inline-flex sm:max-w-none sm:flex-wrap sm:gap-3 sm:px-1.5 sm:py-1.5 sm:pr-4"
           >
-            <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full bg-white p-1">
+            <span className="relative row-span-2 h-10 w-10 shrink-0 overflow-hidden rounded-full bg-white p-1 sm:h-8 sm:w-8">
               <Image
                 src="/images/Google-logo.svg.png"
                 alt="Google"
@@ -203,11 +204,11 @@ export function HomeHeroRotator() {
             </span>
             <span
               aria-label="5 stars"
-              className="shrink-0 text-[22px] font-black leading-none tracking-[0.08em] text-[#ffd24a] drop-shadow-[0_1px_3px_rgba(0,0,0,0.35)] sm:text-[24px]"
+              className="shrink-0 text-[20px] font-black leading-none tracking-[0.08em] text-[#ffd24a] drop-shadow-[0_1px_3px_rgba(0,0,0,0.35)] sm:text-[24px]"
             >
               ★★★★★
             </span>
-            <span className="whitespace-nowrap text-white/92">
+            <span className="text-xs leading-tight text-white/92 sm:whitespace-nowrap sm:text-sm">
               4.9 Stars · 118+ Google Reviews
             </span>
           </a>
