@@ -417,9 +417,17 @@ function formatBasketDetails(items: QuoteBasketItem[], notes: string) {
         .join(", ");
       const back =
         Number(item.backColors) > 0 ? `${item.backColors} back` : "front only";
-      const decoration = item.decorationSummary
-        ? `Decoration: ${item.decorationSummary}`
-        : `Print colors: ${item.frontColors} front / ${back}`;
+      const service = item.service || "Screen Printing";
+      const isScreenPrinting = service === "Screen Printing";
+      const sizePricing = groupBasketSizePriceBreakdown(item.sizePriceBreakdown)
+        .map(
+          (entry) =>
+            `${entry.label} ${entry.quantity} @ ${formatPrice(
+              entry.priceEach,
+              item.currency,
+            )} each`,
+        )
+        .join(", ");
       const estimate =
         item.estimatedTotal === undefined
           ? "Estimate not calculated yet"
@@ -430,11 +438,15 @@ function formatBasketDetails(items: QuoteBasketItem[], notes: string) {
 
       return [
         `${index + 1}. ${item.brand} ${item.style} - ${item.productName}`,
-        item.service ? `Service: ${item.service}` : "",
+        `Service: ${service}`,
         `Color: ${item.color}`,
         `Quantity: ${item.quantity}`,
         `Sizes: ${sizes || "Not provided"}`,
-        decoration,
+        isScreenPrinting ? `Print colors: ${item.frontColors} front / ${back}` : "",
+        !isScreenPrinting && item.decorationSummary
+          ? `Decoration: ${item.decorationSummary}`
+          : "",
+        sizePricing ? `Size pricing: ${sizePricing}` : "",
         estimate,
       ]
         .filter(Boolean)
@@ -529,6 +541,45 @@ export function FloatingQuoteBasket() {
   function removeItem(id: string) {
     setItems((current) => current.filter((item) => item.id !== id));
     setBasketEstimateMessage("");
+  }
+
+  function updateItemSizeQuantity(
+    id: string,
+    size: string,
+    nextQuantity: string,
+  ) {
+    const numericQuantity = Math.max(
+      0,
+      Math.floor(Number(nextQuantity || 0)),
+    );
+
+    setItems((current) =>
+      current.map((item) => {
+        if (item.id !== id) {
+          return item;
+        }
+
+        const sizes = {
+          ...item.sizes,
+          [size]: numericQuantity,
+        };
+        const quantity = Object.values(sizes).reduce(
+          (total, sizeQuantity) => total + Number(sizeQuantity || 0),
+          0,
+        );
+
+        return {
+          ...item,
+          sizes,
+          quantity,
+          estimatedEach: undefined,
+          estimatedTotal: undefined,
+          sizePriceBreakdown: undefined,
+        };
+      }),
+    );
+    setBasketEstimateMessage("");
+    setStatus(null);
   }
 
   async function calculateScreenPrintBasketPrices() {
@@ -908,8 +959,9 @@ export function FloatingQuoteBasket() {
                   </button>
                 ) : (
                   <p className="mt-3 rounded-md border border-amber-200 bg-amber-50 p-3 text-xs font-bold leading-5 text-amber-800">
-                    Add more compatible screen print items to reach 24 pieces
-                    before calculating basket pricing.
+                    Adjust the size quantities below or add compatible screen
+                    print items to reach 24 pieces before calculating basket
+                    pricing.
                   </p>
                 )}
                 {blockedScreenPrintGroups.length &&
@@ -956,16 +1008,51 @@ export function FloatingQuoteBasket() {
                     <div className="mt-4 grid gap-2 text-sm font-bold text-[#314154]">
                       <p>Color: {item.color}</p>
                       <p>Quantity: {item.quantity}</p>
-                      <p>Sizes: {formatSizeBreakdown(item.sizes) || "Not provided"}</p>
+                      {Object.keys(item.sizes).length ? (
+                        <div>
+                          <p className="mb-2">Sizes</p>
+                          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                            {Object.entries(item.sizes).map(([size, quantity]) => (
+                              <label key={size} className="block">
+                                <span className="text-[0.68rem] font-black uppercase tracking-[0.08em] text-[#65717e]">
+                                  {size}
+                                </span>
+                                <input
+                                  type="number"
+                                  min={0}
+                                  value={quantity}
+                                  onChange={(event) =>
+                                    updateItemSizeQuantity(
+                                      item.id,
+                                      size,
+                                      event.target.value,
+                                    )
+                                  }
+                                  className="mt-1 h-10 w-full rounded-md border border-black/12 bg-white px-3 text-sm font-black text-[#07111f] outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/15"
+                                />
+                              </label>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <p>Sizes: Not provided</p>
+                      )}
                       <p>Service: {item.service || "Screen Printing"}</p>
                       <p>
-                        {item.decorationSummary
-                          ? `Decoration: ${item.decorationSummary}`
-                          : `Print colors: ${item.frontColors} front / ${
+                        {(item.service || "Screen Printing").toLowerCase() ===
+                        "screen printing"
+                          ? `Print colors: ${item.frontColors} front / ${
                               Number(item.backColors) > 0
                                 ? `${item.backColors} back`
                                 : "front only"
-                            }`}
+                            }`
+                          : item.decorationSummary
+                            ? `Decoration: ${item.decorationSummary}`
+                            : `Print colors: ${item.frontColors} front / ${
+                                Number(item.backColors) > 0
+                                  ? `${item.backColors} back`
+                                  : "front only"
+                              }`}
                       </p>
                       <div className="mt-2 rounded-md bg-white p-3 ring-1 ring-black/8">
                         {item.estimatedTotal !== undefined ||

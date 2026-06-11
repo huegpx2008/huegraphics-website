@@ -13,13 +13,13 @@ import {
   type ApparelSizePriceBreakdown,
 } from "@/lib/apparel-size-breakdown";
 import {
-  buildEmptyCatalogSizes,
   fetchCatalogColorSizes,
-  getProductSizeOrder,
   reconcileCatalogSizes,
+  selectedCatalogSizeQuantities,
 } from "@/lib/catalog-size-options";
 import { embroideryMinimumQuantity } from "@/lib/catalog-embroidery";
 import { screenPrintMinimumQuantity } from "@/lib/catalog-screenprint";
+import { filterAvailableSizesByPricing } from "@/lib/pricing-availability";
 
 type ProductCatalogQuoteButtonProps = {
   product: CatalogProduct;
@@ -106,17 +106,8 @@ function defaultColor(product: CatalogProduct) {
   return product.colors[0]?.name || "";
 }
 
-function buildEmptySizes(product: CatalogProduct) {
-  return buildEmptyCatalogSizes(product);
-}
-
 function numericSizeQuantities(sizes: Record<string, string | number>) {
-  return Object.fromEntries(
-    Object.entries(sizes).map(([size, quantity]) => [
-      size,
-      Math.max(0, Math.floor(Number(quantity || 0))),
-    ]),
-  ) as Record<string, number>;
+  return selectedCatalogSizeQuantities(sizes);
 }
 
 function getTotalQuantity(sizes: Record<string, string | number>): number {
@@ -197,7 +188,7 @@ export function ProductCatalogQuoteButton({
     setDetail({
       service,
       color: defaultColor(product),
-      sizes: buildEmptySizes(product),
+      sizes: {},
       frontColors: "1",
       backColors: "0",
       dtfFrontPreset: "front",
@@ -227,11 +218,26 @@ export function ProductCatalogQuoteButton({
 
     let isCancelled = false;
     const color = detailColor;
+    const currentDetail = detail;
 
     async function loadColorSizes() {
       const colorSizes = await fetchCatalogColorSizes(product.style, color);
+      const candidateSizes = colorSizes.length ? colorSizes : product.sizes;
+      const availableSizes = currentDetail
+        ? await filterAvailableSizesByPricing({
+            sizes: candidateSizes,
+            probeQuantity:
+              currentDetail.service === "embroidery"
+                ? embroideryMinimumQuantity
+                : currentDetail.service === "dtf"
+                  ? dtfMinimumQuantity
+                  : screenPrintMinimumQuantity,
+            requestEstimate: (sizes) =>
+              requestServiceEstimate(currentDetail, sizes),
+          })
+        : candidateSizes;
 
-      if (isCancelled || !colorSizes.length) {
+      if (isCancelled) {
         return;
       }
 
@@ -242,7 +248,7 @@ export function ProductCatalogQuoteButton({
 
         return {
           ...current,
-          sizes: reconcileCatalogSizes(current.sizes, product, colorSizes),
+          sizes: reconcileCatalogSizes(current.sizes, product, availableSizes),
           estimate: null,
           sizePriceBreakdown: [],
           error: "",
@@ -255,7 +261,24 @@ export function ProductCatalogQuoteButton({
     return () => {
       isCancelled = true;
     };
-  }, [detailColor, product]);
+  }, [
+    detailColor,
+    detail?.backColors,
+    detail?.digitizingRequired,
+    detail?.dtfBackPreset,
+    detail?.dtfFrontPreset,
+    detail?.dtfLeftSleeve,
+    detail?.dtfRightSleeve,
+    detail?.frontColors,
+    detail?.namesEnabled,
+    detail?.numbersEnabled,
+    detail?.placement,
+    detail?.puff3mm,
+    detail?.service,
+    detail?.stitchCount,
+    detail?.threadColors,
+    product,
+  ]);
 
   function updateDetail(updates: Partial<DetailEstimatorState>) {
     setDetail((current) =>
@@ -583,20 +606,6 @@ export function ProductCatalogQuoteButton({
       sizePriceBreakdown: detail.sizePriceBreakdown,
     };
 
-    if (detail.sizePriceBreakdown.length) {
-      item.decorationSummary = [
-        item.decorationSummary,
-        `Size pricing: ${detail.sizePriceBreakdown
-          .map(
-            (entry) =>
-              `${entry.label} ${entry.quantity} @ ${formatPrice(entry.priceEach)} each`,
-          )
-          .join(", ")}`,
-      ]
-        .filter(Boolean)
-        .join(" | ");
-    }
-
     addItemToFloatingQuoteBasket(item);
     setDetail(null);
   }
@@ -657,7 +666,6 @@ export function ProductCatalogQuoteButton({
                           onClick={() =>
                             updateDetail({
                               color: productColor.name,
-                              sizes: buildEmptyCatalogSizes(product),
                               estimate: null,
                               sizePriceBreakdown: [],
                               error: "",
@@ -705,7 +713,7 @@ export function ProductCatalogQuoteButton({
                     Size quantities
                   </p>
                   <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                    {getProductSizeOrder(product, Object.keys(detail.sizes)).map((size) => (
+                    {Object.keys(detail.sizes).map((size) => (
                       <label key={size} className="block">
                         <span className="text-xs font-black uppercase text-[#6a7480]">
                           {size}
@@ -720,6 +728,11 @@ export function ProductCatalogQuoteButton({
                       </label>
                     ))}
                   </div>
+                  {!Object.keys(detail.sizes).length ? (
+                    <p className="mt-3 rounded-md bg-[#eef6ff] p-3 text-sm font-bold text-[#31516f]">
+                      Loading available sizes for {detail.color}...
+                    </p>
+                  ) : null}
                 </div>
 
                 {detail.service === "embroidery" ? (

@@ -1,5 +1,6 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
+import { sanmarCatalogProducts } from "@/data/sanmarCatalog.generated";
 
 type ColorSizeIndex = Map<string, Map<string, string[]>>;
 
@@ -69,13 +70,39 @@ function sizeSortValue(size: string) {
 
 function buildColorSizeIndex() {
   const csvPath = path.join(process.cwd(), "public", "SanMar_SDL_N.csv");
+  const index: ColorSizeIndex = new Map();
+
+  for (const product of sanmarCatalogProducts) {
+    const styleKey = normalizeKey(product.style);
+    const styleMap = index.get(styleKey) ?? new Map<string, string[]>();
+
+    product.colors.forEach((color) => {
+      const colorSizes =
+        "sizes" in color && Array.isArray(color.sizes)
+          ? color.sizes.filter((size) => typeof size === "string" && size)
+          : [];
+
+      styleMap.set(
+        normalizeKey(color.name),
+        (colorSizes.length ? colorSizes : product.sizes).sort(
+          (a, b) => sizeSortValue(a) - sizeSortValue(b),
+        ),
+      );
+    });
+
+    index.set(styleKey, styleMap);
+  }
+
+  if (!existsSync(csvPath)) {
+    return index;
+  }
+
   const csv = readFileSync(csvPath, "utf8");
   const lines = csv.split(/\r?\n/).filter(Boolean);
   const headers = parseCsvLine(lines[0] || "");
   const styleIndex = headers.indexOf("STYLE#");
   const colorIndex = headers.indexOf("COLOR_NAME");
   const sizeIndex = headers.indexOf("SIZE");
-  const index: ColorSizeIndex = new Map();
 
   for (const line of lines.slice(1)) {
     const row = parseCsvLine(line);

@@ -19,6 +19,7 @@ export type CatalogProduct = {
     productImage: string;
     thumbnailImage: string;
     pms: string;
+    sizes?: string[];
   }[];
   sizes: string[];
   priceFrom?: number;

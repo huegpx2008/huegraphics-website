@@ -10,6 +10,10 @@ import {
   getScreenPrintRecommendation,
   screenPrintMinimumQuantity,
 } from "@/lib/catalog-screenprint";
+import {
+  fetchCatalogColorSizes,
+  getProductSizeOrder,
+} from "@/lib/catalog-size-options";
 
 type CatalogStartingPriceProps = {
   product: CatalogProduct;
@@ -28,8 +32,6 @@ type ScreenprintEstimate = {
   };
 };
 
-const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
-
 function formatPrice(value: number | string | undefined, currency = "USD") {
   if (typeof value === "number") {
     return new Intl.NumberFormat("en-US", {
@@ -41,16 +43,12 @@ function formatPrice(value: number | string | undefined, currency = "USD") {
   return value || "Request pricing";
 }
 
-function productSizeOrder(product: CatalogProduct) {
-  const normalized = product.sizes.length ? product.sizes : preferredSizes;
-  const preferred = preferredSizes.filter((size) => normalized.includes(size));
-  const rest = normalized.filter((size) => !preferred.includes(size));
-
-  return [...preferred, ...rest].slice(0, 8);
+function productSizeOrder(product: CatalogProduct, colorSizes?: string[]) {
+  return getProductSizeOrder(product, colorSizes);
 }
 
-function buildDefaultSizes(product: CatalogProduct) {
-  const sizes = productSizeOrder(product);
+function buildDefaultSizes(product: CatalogProduct, colorSizes?: string[]) {
+  const sizes = productSizeOrder(product, colorSizes);
   const activeSizes = sizes.filter((size) =>
     ["S", "M", "L", "XL"].includes(size),
   );
@@ -66,8 +64,11 @@ function buildDefaultSizes(product: CatalogProduct) {
   return result;
 }
 
-function buildEmbroideryDefaultSizes(product: CatalogProduct) {
-  const sizes = productSizeOrder(product);
+function buildEmbroideryDefaultSizes(
+  product: CatalogProduct,
+  colorSizes?: string[],
+) {
+  const sizes = productSizeOrder(product, colorSizes);
   const targetSize = sizes.includes("L") ? "L" : sizes[0];
 
   return Object.fromEntries(
@@ -107,9 +108,12 @@ export function CatalogStartingPrice({ product }: CatalogStartingPriceProps) {
 
       try {
         const isEmbroidery = service === "embroidery";
+        const color = product.colors[0]?.name || "";
+        const colorSizes = await fetchCatalogColorSizes(product.style, color);
+        const availableSizes = colorSizes.length ? colorSizes : product.sizes;
         const sizes = isEmbroidery
-          ? buildEmbroideryDefaultSizes(product)
-          : buildDefaultSizes(product);
+          ? buildEmbroideryDefaultSizes(product, availableSizes)
+          : buildDefaultSizes(product, availableSizes);
         const response = await fetch(
           isEmbroidery ? "/api/pricing/embroidery" : "/api/pricing/screenprint",
           {
@@ -124,7 +128,7 @@ export function CatalogStartingPrice({ product }: CatalogStartingPriceProps) {
                     {
                       style: product.style,
                       title: product.title,
-                      color: product.colors[0]?.name || "",
+                      color,
                       sizes,
                       sizeQty: sizes,
                     },
@@ -149,7 +153,7 @@ export function CatalogStartingPrice({ product }: CatalogStartingPriceProps) {
                     {
                       style: product.style,
                       title: product.title,
-                      color: product.colors[0]?.name || "",
+                      color,
                       sizes,
                       sizeQty: sizes,
                     },

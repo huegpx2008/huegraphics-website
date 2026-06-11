@@ -61,7 +61,6 @@ const products: ProductConfig[] = [
         defaultValue: "13-single",
         options: [
           { label: "13oz Single-Sided", value: "13-single" },
-          { label: "13oz Double-Sided", value: "13-double" },
           { label: "15oz Single-Sided", value: "15-single" },
           { label: "18oz Single-Sided", value: "18-single" },
           { label: "18oz Double-Sided", value: "18-double" },

@@ -324,11 +324,13 @@ for await (const line of lines) {
         catalogImageUrl(record.COLOR_PRODUCT_IMAGE),
       thumbnailImage: catalogImageUrl(record.COLOR_PRODUCT_IMAGE_THUMBNAIL),
       pms: clean(record.PMS_COLOR),
+      sizes: new Set(),
     });
   }
 
   if (size) {
     product.sizes.add(size);
+    product.colors.get(color)?.sizes.add(size);
   }
 }
 
@@ -440,9 +442,14 @@ const catalogProducts = [
 ]
   .map((product) => ({
     ...product,
-    colors: [...product.colors.values()].sort((a, b) =>
-      a.name.localeCompare(b.name)
-    ),
+    colors: [...product.colors.values()]
+      .map((color) => ({
+        ...color,
+        sizes: [...color.sizes].sort((a, b) =>
+          a.localeCompare(b, undefined, { numeric: true })
+        ),
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name)),
     sizes: [...product.sizes].sort((a, b) => a.localeCompare(b, undefined, { numeric: true })),
   }));
 
@@ -475,6 +482,7 @@ const content = `export type CatalogProduct = {
     productImage: string;
     thumbnailImage: string;
     pms: string;
+    sizes: string[];
   }[];
   sizes: string[];
   priceFrom?: number;

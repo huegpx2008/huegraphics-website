@@ -32,6 +32,7 @@ type QuoteItem = {
   sizes: string;
   decorationMethod: string;
   configuration: string;
+  sizePricing: string;
   estimatedTotal: string;
   estimatedEach: string;
 };
@@ -137,17 +138,27 @@ function parseBasketDetails(details: string): ParsedQuoteDetails {
     );
     const decoration = readValue("Decoration");
     const printColors = readValue("Print colors");
+    const service = readValue("Service");
+    const sizePricing = readValue("Size pricing");
+    const isScreenPrinting = service.toLowerCase() === "screen printing";
 
     return {
       itemNumber: headingMatch?.[1] || String(itemIndex + 1),
       productName,
       styleSku,
-      service: readValue("Service"),
+      service,
       color: readValue("Color"),
       quantity: readValue("Quantity"),
       sizes: readValue("Sizes"),
-      decorationMethod: decoration ? "Decoration" : printColors ? "Print colors" : "",
-      configuration: decoration || printColors,
+      decorationMethod: isScreenPrinting
+        ? "Screen Printing"
+        : decoration
+          ? "Decoration"
+          : printColors
+            ? "Print colors"
+            : "",
+      configuration: isScreenPrinting ? printColors : decoration || printColors,
+      sizePricing,
       estimatedTotal: estimateParts?.[1] || parseMoney(estimateLine),
       estimatedEach: estimateParts?.[2] || "",
     };
@@ -227,6 +238,7 @@ function renderQuoteItems(details: ParsedQuoteDetails) {
                 ${renderValue("Sizes", item.sizes)}
                 ${renderValue("Decoration method", item.decorationMethod)}
                 ${renderValue("Configuration", item.configuration)}
+                ${item.sizePricing ? renderValue("Size pricing", item.sizePricing) : ""}
                 ${renderValue("Estimated total", item.estimatedTotal || "Not calculated")}
                 ${renderValue("Estimated each", item.estimatedEach || "Not calculated")}
               </table>
@@ -287,6 +299,7 @@ function buildPlainTextEmail(input: {
               `Sizes: ${item.sizes || "Not provided"}`,
               `Decoration method: ${item.decorationMethod || "Not provided"}`,
               `Configuration: ${item.configuration || "Not provided"}`,
+              item.sizePricing ? `Size pricing: ${item.sizePricing}` : "",
               `Estimated total: ${item.estimatedTotal || "Not calculated"}`,
               `Estimated each: ${item.estimatedEach || "Not calculated"}`,
             ].join("\n"),

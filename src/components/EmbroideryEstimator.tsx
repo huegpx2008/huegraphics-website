@@ -15,9 +15,16 @@ import {
   type ApparelSizePriceBreakdown,
 } from "@/lib/apparel-size-breakdown";
 import {
+  filterAvailableSizesByPricing,
   findUnavailableSelectedSizes,
   removeUnavailableSizes,
 } from "@/lib/pricing-availability";
+import {
+  fetchCatalogColorSizes,
+  getProductSizeOrder,
+  reconcileCatalogSizes,
+  selectedCatalogSizeQuantities,
+} from "@/lib/catalog-size-options";
 
 type EmbroideryEstimatorProps = {
   products: CatalogProduct[];
@@ -102,7 +109,6 @@ type DetailEstimatorState = {
   isLoading: boolean;
 };
 
-const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
 const returnUrlKey = "hue-catalog-return-url";
 const returnScrollKey = "hue-catalog-return-scroll-y";
 const placementOptions = [
@@ -555,12 +561,8 @@ function saveReturnState() {
   window.sessionStorage.setItem(returnScrollKey, String(window.scrollY));
 }
 
-function productSizeOrder(product: CatalogProduct) {
-  const normalized = product.sizes.length ? product.sizes : preferredSizes;
-  const preferred = preferredSizes.filter((size) => normalized.includes(size));
-  const rest = normalized.filter((size) => !preferred.includes(size));
-
-  return [...preferred, ...rest].slice(0, 8);
+function productSizeOrder(product: CatalogProduct, colorSizes?: string[]) {
+  return getProductSizeOrder(product, colorSizes);
 }
 
 function normalizeQuantity(value: string | number) {
@@ -570,8 +572,12 @@ function normalizeQuantity(value: string | number) {
     : embroideryMinimumQuantity;
 }
 
-function buildDefaultSizes(product: CatalogProduct, quantity: number) {
-  const sizes = productSizeOrder(product);
+function buildDefaultSizes(
+  product: CatalogProduct,
+  quantity: number,
+  colorSizes?: string[],
+) {
+  const sizes = productSizeOrder(product, colorSizes);
   const activeSizes = sizes.filter((size) =>
     ["S", "M", "L", "XL"].includes(size),
   );
@@ -604,12 +610,7 @@ function getTotalQuantity(sizeQty: Record<string, string | number>): number {
 }
 
 function numericSizeQuantities(sizes: Record<string, string | number>) {
-  return Object.fromEntries(
-    Object.entries(sizes).map(([size, quantity]) => [
-      size,
-      Math.max(0, Math.floor(Number(quantity || 0))),
-    ]),
-  ) as Record<string, number>;
+  return selectedCatalogSizeQuantities(sizes);
 }
 
 function buildEmbroideryPayload({
@@ -782,10 +783,37 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
 
     async function loadEstimates() {
       for (const product of visibleProducts) {
+        const color = defaultColor(product);
+        const colorSizes = await fetchCatalogColorSizes(product.style, color);
+        const candidateSizes = colorSizes.length ? colorSizes : product.sizes;
+        const availableSizes = await filterAvailableSizesByPricing({
+          sizes: candidateSizes,
+          probeQuantity: embroideryMinimumQuantity,
+          requestEstimate: (sizes) =>
+            requestEmbroideryEstimate(
+              buildEmbroideryPayload({
+                product,
+                color,
+                sizeQuantities: sizes,
+                placement: activeGroup === "headwear" ? "Hat Front" : placement,
+                stitchCount: Number(stitchCount),
+                threadColors: Number(threadColors),
+                digitizingRequired,
+                puff3mm,
+                namesEnabled,
+                numbersEnabled,
+                sameDesign: true,
+              }),
+            ),
+        });
         const payload = buildEmbroideryPayload({
           product,
-                    color: defaultColor(product),
-                    sizeQuantities: buildDefaultSizes(product, normalizedQuantity),
+                    color,
+                    sizeQuantities: buildDefaultSizes(
+                      product,
+                      normalizedQuantity,
+                      availableSizes,
+                    ),
                     placement: activeGroup === "headwear" ? "Hat Front" : placement,
                     stitchCount: Number(stitchCount),
                     threadColors: Number(threadColors),
@@ -868,7 +896,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
     setDetailEstimator({
       product,
       color: defaultColor(product),
-      sizes: buildDetailSizes(product, normalizedQuantity),
+      sizes: {},
       placement: activeGroup === "headwear" ? "Hat Front" : placement,
       stitchCount,
       threadColors,
@@ -883,6 +911,96 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
       isLoading: false,
     });
   }
+
+  const detailProduct = detailEstimator?.product;
+  const detailColor = detailEstimator?.color;
+
+  useEffect(() => {
+    if (!detailProduct || !detailColor) {
+      return;
+    }
+
+    let isCancelled = false;
+    const product = detailProduct;
+    const color = detailColor;
+    const currentDetail = detailEstimator;
+
+    async function loadColorSizes() {
+      const colorSizes = await fetchCatalogColorSizes(product.style, color);
+      const candidateSizes = colorSizes.length ? colorSizes : product.sizes;
+      const availableSizes = currentDetail
+        ? await filterAvailableSizesByPricing({
+            sizes: candidateSizes,
+            probeQuantity: embroideryMinimumQuantity,
+            requestEstimate: (sizes) =>
+              requestEmbroideryEstimate(
+                buildEmbroideryPayload({
+                  product,
+                  color,
+                  sizeQuantities: sizes,
+                  placement: currentDetail.placement,
+                  stitchCount: Number(currentDetail.stitchCount),
+                  threadColors: Number(currentDetail.threadColors),
+                  digitizingRequired: currentDetail.digitizingRequired,
+                  puff3mm: currentDetail.puff3mm,
+                  namesEnabled: currentDetail.namesEnabled,
+                  numbersEnabled: currentDetail.numbersEnabled,
+                  sameDesign: currentDetail.sameDesign,
+                }),
+              ),
+          })
+        : candidateSizes;
+
+      if (isCancelled) {
+        return;
+      }
+
+      setDetailEstimator((current) => {
+        if (
+          !current ||
+          current.product.style !== product.style ||
+          current.color !== color
+        ) {
+          return current;
+        }
+
+        return {
+          ...current,
+          sizes: Object.fromEntries(
+            Object.entries(
+              reconcileCatalogSizes(current.sizes, product, availableSizes),
+            ).map(([size, quantity]) => [
+              size,
+              quantity === "0" && !Object.keys(current.sizes).length
+                ? String(buildDetailSizes(product, normalizedQuantity)[size] || "0")
+                : quantity,
+            ]),
+          ),
+          estimate: null,
+          sizePriceBreakdown: [],
+          error: "",
+        };
+      });
+    }
+
+    loadColorSizes();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [
+    detailProduct,
+    detailColor,
+    detailEstimator?.digitizingRequired,
+    detailEstimator?.namesEnabled,
+    detailEstimator?.numbersEnabled,
+    detailEstimator?.placement,
+    detailEstimator?.puff3mm,
+    detailEstimator?.sameDesign,
+    detailEstimator?.stitchCount,
+    detailEstimator?.threadColors,
+    normalizedQuantity,
+  ]);
 
   function updateDetail(updates: Partial<DetailEstimatorState>) {
     setDetailEstimator((current) =>
@@ -1005,24 +1123,6 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
     }
   }
 
-  function sizePricingSummary() {
-    if (!detailEstimator?.sizePriceBreakdown.length) {
-      return "";
-    }
-
-    return detailEstimator.sizePriceBreakdown
-      .map((item) =>
-        [
-          item.label,
-          `${item.quantity}`,
-          item.priceEach !== undefined ? `@ ${formatPrice(item.priceEach)} each` : "",
-        ]
-          .filter(Boolean)
-          .join(" "),
-      )
-      .join(", ");
-  }
-
   function addDetailToBasket() {
     if (!detailEstimator) {
       return;
@@ -1057,7 +1157,6 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
         detailEstimator.puff3mm ? "3D puff" : "",
         detailEstimator.namesEnabled ? "Names" : "",
         detailEstimator.numbersEnabled ? "Numbers" : "",
-        sizePricingSummary() ? `Size pricing: ${sizePricingSummary()}` : "",
       ]
         .filter(Boolean)
         .join(" / "),
@@ -1413,6 +1512,7 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                             updateDetail({
                               color: productColor.name,
                               estimate: null,
+                              sizePriceBreakdown: [],
                               error: "",
                             })
                           }
@@ -1506,6 +1606,11 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
                       </label>
                     ))}
                   </div>
+                  {!Object.keys(detailEstimator.sizes).length ? (
+                    <p className="mt-3 rounded-md bg-[#eef6ff] p-3 text-sm font-bold text-[#31516f]">
+                      Loading available sizes for {detailEstimator.color}...
+                    </p>
+                  ) : null}
                 </div>
 
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">

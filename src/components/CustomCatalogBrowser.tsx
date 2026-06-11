@@ -15,10 +15,10 @@ import {
   type ApparelSizePriceBreakdown,
 } from "@/lib/apparel-size-breakdown";
 import {
-  buildEmptyCatalogSizes,
   fetchCatalogColorSizes,
   getProductSizeOrder,
   reconcileCatalogSizes,
+  selectedCatalogSizeQuantities,
 } from "@/lib/catalog-size-options";
 import {
   embroideryMinimumQuantity,
@@ -29,6 +29,7 @@ import {
   getScreenPrintRecommendation,
   screenPrintMinimumQuantity,
 } from "@/lib/catalog-screenprint";
+import { filterAvailableSizesByPricing } from "@/lib/pricing-availability";
 
 type CustomCatalogBrowserProps = {
   products: CatalogProduct[];
@@ -183,12 +184,16 @@ function normalizeQuantity(value: string | number) {
     : screenPrintMinimumQuantity;
 }
 
-function productSizeOrder(product: CatalogProduct) {
-  return getProductSizeOrder(product);
+function productSizeOrder(product: CatalogProduct, colorSizes?: string[]) {
+  return getProductSizeOrder(product, colorSizes);
 }
 
-function buildDefaultSizes(product: CatalogProduct, quantity: number) {
-  const sizes = productSizeOrder(product);
+function buildDefaultSizes(
+  product: CatalogProduct,
+  quantity: number,
+  colorSizes?: string[],
+) {
+  const sizes = productSizeOrder(product, colorSizes);
   const activeSizes = sizes.filter((size) =>
     ["S", "M", "L", "XL"].includes(size),
   );
@@ -204,17 +209,8 @@ function buildDefaultSizes(product: CatalogProduct, quantity: number) {
   return result;
 }
 
-function buildEmptyDetailSizes(product: CatalogProduct) {
-  return buildEmptyCatalogSizes(product);
-}
-
 function numericSizeQuantities(sizes: Record<string, string | number>) {
-  return Object.fromEntries(
-    Object.entries(sizes).map(([size, quantity]) => [
-      size,
-      Math.max(0, Math.floor(Number(quantity || 0))),
-    ]),
-  ) as Record<string, number>;
+  return selectedCatalogSizeQuantities(sizes);
 }
 
 function getTotalQuantity(sizes: Record<string, string | number>): number {
@@ -735,13 +731,21 @@ export function CustomCatalogBrowser({
         }
 
         try {
+          const color = defaultColor(product);
+          const colorSizes = await fetchCatalogColorSizes(product.style, color);
+          const availableSizes = colorSizes.length ? colorSizes : product.sizes;
+          const sizeQuantities = buildDefaultSizes(
+            product,
+            quantity,
+            availableSizes,
+          );
           const estimate =
             debouncedQuickSettings.service === "screenprint"
               ? await requestScreenprintEstimate(
                   buildScreenprintPayload({
                     product,
-                    color: defaultColor(product),
-                    sizeQuantities: buildDefaultSizes(product, quantity),
+                    color,
+                    sizeQuantities,
                     frontColors: Number(debouncedQuickSettings.frontColors),
                     backColors: Number(debouncedQuickSettings.backColors),
                     sameDesign: debouncedQuickSettings.sameDesign,
@@ -751,8 +755,8 @@ export function CustomCatalogBrowser({
                 ? await requestEmbroideryEstimate(
                     buildEmbroideryPayload({
                       product,
-                      color: defaultColor(product),
-                      sizeQuantities: buildDefaultSizes(product, quantity),
+                      color,
+                      sizeQuantities,
                       placement: debouncedQuickSettings.placement,
                       stitchCount: Number(debouncedQuickSettings.stitchCount),
                       threadColors: Number(debouncedQuickSettings.threadColors),
@@ -767,8 +771,8 @@ export function CustomCatalogBrowser({
                 : await requestDtfEstimate(
                     buildDtfPayload({
                       product,
-                      color: defaultColor(product),
-                      sizeQuantities: buildDefaultSizes(product, quantity),
+                      color,
+                      sizeQuantities,
                       frontPreset: debouncedQuickSettings.dtfFrontPreset,
                       backPreset: debouncedQuickSettings.dtfBackPreset,
                       leftSleeve: debouncedQuickSettings.dtfLeftSleeve,
@@ -950,20 +954,6 @@ export function CustomCatalogBrowser({
       sizePriceBreakdown: detailEstimator.sizePriceBreakdown,
     };
 
-    if (detailEstimator.sizePriceBreakdown.length) {
-      item.decorationSummary = [
-        item.decorationSummary,
-        `Size pricing: ${detailEstimator.sizePriceBreakdown
-          .map(
-            (entry) =>
-              `${entry.label} ${entry.quantity} @ ${formatPrice(entry.priceEach)} each`,
-          )
-          .join(", ")}`,
-      ]
-        .filter(Boolean)
-        .join(" | ");
-    }
-
     addItemToFloatingQuoteBasket(item);
     setDetailEstimator(null);
   }
@@ -984,7 +974,7 @@ export function CustomCatalogBrowser({
       product,
       service: pricingService,
       color: defaultColor(product),
-      sizes: buildEmptyDetailSizes(product),
+      sizes: {},
       frontColors: quickFrontColors,
       backColors: quickBackColors,
       dtfFrontPreset: quickDtfFrontPreset,
@@ -1017,11 +1007,26 @@ export function CustomCatalogBrowser({
     let isCancelled = false;
     const product = detailProduct;
     const color = detailColor;
+    const currentDetail = detailEstimator;
 
     async function loadColorSizes() {
       const colorSizes = await fetchCatalogColorSizes(product.style, color);
+      const candidateSizes = colorSizes.length ? colorSizes : product.sizes;
+      const availableSizes = currentDetail
+        ? await filterAvailableSizesByPricing({
+            sizes: candidateSizes,
+            probeQuantity:
+              currentDetail.service === "embroidery"
+                ? embroideryMinimumQuantity
+                : currentDetail.service === "dtf"
+                  ? dtfMinimumQuantity
+                  : screenPrintMinimumQuantity,
+            requestEstimate: (sizes) =>
+              requestDetailServiceEstimate(currentDetail, sizes),
+          })
+        : candidateSizes;
 
-      if (isCancelled || !colorSizes.length) {
+      if (isCancelled) {
         return;
       }
 
@@ -1036,7 +1041,7 @@ export function CustomCatalogBrowser({
 
         return {
           ...current,
-          sizes: reconcileCatalogSizes(current.sizes, product, colorSizes),
+          sizes: reconcileCatalogSizes(current.sizes, product, availableSizes),
           estimate: null,
           sizePriceBreakdown: [],
           error: "",
@@ -1049,7 +1054,25 @@ export function CustomCatalogBrowser({
     return () => {
       isCancelled = true;
     };
-  }, [detailProduct, detailColor]);
+  }, [
+    detailProduct,
+    detailColor,
+    detailEstimator?.backColors,
+    detailEstimator?.digitizingRequired,
+    detailEstimator?.dtfBackPreset,
+    detailEstimator?.dtfFrontPreset,
+    detailEstimator?.dtfLeftSleeve,
+    detailEstimator?.dtfRightSleeve,
+    detailEstimator?.frontColors,
+    detailEstimator?.namesEnabled,
+    detailEstimator?.numbersEnabled,
+    detailEstimator?.placement,
+    detailEstimator?.puff3mm,
+    detailEstimator?.sameDesign,
+    detailEstimator?.service,
+    detailEstimator?.stitchCount,
+    detailEstimator?.threadColors,
+  ]);
 
   function updateDetail(updates: Partial<DetailEstimatorState>) {
     setDetailEstimator((current) =>
@@ -1867,7 +1890,6 @@ export function CustomCatalogBrowser({
                           onClick={() =>
                             updateDetail({
                               color: productColor.name,
-                              sizes: buildEmptyCatalogSizes(detailEstimator.product),
                               estimate: null,
                               sizePriceBreakdown: [],
                               error: "",
@@ -1924,10 +1946,7 @@ export function CustomCatalogBrowser({
                     Size quantities
                   </p>
                   <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                    {getProductSizeOrder(
-                      detailEstimator.product,
-                      Object.keys(detailEstimator.sizes),
-                    ).map((size) => (
+                    {Object.keys(detailEstimator.sizes).map((size) => (
                       <label key={size} className="block">
                         <span className="text-xs font-black uppercase text-[#6a7480]">
                           {size}
@@ -1944,6 +1963,11 @@ export function CustomCatalogBrowser({
                       </label>
                     ))}
                   </div>
+                  {!Object.keys(detailEstimator.sizes).length ? (
+                    <p className="mt-3 rounded-md bg-[#eef6ff] p-3 text-sm font-bold text-[#31516f]">
+                      Loading available sizes for {detailEstimator.color}...
+                    </p>
+                  ) : null}
                 </div>
 
                 {detailEstimator.service === "screenprint" ? (

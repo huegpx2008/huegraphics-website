@@ -33,6 +33,36 @@ export async function findUnavailableSelectedSizes({
   return unavailable;
 }
 
+export async function filterAvailableSizesByPricing({
+  sizes,
+  probeQuantity,
+  requestEstimate,
+}: {
+  sizes: string[];
+  probeQuantity: number;
+  requestEstimate: (sizes: Record<string, number>) => Promise<unknown>;
+}) {
+  const available: string[] = [];
+
+  for (const size of sizes) {
+    try {
+      await requestEstimate({ [size]: probeQuantity });
+      available.push(size);
+    } catch (error) {
+      if (
+        error instanceof Error &&
+        isInvalidPricingInputMessage(error.message)
+      ) {
+        continue;
+      }
+
+      available.push(size);
+    }
+  }
+
+  return available;
+}
+
 export function removeUnavailableSizes<T extends string | number>(
   sizes: Record<string, T>,
   unavailableSizes: string[],

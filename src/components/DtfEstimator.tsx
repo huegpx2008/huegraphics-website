@@ -14,9 +14,16 @@ import {
   type ApparelSizePriceBreakdown,
 } from "@/lib/apparel-size-breakdown";
 import {
+  filterAvailableSizesByPricing,
   findUnavailableSelectedSizes,
   removeUnavailableSizes,
 } from "@/lib/pricing-availability";
+import {
+  fetchCatalogColorSizes,
+  getProductSizeOrder,
+  reconcileCatalogSizes,
+  selectedCatalogSizeQuantities,
+} from "@/lib/catalog-size-options";
 
 type DtfEstimatorProps = {
   products: CatalogProduct[];
@@ -79,7 +86,6 @@ type DtfEstimate = {
 };
 
 const dtfMinimumQuantity = 1;
-const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
 const dtfLocationOptions = [
   { label: "Full Front", value: "front", width: 10, height: 12 },
   { label: "Full Back", value: "back", width: 10, height: 12 },
@@ -521,16 +527,16 @@ function productImage(product: CatalogProduct) {
   );
 }
 
-function productSizeOrder(product: CatalogProduct) {
-  const normalized = product.sizes.length ? product.sizes : preferredSizes;
-  const preferred = preferredSizes.filter((size) => normalized.includes(size));
-  const rest = normalized.filter((size) => !preferred.includes(size));
-
-  return [...preferred, ...rest].slice(0, 8);
+function productSizeOrder(product: CatalogProduct, colorSizes?: string[]) {
+  return getProductSizeOrder(product, colorSizes);
 }
 
-function buildDefaultSizes(product: CatalogProduct, quantity: number) {
-  const sizes = productSizeOrder(product);
+function buildDefaultSizes(
+  product: CatalogProduct,
+  quantity: number,
+  colorSizes?: string[],
+) {
+  const sizes = productSizeOrder(product, colorSizes);
   const activeSizes = sizes.filter((size) =>
     ["S", "M", "L", "XL"].includes(size),
   );
@@ -552,6 +558,10 @@ function buildDetailSizes(product: CatalogProduct, quantity: number) {
   return Object.fromEntries(
     Object.entries(defaults).map(([size, qty]) => [size, String(qty)]),
   );
+}
+
+function numericSizeQuantities(sizes: Record<string, string | number>) {
+  return selectedCatalogSizeQuantities(sizes);
 }
 
 function getTotalQuantity(sizeQty: Record<string, string | number>): number {
@@ -628,6 +638,23 @@ function buildDtfPayload({
   };
 }
 
+async function requestDtfEstimate(payload: unknown) {
+  const response = await fetch("/api/pricing/dtf", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+  const data = (await response.json()) as DtfEstimate;
+
+  if (!response.ok || data.ok === false) {
+    throw new Error(data.error?.message || "Estimate unavailable.");
+  }
+
+  return data;
+}
+
 export function DtfEstimator({ products }: DtfEstimatorProps) {
   const productByStyle = useMemo(
     () => new Map(products.map((product) => [product.style, product])),
@@ -685,6 +712,26 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
 
     async function loadEstimates() {
       for (const product of visibleProducts) {
+        const color = defaultColor(product);
+        const colorSizes = await fetchCatalogColorSizes(product.style, color);
+        const candidateSizes = colorSizes.length ? colorSizes : product.sizes;
+        const availableSizes = await filterAvailableSizesByPricing({
+          sizes: candidateSizes,
+          probeQuantity: dtfMinimumQuantity,
+          requestEstimate: (sizes) =>
+            requestDtfEstimate(
+              buildDtfPayload({
+                product,
+                color,
+                sizeQuantities: sizes,
+                frontPreset,
+                backPreset,
+                leftSleeve,
+                rightSleeve,
+              }),
+            ),
+        });
+
         try {
           const response = await fetch("/api/pricing/dtf", {
             method: "POST",
@@ -694,8 +741,12 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
             body: JSON.stringify(
               buildDtfPayload({
                 product,
-                color: defaultColor(product),
-                sizeQuantities: buildDefaultSizes(product, normalizedQuantity),
+                color,
+                sizeQuantities: buildDefaultSizes(
+                  product,
+                  normalizedQuantity,
+                  availableSizes,
+                ),
                 frontPreset,
                 backPreset,
                 leftSleeve,
@@ -780,7 +831,7 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
     setDetailEstimator({
       product,
       color: defaultColor(product),
-      sizes: buildDetailSizes(product, normalizedQuantity),
+      sizes: {},
       frontPreset,
       backPreset,
       leftSleeve,
@@ -791,6 +842,88 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       isLoading: false,
     });
   }
+
+  const detailProduct = detailEstimator?.product;
+  const detailColor = detailEstimator?.color;
+
+  useEffect(() => {
+    if (!detailProduct || !detailColor) {
+      return;
+    }
+
+    let isCancelled = false;
+    const product = detailProduct;
+    const color = detailColor;
+    const currentDetail = detailEstimator;
+
+    async function loadColorSizes() {
+      const colorSizes = await fetchCatalogColorSizes(product.style, color);
+      const candidateSizes = colorSizes.length ? colorSizes : product.sizes;
+      const availableSizes = currentDetail
+        ? await filterAvailableSizesByPricing({
+            sizes: candidateSizes,
+            probeQuantity: dtfMinimumQuantity,
+            requestEstimate: (sizes) =>
+              requestDtfEstimate(
+                buildDtfPayload({
+                  product,
+                  color,
+                  sizeQuantities: sizes,
+                  frontPreset: currentDetail.frontPreset,
+                  backPreset: currentDetail.backPreset,
+                  leftSleeve: currentDetail.leftSleeve,
+                  rightSleeve: currentDetail.rightSleeve,
+                }),
+              ),
+          })
+        : candidateSizes;
+
+      if (isCancelled) {
+        return;
+      }
+
+      setDetailEstimator((current) => {
+        if (
+          !current ||
+          current.product.style !== product.style ||
+          current.color !== color
+        ) {
+          return current;
+        }
+
+        return {
+          ...current,
+          sizes: Object.fromEntries(
+            Object.entries(
+              reconcileCatalogSizes(current.sizes, product, availableSizes),
+            ).map(([size, quantity]) => [
+              size,
+              quantity === "0" && !Object.keys(current.sizes).length
+                ? String(buildDetailSizes(product, normalizedQuantity)[size] || "0")
+                : quantity,
+            ]),
+          ),
+          estimate: null,
+          sizePriceBreakdown: [],
+          error: "",
+        };
+      });
+    }
+
+    loadColorSizes();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [
+    detailProduct,
+    detailColor,
+    detailEstimator?.backPreset,
+    detailEstimator?.frontPreset,
+    detailEstimator?.leftSleeve,
+    detailEstimator?.rightSleeve,
+    normalizedQuantity,
+  ]);
 
   function saveCatalogReturnState() {
     window.sessionStorage.setItem(
@@ -881,12 +1014,7 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       return;
     }
 
-    const numericSizes = Object.fromEntries(
-      Object.entries(detailEstimator.sizes).map(([size, qty]) => [
-        size,
-        Number(qty || 0),
-      ]),
-    );
+    const numericSizes = numericSizeQuantities(detailEstimator.sizes);
 
     updateDetail({
       isLoading: true,
@@ -964,35 +1092,12 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
     }
   }
 
-  function sizePricingSummary() {
-    if (!detailEstimator?.sizePriceBreakdown.length) {
-      return "";
-    }
-
-    return detailEstimator.sizePriceBreakdown
-      .map((item) =>
-        [
-          item.label,
-          `${item.quantity}`,
-          item.priceEach !== undefined ? `@ ${formatPrice(item.priceEach)} each` : "",
-        ]
-          .filter(Boolean)
-          .join(" "),
-      )
-      .join(", ");
-  }
-
   function addDetailToBasket() {
     if (!detailEstimator) {
       return;
     }
 
-    const sizes = Object.fromEntries(
-      Object.entries(detailEstimator.sizes).map(([size, qty]) => [
-        size,
-        Number(qty || 0),
-      ]),
-    );
+    const sizes = numericSizeQuantities(detailEstimator.sizes);
     const totalQty = getTotalQuantity(sizes);
 
     if (totalQty <= 0) {
@@ -1028,7 +1133,6 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
               dtfLocationOptions.find((option) => option.value === value)
                 ?.label || value,
           ),
-        sizePricingSummary() ? `Size pricing: ${sizePricingSummary()}` : "",
       ]
         .filter(Boolean)
         .join(" / "),
@@ -1416,6 +1520,7 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
                             updateDetail({
                               color: productColor.name,
                               estimate: null,
+                              sizePriceBreakdown: [],
                               error: "",
                             })
                           }
@@ -1466,6 +1571,11 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
                       </label>
                     ))}
                   </div>
+                  {!Object.keys(detailEstimator.sizes).length ? (
+                    <p className="mt-3 rounded-md bg-[#eef6ff] p-3 text-sm font-bold text-[#31516f]">
+                      Loading available sizes for {detailEstimator.color}...
+                    </p>
+                  ) : null}
                 </div>
 
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">

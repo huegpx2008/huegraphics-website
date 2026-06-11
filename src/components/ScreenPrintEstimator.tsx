@@ -14,9 +14,16 @@ import {
   type ApparelSizePriceBreakdown,
 } from "@/lib/apparel-size-breakdown";
 import {
+  filterAvailableSizesByPricing,
   findUnavailableSelectedSizes,
   removeUnavailableSizes,
 } from "@/lib/pricing-availability";
+import {
+  fetchCatalogColorSizes,
+  getProductSizeOrder,
+  reconcileCatalogSizes,
+  selectedCatalogSizeQuantities,
+} from "@/lib/catalog-size-options";
 
 type ScreenPrintEstimatorProps = {
   products: CatalogProduct[];
@@ -73,7 +80,6 @@ type ScreenprintEstimate = {
   };
 };
 
-const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
 const frontColorOptions = ["1", "2", "3", "4"];
 const backColorOptions = [
   { label: "No back print", value: "0" },
@@ -507,16 +513,16 @@ function productImage(product: CatalogProduct) {
   );
 }
 
-function productSizeOrder(product: CatalogProduct) {
-  const normalized = product.sizes.length ? product.sizes : preferredSizes;
-  const preferred = preferredSizes.filter((size) => normalized.includes(size));
-  const rest = normalized.filter((size) => !preferred.includes(size));
-
-  return [...preferred, ...rest].slice(0, 8);
+function productSizeOrder(product: CatalogProduct, colorSizes?: string[]) {
+  return getProductSizeOrder(product, colorSizes);
 }
 
-function buildDefaultSizes(product: CatalogProduct, quantity: number) {
-  const sizes = productSizeOrder(product);
+function buildDefaultSizes(
+  product: CatalogProduct,
+  quantity: number,
+  colorSizes?: string[],
+) {
+  const sizes = productSizeOrder(product, colorSizes);
   const activeSizes = sizes.filter((size) =>
     ["S", "M", "L", "XL"].includes(size),
   );
@@ -532,10 +538,8 @@ function buildDefaultSizes(product: CatalogProduct, quantity: number) {
   return result;
 }
 
-function buildEmptyDetailSizes(product: CatalogProduct) {
-  return Object.fromEntries(
-    productSizeOrder(product).map((size) => [size, "0"]),
-  );
+function numericSizeQuantities(sizes: Record<string, string | number>) {
+  return selectedCatalogSizeQuantities(sizes);
 }
 
 function getTotalQuantity(sizeQty: Record<string, string | number>): number {
@@ -611,6 +615,43 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
 
     async function loadEstimates() {
       for (const product of visibleProducts) {
+        const color = defaultColor(product);
+        const colorSizes = await fetchCatalogColorSizes(product.style, color);
+        const candidateSizes = colorSizes.length ? colorSizes : product.sizes;
+        const availableSizes = await filterAvailableSizesByPricing({
+          sizes: candidateSizes,
+          probeQuantity: 24,
+          requestEstimate: async (sizes) => {
+            const response = await fetch("/api/pricing/screenprint", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                lineItems: [
+                  {
+                    style: product.style,
+                    title: product.title,
+                    color,
+                    sizes,
+                    sizeQty: sizes,
+                  },
+                ],
+                printLines: [
+                  { id: "front", name: "Front", colors: Number(frontColors) },
+                  { id: "back", name: "Back", colors: Number(backColors) },
+                ],
+                sameDesign: true,
+              }),
+            });
+            const data = (await response.json()) as ScreenprintEstimate;
+
+            if (!response.ok || data.ok === false) {
+              throw new Error(data.error?.message || "Estimate unavailable.");
+            }
+
+            return data;
+          },
+        });
+
         try {
           const response = await fetch("/api/pricing/screenprint", {
             method: "POST",
@@ -622,9 +663,17 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
                 {
                   style: product.style,
                   title: product.title,
-                  color: defaultColor(product),
-                  sizes: buildDefaultSizes(product, normalizedQuantity),
-                  sizeQty: buildDefaultSizes(product, normalizedQuantity),
+                  color,
+                  sizes: buildDefaultSizes(
+                    product,
+                    normalizedQuantity,
+                    availableSizes,
+                  ),
+                  sizeQty: buildDefaultSizes(
+                    product,
+                    normalizedQuantity,
+                    availableSizes,
+                  ),
                 },
               ],
               printLines: [
@@ -712,7 +761,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
     setDetailEstimator({
       product,
       color: defaultColor(product),
-      sizes: buildEmptyDetailSizes(product),
+      sizes: {},
       frontColors,
       backColors,
       estimate: null,
@@ -721,6 +770,53 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
       isLoading: false,
     });
   }
+
+  const detailProduct = detailEstimator?.product;
+  const detailColor = detailEstimator?.color;
+
+  useEffect(() => {
+    if (!detailProduct || !detailColor) {
+      return;
+    }
+
+    let isCancelled = false;
+    const product = detailProduct;
+    const color = detailColor;
+
+    async function loadColorSizes() {
+      const colorSizes = await fetchCatalogColorSizes(product.style, color);
+
+      if (isCancelled) {
+        return;
+      }
+
+      setDetailEstimator((current) => {
+        if (
+          !current ||
+          current.product.style !== product.style ||
+          current.color !== color
+        ) {
+          return current;
+        }
+
+        const availableSizes = colorSizes.length ? colorSizes : product.sizes;
+
+        return {
+          ...current,
+          sizes: reconcileCatalogSizes(current.sizes, product, availableSizes),
+          estimate: null,
+          sizePriceBreakdown: [],
+          error: "",
+        };
+      });
+    }
+
+    loadColorSizes();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [backColors, detailProduct, detailColor, frontColors]);
 
   function saveCatalogReturnState() {
     window.sessionStorage.setItem(
@@ -812,12 +908,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
       return;
     }
 
-    const numericSizes = Object.fromEntries(
-      Object.entries(detailEstimator.sizes).map(([size, qty]) => [
-        size,
-        Number(qty || 0),
-      ]),
-    );
+    const numericSizes = numericSizeQuantities(detailEstimator.sizes);
 
     updateDetail({
       isLoading: true,
@@ -912,35 +1003,12 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
     }
   }
 
-  function sizePricingSummary() {
-    if (!detailEstimator?.sizePriceBreakdown.length) {
-      return "";
-    }
-
-    return detailEstimator.sizePriceBreakdown
-      .map((item) =>
-        [
-          item.label,
-          `${item.quantity}`,
-          item.priceEach !== undefined ? `@ ${formatPrice(item.priceEach)} each` : "",
-        ]
-          .filter(Boolean)
-          .join(" "),
-      )
-      .join(", ");
-  }
-
   function addDetailToBasket() {
     if (!detailEstimator) {
       return;
     }
 
-    const sizes = Object.fromEntries(
-      Object.entries(detailEstimator.sizes).map(([size, qty]) => [
-        size,
-        Number(qty || 0),
-      ]),
-    );
+    const sizes = numericSizeQuantities(detailEstimator.sizes);
     const totalQty = getTotalQuantity(sizes);
 
     if (totalQty <= 0) {
@@ -962,9 +1030,6 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
       quantity: totalQty,
       frontColors: detailEstimator.frontColors,
       backColors: detailEstimator.backColors,
-      decorationSummary: sizePricingSummary()
-        ? `Size pricing: ${sizePricingSummary()}`
-        : "",
       estimatedEach: detailEstimator.estimate?.price?.each,
       estimatedTotal: detailEstimator.estimate?.price?.retail,
       currency: detailEstimator.estimate?.currency,
@@ -1331,6 +1396,7 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
                             updateDetail({
                               color: productColor.name,
                               estimate: null,
+                              sizePriceBreakdown: [],
                               error: "",
                             })
                           }
@@ -1381,6 +1447,11 @@ export function ScreenPrintEstimator({ products }: ScreenPrintEstimatorProps) {
                       </label>
                     ))}
                   </div>
+                  {!Object.keys(detailEstimator.sizes).length ? (
+                    <p className="mt-3 rounded-md bg-[#eef6ff] p-3 text-sm font-bold text-[#31516f]">
+                      Loading available sizes for {detailEstimator.color}...
+                    </p>
+                  ) : null}
                 </div>
 
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">
