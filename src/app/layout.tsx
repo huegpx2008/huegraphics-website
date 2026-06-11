@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { Suspense, type ReactNode } from "react";
 import { FloatingQuoteBasket } from "@/components/FloatingQuoteBasket";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.huegraphics.cc"),
+  metadataBase: new URL(siteUrl),
   title: {
     default:
       "Hue Graphics & Apparel, LLC | Custom Printing in Bethlehem, GA",
@@ -18,9 +19,9 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "Store"],
-  "@id": "https://www.huegraphics.cc/#localbusiness",
+  "@id": `${siteUrl}/#localbusiness`,
   name: "Hue Graphics & Apparel, LLC",
-  url: "https://www.huegraphics.cc",
+  url: siteUrl,
   telephone: "+1-770-867-3520",
   foundingDate: "2013",
   description:
