@@ -43,6 +43,19 @@ const heroSlides = [
   },
 ];
 
+const mobileHeroSlides = [
+  {
+    image: "/images/hero frame.png",
+    alt: "Hue Graphics screen printing frame with fresh blue ink",
+    position: "object-center",
+  },
+  ...heroSlides.slice(0, 5).map((slide) => ({
+    image: slide.image,
+    alt: slide.alt,
+    position: slide.position,
+  })),
+];
+
 const serviceLabels = [
   { label: "SCREEN PRINTING", href: "/screen-printing" },
   { label: "EMBROIDERY", href: "/embroidery" },
@@ -51,11 +64,40 @@ const serviceLabels = [
   { label: "VEHICLE GRAPHICS", href: "/vehicle-graphics" },
 ];
 
+const mobileServiceButtons = [
+  {
+    label: "Screen Printing",
+    href: "/screen-printing",
+    image: "/images/screen print button.png",
+  },
+  {
+    label: "Embroidery",
+    href: "/embroidery",
+    image: "/images/emb button.png",
+  },
+  {
+    label: "DTF Transfers",
+    href: "/dtf-transfers",
+    image: "/images/dtf button.png",
+  },
+  {
+    label: "Signs and Banners",
+    href: "/signs-banners",
+    image: "/images/signs button.png",
+  },
+  {
+    label: "Vehicle Graphics",
+    href: "/vehicle-graphics",
+    image: "/images/vehicle button.png",
+  },
+];
+
 export function HomeHeroRotator() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [headlineStep, setHeadlineStep] = useState(0);
   const activeService = heroSlides[activeIndex].service;
   const isStorefrontSlide = activeService === "FULL SERVICE";
+  const mobileActiveIndex = activeIndex % mobileHeroSlides.length;
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -83,7 +125,128 @@ export function HomeHeroRotator() {
   }
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#05070b]">
+    <>
+      <section className="relative isolate overflow-hidden bg-[#05070b] md:hidden">
+      <div className="relative aspect-[1.12] overflow-hidden bg-[#03070d]">
+        {mobileHeroSlides.map((slide, index) => (
+          <Image
+            key={slide.image}
+            src={slide.image}
+            alt={slide.alt}
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            className={[
+              "object-cover transition duration-700",
+              slide.position,
+              index === mobileActiveIndex
+                ? "opacity-100"
+                : "opacity-0",
+            ].join(" ")}
+          />
+        ))}
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_52%,rgba(3,8,15,0.7)_100%)]" />
+        <button
+          type="button"
+          aria-label="Previous hero image"
+          onClick={() =>
+            setActiveIndex(
+              (current) =>
+                (current - 1 + mobileHeroSlides.length) %
+                mobileHeroSlides.length,
+            )
+          }
+          className="absolute left-4 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/80 bg-black/34 text-4xl font-light leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.42)]"
+        >
+          {"<"}
+        </button>
+        <button
+          type="button"
+          aria-label="Next hero image"
+          onClick={() =>
+            setActiveIndex((current) => (current + 1) % mobileHeroSlides.length)
+          }
+          className="absolute right-4 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/80 bg-black/34 text-4xl font-light leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.42)]"
+        >
+          {">"}
+        </button>
+        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 rounded-full bg-black/26 px-3 py-2 backdrop-blur-sm">
+          {mobileHeroSlides.map((slide, index) => (
+            <button
+              key={slide.image}
+              type="button"
+              aria-label={`Show hero image ${index + 1}`}
+              onClick={() => setActiveIndex(index)}
+              className={[
+                "h-3 w-3 rounded-full transition",
+                index === mobileActiveIndex
+                  ? "bg-accent"
+                  : "bg-white/76",
+              ].join(" ")}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-[radial-gradient(circle_at_16%_8%,rgba(31,115,190,0.2),transparent_18rem),linear-gradient(180deg,#071522_0%,#020912_100%)] px-4 pb-8 pt-7 text-white min-[390px]:px-6">
+        <p className="text-[0.76rem] font-black uppercase leading-7 tracking-[0.2em] text-[#50a8ff] min-[390px]:text-[0.8rem]">
+          Custom apparel. Screen printing. Embroidery. Signs.
+        </p>
+        <h1 className="mt-6 font-['Arial_Narrow','Aptos_Narrow','HelveticaNeue-CondensedBold','Helvetica_Neue',Arial,sans-serif] text-[2.58rem] font-black uppercase leading-[0.94] tracking-normal text-white min-[390px]:text-[2.78rem]">
+          We don&apos;t just print. We build brands.
+        </h1>
+        <p className="mt-7 text-base font-semibold leading-8 text-white/88 min-[390px]:text-[1.02rem]">
+          Family-owned in Bethlehem, Georgia. Hue Graphics helps businesses,
+          schools, churches, teams, and organizations turn ideas into apparel,
+          graphics, signage, and print pieces people are proud to use.
+        </p>
+        <Link
+          href="/request-a-quote"
+          className="mt-8 inline-flex min-h-14 w-full items-center justify-center rounded-lg bg-accent px-7 text-base font-black uppercase tracking-wide text-white shadow-[0_18px_42px_rgba(31,115,190,0.34)] transition hover:bg-[#2a86d8]"
+        >
+          Request a quote <span className="ml-4 text-2xl leading-none">-&gt;</span>
+        </Link>
+
+        <div className="mt-8 flex items-center gap-4">
+          <div className="h-px flex-1 bg-accent/80" />
+          <p className="text-center text-sm font-black uppercase tracking-[0.2em] text-[#50a8ff]">
+            Explore our services
+          </p>
+          <div className="h-px flex-1 bg-accent/80" />
+        </div>
+
+        <div className="mt-5 grid grid-cols-5 gap-2">
+          {mobileServiceButtons.map((service) => (
+            <Link
+              key={service.href}
+              href={service.href}
+              aria-label={service.label}
+              className="relative aspect-[0.9] overflow-hidden rounded-lg border border-white/72 bg-black/20 shadow-[0_12px_24px_rgba(0,0,0,0.3)] transition hover:-translate-y-0.5 hover:border-accent"
+            >
+              <Image
+                src={service.image}
+                alt=""
+                fill
+                sizes="20vw"
+                className="object-cover"
+              />
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-6 overflow-hidden rounded-lg bg-white shadow-[0_18px_38px_rgba(0,0,0,0.32)]">
+          <Image
+            src="/images/local quailty banner.png"
+            alt="Local and reliable. Quality you can see."
+            width={900}
+            height={170}
+            className="h-auto w-full"
+          />
+        </div>
+      </div>
+      </section>
+
+      <section className="relative isolate hidden overflow-hidden bg-[#05070b] md:block">
       <div className="absolute inset-0 z-0 bg-[#05070b]">
         {heroSlides.map((slide, index) => {
           const isActive = index === activeIndex;
@@ -214,6 +377,7 @@ export function HomeHeroRotator() {
           </a>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

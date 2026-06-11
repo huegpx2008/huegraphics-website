@@ -31,7 +31,7 @@ export function LogoEasterEgg() {
   return (
     <>
       <Link href="/" onClick={handleClick} className="flex items-center gap-3 text-white">
-        <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-xl border border-accent/45 bg-card p-1.5 shadow-glow sm:h-12 sm:w-12">
+        <span className="grid h-14 w-14 place-items-center overflow-hidden rounded-xl border border-accent/45 bg-card p-1.5 shadow-glow sm:h-14 sm:w-14 lg:h-12 lg:w-12">
           <Image
             src="/images/logo.png"
             alt="Hue Graphics"

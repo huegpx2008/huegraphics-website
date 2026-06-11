@@ -112,9 +112,14 @@ export function Header() {
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
             onClick={() => setIsMobileMenuOpen((current) => !current)}
-            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-white/14 bg-white/[0.04] px-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-accent/55 hover:bg-accent/10 lg:hidden"
+            className="inline-grid min-h-11 min-w-12 place-items-center rounded-lg px-2 text-[0.62rem] font-black uppercase tracking-wide text-white transition hover:bg-white/[0.04] lg:hidden"
           >
-            {isMobileMenuOpen ? "Close" : "Menu"}
+            <span className="grid gap-1">
+              <span className="block h-1 w-8 rounded-full bg-white" />
+              <span className="block h-1 w-8 rounded-full bg-white" />
+              <span className="block h-1 w-8 rounded-full bg-white" />
+            </span>
+            <span className="mt-1">{isMobileMenuOpen ? "Close" : "Menu"}</span>
           </button>
         </div>
       </div>

@@ -37,6 +37,9 @@ export default function Home() {
       <main>
         <WebsiteAnnouncementBanner />
         <HomeV2Hero />
+        <div className="md:hidden">
+          <ReviewsSection />
+        </div>
         <HomeV2TrustBar />
         <HomeV2BrandWall />
         <HomeV2ProductionVideo showIntro />
@@ -45,7 +48,9 @@ export default function Home() {
         <HomeV2CustomerWall />
         <HomeV2FeaturedWork />
         <HomeV2Process />
-        <ReviewsSection />
+        <div className="hidden md:block">
+          <ReviewsSection />
+        </div>
         <HomeV2Timeline />
         <ServiceAreaSection />
         <QuoteSection />
