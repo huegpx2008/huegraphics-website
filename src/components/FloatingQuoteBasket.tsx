@@ -1,7 +1,10 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import type { ApparelSizePriceBreakdown } from "@/lib/apparel-size-breakdown";
+import {
+  groupSizeQuantities,
+  type ApparelSizePriceBreakdown,
+} from "@/lib/apparel-size-breakdown";
 
 export type QuoteBasketItem = {
   id: string;
@@ -306,6 +309,62 @@ async function estimateScreenPrintItemAtGroupQuantity(
   ]);
 }
 
+async function estimateScreenPrintSizeBreakdownAtGroupQuantity(
+  item: QuoteBasketItem,
+  groupQuantity: number,
+) {
+  const groups = groupSizeQuantities(item.sizes);
+
+  return Promise.all(
+    groups.map(async (group) => {
+      const estimate = await requestScreenPrintBasketEstimate([
+        {
+          ...item,
+          quantity: groupQuantity,
+          sizes: {
+            [group.representativeSize]: groupQuantity,
+          },
+        },
+      ]);
+      const priceEach = numericPrice(estimate.price?.each);
+
+      return {
+        ...group,
+        priceEach: estimate.price?.each,
+        total: priceEach === null ? undefined : priceEach * group.quantity,
+      };
+    }),
+  );
+}
+
+function scaleSizeBreakdownToTotal(
+  breakdown: ApparelSizePriceBreakdown[],
+  estimatedTotal: number | null,
+) {
+  if (estimatedTotal === null) {
+    return breakdown;
+  }
+
+  const breakdownTotal = breakdown.reduce(
+    (total, entry) => total + (entry.total ?? 0),
+    0,
+  );
+
+  if (breakdownTotal <= 0) {
+    return breakdown;
+  }
+
+  return breakdown.map((entry) => {
+    const total = (entry.total ?? 0) * (estimatedTotal / breakdownTotal);
+
+    return {
+      ...entry,
+      total,
+      priceEach: entry.quantity > 0 ? total / entry.quantity : entry.priceEach,
+    };
+  });
+}
+
 async function findUnavailableBasketSizes(
   groups: ReturnType<typeof screenPrintGroups>,
 ) {
@@ -502,6 +561,11 @@ export function FloatingQuoteBasket() {
                 item,
                 group.quantity,
               );
+              const sizePriceBreakdown =
+                await estimateScreenPrintSizeBreakdownAtGroupQuantity(
+                  item,
+                  group.quantity,
+                );
               const itemEach = numericPrice(itemEstimate.price?.each);
               const provisionalTotal =
                 itemEach === null ? null : itemEach * item.quantity;
@@ -510,6 +574,7 @@ export function FloatingQuoteBasket() {
                 itemId: item.id,
                 provisionalTotal,
                 currency: itemEstimate.currency || groupEstimate.currency,
+                sizePriceBreakdown,
               };
             }),
           );
@@ -530,6 +595,10 @@ export function FloatingQuoteBasket() {
               return {
                 ...item,
                 estimatedTotal,
+                sizePriceBreakdown: scaleSizeBreakdownToTotal(
+                  item.sizePriceBreakdown,
+                  estimatedTotal,
+                ),
               };
             }),
           };
@@ -555,15 +624,17 @@ export function FloatingQuoteBasket() {
             estimatedEach,
             estimatedTotal: itemEstimate.estimatedTotal,
             currency: itemEstimate.currency,
-            sizePriceBreakdown: Object.entries(item.sizes)
-              .filter(([, quantity]) => Number(quantity) > 0)
-              .map(([size, quantity]) => ({
-                label: sizeGroupLabel(size),
-                representativeSize: size,
-                quantity: Number(quantity),
-                priceEach: estimatedEach,
-                total: estimatedEach * Number(quantity),
-              })),
+            sizePriceBreakdown: itemEstimate.sizePriceBreakdown.length
+              ? itemEstimate.sizePriceBreakdown
+              : Object.entries(item.sizes)
+                  .filter(([, quantity]) => Number(quantity) > 0)
+                  .map(([size, quantity]) => ({
+                    label: sizeGroupLabel(size),
+                    representativeSize: size,
+                    quantity: Number(quantity),
+                    priceEach: estimatedEach,
+                    total: estimatedEach * Number(quantity),
+                  })),
           };
         }),
       );

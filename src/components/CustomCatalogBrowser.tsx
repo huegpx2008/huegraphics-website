@@ -15,6 +15,12 @@ import {
   type ApparelSizePriceBreakdown,
 } from "@/lib/apparel-size-breakdown";
 import {
+  buildEmptyCatalogSizes,
+  fetchCatalogColorSizes,
+  getProductSizeOrder,
+  reconcileCatalogSizes,
+} from "@/lib/catalog-size-options";
+import {
   embroideryMinimumQuantity,
   getEmbroideryRecommendation,
   isEmbroideryFriendlyProduct,
@@ -112,7 +118,6 @@ const visibleProductLimit = 48;
 const returnUrlKey = "hue-catalog-return-url";
 const returnScrollKey = "hue-catalog-return-scroll-y";
 const dtfMinimumQuantity = 1;
-const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
 const frontColorOptions = ["1", "2", "3", "4", "dtf"];
 const stitchCountOptions = ["5000", "8000", "10000", "12000", "15000"];
 const threadColorOptions = ["1", "2", "3", "4", "5", "6", "8"];
@@ -179,10 +184,7 @@ function normalizeQuantity(value: string | number) {
 }
 
 function productSizeOrder(product: CatalogProduct) {
-  const normalized = product.sizes.length ? product.sizes : preferredSizes;
-  const preferred = preferredSizes.filter((size) => normalized.includes(size));
-  const rest = normalized.filter((size) => !preferred.includes(size));
-  return [...preferred, ...rest].slice(0, 8);
+  return getProductSizeOrder(product);
 }
 
 function buildDefaultSizes(product: CatalogProduct, quantity: number) {
@@ -203,9 +205,7 @@ function buildDefaultSizes(product: CatalogProduct, quantity: number) {
 }
 
 function buildEmptyDetailSizes(product: CatalogProduct) {
-  return Object.fromEntries(
-    productSizeOrder(product).map((size) => [size, "0"]),
-  );
+  return buildEmptyCatalogSizes(product);
 }
 
 function numericSizeQuantities(sizes: Record<string, string | number>) {
@@ -1005,6 +1005,51 @@ export function CustomCatalogBrowser({
       isLoading: false,
     });
   }
+
+  const detailProduct = detailEstimator?.product;
+  const detailColor = detailEstimator?.color;
+
+  useEffect(() => {
+    if (!detailProduct || !detailColor) {
+      return;
+    }
+
+    let isCancelled = false;
+    const product = detailProduct;
+    const color = detailColor;
+
+    async function loadColorSizes() {
+      const colorSizes = await fetchCatalogColorSizes(product.style, color);
+
+      if (isCancelled || !colorSizes.length) {
+        return;
+      }
+
+      setDetailEstimator((current) => {
+        if (
+          !current ||
+          current.product.style !== product.style ||
+          current.color !== color
+        ) {
+          return current;
+        }
+
+        return {
+          ...current,
+          sizes: reconcileCatalogSizes(current.sizes, product, colorSizes),
+          estimate: null,
+          sizePriceBreakdown: [],
+          error: "",
+        };
+      });
+    }
+
+    loadColorSizes();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [detailProduct, detailColor]);
 
   function updateDetail(updates: Partial<DetailEstimatorState>) {
     setDetailEstimator((current) =>
@@ -1822,7 +1867,9 @@ export function CustomCatalogBrowser({
                           onClick={() =>
                             updateDetail({
                               color: productColor.name,
+                              sizes: buildEmptyCatalogSizes(detailEstimator.product),
                               estimate: null,
+                              sizePriceBreakdown: [],
                               error: "",
                             })
                           }
@@ -1877,7 +1924,10 @@ export function CustomCatalogBrowser({
                     Size quantities
                   </p>
                   <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                    {Object.entries(detailEstimator.sizes).map(([size, quantity]) => (
+                    {getProductSizeOrder(
+                      detailEstimator.product,
+                      Object.keys(detailEstimator.sizes),
+                    ).map((size) => (
                       <label key={size} className="block">
                         <span className="text-xs font-black uppercase text-[#6a7480]">
                           {size}
@@ -1885,7 +1935,7 @@ export function CustomCatalogBrowser({
                         <input
                           type="number"
                           min={0}
-                          value={quantity}
+                          value={detailEstimator.sizes[size] || "0"}
                           onChange={(event) =>
                             updateDetailSize(size, event.target.value)
                           }

@@ -12,6 +12,12 @@ import {
   loadGroupedSizePriceBreakdown,
   type ApparelSizePriceBreakdown,
 } from "@/lib/apparel-size-breakdown";
+import {
+  buildEmptyCatalogSizes,
+  fetchCatalogColorSizes,
+  getProductSizeOrder,
+  reconcileCatalogSizes,
+} from "@/lib/catalog-size-options";
 import { embroideryMinimumQuantity } from "@/lib/catalog-embroidery";
 import { screenPrintMinimumQuantity } from "@/lib/catalog-screenprint";
 
@@ -60,7 +66,6 @@ type DetailEstimatorState = {
   isLoading: boolean;
 };
 
-const preferredSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
 const dtfMinimumQuantity = 1;
 const frontColorOptions = ["1", "2", "3", "4", "dtf"];
 const stitchCountOptions = ["5000", "8000", "10000", "12000", "15000"];
@@ -101,15 +106,8 @@ function defaultColor(product: CatalogProduct) {
   return product.colors[0]?.name || "";
 }
 
-function productSizeOrder(product: CatalogProduct) {
-  const normalized = product.sizes.length ? product.sizes : preferredSizes;
-  const preferred = preferredSizes.filter((size) => normalized.includes(size));
-  const rest = normalized.filter((size) => !preferred.includes(size));
-  return [...preferred, ...rest].slice(0, 8);
-}
-
 function buildEmptySizes(product: CatalogProduct) {
-  return Object.fromEntries(productSizeOrder(product).map((size) => [size, "0"]));
+  return buildEmptyCatalogSizes(product);
 }
 
 function numericSizeQuantities(sizes: Record<string, string | number>) {
@@ -219,6 +217,45 @@ export function ProductCatalogQuoteButton({
       isLoading: false,
     });
   }
+
+  const detailColor = detail?.color;
+
+  useEffect(() => {
+    if (!detailColor) {
+      return;
+    }
+
+    let isCancelled = false;
+    const color = detailColor;
+
+    async function loadColorSizes() {
+      const colorSizes = await fetchCatalogColorSizes(product.style, color);
+
+      if (isCancelled || !colorSizes.length) {
+        return;
+      }
+
+      setDetail((current) => {
+        if (!current || current.color !== color) {
+          return current;
+        }
+
+        return {
+          ...current,
+          sizes: reconcileCatalogSizes(current.sizes, product, colorSizes),
+          estimate: null,
+          sizePriceBreakdown: [],
+          error: "",
+        };
+      });
+    }
+
+    loadColorSizes();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [detailColor, product]);
 
   function updateDetail(updates: Partial<DetailEstimatorState>) {
     setDetail((current) =>
@@ -620,7 +657,9 @@ export function ProductCatalogQuoteButton({
                           onClick={() =>
                             updateDetail({
                               color: productColor.name,
+                              sizes: buildEmptyCatalogSizes(product),
                               estimate: null,
+                              sizePriceBreakdown: [],
                               error: "",
                             })
                           }
@@ -666,7 +705,7 @@ export function ProductCatalogQuoteButton({
                     Size quantities
                   </p>
                   <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                    {Object.entries(detail.sizes).map(([size, quantity]) => (
+                    {getProductSizeOrder(product, Object.keys(detail.sizes)).map((size) => (
                       <label key={size} className="block">
                         <span className="text-xs font-black uppercase text-[#6a7480]">
                           {size}
@@ -674,7 +713,7 @@ export function ProductCatalogQuoteButton({
                         <input
                           type="number"
                           min={0}
-                          value={quantity}
+                          value={detail.sizes[size] || "0"}
                           onChange={(event) => updateSize(size, event.target.value)}
                           className="mt-2 h-11 w-full rounded-md border border-black/12 bg-[#f7f8fa] px-3 text-sm font-semibold text-[#07111f]"
                         />
