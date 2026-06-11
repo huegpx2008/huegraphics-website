@@ -1063,6 +1063,8 @@ export function EmbroideryEstimator({ products }: EmbroideryEstimatorProps) {
         .join(" / "),
       estimatedEach: detailEstimator.estimate?.price?.each,
       estimatedTotal: detailEstimator.estimate?.price?.retail,
+      currency: detailEstimator.estimate?.currency,
+      sizePriceBreakdown: detailEstimator.sizePriceBreakdown,
     };
 
     addItemToFloatingQuoteBasket(item);

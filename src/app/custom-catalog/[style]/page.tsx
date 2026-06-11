@@ -5,6 +5,7 @@ import { CatalogReturnLink } from "@/components/CatalogReturnLink";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ProductAvailableSizes } from "@/components/ProductAvailableSizes";
 import { ProductCatalogQuoteButton } from "@/components/ProductCatalogQuoteButton";
 import {
   sanmarCatalogProducts,
@@ -259,22 +260,13 @@ export default async function ProductDetailPage({
                 Product details
               </h2>
               <dl className="mt-6 grid gap-4 text-sm">
-                <div>
-                  <dt className="font-black uppercase text-[#7a8794]">
-                    Available sizes
-                  </dt>
-                  <dd className="mt-1 font-semibold text-[#263545]">
-                    {product.availableSizes || product.sizes.join(", ")}
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-black uppercase text-[#7a8794]">
-                    Size run
-                  </dt>
-                  <dd className="mt-1 font-semibold text-[#263545]">
-                    {product.sizes.join(", ")}
-                  </dd>
-                </div>
+                <ProductAvailableSizes
+                  style={product.style}
+                  title={product.title}
+                  color={product.colors[0]?.name || ""}
+                  catalogAvailableSizes={product.availableSizes}
+                  sizes={product.sizes}
+                />
                 {companionProducts.length ? (
                   <div>
                     <dt className="font-black uppercase text-[#7a8794]">

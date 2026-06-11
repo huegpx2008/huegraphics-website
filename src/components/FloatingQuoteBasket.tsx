@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import type { ApparelSizePriceBreakdown } from "@/lib/apparel-size-breakdown";
 
 export type QuoteBasketItem = {
   id: string;
@@ -17,6 +18,7 @@ export type QuoteBasketItem = {
   estimatedEach?: number | string;
   estimatedTotal?: number | string;
   currency?: string;
+  sizePriceBreakdown?: ApparelSizePriceBreakdown[];
 };
 
 type BasketScreenprintEstimate = {
@@ -58,6 +60,54 @@ function numericPrice(value: number | string | undefined) {
   }
 
   return null;
+}
+
+function scaledSizesForPricing(
+  sizes: Record<string, number>,
+  targetQuantity: number,
+) {
+  const entries = Object.entries(sizes).filter(
+    ([, quantity]) => Number(quantity) > 0,
+  );
+  const sourceQuantity = entries.reduce(
+    (total, [, quantity]) => total + Number(quantity || 0),
+    0,
+  );
+
+  if (!entries.length || sourceQuantity <= 0) {
+    return {};
+  }
+
+  const scaledEntries = entries.map(([size, quantity]) => {
+    const raw = (Number(quantity) / sourceQuantity) * targetQuantity;
+
+    return {
+      size,
+      raw,
+      quantity: Math.max(0, Math.floor(raw)),
+    };
+  });
+  let assignedQuantity = scaledEntries.reduce(
+    (total, entry) => total + entry.quantity,
+    0,
+  );
+
+  scaledEntries
+    .sort((a, b) => b.raw - Math.floor(b.raw) - (a.raw - Math.floor(a.raw)))
+    .forEach((entry) => {
+      if (assignedQuantity >= targetQuantity) {
+        return;
+      }
+
+      entry.quantity += 1;
+      assignedQuantity += 1;
+    });
+
+  return Object.fromEntries(
+    scaledEntries
+      .sort((a, b) => entries.findIndex(([size]) => size === a.size) - entries.findIndex(([size]) => size === b.size))
+      .map((entry) => [entry.size, entry.quantity]),
+  );
 }
 
 function screenPrintSetupKey(item: QuoteBasketItem) {
@@ -152,6 +202,7 @@ function mergeBasketItem(
       quantity,
       estimatedEach: undefined,
       estimatedTotal: undefined,
+      sizePriceBreakdown: undefined,
       currency: item.currency || incomingItem.currency,
     };
   });
@@ -162,6 +213,41 @@ function formatSizeBreakdown(sizes: Record<string, number>) {
     .filter(([, quantity]) => Number(quantity) > 0)
     .map(([size, quantity]) => `${size}: ${quantity}`)
     .join(", ");
+}
+
+function sizeGroupLabel(size: string) {
+  return ["XS", "S", "M", "L", "XL"].includes(size.toUpperCase())
+    ? "S-XL"
+    : size;
+}
+
+function groupBasketSizePriceBreakdown(
+  breakdown: ApparelSizePriceBreakdown[] | undefined,
+) {
+  const groups = new Map<string, ApparelSizePriceBreakdown>();
+
+  (breakdown || []).forEach((entry) => {
+    const existing = groups.get(entry.label);
+
+    if (!existing) {
+      groups.set(entry.label, { ...entry });
+      return;
+    }
+
+    existing.quantity += entry.quantity;
+    existing.total =
+      existing.total !== undefined && entry.total !== undefined
+        ? existing.total + entry.total
+        : undefined;
+  });
+
+  return [...groups.values()].map((entry) => ({
+    ...entry,
+    priceEach:
+      entry.total !== undefined && entry.quantity > 0
+        ? entry.total / entry.quantity
+        : entry.priceEach,
+  }));
 }
 
 function isInvalidPricingInputMessage(message: string) {
@@ -205,6 +291,19 @@ async function requestScreenPrintBasketEstimate(items: QuoteBasketItem[]) {
   }
 
   return data;
+}
+
+async function estimateScreenPrintItemAtGroupQuantity(
+  item: QuoteBasketItem,
+  groupQuantity: number,
+) {
+  return requestScreenPrintBasketEstimate([
+    {
+      ...item,
+      quantity: groupQuantity,
+      sizes: scaledSizesForPricing(item.sizes, groupQuantity),
+    },
+  ]);
 }
 
 async function findUnavailableBasketSizes(
@@ -395,34 +494,76 @@ export function FloatingQuoteBasket() {
     try {
       const estimates = await Promise.all(
         eligibleGroups.map(async (group) => {
-          const data = await requestScreenPrintBasketEstimate(group.items);
+          const groupEstimate = await requestScreenPrintBasketEstimate(group.items);
+          const groupTotal = numericPrice(groupEstimate.price?.retail);
+          const itemWeights = await Promise.all(
+            group.items.map(async (item) => {
+              const itemEstimate = await estimateScreenPrintItemAtGroupQuantity(
+                item,
+                group.quantity,
+              );
+              const itemEach = numericPrice(itemEstimate.price?.each);
+              const provisionalTotal =
+                itemEach === null ? null : itemEach * item.quantity;
+
+              return {
+                itemId: item.id,
+                provisionalTotal,
+                currency: itemEstimate.currency || groupEstimate.currency,
+              };
+            }),
+          );
+          const provisionalGroupTotal = itemWeights.reduce(
+            (total, item) => total + (item.provisionalTotal ?? 0),
+            0,
+          );
 
           return {
-            itemIds: new Set(group.items.map((item) => item.id)),
-            estimate: data,
+            items: itemWeights.map((item) => {
+              const estimatedTotal =
+                groupTotal !== null &&
+                item.provisionalTotal !== null &&
+                provisionalGroupTotal > 0
+                  ? (item.provisionalTotal / provisionalGroupTotal) * groupTotal
+                  : item.provisionalTotal;
+
+              return {
+                ...item,
+                estimatedTotal,
+              };
+            }),
           };
         }),
       );
+      const itemEstimates = estimates.flatMap((estimate) => estimate.items);
 
       setItems((current) =>
         current.map((item) => {
-          const groupEstimate = estimates.find((estimate) =>
-            estimate.itemIds.has(item.id),
+          const itemEstimate = itemEstimates.find(
+            (estimate) => estimate.itemId === item.id,
           );
 
-          if (!groupEstimate) {
+          if (!itemEstimate || itemEstimate.estimatedTotal === null) {
             return item;
           }
 
-          const each = groupEstimate.estimate.price?.each;
-          const numericEach = numericPrice(each);
+          const estimatedEach =
+            item.quantity > 0 ? itemEstimate.estimatedTotal / item.quantity : 0;
 
           return {
             ...item,
-            estimatedEach: each,
-            estimatedTotal:
-              numericEach === null ? undefined : numericEach * item.quantity,
-            currency: groupEstimate.estimate.currency,
+            estimatedEach,
+            estimatedTotal: itemEstimate.estimatedTotal,
+            currency: itemEstimate.currency,
+            sizePriceBreakdown: Object.entries(item.sizes)
+              .filter(([, quantity]) => Number(quantity) > 0)
+              .map(([size, quantity]) => ({
+                label: sizeGroupLabel(size),
+                representativeSize: size,
+                quantity: Number(quantity),
+                priceEach: estimatedEach,
+                total: estimatedEach * Number(quantity),
+              })),
           };
         }),
       );
@@ -476,6 +617,7 @@ export function FloatingQuoteBasket() {
                 quantity,
                 estimatedEach: undefined,
                 estimatedTotal: undefined,
+                sizePriceBreakdown: undefined,
               };
             })
             .filter((item) => item.quantity > 0),
@@ -778,6 +920,31 @@ export function FloatingQuoteBasket() {
                           </p>
                         )}
                       </div>
+                      {groupBasketSizePriceBreakdown(item.sizePriceBreakdown)
+                        .length ? (
+                        <div className="mt-2 rounded-md border border-accent/20 bg-white p-3 ring-1 ring-black/8">
+                          <p className="text-xs font-black uppercase tracking-[0.14em] text-accent">
+                            Per-size pricing
+                          </p>
+                          <div className="mt-2 grid gap-1">
+                            {groupBasketSizePriceBreakdown(
+                              item.sizePriceBreakdown,
+                            ).map((entry) => (
+                              <p
+                                key={entry.label}
+                                className="flex justify-between gap-3 rounded-md bg-[#eaf5ff] px-3 py-2 text-xs font-black text-[#07111f]"
+                              >
+                                <span>
+                                  {entry.label}: {entry.quantity}
+                                </span>
+                                <span>
+                                  {formatPrice(entry.priceEach, item.currency)} each
+                                </span>
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                 ))}

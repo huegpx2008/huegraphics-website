@@ -1035,6 +1035,7 @@ export function DtfEstimator({ products }: DtfEstimatorProps) {
       estimatedEach: detailEstimator.estimate?.price?.each,
       estimatedTotal: detailEstimator.estimate?.price?.retail,
       currency: detailEstimator.estimate?.currency,
+      sizePriceBreakdown: detailEstimator.sizePriceBreakdown,
     };
 
     addItemToFloatingQuoteBasket(item);

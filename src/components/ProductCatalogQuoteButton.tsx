@@ -543,6 +543,7 @@ export function ProductCatalogQuoteButton({
       estimatedEach: detail.estimate?.price?.each,
       estimatedTotal: detail.estimate?.price?.retail,
       currency: detail.estimate?.currency,
+      sizePriceBreakdown: detail.sizePriceBreakdown,
     };
 
     if (detail.sizePriceBreakdown.length) {

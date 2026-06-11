@@ -947,6 +947,7 @@ export function CustomCatalogBrowser({
       estimatedEach: detailEstimator.estimate?.price?.each,
       estimatedTotal: detailEstimator.estimate?.price?.retail,
       currency: detailEstimator.estimate?.currency,
+      sizePriceBreakdown: detailEstimator.sizePriceBreakdown,
     };
 
     if (detailEstimator.sizePriceBreakdown.length) {
