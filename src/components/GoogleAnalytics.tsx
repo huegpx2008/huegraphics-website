@@ -4,7 +4,7 @@ import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-const measurementId = "G-V5BH51T5P7";
+const measurementId = "G-VSBH51T5P7";
 const isProduction = process.env.NODE_ENV === "production";
 
 declare global {
