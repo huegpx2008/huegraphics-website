@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
@@ -222,12 +223,12 @@ export function PortfolioShowcase({ images }: PortfolioShowcaseProps) {
                     key={`${image}-${index}`}
                     className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md border border-white/14 bg-[#101b2c] sm:h-24 sm:w-24"
                   >
-                    <Image
+                    <img
                       src={image}
                       alt=""
-                      fill
-                      sizes="96px"
-                      className="object-cover opacity-80"
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover opacity-80"
                     />
                   </div>
                 ))}
@@ -256,13 +257,13 @@ export function PortfolioShowcase({ images }: PortfolioShowcaseProps) {
                 collageTileClasses[index % collageTileClasses.length],
               ].join(" ")}
             >
-              <Image
+              <img
                 src={tile.image}
                 alt=""
-                fill
-                sizes="(min-width: 1280px) 18vw, (min-width: 1024px) 22vw, (min-width: 640px) 28vw, 50vw"
+                loading="lazy"
+                decoding="async"
                 className={[
-                  "object-cover transition duration-300 group-hover:scale-[1.04] group-hover:opacity-100",
+                  "h-full w-full object-cover transition duration-300 group-hover:scale-[1.04] group-hover:opacity-100",
                   tile.isChanging
                     ? "scale-95 opacity-0 blur-sm"
                     : "scale-100 opacity-[0.86] blur-0",

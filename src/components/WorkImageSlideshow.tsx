@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import {
   workImagesByFolder,
@@ -37,14 +37,14 @@ export function WorkImageSlideshow({ imageFolder, images }: WorkImageSlideshowPr
   return (
     <>
       {slideImages.map((image, index) => (
-        <Image
+        <img
           key={image}
           src={image}
           alt=""
-          fill
-          sizes="(min-width: 1280px) 20vw, (min-width: 768px) 50vw, 100vw"
+          loading="lazy"
+          decoding="async"
           className={[
-            "object-cover transition duration-700 ease-in-out group-hover:scale-105",
+            "absolute inset-0 h-full w-full object-cover transition duration-700 ease-in-out group-hover:scale-105",
             index === activeIndex ? "opacity-[0.86]" : "opacity-0",
           ].join(" ")}
         />

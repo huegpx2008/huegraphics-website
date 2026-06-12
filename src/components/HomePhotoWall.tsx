@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useMemo, useState } from "react";
 
 type HomePhotoWallProps = {
@@ -117,21 +117,21 @@ export function HomePhotoWall({ images, fallbackImages }: HomePhotoWallProps) {
             ].join(" ")}
           >
             <div className="absolute inset-0 [backface-visibility:hidden]">
-              <Image
+              <img
                 src={tile.image}
                 alt=""
-                fill
-                sizes="(min-width: 1280px) 18vw, (min-width: 1024px) 22vw, (min-width: 640px) 33vw, 50vw"
-                className="object-cover opacity-[0.9]"
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover opacity-[0.9]"
               />
             </div>
             <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateX(180deg)]">
-              <Image
+              <img
                 src={tile.nextImage}
                 alt=""
-                fill
-                sizes="(min-width: 1280px) 18vw, (min-width: 1024px) 22vw, (min-width: 640px) 33vw, 50vw"
-                className="object-cover opacity-[0.92]"
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover opacity-[0.92]"
               />
             </div>
           </div>

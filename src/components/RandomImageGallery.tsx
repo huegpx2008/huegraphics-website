@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import {
   workImagesByFolder,
@@ -59,12 +59,12 @@ export function RandomImageGallery({ folder, fallbackImages }: RandomImageGaller
     <div className="grid gap-px overflow-hidden rounded-sm bg-[#c9d7e6] shadow-[0_24px_70px_rgba(7,17,31,0.12)] ring-1 ring-black/10 sm:grid-cols-2 lg:grid-cols-3">
       {visibleImages.map((image, index) => (
         <div key={`${image}-${index}`} className="relative aspect-square bg-[#101b2c]">
-          <Image
+          <img
             src={image}
             alt=""
-            fill
-            sizes="(min-width: 1024px) 26vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover opacity-92 transition duration-700"
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover opacity-92 transition duration-700"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,rgba(8,17,31,0.68))]" />
         </div>

@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
@@ -161,12 +162,12 @@ export function SignProjectShowcase({ slides }: SignProjectShowcaseProps) {
                 }`}
                 aria-label={`Show ${slide.title}`}
               >
-                <Image
+                <img
                   src={slide.src}
                   alt=""
-                  fill
-                  sizes="176px"
-                  className={`object-cover transition duration-500 group-hover:scale-105 ${
+                  loading="lazy"
+                  decoding="async"
+                  className={`h-full w-full object-cover transition duration-500 group-hover:scale-105 ${
                     isActive ? "opacity-100" : "opacity-72"
                   }`}
                 />

@@ -1,4 +1,4 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { EarlyLoopVideo } from "@/components/EarlyLoopVideo";
@@ -423,12 +423,12 @@ export default function ScreenPrintingPage() {
                     key={image}
                     className="relative aspect-[1.35] overflow-hidden bg-[#101b2c]"
                   >
-                    <Image
+                    <img
                       src={image}
                       alt=""
-                      fill
-                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover opacity-90"
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover opacity-90"
                     />
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_58%,rgba(8,17,31,0.72)_100%)]" />
                   </div>
