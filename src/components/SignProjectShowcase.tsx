@@ -1,7 +1,6 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
 export type SignProjectSlide = {
@@ -67,14 +66,13 @@ export function SignProjectShowcase({ slides }: SignProjectShowcaseProps) {
     >
       <div className="relative grid bg-[#07111f] lg:grid-cols-[1.18fr_0.82fr]">
         <div className="relative min-h-[390px] overflow-hidden bg-[#050912] sm:min-h-[560px] lg:min-h-[680px]">
-          <Image
+          <img
             key={activeSlide.src}
             src={activeSlide.src}
             alt={activeSlide.title}
-            fill
-            sizes="(min-width: 1024px) 56vw, 100vw"
-            priority={activeIndex === 0}
-            className="object-cover opacity-95 transition duration-700"
+            loading={activeIndex === 0 ? "eager" : "lazy"}
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover opacity-95 transition duration-700"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,9,18,0.76),rgba(5,9,18,0.16)_48%,rgba(5,9,18,0.78)),linear-gradient(180deg,rgba(5,9,18,0.04),rgba(5,9,18,0.82))]" />
           <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(90deg,rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:64px_64px]" />

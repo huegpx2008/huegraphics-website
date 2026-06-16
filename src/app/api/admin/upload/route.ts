@@ -51,37 +51,43 @@ export async function POST(request: Request) {
     }
 
     const formData = await request.formData();
-    const file = formData.get("image");
+    const files = formData
+      .getAll("image")
+      .filter((file): file is File => file instanceof File && file.size > 0);
     const categoryValue = formText(formData, "category");
     const category = getAdminUploadCategory(categoryValue);
     const title = formText(formData, "title").slice(0, 120);
     const description = formText(formData, "description").slice(0, 500);
 
-    if (!(file instanceof File) || file.size <= 0) {
+    if (!files.length) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Choose an image to upload.",
+          error: "Choose at least one image to upload.",
         },
         { status: 400 },
       );
     }
 
-    if (!file.type.startsWith("image/")) {
+    const invalidFile = files.find((file) => !file.type.startsWith("image/"));
+
+    if (invalidFile) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Only image files can be uploaded.",
+          error: `Only image files can be uploaded. ${invalidFile.name} is not an image.`,
         },
         { status: 400 },
       );
     }
 
-    if (file.size > maxUploadBytes) {
+    const oversizedFile = files.find((file) => file.size > maxUploadBytes);
+
+    if (oversizedFile) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Images must be 15 MB or smaller.",
+          error: `${oversizedFile.name} is too large. Images must be 15 MB or smaller.`,
         },
         { status: 413 },
       );
@@ -97,16 +103,23 @@ export async function POST(request: Request) {
       );
     }
 
-    const upload = await uploadAdminImageToCloudinary({
-      file,
-      category: category.value as AdminUploadCategory,
-      title,
-      description,
-    });
+    const uploads = [];
+
+    for (const file of files) {
+      const upload = await uploadAdminImageToCloudinary({
+        file,
+        category: category.value as AdminUploadCategory,
+        title,
+        description,
+      });
+
+      uploads.push(upload);
+    }
 
     return NextResponse.json({
       ok: true,
-      upload,
+      upload: uploads[0],
+      uploads,
     });
   } catch (error) {
     console.error(`${uploadLogPrefix} Upload request failed.`, {

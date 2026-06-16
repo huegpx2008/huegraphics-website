@@ -23,6 +23,7 @@ async function readUploadResponse(response: Response) {
     return JSON.parse(responseText || "{}") as {
       ok?: boolean;
       upload?: UploadResult;
+      uploads?: UploadResult[];
       error?: string;
     };
   }
@@ -39,38 +40,40 @@ async function readUploadResponse(response: Response) {
 export function AdminPhotoUploadForm({
   isConfigured,
 }: AdminPhotoUploadFormProps) {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [localPreview, setLocalPreview] = useState("");
-  const [uploadResult, setUploadResult] = useState<UploadResult | null>(null);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [localPreviews, setLocalPreviews] = useState<string[]>([]);
+  const [uploadResults, setUploadResults] = useState<UploadResult[]>([]);
   const [error, setError] = useState("");
   const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
-    if (!selectedFile) {
-      setLocalPreview("");
+    if (!selectedFiles.length) {
+      setLocalPreviews([]);
       return;
     }
 
-    const previewUrl = URL.createObjectURL(selectedFile);
-    setLocalPreview(previewUrl);
+    const previewUrls = selectedFiles.map((file) => URL.createObjectURL(file));
+    setLocalPreviews(previewUrls);
 
-    return () => URL.revokeObjectURL(previewUrl);
-  }, [selectedFile]);
+    return () => {
+      previewUrls.forEach((previewUrl) => URL.revokeObjectURL(previewUrl));
+    };
+  }, [selectedFiles]);
 
   function chooseImage(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0] || null;
-    setSelectedFile(file);
-    setUploadResult(null);
+    const files = Array.from(event.target.files || []);
+    setSelectedFiles(files);
+    setUploadResults([]);
     setError("");
   }
 
   async function submitUpload(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
-    setUploadResult(null);
+    setUploadResults([]);
 
-    if (!selectedFile) {
-      setError("Choose an image to upload.");
+    if (!selectedFiles.length) {
+      setError("Choose at least one image to upload.");
       return;
     }
 
@@ -90,12 +93,12 @@ export function AdminPhotoUploadForm({
         return;
       }
 
-      if (!response.ok || !payload.ok || !payload.upload) {
+      if (!response.ok || !payload.ok || (!payload.upload && !payload.uploads?.length)) {
         throw new Error(payload.error || "The image could not be uploaded.");
       }
 
-      setUploadResult(payload.upload);
-      setSelectedFile(null);
+      setUploadResults(payload.uploads?.length ? payload.uploads : [payload.upload!]);
+      setSelectedFiles([]);
       form.reset();
     } catch (uploadError) {
       setError(
@@ -108,7 +111,8 @@ export function AdminPhotoUploadForm({
     }
   }
 
-  const previewUrl = uploadResult?.url || localPreview;
+  const previewUrl = uploadResults[0]?.url || localPreviews[0] || "";
+  const selectedFileCount = selectedFiles.length;
 
   return (
     <form onSubmit={submitUpload} className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
@@ -121,14 +125,20 @@ export function AdminPhotoUploadForm({
             type="file"
             name="image"
             accept="image/*"
+            multiple
             required
             disabled={!isConfigured || isUploading}
             onChange={chooseImage}
             className="block min-h-12 w-full cursor-pointer rounded-md border border-dashed border-[#3f7098] bg-[#071421] px-3 py-3 text-sm font-semibold text-[#bfd0df] file:mr-3 file:rounded file:border-0 file:bg-[#247fc9] file:px-4 file:py-2 file:text-xs file:font-black file:uppercase file:text-white"
           />
           <span className="text-xs font-semibold leading-5 text-[#7f93a7]">
-            Choose from your phone, camera, or photo library. Maximum 15 MB.
+            Choose one photo or batch upload multiple photos. Maximum 15 MB each.
           </span>
+          {selectedFileCount ? (
+            <span className="text-xs font-black uppercase tracking-wide text-[#72bdf7]">
+              {selectedFileCount} selected
+            </span>
+          ) : null}
         </label>
 
         <label className="grid gap-2">
@@ -214,7 +224,7 @@ export function AdminPhotoUploadForm({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={previewUrl}
-              alt={uploadResult ? "Uploaded image preview" : "Selected image preview"}
+              alt={uploadResults.length ? "Uploaded image preview" : "Selected image preview"}
               className="aspect-[4/3] w-full object-contain"
             />
           </div>
@@ -224,22 +234,30 @@ export function AdminPhotoUploadForm({
           </div>
         )}
 
-        {uploadResult ? (
+        {uploadResults.length ? (
           <div className="mt-5 rounded-md border border-[#3ca36c]/45 bg-[#0c2a1b] p-4">
             <p className="text-sm font-black text-[#9ef0bd]">
-              Photo uploaded successfully.
+              {uploadResults.length === 1
+                ? "Photo uploaded successfully."
+                : `${uploadResults.length} photos uploaded successfully.`}
             </p>
-            <p className="mt-2 break-all text-xs font-semibold leading-5 text-[#a9cabb]">
-              {uploadResult.publicId}
-            </p>
-            <a
-              href={uploadResult.url}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-flex min-h-11 items-center text-xs font-black uppercase tracking-wide text-[#72bdf7] hover:text-white"
-            >
-              Open uploaded image
-            </a>
+            <div className="mt-3 grid gap-2">
+              {uploadResults.map((uploadResult) => (
+                <div key={uploadResult.publicId} className="rounded bg-black/18 p-3">
+                  <p className="break-all text-xs font-semibold leading-5 text-[#a9cabb]">
+                    {uploadResult.publicId}
+                  </p>
+                  <a
+                    href={uploadResult.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 inline-flex min-h-8 items-center text-xs font-black uppercase tracking-wide text-[#72bdf7] hover:text-white"
+                  >
+                    Open uploaded image
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         ) : null}
       </section>

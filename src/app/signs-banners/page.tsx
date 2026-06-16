@@ -9,6 +9,7 @@ import {
 } from "@/components/SignProjectShowcase";
 import { SignQuoteBuilder } from "@/components/SignQuoteBuilder";
 import { workImagesByFolder } from "@/data/workImages.generated";
+import { getCloudinaryGalleryImagesByTag } from "@/lib/cloudinary-public-gallery";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
@@ -17,6 +18,8 @@ export const metadata = createSeoMetadata({
     "Custom signs, banners, yard signs, decals, storefront graphics, and event signage for Bethlehem, Barrow County, Winder, Auburn, Monroe, Braselton, and Northeast Georgia.",
   path: "/signs-banners",
 });
+
+export const revalidate = 300;
 
 const products = [
   "Vinyl banners",
@@ -179,12 +182,27 @@ const folderProjectSlides: SignProjectSlide[] = workImagesByFolder[
       "Additional sign, banner, decal, or display work from the Hue Graphics production folder.",
   }));
 
-const projectSlides: SignProjectSlide[] = [
+const localProjectSlides: SignProjectSlide[] = [
   ...featuredProjectSlides,
   ...folderProjectSlides,
 ];
 
-export default function SignsBannersPage() {
+export default async function SignsBannersPage() {
+  const cloudinaryProjectSlides: SignProjectSlide[] = (
+    await getCloudinaryGalleryImagesByTag("signs-banners")
+  ).map((image) => ({
+    src: image.src,
+    category: image.category,
+    title: image.title,
+    description:
+      image.description ||
+      "Recent sign, banner, decal, or display work uploaded from the Hue Graphics project library.",
+  }));
+  const projectSlides: SignProjectSlide[] = [
+    ...cloudinaryProjectSlides,
+    ...localProjectSlides,
+  ];
+
   return (
     <>
       <Header />

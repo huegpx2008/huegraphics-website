@@ -30,7 +30,8 @@ const dashboardCards: DashboardCard[] = [
   {
     title: "Manage Gallery",
     description: "Choose, organize, and publish photos to website galleries.",
-    status: "Coming Soon",
+    href: "/admin/gallery",
+    status: "Available",
   },
   {
     title: "Quote Requests",
