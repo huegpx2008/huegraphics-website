@@ -1,6 +1,9 @@
 import "server-only";
 
-import { getAdminUploadCategory } from "@/lib/admin-upload-categories";
+import {
+  adminUploadCategories,
+  getAdminUploadCategory,
+} from "@/lib/admin-upload-categories";
 import { getMissingCloudinaryUploadEnvVars } from "@/lib/cloudinary-admin-upload";
 
 const cloudinaryBaseFolder = "hue-graphics-website";
@@ -169,4 +172,21 @@ export async function getCloudinaryGalleryImagesByTag(tag: string) {
     });
     return [];
   }
+}
+
+export async function getAllCloudinaryGalleryImages() {
+  const imagesByCategory = await Promise.all(
+    adminUploadCategories.map((category) =>
+      getCloudinaryGalleryImagesByTag(category.value),
+    ),
+  );
+  const uniqueImages = new Map<string, PublicCloudinaryGalleryImage>();
+
+  imagesByCategory.flat().forEach((image) => {
+    uniqueImages.set(image.publicId, image);
+  });
+
+  return [...uniqueImages.values()].sort((left, right) =>
+    right.uploadedAt.localeCompare(left.uploadedAt),
+  );
 }
