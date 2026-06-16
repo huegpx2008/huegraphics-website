@@ -46,7 +46,8 @@ const dashboardCards: DashboardCard[] = [
   {
     title: "Website Stats",
     description: "View useful traffic and conversion snapshots.",
-    status: "Coming Soon",
+    href: "/admin/stats",
+    status: "Available",
   },
   {
     title: "Pricing API Tester",
