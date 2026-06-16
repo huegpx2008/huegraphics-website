@@ -4,28 +4,52 @@ import {
   getAdminUploadCategory,
   type AdminUploadCategory,
 } from "@/lib/admin-upload-categories";
-import { uploadAdminImageToCloudinary } from "@/lib/cloudinary-admin-upload";
+import {
+  getMissingCloudinaryUploadEnvVars,
+  uploadAdminImageToCloudinary,
+} from "@/lib/cloudinary-admin-upload";
 
 export const runtime = "nodejs";
 
 const maxUploadBytes = 15 * 1024 * 1024;
+const uploadLogPrefix = "[admin-upload-api]";
 
 function formText(formData: FormData, key: string) {
   return String(formData.get(key) || "").trim();
 }
 
 export async function POST(request: Request) {
-  if (!(await isAdminAuthenticated())) {
-    return NextResponse.json(
-      {
-        ok: false,
-        error: "Admin access is required.",
-      },
-      { status: 401 },
-    );
-  }
-
   try {
+    if (!(await isAdminAuthenticated())) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "Admin access is required.",
+        },
+        { status: 401 },
+      );
+    }
+
+    const missingEnvVars = getMissingCloudinaryUploadEnvVars();
+
+    if (missingEnvVars.length) {
+      console.error(`${uploadLogPrefix} Missing Cloudinary environment variables.`, {
+        missingEnvVars,
+      });
+
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "Cloudinary uploads are not configured on this server. Missing: " +
+            missingEnvVars.join(", ") +
+            ".",
+          missingEnvVars,
+        },
+        { status: 503 },
+      );
+    }
+
     const formData = await request.formData();
     const file = formData.get("image");
     const categoryValue = formText(formData, "category");
@@ -85,6 +109,11 @@ export async function POST(request: Request) {
       upload,
     });
   } catch (error) {
+    console.error(`${uploadLogPrefix} Upload request failed.`, {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+
     return NextResponse.json(
       {
         ok: false,
@@ -96,4 +125,14 @@ export async function POST(request: Request) {
       { status: 502 },
     );
   }
+}
+
+export function GET() {
+  return NextResponse.json(
+    {
+      ok: false,
+      error: "Use POST to upload an admin photo.",
+    },
+    { status: 405 },
+  );
 }

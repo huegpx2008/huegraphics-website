@@ -15,6 +15,27 @@ type AdminPhotoUploadFormProps = {
   isConfigured: boolean;
 };
 
+async function readUploadResponse(response: Response) {
+  const contentType = response.headers.get("content-type") || "";
+  const responseText = await response.text();
+
+  if (contentType.includes("application/json")) {
+    return JSON.parse(responseText || "{}") as {
+      ok?: boolean;
+      upload?: UploadResult;
+      error?: string;
+    };
+  }
+
+  return {
+    ok: false,
+    error:
+      response.status === 404
+        ? "Upload API was not found. Check the /api/admin/upload route deployment."
+        : "Upload API returned an unexpected non-JSON response. Check server logs for redirects or errors.",
+  };
+}
+
 export function AdminPhotoUploadForm({
   isConfigured,
 }: AdminPhotoUploadFormProps) {
@@ -62,11 +83,7 @@ export function AdminPhotoUploadForm({
         method: "POST",
         body: formData,
       });
-      const payload = (await response.json()) as {
-        ok?: boolean;
-        upload?: UploadResult;
-        error?: string;
-      };
+      const payload = await readUploadResponse(response);
 
       if (response.status === 401) {
         window.location.assign("/admin?next=/admin/upload");

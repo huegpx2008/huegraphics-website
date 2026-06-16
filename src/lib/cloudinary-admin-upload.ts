@@ -26,6 +26,8 @@ type CloudinaryUploadResponse = {
   };
 };
 
+const cloudinaryLogPrefix = "[admin-upload]";
+
 function getCloudinaryConfig() {
   return {
     cloudName: process.env.CLOUDINARY_CLOUD_NAME?.trim() || "",
@@ -34,9 +36,19 @@ function getCloudinaryConfig() {
   };
 }
 
-export function isCloudinaryUploadConfigured() {
+export function getMissingCloudinaryUploadEnvVars() {
   const config = getCloudinaryConfig();
-  return Boolean(config.cloudName && config.apiKey && config.apiSecret);
+  const missing: string[] = [];
+
+  if (!config.cloudName) missing.push("CLOUDINARY_CLOUD_NAME");
+  if (!config.apiKey) missing.push("CLOUDINARY_API_KEY");
+  if (!config.apiSecret) missing.push("CLOUDINARY_API_SECRET");
+
+  return missing;
+}
+
+export function isCloudinaryUploadConfigured() {
+  return getMissingCloudinaryUploadEnvVars().length === 0;
 }
 
 function sanitizeContextValue(value: string) {
@@ -65,9 +77,17 @@ export async function uploadAdminImageToCloudinary({
   description,
 }: CloudinaryUploadInput) {
   const config = getCloudinaryConfig();
+  const missingEnvVars = getMissingCloudinaryUploadEnvVars();
 
-  if (!config.cloudName || !config.apiKey || !config.apiSecret) {
-    throw new Error("Cloudinary uploads are not configured on this server.");
+  if (missingEnvVars.length) {
+    console.error(`${cloudinaryLogPrefix} Cloudinary configuration is missing.`, {
+      missingEnvVars,
+    });
+    throw new Error(
+      `Cloudinary uploads are not configured on this server. Missing: ${missingEnvVars.join(
+        ", ",
+      )}.`,
+    );
   }
 
   const categoryDetails = getAdminUploadCategory(category);
@@ -101,19 +121,50 @@ export async function uploadAdminImageToCloudinary({
     cloudinaryForm.set(key, String(value));
   });
 
+  const uploadUrl = `https://api.cloudinary.com/v1_1/${encodeURIComponent(
+    config.cloudName,
+  )}/image/upload`;
   const response = await fetch(
-    `https://api.cloudinary.com/v1_1/${encodeURIComponent(
-      config.cloudName,
-    )}/image/upload`,
+    uploadUrl,
     {
       method: "POST",
       body: cloudinaryForm,
       cache: "no-store",
     },
   );
-  const result = (await response.json()) as CloudinaryUploadResponse;
+  const responseText = await response.text();
+  const contentType = response.headers.get("content-type") || "";
+  let result: CloudinaryUploadResponse = {};
+
+  if (responseText) {
+    try {
+      result = JSON.parse(responseText) as CloudinaryUploadResponse;
+    } catch (parseError) {
+      console.error(`${cloudinaryLogPrefix} Cloudinary returned non-JSON.`, {
+        status: response.status,
+        statusText: response.statusText,
+        contentType,
+        uploadUrl,
+        responsePreview: responseText.slice(0, 500),
+        error:
+          parseError instanceof Error ? parseError.message : String(parseError),
+      });
+
+      throw new Error(
+        `Cloudinary returned an unexpected response (${response.status}). Check the Cloudinary cloud name and upload credentials.`,
+      );
+    }
+  }
 
   if (!response.ok || !result.secure_url || !result.public_id) {
+    console.error(`${cloudinaryLogPrefix} Cloudinary upload failed.`, {
+      status: response.status,
+      statusText: response.statusText,
+      contentType,
+      cloudinaryError: result.error?.message,
+      responsePreview: responseText.slice(0, 500),
+    });
+
     throw new Error(
       result.error?.message || "Cloudinary could not upload this image.",
     );
