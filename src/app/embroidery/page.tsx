@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
 import { sanmarCatalogProducts } from "@/data/sanmarCatalog.generated";
 import { isEmbroideryFriendlyProduct } from "@/lib/catalog-embroidery";
+import { getCloudinaryGalleryImagesByTag } from "@/lib/cloudinary-public-gallery";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
@@ -15,6 +16,8 @@ export const metadata = createSeoMetadata({
     "Professional embroidery for polos, hats, jackets, workwear, uniforms, and branded apparel for businesses, schools, teams, and organizations across Bethlehem, Barrow County, Winder, Auburn, and Northeast Georgia.",
   path: "/embroidery",
 });
+
+export const revalidate = 300;
 
 const products = [
   "Polos",
@@ -48,7 +51,11 @@ const embroideryNavigatorProducts = sanmarCatalogProducts.filter(
   isEmbroideryFriendlyProduct,
 );
 
-export default function EmbroideryPage() {
+export default async function EmbroideryPage() {
+  const cloudinaryGalleryImages = (
+    await getCloudinaryGalleryImagesByTag("embroidery")
+  ).map((image) => image.src);
+
   return (
     <>
       <Header />
@@ -126,7 +133,11 @@ export default function EmbroideryPage() {
                 ))}
               </div>
             </div>
-            <RandomImageGallery folder="emb" fallbackImages={gallery} />
+            <RandomImageGallery
+              folder="emb"
+              fallbackImages={gallery}
+              extraImages={cloudinaryGalleryImages}
+            />
           </div>
         </section>
 

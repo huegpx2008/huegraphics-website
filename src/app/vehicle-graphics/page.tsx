@@ -4,6 +4,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
+import { getCloudinaryGalleryImagesByTag } from "@/lib/cloudinary-public-gallery";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
@@ -12,6 +13,8 @@ export const metadata = createSeoMetadata({
     "Commercial vehicle graphics, truck lettering, trailer decals, magnets, DOT numbers, and fleet branding for Georgia businesses in Bethlehem, Barrow County, Winder, Auburn, and Northeast Georgia.",
   path: "/vehicle-graphics",
 });
+
+export const revalidate = 300;
 
 const products = [
   "Vehicle lettering",
@@ -44,7 +47,11 @@ const gallery = [
   "491449752_18504299536009873_4018330112690580641_n.jpg",
 ].map((image) => `/images/vehicle-graphics/${image}`);
 
-export default function VehicleGraphicsPage() {
+export default async function VehicleGraphicsPage() {
+  const cloudinaryGalleryImages = (
+    await getCloudinaryGalleryImagesByTag("vehicle-graphics")
+  ).map((image) => image.src);
+
   return (
     <>
       <Header />
@@ -155,7 +162,11 @@ export default function VehicleGraphicsPage() {
                 ))}
               </div>
             </div>
-            <RandomImageGallery folder="vehicle-graphics" fallbackImages={gallery} />
+            <RandomImageGallery
+              folder="vehicle-graphics"
+              fallbackImages={gallery}
+              extraImages={cloudinaryGalleryImages}
+            />
           </div>
         </section>
 

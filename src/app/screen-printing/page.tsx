@@ -9,6 +9,7 @@ import { QuoteSection } from "@/components/QuoteSection";
 import { ScreenPrintEstimator } from "@/components/ScreenPrintEstimator";
 import { sanmarCatalogProducts } from "@/data/sanmarCatalog.generated";
 import { workImagesByFolder } from "@/data/workImages.generated";
+import { getCloudinaryGalleryImagesByTag } from "@/lib/cloudinary-public-gallery";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
@@ -17,6 +18,8 @@ export const metadata = createSeoMetadata({
     "Custom screen printing for shirts, hoodies, team apparel, school orders, events, churches, and Georgia businesses in Bethlehem, Barrow County, Auburn, Winder, and Northeast Georgia.",
   path: "/screen-printing",
 });
+
+export const revalidate = 300;
 
 const screenPrintingImages = workImagesByFolder["screen-printing"].length
   ? [...workImagesByFolder["screen-printing"]]
@@ -191,8 +194,14 @@ const screenPrintNavigatorStyles = [
 
 const screenPrintNavigatorProducts = sanmarCatalogProducts;
 
-export default function ScreenPrintingPage() {
-  const galleryImages = screenPrintingImages.slice(0, 10);
+export default async function ScreenPrintingPage() {
+  const cloudinaryGalleryImages = (
+    await getCloudinaryGalleryImagesByTag("screen-printing")
+  ).map((image) => image.src);
+  const galleryImages = [
+    ...cloudinaryGalleryImages,
+    ...screenPrintingImages,
+  ].slice(0, 10);
 
   return (
     <>
