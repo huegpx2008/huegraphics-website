@@ -334,17 +334,19 @@ export function HomeHeroRotator() {
 
       <section className="relative isolate hidden min-h-[620px] overflow-hidden bg-[radial-gradient(circle_at_20%_0%,rgba(31,115,190,0.2),transparent_32rem),linear-gradient(180deg,#071522_0%,#020912_100%)] text-white md:block">
         <div className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-[78%] bg-[radial-gradient(ellipse_at_center,rgba(31,115,190,0.18),transparent_66%)]" />
-        <div className="absolute -right-[4vw] top-14 z-0 w-[72vw] max-w-[980px] xl:top-16 xl:w-[68vw] xl:max-w-[1040px] 2xl:max-w-[1090px]">
-          <div className="relative overflow-hidden rounded-lg bg-black/24 shadow-[0_28px_90px_rgba(0,0,0,0.38)]">
-            <HeroImages
-              className="relative aspect-[16/9] min-h-[390px] overflow-hidden bg-[#03070d]"
-              imageClassName="object-contain"
-              arrowClassName=""
-              dotClassName="absolute bottom-5 left-[58%] flex -translate-x-1/2 gap-3 rounded-full bg-black/30 px-4 py-2 backdrop-blur-sm [&>button]:h-3 [&>button]:w-3"
-              showArrows={false}
-            />
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-[34%] bg-[linear-gradient(90deg,#06111e_0%,rgba(6,17,30,0.86)_24%,rgba(6,17,30,0.34)_68%,transparent_100%)]" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-[10%] bg-[linear-gradient(270deg,#020912_0%,transparent_100%)]" />
+        <div className="absolute inset-x-0 top-14 z-0 mx-auto w-full max-w-7xl px-8 lg:px-10 xl:top-16">
+          <div className="ml-auto w-[66vw] max-w-[980px] xl:w-[62vw] xl:max-w-[1040px] 2xl:w-[58vw] 2xl:max-w-[1090px]">
+            <div className="relative overflow-hidden rounded-lg bg-black/24 shadow-[0_28px_90px_rgba(0,0,0,0.38)]">
+              <HeroImages
+                className="relative aspect-[16/9] min-h-[390px] overflow-hidden bg-[#03070d]"
+                imageClassName="object-contain"
+                arrowClassName=""
+                dotClassName="absolute bottom-5 left-[58%] flex -translate-x-1/2 gap-3 rounded-full bg-black/30 px-4 py-2 backdrop-blur-sm [&>button]:h-3 [&>button]:w-3"
+                showArrows={false}
+              />
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-[34%] bg-[linear-gradient(90deg,#06111e_0%,rgba(6,17,30,0.86)_24%,rgba(6,17,30,0.34)_68%,transparent_100%)]" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-[10%] bg-[linear-gradient(270deg,#020912_0%,transparent_100%)]" />
+            </div>
           </div>
         </div>
 
