@@ -2,11 +2,15 @@ import "server-only";
 
 import { createSign } from "node:crypto";
 
+const analyticsLogPrefix = "[admin-stats]";
 const tokenUrl = "https://oauth2.googleapis.com/token";
 const analyticsScope = "https://www.googleapis.com/auth/analytics.readonly";
 
 type GoogleTokenResponse = {
   access_token?: string;
+  expires_in?: number;
+  token_type?: string;
+  error?: string;
   error_description?: string;
 };
 
@@ -18,7 +22,9 @@ type AnalyticsReportRow = {
 type AnalyticsReportResponse = {
   rows?: AnalyticsReportRow[];
   totals?: AnalyticsReportRow[];
-  error?: { message?: string };
+  error?: {
+    message?: string;
+  };
 };
 
 export type WebsiteStatsSummary = {
@@ -27,8 +33,16 @@ export type WebsiteStatsSummary = {
   sessions30Days: number;
   pageViews30Days: number;
   events30Days: number;
-  topPages: Array<{ path: string; views: number; users: number }>;
-  topChannels: Array<{ channel: string; sessions: number; users: number }>;
+  topPages: Array<{
+    path: string;
+    views: number;
+    users: number;
+  }>;
+  topChannels: Array<{
+    channel: string;
+    sessions: number;
+    users: number;
+  }>;
 };
 
 function base64UrlEncode(value: string | Buffer) {
@@ -63,7 +77,10 @@ export function getMissingAnalyticsEnvVars() {
 function createJwt() {
   const config = getAnalyticsConfig();
   const issuedAt = Math.floor(Date.now() / 1000);
-  const header = { alg: "RS256", typ: "JWT" };
+  const header = {
+    alg: "RS256",
+    typ: "JWT",
+  };
   const claimSet = {
     iss: config.clientEmail,
     scope: analyticsScope,
@@ -83,21 +100,29 @@ function createJwt() {
 }
 
 async function getAccessToken() {
+  const assertion = createJwt();
+  const body = new URLSearchParams({
+    grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    assertion,
+  });
   const response = await fetch(tokenUrl, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({
-      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
-      assertion: createJwt(),
-    }),
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body,
     cache: "no-store",
   });
   const payload = (await response.json()) as GoogleTokenResponse;
 
   if (!response.ok || !payload.access_token) {
+    console.error(`${analyticsLogPrefix} Google token request failed.`, {
+      status: response.status,
+      error: payload.error,
+      description: payload.error_description,
+    });
     throw new Error(
-      payload.error_description ||
-        "Google Analytics access token could not be created.",
+      payload.error_description || "Google Analytics access token could not be created.",
     );
   }
 
@@ -125,6 +150,11 @@ async function runAnalyticsReport(
   const payload = (await response.json()) as AnalyticsReportResponse;
 
   if (!response.ok) {
+    console.error(`${analyticsLogPrefix} GA report request failed.`, {
+      status: response.status,
+      path,
+      error: payload.error?.message,
+    });
     throw new Error(payload.error?.message || "Google Analytics report failed.");
   }
 
@@ -141,10 +171,9 @@ function dimension(row: AnalyticsReportRow, index: number, fallback: string) {
 
 export async function getWebsiteStats(): Promise<WebsiteStatsSummary> {
   const missingEnvVars = getMissingAnalyticsEnvVars();
+
   if (missingEnvVars.length) {
-    throw new Error(
-      `Google Analytics stats are not configured. Missing: ${missingEnvVars.join(", ")}.`,
-    );
+    throw new Error(`Google Analytics stats are not configured. Missing: ${missingEnvVars.join(", ")}.`);
   }
 
   const accessToken = await getAccessToken();
@@ -176,13 +205,15 @@ export async function getWebsiteStats(): Promise<WebsiteStatsSummary> {
       metrics: [{ name: "activeUsers" }],
     }),
   ]);
+  const summaryTotal = summary.totals?.[0];
+  const realtimeTotal = realtime.totals?.[0];
 
   return {
-    activeUsers: metric(realtime.totals?.[0], 0),
-    users30Days: metric(summary.totals?.[0], 0),
-    sessions30Days: metric(summary.totals?.[0], 1),
-    pageViews30Days: metric(summary.totals?.[0], 2),
-    events30Days: metric(summary.totals?.[0], 3),
+    activeUsers: metric(realtimeTotal, 0),
+    users30Days: metric(summaryTotal, 0),
+    sessions30Days: metric(summaryTotal, 1),
+    pageViews30Days: metric(summaryTotal, 2),
+    events30Days: metric(summaryTotal, 3),
     topPages: (topPages.rows || []).map((row) => ({
       path: dimension(row, 0, "/"),
       views: metric(row, 0),

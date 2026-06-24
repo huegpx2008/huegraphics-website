@@ -10,11 +10,8 @@ import {
 type RandomImageGalleryProps = {
   folder: WorkImageFolder;
   fallbackImages: string[];
+  extraImages?: string[];
 };
-
-function shuffleImages(images: string[]) {
-  return [...images].sort(() => Math.random() - 0.5);
-}
 
 function getRandomImage(images: string[], currentImage: string) {
   const options = images.filter((image) => image !== currentImage);
@@ -23,17 +20,23 @@ function getRandomImage(images: string[], currentImage: string) {
   return pool[Math.floor(Math.random() * pool.length)] || currentImage;
 }
 
-export function RandomImageGallery({ folder, fallbackImages }: RandomImageGalleryProps) {
-  const [allImages, setAllImages] = useState(fallbackImages);
-  const [visibleImages, setVisibleImages] = useState(fallbackImages.slice(0, 6));
+export function RandomImageGallery({
+  folder,
+  fallbackImages,
+  extraImages = [],
+}: RandomImageGalleryProps) {
+  const initialImages = [...extraImages, ...fallbackImages];
+  const [allImages, setAllImages] = useState(initialImages);
+  const [visibleImages, setVisibleImages] = useState(initialImages.slice(0, 6));
 
   useEffect(() => {
     const generatedImages = workImagesByFolder[folder];
-    const images = generatedImages.length ? [...generatedImages] : fallbackImages;
+    const localImages = generatedImages.length ? [...generatedImages] : fallbackImages;
+    const images = [...extraImages, ...localImages];
 
     setAllImages(images);
-    setVisibleImages(shuffleImages(images).slice(0, 6));
-  }, [fallbackImages, folder]);
+    setVisibleImages(images.slice(0, 6));
+  }, [extraImages, fallbackImages, folder]);
 
   useEffect(() => {
     if (allImages.length <= 6) return;

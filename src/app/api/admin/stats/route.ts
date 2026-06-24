@@ -7,16 +7,22 @@ import {
 
 export const runtime = "nodejs";
 
+const statsLogPrefix = "[admin-stats-api]";
+
 export async function GET() {
   try {
     if (!(await isAdminAuthenticated())) {
       return NextResponse.json(
-        { ok: false, error: "Admin access is required." },
+        {
+          ok: false,
+          error: "Admin access is required.",
+        },
         { status: 401 },
       );
     }
 
     const missingEnvVars = getMissingAnalyticsEnvVars();
+
     if (missingEnvVars.length) {
       return NextResponse.json({
         ok: true,
@@ -26,13 +32,20 @@ export async function GET() {
       });
     }
 
+    const stats = await getWebsiteStats();
+
     return NextResponse.json({
       ok: true,
       configured: true,
       missingEnvVars: [],
-      stats: await getWebsiteStats(),
+      stats,
     });
   } catch (error) {
+    console.error(`${statsLogPrefix} Stats request failed.`, {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+
     return NextResponse.json(
       {
         ok: false,

@@ -1,7 +1,6 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
 type PortfolioShowcaseProps = {
@@ -194,24 +193,23 @@ export function PortfolioShowcase({ images }: PortfolioShowcaseProps) {
           </div>
 
           <div className="relative min-h-[560px] overflow-hidden bg-[#020814]">
-            <Image
+            <img
               src={activeImage}
               alt=""
-              fill
-              priority
-              sizes="(min-width: 1024px) 58vw, 100vw"
+              loading="eager"
+              decoding="async"
               className={[
-                "object-cover opacity-90 transition duration-700",
+                "absolute inset-0 h-full w-full object-cover opacity-90 transition duration-700",
                 isSwitching ? "scale-105 opacity-0" : "scale-100 opacity-90",
               ].join(" ")}
             />
-            <Image
+            <img
               src={nextImage}
               alt=""
-              fill
-              sizes="(min-width: 1024px) 58vw, 100vw"
+              loading="lazy"
+              decoding="async"
               className={[
-                "object-cover transition duration-700",
+                "absolute inset-0 h-full w-full object-cover transition duration-700",
                 isSwitching ? "scale-100 opacity-90" : "scale-95 opacity-0",
               ].join(" ")}
             />

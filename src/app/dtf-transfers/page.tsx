@@ -8,6 +8,7 @@ import { Header } from "@/components/Header";
 import { QuoteSection } from "@/components/QuoteSection";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
 import { sanmarCatalogProducts } from "@/data/sanmarCatalog.generated";
+import { getCloudinaryGalleryImagesByTag } from "@/lib/cloudinary-public-gallery";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
@@ -16,6 +17,8 @@ export const metadata = createSeoMetadata({
     "Full-color DTF transfers and DTG printing for detailed logos, team shirts, events, staff apparel, and custom merch in Bethlehem, Barrow County, Winder, Auburn, and Northeast Georgia.",
   path: "/dtf-transfers",
 });
+
+export const revalidate = 300;
 
 const products = [
   "Full-color transfers",
@@ -52,7 +55,11 @@ const gallery = [
   "/images/dtf-main2.png",
 ];
 
-export default function DtfTransfersPage() {
+export default async function DtfTransfersPage() {
+  const cloudinaryGalleryImages = (
+    await getCloudinaryGalleryImagesByTag("dtf-transfers")
+  ).map((image) => image.src);
+
   return (
     <>
       <Header />
@@ -215,7 +222,11 @@ export default function DtfTransfersPage() {
                 ))}
               </div>
             </div>
-            <RandomImageGallery folder="dtf" fallbackImages={gallery} />
+            <RandomImageGallery
+              folder="dtf"
+              fallbackImages={gallery}
+              extraImages={cloudinaryGalleryImages}
+            />
           </div>
         </section>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   groupSizeQuantities,
   type ApparelSizePriceBreakdown,
@@ -483,6 +484,7 @@ export function openFloatingQuoteBasket() {
 }
 
 export function FloatingQuoteBasket() {
+  const pathname = usePathname();
   const [items, setItems] = useState<QuoteBasketItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isReady, setIsReady] = useState(false);
@@ -831,7 +833,7 @@ export function FloatingQuoteBasket() {
     (group) => group.quantity > 0 && group.quantity < screenPrintMinimumQuantity,
   );
 
-  if (!isReady) {
+  if (!isReady || pathname.startsWith("/admin")) {
     return null;
   }
 

@@ -9,7 +9,10 @@ import {
 export async function POST(request: Request) {
   if (!isAdminConfigured()) {
     return NextResponse.json(
-      { ok: false, error: "Admin access is not configured on this server." },
+      {
+        ok: false,
+        error: "Admin access is not configured on this server.",
+      },
       { status: 503 },
     );
   }
@@ -22,7 +25,10 @@ export async function POST(request: Request) {
 
   if (!isValidAdminPassword(password)) {
     return NextResponse.json(
-      { ok: false, error: "Incorrect password." },
+      {
+        ok: false,
+        error: "Incorrect password.",
+      },
       { status: 401 },
     );
   }

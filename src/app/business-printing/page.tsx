@@ -5,6 +5,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { RandomImageGallery } from "@/components/RandomImageGallery";
+import { getCloudinaryGalleryImagesByTag } from "@/lib/cloudinary-public-gallery";
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
@@ -13,6 +14,8 @@ export const metadata = createSeoMetadata({
     "Business cards, flyers, postcards, NCR forms, stickers, labels, and everyday print pieces for businesses, schools, churches, teams, and events across Bethlehem, Barrow County, and Northeast Georgia.",
   path: "/business-printing",
 });
+
+export const revalidate = 300;
 
 const products = [
   "Business cards",
@@ -42,7 +45,11 @@ const gallery = [
   "/images/service-business-printing.png",
 ];
 
-export default function BusinessPrintingPage() {
+export default async function BusinessPrintingPage() {
+  const cloudinaryGalleryImages = (
+    await getCloudinaryGalleryImagesByTag("business-printing")
+  ).map((image) => image.src);
+
   return (
     <>
       <Header />
@@ -120,7 +127,11 @@ export default function BusinessPrintingPage() {
                 ))}
               </div>
             </div>
-            <RandomImageGallery folder="business-printing" fallbackImages={gallery} />
+            <RandomImageGallery
+              folder="business-printing"
+              fallbackImages={gallery}
+              extraImages={cloudinaryGalleryImages}
+            />
           </div>
         </section>
 

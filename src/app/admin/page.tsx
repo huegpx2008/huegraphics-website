@@ -8,36 +8,51 @@ import {
 } from "@/lib/admin-auth";
 
 type AdminPageProps = {
-  searchParams: Promise<{ next?: string | string[] }>;
+  searchParams: Promise<{
+    next?: string | string[];
+  }>;
 };
 
-const dashboardCards = [
+type DashboardCard = {
+  title: string;
+  description: string;
+  href?: string;
+  status: "Available" | "Coming Soon";
+};
+
+const dashboardCards: DashboardCard[] = [
   {
     title: "Upload Photos",
     description: "Send new project photos to the Hue Graphics Cloudinary library.",
     href: "/admin/upload",
+    status: "Available",
   },
   {
     title: "Manage Gallery",
     description: "Choose, organize, and publish photos to website galleries.",
     href: "/admin/gallery",
+    status: "Available",
+  },
+  {
+    title: "Quote Requests",
+    description: "Review incoming website quote requests in one place.",
+    status: "Coming Soon",
+  },
+  {
+    title: "Announcements",
+    description: "Create and schedule website announcement banners.",
+    status: "Coming Soon",
   },
   {
     title: "Website Stats",
     description: "View useful traffic and conversion snapshots.",
     href: "/admin/stats",
-  },
-  {
-    title: "Quote Requests",
-    description: "Review incoming website quote requests in one place.",
-  },
-  {
-    title: "Announcements",
-    description: "Create and schedule website announcement banners.",
+    status: "Available",
   },
   {
     title: "Pricing API Tester",
     description: "Test pricing scenarios without using the public quote flow.",
+    status: "Coming Soon",
   },
 ];
 
@@ -66,7 +81,10 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
           <p className="mt-6 text-sm font-semibold leading-6 text-[#a9bacb]">
             Enter the admin password to access website management tools.
           </p>
-          <AdminLoginForm nextPath={nextPath} isConfigured={isAdminConfigured()} />
+          <AdminLoginForm
+            nextPath={nextPath}
+            isConfigured={isAdminConfigured()}
+          />
         </section>
       </main>
     );
@@ -97,10 +115,12 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
                   <span
                     className={[
                       "shrink-0 rounded px-2 py-1 text-[0.65rem] font-black uppercase tracking-wide",
-                      card.href ? "bg-[#1e70b4] text-white" : "bg-white/8 text-[#8ea1b4]",
+                      card.status === "Available"
+                        ? "bg-[#1e70b4] text-white"
+                        : "bg-white/8 text-[#8ea1b4]",
                     ].join(" ")}
                   >
-                    {card.href ? "Available" : "Coming Soon"}
+                    {card.status}
                   </span>
                 </div>
                 <p className="mt-4 text-sm font-semibold leading-6 text-[#9eb0c1]">

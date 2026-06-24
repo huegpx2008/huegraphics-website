@@ -43,7 +43,9 @@ export function isValidAdminPassword(candidate: string) {
 export async function isAdminAuthenticated() {
   const password = getAdminPassword();
 
-  if (!password) return false;
+  if (!password) {
+    return false;
+  }
 
   const cookieStore = await cookies();
   const token = cookieStore.get(adminSessionCookieName)?.value || "";
@@ -66,7 +68,9 @@ export async function isAdminAuthenticated() {
 export async function setAdminSession() {
   const password = getAdminPassword();
 
-  if (!password) throw new Error("Admin access is not configured.");
+  if (!password) {
+    throw new Error("Admin access is not configured.");
+  }
 
   const cookieStore = await cookies();
   cookieStore.set(adminSessionCookieName, createSessionToken(password), {

@@ -8,11 +8,16 @@ import {
 
 export const runtime = "nodejs";
 
+const galleryLogPrefix = "[admin-gallery-api]";
+
 export async function PATCH(request: Request) {
   try {
     if (!(await isAdminAuthenticated())) {
       return NextResponse.json(
-        { ok: false, error: "Admin access is required." },
+        {
+          ok: false,
+          error: "Admin access is required.",
+        },
         { status: 401 },
       );
     }
@@ -30,19 +35,35 @@ export async function PATCH(request: Request) {
     const category =
       typeof body?.category === "string" ? getAdminUploadCategory(body.category) : null;
 
-    if (!publicId || !category) {
+    if (!publicId) {
       return NextResponse.json(
-        { ok: false, error: "Public ID and valid category are required." },
+        {
+          ok: false,
+          error: "Cloudinary public ID is required.",
+        },
         { status: 400 },
       );
     }
 
-    const currentImage = (await listCloudinaryGalleryImages()).find(
-      (image) => image.publicId === publicId,
-    );
+    if (!category) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "Choose a valid photo category.",
+        },
+        { status: 400 },
+      );
+    }
+
+    const images = await listCloudinaryGalleryImages();
+    const currentImage = images.find((image) => image.publicId === publicId);
+
     if (!currentImage) {
       return NextResponse.json(
-        { ok: false, error: "Image was not found." },
+        {
+          ok: false,
+          error: "Image was not found in the Cloudinary gallery.",
+        },
         { status: 404 },
       );
     }
@@ -63,15 +84,26 @@ export async function PATCH(request: Request) {
         description,
         category: category.value,
         categoryLabel: category.label,
-        tags: ["hue-website", category.value, ...(currentImage.featured ? ["featured=true"] : [])],
+        tags: [
+          "hue-website",
+          category.value,
+          ...(currentImage.featured ? ["featured=true"] : []),
+        ],
       },
     });
   } catch (error) {
+    console.error(`${galleryLogPrefix} Metadata update failed.`, {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+
     return NextResponse.json(
       {
         ok: false,
         error:
-          error instanceof Error ? error.message : "Image metadata could not be updated.",
+          error instanceof Error
+            ? error.message
+            : "Image metadata could not be updated.",
       },
       { status: 502 },
     );

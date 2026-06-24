@@ -8,19 +8,32 @@ import { adminUploadCategories } from "@/lib/admin-upload-categories";
 export const dynamic = "force-dynamic";
 
 export default async function AdminGalleryPage() {
-  if (!(await isAdminAuthenticated())) redirect("/admin?next=/admin/gallery");
+  if (!(await isAdminAuthenticated())) {
+    redirect("/admin?next=/admin/gallery");
+  }
 
   return (
     <main className="min-h-screen px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
       <div className="mx-auto max-w-7xl">
         <header className="flex flex-col gap-5 border-b border-white/10 pb-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <Link href="/admin" className="inline-flex min-h-11 items-center text-xs font-black uppercase tracking-[0.14em] text-[#65b5f5] transition hover:text-white">Back to admin</Link>
-            <h1 className="mt-2 text-3xl font-black sm:text-4xl">Gallery Manager</h1>
-            <p className="mt-2 max-w-2xl text-sm font-semibold leading-6 text-[#91a6ba]">Review, organize, feature, and remove Cloudinary photos.</p>
+            <Link
+              href="/admin"
+              className="inline-flex min-h-11 items-center text-xs font-black uppercase tracking-[0.14em] text-[#65b5f5] transition hover:text-white"
+            >
+              Back to admin
+            </Link>
+            <h1 className="mt-2 text-3xl font-black sm:text-4xl">
+              Gallery Manager
+            </h1>
+            <p className="mt-2 max-w-2xl text-sm font-semibold leading-6 text-[#91a6ba]">
+              Review, organize, feature, and remove photos already uploaded to
+              the Hue Graphics Cloudinary library.
+            </p>
           </div>
           <AdminLogoutButton />
         </header>
+
         <div className="mt-7">
           <AdminGalleryManager categories={adminUploadCategories} />
         </div>
