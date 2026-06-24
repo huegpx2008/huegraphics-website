@@ -82,22 +82,47 @@ export function AdminPhotoUploadForm({
     try {
       const form = event.currentTarget;
       const formData = new FormData(form);
-      const response = await fetch("/api/admin/upload", {
-        method: "POST",
-        body: formData,
-      });
-      const payload = await readUploadResponse(response);
+      const category = String(formData.get("category") || "");
+      const title = String(formData.get("title") || "");
+      const description = String(formData.get("description") || "");
+      const completedUploads: UploadResult[] = [];
 
-      if (response.status === 401) {
-        window.location.assign("/admin?next=/admin/upload");
-        return;
+      for (const file of selectedFiles) {
+        const singleUploadData = new FormData();
+
+        singleUploadData.set("image", file);
+        singleUploadData.set("category", category);
+        singleUploadData.set("title", title);
+        singleUploadData.set("description", description);
+
+        const response = await fetch("/api/admin/upload", {
+          method: "POST",
+          body: singleUploadData,
+        });
+        const payload = await readUploadResponse(response);
+
+        if (response.status === 401) {
+          window.location.assign("/admin?next=/admin/upload");
+          return;
+        }
+
+        if (
+          !response.ok ||
+          !payload.ok ||
+          (!payload.upload && !payload.uploads?.length)
+        ) {
+          throw new Error(
+            `${file.name}: ${payload.error || "The image could not be uploaded."}`,
+          );
+        }
+
+        completedUploads.push(
+          ...(payload.uploads?.length ? payload.uploads : [payload.upload!]),
+        );
+        setUploadResults([...completedUploads]);
       }
 
-      if (!response.ok || !payload.ok || (!payload.upload && !payload.uploads?.length)) {
-        throw new Error(payload.error || "The image could not be uploaded.");
-      }
-
-      setUploadResults(payload.uploads?.length ? payload.uploads : [payload.upload!]);
+      setUploadResults(completedUploads);
       setSelectedFiles([]);
       form.reset();
     } catch (uploadError) {
