@@ -1,6 +1,7 @@
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HueStudioCallout } from "@/components/HueStudioCallout";
 import {
   HomeV2BrandWall,
   HomeV2CustomerWall,
@@ -37,6 +38,7 @@ export default function Home() {
       <main>
         <WebsiteAnnouncementBanner />
         <HomeV2Hero />
+        <HueStudioCallout />
         <div className="md:hidden">
           <ReviewsSection />
         </div>
