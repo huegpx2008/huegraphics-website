@@ -46,15 +46,8 @@ const collageTileClasses = [
   "",
 ];
 
-function pickSpread(images: readonly string[], count: number, offset = 0) {
-  if (images.length <= count) {
-    return [...images];
-  }
-
-  return Array.from({ length: count }, (_, index) => {
-    const imageIndex = Math.floor(((index + offset) * images.length) / count) % images.length;
-    return images[imageIndex];
-  });
+function takeNewest(images: readonly string[], count: number) {
+  return images.slice(0, count);
 }
 
 function getRandomImage(images: readonly string[], currentImage: string) {
@@ -62,9 +55,19 @@ function getRandomImage(images: readonly string[], currentImage: string) {
   return images[nextIndex] || currentImage;
 }
 
+function getNextImage(images: readonly string[], currentImage: string) {
+  const currentIndex = images.indexOf(currentImage);
+  const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % images.length : 0;
+
+  return images[nextIndex] || images[0] || currentImage;
+}
+
 export function PortfolioShowcase({ images }: PortfolioShowcaseProps) {
-  const galleryImages = useMemo(() => pickSpread(images, collageTileCount), [images]);
-  const railImages = useMemo(() => pickSpread(images, 18, 7), [images]);
+  const galleryImages = useMemo(
+    () => takeNewest(images, collageTileCount),
+    [images],
+  );
+  const railImages = useMemo(() => takeNewest(images, 18), [images]);
   const [activeImage, setActiveImage] = useState(images[0] || "");
   const [nextImage, setNextImage] = useState(images[1] || images[0] || "");
   const [isSwitching, setIsSwitching] = useState(false);
@@ -99,7 +102,7 @@ export function PortfolioShowcase({ images }: PortfolioShowcaseProps) {
     let swapTimeout: number;
 
     const interval = window.setInterval(() => {
-      const selectedImage = getRandomImage(images, activeImage);
+      const selectedImage = getNextImage(images, activeImage);
       setNextImage(selectedImage);
       setIsSwitching(true);
 
@@ -233,7 +236,7 @@ export function PortfolioShowcase({ images }: PortfolioShowcaseProps) {
               </div>
             </div>
             <div className="absolute bottom-32 left-5 rounded-lg border border-white/16 bg-black/46 px-4 py-3 text-xs font-black uppercase tracking-[0.18em] text-white backdrop-blur-md">
-              Random archive slideshow
+              Newest work first
             </div>
           </div>
         </div>
