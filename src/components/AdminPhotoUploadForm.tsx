@@ -15,26 +15,49 @@ type AdminPhotoUploadFormProps = {
   isConfigured: boolean;
 };
 
-async function readUploadResponse(response: Response) {
+type UploadSignatureResponse = {
+  ok?: boolean;
+  uploadUrl?: string;
+  apiKey?: string;
+  signature?: string;
+  parameters?: Record<string, string | number>;
+  category?: string;
+  error?: string;
+};
+
+type CloudinaryUploadResponse = {
+  secure_url?: string;
+  public_id?: string;
+  width?: number;
+  height?: number;
+  error?: {
+    message?: string;
+  };
+};
+
+const maxUploadBytes = 15 * 1024 * 1024;
+
+async function readJsonResponse<T>(
+  response: Response,
+  fallbackError: string,
+): Promise<T> {
   const contentType = response.headers.get("content-type") || "";
   const responseText = await response.text();
 
   if (contentType.includes("application/json")) {
-    return JSON.parse(responseText || "{}") as {
-      ok?: boolean;
-      upload?: UploadResult;
-      uploads?: UploadResult[];
-      error?: string;
-    };
+    try {
+      return JSON.parse(responseText || "{}") as T;
+    } catch {
+      return { error: `${fallbackError} returned invalid JSON.` } as T;
+    }
   }
 
   return {
-    ok: false,
     error:
-      response.status === 404
-        ? "Upload API was not found. Check the /api/admin/upload route deployment."
-        : "Upload API returned an unexpected non-JSON response. Check server logs for redirects or errors.",
-  };
+      response.status === 413
+        ? "The upload is too large for the receiving server."
+        : `${fallbackError} returned an unexpected response (${response.status}).`,
+  } as T;
 }
 
 export function AdminPhotoUploadForm({
@@ -77,6 +100,26 @@ export function AdminPhotoUploadForm({
       return;
     }
 
+    const invalidFile = selectedFiles.find(
+      (file) => !file.type.startsWith("image/"),
+    );
+
+    if (invalidFile) {
+      setError(`${invalidFile.name} is not an image.`);
+      return;
+    }
+
+    const oversizedFile = selectedFiles.find(
+      (file) => file.size > maxUploadBytes,
+    );
+
+    if (oversizedFile) {
+      setError(
+        `${oversizedFile.name} is too large. Images must be 15 MB or smaller.`,
+      );
+      return;
+    }
+
     setIsUploading(true);
 
     try {
@@ -88,37 +131,73 @@ export function AdminPhotoUploadForm({
       const completedUploads: UploadResult[] = [];
 
       for (const file of selectedFiles) {
-        const singleUploadData = new FormData();
-
-        singleUploadData.set("image", file);
-        singleUploadData.set("category", category);
-        singleUploadData.set("title", title);
-        singleUploadData.set("description", description);
-
-        const response = await fetch("/api/admin/upload", {
+        const signatureResponse = await fetch("/api/admin/upload/signature", {
           method: "POST",
-          body: singleUploadData,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ category, title, description }),
         });
-        const payload = await readUploadResponse(response);
+        const signaturePayload = await readJsonResponse<UploadSignatureResponse>(
+          signatureResponse,
+          "Upload authorization",
+        );
 
-        if (response.status === 401) {
+        if (signatureResponse.status === 401) {
           window.location.assign("/admin?next=/admin/upload");
           return;
         }
 
         if (
-          !response.ok ||
-          !payload.ok ||
-          (!payload.upload && !payload.uploads?.length)
+          !signatureResponse.ok ||
+          !signaturePayload.ok ||
+          !signaturePayload.uploadUrl ||
+          !signaturePayload.apiKey ||
+          !signaturePayload.signature ||
+          !signaturePayload.parameters ||
+          !signaturePayload.category
         ) {
           throw new Error(
-            `${file.name}: ${payload.error || "The image could not be uploaded."}`,
+            `${file.name}: ${signaturePayload.error || "The upload could not be authorized."}`,
           );
         }
 
-        completedUploads.push(
-          ...(payload.uploads?.length ? payload.uploads : [payload.upload!]),
+        const cloudinaryForm = new FormData();
+
+        cloudinaryForm.set("file", file);
+        cloudinaryForm.set("api_key", signaturePayload.apiKey);
+        cloudinaryForm.set("signature", signaturePayload.signature);
+
+        Object.entries(signaturePayload.parameters).forEach(([key, value]) => {
+          cloudinaryForm.set(key, String(value));
+        });
+
+        const uploadResponse = await fetch(signaturePayload.uploadUrl, {
+          method: "POST",
+          body: cloudinaryForm,
+        });
+        const uploadPayload = await readJsonResponse<CloudinaryUploadResponse>(
+          uploadResponse,
+          "Cloudinary",
         );
+
+        if (
+          !uploadResponse.ok ||
+          !uploadPayload.secure_url ||
+          !uploadPayload.public_id
+        ) {
+          throw new Error(
+            `${file.name}: ${uploadPayload.error?.message || "Cloudinary could not upload this image."}`,
+          );
+        }
+
+        completedUploads.push({
+          url: uploadPayload.secure_url,
+          publicId: uploadPayload.public_id,
+          category: signaturePayload.category,
+          width: uploadPayload.width,
+          height: uploadPayload.height,
+        });
         setUploadResults([...completedUploads]);
       }
 

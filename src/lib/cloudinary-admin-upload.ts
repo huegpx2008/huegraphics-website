@@ -15,6 +15,8 @@ type CloudinaryUploadInput = {
   description: string;
 };
 
+type CloudinaryUploadSignatureInput = Omit<CloudinaryUploadInput, "file">;
+
 type CloudinaryUploadResponse = {
   secure_url?: string;
   public_id?: string;
@@ -70,12 +72,11 @@ function signUploadParameters(
     .digest("hex");
 }
 
-export async function uploadAdminImageToCloudinary({
-  file,
+export function createAdminCloudinaryUploadSignature({
   category,
   title,
   description,
-}: CloudinaryUploadInput) {
+}: CloudinaryUploadSignatureInput) {
   const config = getCloudinaryConfig();
   const missingEnvVars = getMissingCloudinaryUploadEnvVars();
 
@@ -111,21 +112,44 @@ export async function uploadAdminImageToCloudinary({
     context: contextParts.join("|"),
   };
   const signature = signUploadParameters(parameters, config.apiSecret);
-  const cloudinaryForm = new FormData();
-
-  cloudinaryForm.set("file", file);
-  cloudinaryForm.set("api_key", config.apiKey);
-  cloudinaryForm.set("signature", signature);
-
-  Object.entries(parameters).forEach(([key, value]) => {
-    cloudinaryForm.set(key, String(value));
-  });
-
   const uploadUrl = `https://api.cloudinary.com/v1_1/${encodeURIComponent(
     config.cloudName,
   )}/image/upload`;
-  const response = await fetch(
+
+  return {
     uploadUrl,
+    apiKey: config.apiKey,
+    signature,
+    parameters,
+    category: categoryDetails.label,
+    folder,
+    tags: tags.split(","),
+  };
+}
+
+export async function uploadAdminImageToCloudinary({
+  file,
+  category,
+  title,
+  description,
+}: CloudinaryUploadInput) {
+  const signedUpload = createAdminCloudinaryUploadSignature({
+    category,
+    title,
+    description,
+  });
+  const cloudinaryForm = new FormData();
+
+  cloudinaryForm.set("file", file);
+  cloudinaryForm.set("api_key", signedUpload.apiKey);
+  cloudinaryForm.set("signature", signedUpload.signature);
+
+  Object.entries(signedUpload.parameters).forEach(([key, value]) => {
+    cloudinaryForm.set(key, String(value));
+  });
+
+  const response = await fetch(
+    signedUpload.uploadUrl,
     {
       method: "POST",
       body: cloudinaryForm,
@@ -144,7 +168,7 @@ export async function uploadAdminImageToCloudinary({
         status: response.status,
         statusText: response.statusText,
         contentType,
-        uploadUrl,
+        uploadUrl: signedUpload.uploadUrl,
         responsePreview: responseText.slice(0, 500),
         error:
           parseError instanceof Error ? parseError.message : String(parseError),
@@ -176,8 +200,8 @@ export async function uploadAdminImageToCloudinary({
     width: result.width,
     height: result.height,
     format: result.format,
-    category: categoryDetails.label,
-    folder,
-    tags: tags.split(","),
+    category: signedUpload.category,
+    folder: signedUpload.folder,
+    tags: signedUpload.tags,
   };
 }
