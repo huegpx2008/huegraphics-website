@@ -12,6 +12,10 @@ function getAdminPassword() {
   return process.env.ADMIN_UPLOAD_PASSWORD?.trim() || "";
 }
 
+function getAdminSessionSecret() {
+  return process.env.ADMIN_SESSION_SECRET?.trim() || getAdminPassword();
+}
+
 function hashValue(value: string) {
   return createHash("sha256").update(value).digest();
 }
@@ -20,15 +24,15 @@ function safeEqual(left: string, right: string) {
   return timingSafeEqual(hashValue(left), hashValue(right));
 }
 
-function createSessionSignature(password: string, issuedAt: number) {
-  return createHmac("sha256", password)
+function createSessionSignature(secret: string, issuedAt: number) {
+  return createHmac("sha256", secret)
     .update(`${sessionPayload}:${issuedAt}`)
     .digest("hex");
 }
 
-function createSessionToken(password: string) {
+function createSessionToken(secret: string) {
   const issuedAt = Math.floor(Date.now() / 1000);
-  return `${issuedAt}.${createSessionSignature(password, issuedAt)}`;
+  return `${issuedAt}.${createSessionSignature(secret, issuedAt)}`;
 }
 
 export function isAdminConfigured() {
@@ -41,9 +45,9 @@ export function isValidAdminPassword(candidate: string) {
 }
 
 export async function isAdminAuthenticated() {
-  const password = getAdminPassword();
+  const secret = getAdminSessionSecret();
 
-  if (!password) {
+  if (!secret) {
     return false;
   }
 
@@ -62,18 +66,18 @@ export async function isAdminAuthenticated() {
     return false;
   }
 
-  return safeEqual(signature, createSessionSignature(password, issuedAt));
+  return safeEqual(signature, createSessionSignature(secret, issuedAt));
 }
 
 export async function setAdminSession() {
-  const password = getAdminPassword();
+  const secret = getAdminSessionSecret();
 
-  if (!password) {
-    throw new Error("Admin access is not configured.");
+  if (!secret) {
+    throw new Error("Admin session signing is not configured.");
   }
 
   const cookieStore = await cookies();
-  cookieStore.set(adminSessionCookieName, createSessionToken(password), {
+  cookieStore.set(adminSessionCookieName, createSessionToken(secret), {
     httpOnly: true,
     maxAge: sessionMaxAgeSeconds,
     path: "/",
