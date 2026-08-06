@@ -19,6 +19,8 @@ const staticRoutes = [
   "/contact",
   "/request-a-quote",
   "/quote-app",
+  "/privacy",
+  "/terms",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
