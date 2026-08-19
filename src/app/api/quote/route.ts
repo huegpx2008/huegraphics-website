@@ -47,6 +47,57 @@ type ParsedQuoteDetails = {
   items: QuoteItem[];
 };
 
+type InquiryAttachmentMetadata = {
+  name: string;
+  size: number;
+  type: string;
+};
+
+async function copyInquiryToHueHq(payload: {
+  submissionId: string;
+  submittedAt: string;
+  name: string;
+  businessName: string;
+  email: string;
+  phone: string;
+  interest: string;
+  details: string;
+  notes: string;
+  parsedQuote: ParsedQuoteDetails;
+  attachments: InquiryAttachmentMetadata[];
+}) {
+  const endpoint = process.env.HUE_HQ_INQUIRY_ENDPOINT?.trim();
+  const secret = process.env.HUE_HQ_INQUIRY_SECRET?.trim();
+
+  if (!endpoint || !secret) {
+    return;
+  }
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 4_000);
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${secret}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+      cache: "no-store",
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      console.error("Hue HQ inquiry copy failed", response.status);
+    }
+  } catch (error) {
+    console.error("Hue HQ inquiry copy failed", error);
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 function getFormValue(formData: FormData, key: string) {
   const value = formData.get(key);
   return typeof value === "string" ? value.trim() : "";
@@ -367,6 +418,7 @@ export async function POST(request: Request) {
 
   let totalFileSize = 0;
   const attachments: ResendAttachment[] = [];
+  const inquiryAttachments: InquiryAttachmentMetadata[] = [];
 
   for (const file of fileValues) {
     if (file.size > maxFileSize) {
@@ -397,6 +449,11 @@ export async function POST(request: Request) {
     attachments.push({
       content: fileBuffer.toString("base64"),
       filename: file.name,
+    });
+    inquiryAttachments.push({
+      name: file.name,
+      size: file.size,
+      type: file.type || "application/octet-stream",
     });
   }
 
@@ -469,6 +526,20 @@ export async function POST(request: Request) {
       { status: 502 }
     );
   }
+
+  await copyInquiryToHueHq({
+    submissionId: crypto.randomUUID(),
+    submittedAt: new Date().toISOString(),
+    name,
+    businessName,
+    email,
+    phone,
+    interest,
+    details,
+    notes: customerNotes,
+    parsedQuote: parsedDetails,
+    attachments: inquiryAttachments,
+  });
 
   return NextResponse.json({ ok: true });
 }
