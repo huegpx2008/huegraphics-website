@@ -1,7 +1,11 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import {
+  SpamProtectionFields,
+  type SpamProtectionFieldsHandle,
+} from "@/components/SpamProtectionFields";
 import {
   groupSizeQuantities,
   type ApparelSizePriceBreakdown,
@@ -484,6 +488,7 @@ export function openFloatingQuoteBasket() {
 }
 
 export function FloatingQuoteBasket() {
+  const spamProtectionRef = useRef<SpamProtectionFieldsHandle>(null);
   const pathname = usePathname();
   const [items, setItems] = useState<QuoteBasketItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -813,6 +818,7 @@ export function FloatingQuoteBasket() {
           error instanceof Error ? error.message : "Unable to send quote basket.",
       });
     } finally {
+      spamProtectionRef.current?.reset();
       setIsSubmitting(false);
     }
   }
@@ -1131,7 +1137,10 @@ export function FloatingQuoteBasket() {
               </div>
             )}
 
-            <form onSubmit={submitBasket} className="mt-6 border-t border-black/10 pt-5">
+            <form
+              onSubmit={submitBasket}
+              className="relative mt-6 border-t border-black/10 pt-5"
+            >
               <div className="grid gap-3 sm:grid-cols-2">
                 <input
                   name="name"
@@ -1190,6 +1199,7 @@ export function FloatingQuoteBasket() {
                   </p>
                 ) : null}
               </div>
+              <SpamProtectionFields action="quote" ref={spamProtectionRef} />
               <button
                 type="submit"
                 disabled={isSubmitting}

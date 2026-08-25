@@ -1,6 +1,10 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
+import {
+  SpamProtectionFields,
+  type SpamProtectionFieldsHandle,
+} from "@/components/SpamProtectionFields";
 
 const interestOptions = [
   "Apparel",
@@ -12,6 +16,7 @@ const interestOptions = [
 ];
 
 export function QuoteSection() {
+  const spamProtectionRef = useRef<SpamProtectionFieldsHandle>(null);
   const [fileNames, setFileNames] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{
@@ -55,6 +60,7 @@ export function QuoteSection() {
         type: "error",
       });
     } finally {
+      spamProtectionRef.current?.reset();
       setIsSubmitting(false);
     }
   }
@@ -110,7 +116,10 @@ export function QuoteSection() {
             </div>
           </div>
         ) : (
-        <form onSubmit={handleSubmit} className="bg-white p-6 sm:p-8 lg:p-10">
+        <form
+          onSubmit={handleSubmit}
+          className="relative bg-white p-6 sm:p-8 lg:p-10"
+        >
           <div className="grid gap-4 sm:grid-cols-2">
             <input
               name="name"
@@ -159,6 +168,7 @@ export function QuoteSection() {
             rows={5}
             className="mt-4 w-full rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-4 text-sm text-[#07111f] outline-none transition placeholder:text-[#536273]/70 focus:border-accent"
           />
+          <SpamProtectionFields action="quote" ref={spamProtectionRef} />
           <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <label className="inline-flex cursor-pointer items-center gap-3 text-sm font-bold text-[#314154] transition hover:text-accent">

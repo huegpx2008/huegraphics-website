@@ -1,8 +1,13 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
+import {
+  SpamProtectionFields,
+  type SpamProtectionFieldsHandle,
+} from "@/components/SpamProtectionFields";
 
 export function ContactForm() {
+  const spamProtectionRef = useRef<SpamProtectionFieldsHandle>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{
     message: string;
@@ -44,12 +49,16 @@ export function ContactForm() {
         type: "error",
       });
     } finally {
+      spamProtectionRef.current?.reset();
       setIsSubmitting(false);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 sm:p-8 lg:p-10">
+    <form
+      onSubmit={handleSubmit}
+      className="relative bg-white p-6 sm:p-8 lg:p-10"
+    >
       <div className="grid gap-4 sm:grid-cols-2">
         <input
           name="name"
@@ -83,6 +92,7 @@ export function ContactForm() {
         rows={7}
         className="mt-4 w-full rounded-md border border-black/10 bg-[#f4f8fc] px-4 py-4 text-sm text-[#07111f] outline-none transition placeholder:text-[#536273]/70 focus:border-accent"
       />
+      <SpamProtectionFields action="contact" ref={spamProtectionRef} />
       <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-md text-xs leading-5 text-[#536273]">
           For project pricing, use the quote form below so we have the right

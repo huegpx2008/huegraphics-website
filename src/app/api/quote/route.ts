@@ -1,21 +1,87 @@
 import { NextResponse } from "next/server";
+import {
+  getRequestIp,
+  getSpamSignal,
+  hasOnlyAllowedFields,
+  isMultipartRequest,
+  isReasonableEmail,
+  isReasonablePhone,
+  logFormRejection,
+  parseTextFields,
+  verifyTurnstileToken,
+} from "@/lib/form-protection";
 
 const maxFileSize = 8 * 1024 * 1024;
 const maxTotalFileSize = 18 * 1024 * 1024;
+const maxRequestSize = 20 * 1024 * 1024;
+const maxFileCount = 5;
+const maxFileNameLength = 200;
 const allowedFileTypes = new Set([
   "application/pdf",
   "application/octet-stream",
   "application/postscript",
+  "application/vnd.corel-draw",
   "application/zip",
   "image/avif",
   "image/gif",
   "image/jpeg",
   "image/png",
   "image/svg+xml",
+  "image/tiff",
   "image/vnd.adobe.photoshop",
   "image/webp",
   "text/plain",
 ]);
+const allowedFileExtensions = new Set([
+  "ai",
+  "avif",
+  "cdr",
+  "eps",
+  "gif",
+  "jpeg",
+  "jpg",
+  "pdf",
+  "png",
+  "ps",
+  "psd",
+  "svg",
+  "txt",
+  "tif",
+  "tiff",
+  "webp",
+  "zip",
+]);
+const allowedFields = new Set([
+  "businessName",
+  "company_website",
+  "details",
+  "email",
+  "files",
+  "form_started_at",
+  "interest",
+  "name",
+  "notes",
+  "phone",
+  "turnstileToken",
+]);
+const allowedInterests = new Set([
+  "Apparel",
+  "Business Printing",
+  "DTF Transfers",
+  "Embroidery",
+  "Screen Printing",
+  "Signs & Banners",
+  "Vehicle Graphics",
+]);
+const textFieldRules = [
+  { key: "name", maxLength: 120 },
+  { key: "businessName", maxLength: 160 },
+  { key: "email", maxLength: 254, required: true },
+  { key: "phone", maxLength: 50 },
+  { key: "interest", maxLength: 160, required: true },
+  { key: "details", maxLength: 40_000, required: true },
+  { key: "notes", maxLength: 5_000 },
+] as const;
 
 type ResendAttachment = {
   content: string;
@@ -91,16 +157,38 @@ async function copyInquiryToHueHq(payload: {
     if (!response.ok) {
       console.error("Hue HQ inquiry copy failed", response.status);
     }
-  } catch (error) {
-    console.error("Hue HQ inquiry copy failed", error);
+  } catch {
+    console.error("Hue HQ inquiry copy failed");
   } finally {
     clearTimeout(timeout);
   }
 }
 
-function getFormValue(formData: FormData, key: string) {
-  const value = formData.get(key);
-  return typeof value === "string" ? value.trim() : "";
+function genericFailure(status = 400) {
+  return NextResponse.json(
+    {
+      error:
+        "Unable to submit the quote. Please check your information and try again.",
+    },
+    { status },
+  );
+}
+
+function hasAllowedInterests(value: string) {
+  const interests = value
+    .split(",")
+    .map((interest) => interest.trim())
+    .filter(Boolean);
+
+  return (
+    interests.length > 0 &&
+    interests.length <= allowedInterests.size &&
+    interests.every((interest) => allowedInterests.has(interest))
+  );
+}
+
+function getFileExtension(fileName: string) {
+  return fileName.split(".").pop()?.toLowerCase() || "";
 }
 
 function escapeHtml(value: string) {
@@ -387,64 +475,114 @@ export async function POST(request: Request) {
     process.env.QUOTE_FROM_EMAIL || "Hue Graphics <onboarding@resend.dev>";
 
   if (!resendApiKey) {
-    return NextResponse.json(
-      {
-        error:
-          "Email sending is not configured on this server. Add RESEND_API_KEY to the local environment and restart the dev server.",
-      },
-      { status: 500 }
-    );
+    console.error("Quote form is not configured");
+    return genericFailure(503);
   }
 
-  const formData = await request.formData();
-  const name = getFormValue(formData, "name");
-  const businessName = getFormValue(formData, "businessName");
-  const email = getFormValue(formData, "email");
-  const phone = getFormValue(formData, "phone");
-  const interest = getFormValue(formData, "interest");
-  const details = getFormValue(formData, "details");
-  const notes = getFormValue(formData, "notes");
-
-  if (!email || !interest || !details) {
-    return NextResponse.json(
-      { error: "Please complete the required fields." },
-      { status: 400 }
-    );
+  if (!isMultipartRequest(request, maxRequestSize)) {
+    logFormRejection("quote", "invalid_request");
+    return genericFailure(415);
   }
 
-  const fileValues = formData
-    .getAll("files")
-    .filter((file): file is File => file instanceof File && Boolean(file.name));
+  let formData: FormData;
+
+  try {
+    formData = await request.formData();
+  } catch {
+    logFormRejection("quote", "invalid_request");
+    return genericFailure();
+  }
+
+  const spamSignal = getSpamSignal(formData);
+
+  if (spamSignal) {
+    logFormRejection("quote", spamSignal);
+    return NextResponse.json({ ok: true });
+  }
+
+  if (!hasOnlyAllowedFields(formData, allowedFields)) {
+    logFormRejection("quote", "invalid_data");
+    return genericFailure();
+  }
+
+  const parsed = parseTextFields(formData, textFieldRules);
+
+  if (
+    !parsed.ok ||
+    !isReasonableEmail(parsed.values.email) ||
+    !isReasonablePhone(parsed.values.phone) ||
+    !hasAllowedInterests(parsed.values.interest)
+  ) {
+    logFormRejection("quote", "invalid_data");
+    return genericFailure();
+  }
+
+  const rawFileValues = formData.getAll("files");
+
+  if (rawFileValues.some((file) => !(file instanceof File))) {
+    logFormRejection("quote", "invalid_data");
+    return genericFailure();
+  }
+
+  const fileValues = rawFileValues
+    .filter((file): file is File => file instanceof File)
+    .filter((file) => Boolean(file.name));
+
+  if (fileValues.length > maxFileCount) {
+    logFormRejection("quote", "invalid_data");
+    return genericFailure();
+  }
 
   let totalFileSize = 0;
+
+  for (const file of fileValues) {
+    totalFileSize += file.size;
+
+    if (
+      file.size <= 0 ||
+      file.size > maxFileSize ||
+      totalFileSize > maxTotalFileSize ||
+      file.name.length > maxFileNameLength ||
+      /[\x00-\x1f/\\]/.test(file.name) ||
+      !allowedFileExtensions.has(getFileExtension(file.name)) ||
+      (file.type && !allowedFileTypes.has(file.type))
+    ) {
+      logFormRejection("quote", "invalid_data");
+      return genericFailure();
+    }
+  }
+
+  const turnstileValues = formData.getAll("turnstileToken");
+  const turnstileToken =
+    turnstileValues.length === 1 && typeof turnstileValues[0] === "string"
+      ? turnstileValues[0]
+      : "";
+  const turnstileVerified = await verifyTurnstileToken({
+    action: "quote",
+    hostname: new URL(request.url).hostname,
+    remoteIp: getRequestIp(request),
+    token: turnstileToken,
+  });
+
+  if (!turnstileVerified) {
+    logFormRejection("quote", "turnstile_failure");
+    return genericFailure();
+  }
+
+  const { businessName, details, email, interest, name, notes, phone } =
+    parsed.values;
   const attachments: ResendAttachment[] = [];
   const inquiryAttachments: InquiryAttachmentMetadata[] = [];
 
   for (const file of fileValues) {
-    if (file.size > maxFileSize) {
-      return NextResponse.json(
-        { error: `${file.name} is larger than 8MB.` },
-        { status: 400 }
-      );
+    let fileBuffer: Buffer;
+
+    try {
+      fileBuffer = Buffer.from(await file.arrayBuffer());
+    } catch {
+      logFormRejection("quote", "invalid_data");
+      return genericFailure();
     }
-
-    totalFileSize += file.size;
-
-    if (totalFileSize > maxTotalFileSize) {
-      return NextResponse.json(
-        { error: "Attachments must be under 18MB total." },
-        { status: 400 }
-      );
-    }
-
-    if (file.type && !allowedFileTypes.has(file.type)) {
-      return NextResponse.json(
-        { error: `${file.name} is not a supported file type.` },
-        { status: 400 }
-      );
-    }
-
-    const fileBuffer = Buffer.from(await file.arrayBuffer());
 
     attachments.push({
       content: fileBuffer.toString("base64"),
@@ -503,28 +641,33 @@ export async function POST(request: Request) {
     </div>
   `;
 
-  const resendResponse = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${resendApiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      attachments,
-      from: quoteFromEmail,
-      html,
-      reply_to: email,
-      subject: `Quote Request: ${interest}`,
-      text,
-      to: quoteToEmail,
-    }),
-  });
+  let resendResponse: Response;
+
+  try {
+    resendResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        attachments,
+        from: quoteFromEmail,
+        html,
+        reply_to: email,
+        subject: `Quote Request: ${interest}`,
+        text,
+        to: quoteToEmail,
+      }),
+    });
+  } catch {
+    console.error("Quote email request failed");
+    return genericFailure(502);
+  }
 
   if (!resendResponse.ok) {
-    return NextResponse.json(
-      { error: "The quote request could not be sent. Please try again." },
-      { status: 502 }
-    );
+    console.error("Quote email request failed", resendResponse.status);
+    return genericFailure(502);
   }
 
   await copyInquiryToHueHq({
