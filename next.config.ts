@@ -1,6 +1,22 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/orders/hq-assets/_next/:path*",
+        destination: "https://hq.huegraphics.cc/_next/:path*",
+      },
+      {
+        source: "/orders/hq-public/:path*",
+        destination: "https://hq.huegraphics.cc/:path*",
+      },
+      {
+        source: "/orders/:path*",
+        destination: "https://hq.huegraphics.cc/:path*",
+      },
+    ];
+  },
   async redirects() {
     return [
       {
