@@ -5,19 +5,36 @@ import {
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
-  title: "Hue HQ Privacy Policy",
+  title: "Hue Graphics & Apparel Privacy Policy",
   description:
-    "Privacy policy for Hue HQ, including how Hue Graphics & Apparel, LLC handles business information and authorized QuickBooks data.",
+    "Privacy policy for Hue Graphics & Apparel customers, including SMS subscribers, Hue HQ business information, and authorized QuickBooks data.",
   path: "/privacy",
 });
 
 export default function PrivacyPage() {
   return (
     <PublicDocumentLayout
-      eyebrow="Effective August 6, 2026"
-      title="Hue HQ Privacy Policy"
-      introduction="This policy explains how Hue Graphics & Apparel, LLC collects, uses, protects, shares, retains, and deletes information handled through the private Hue HQ business-management application."
+      eyebrow="Effective September 18, 2026"
+      title="Hue Graphics & Apparel Privacy Policy"
+      introduction="This policy explains how Hue Graphics & Apparel, LLC collects, uses, protects, shares, retains, and deletes information about its customers, including SMS subscribers, and information handled through the private Hue HQ business-management application."
     >
+      <DocumentSection title="SMS Privacy">
+        <p>
+          If you opt in to receive text messages from Hue Graphics &amp; Apparel,
+          we collect and use your mobile number, SMS consent status, and message
+          history to provide customer-care and transactional order updates. We
+          do not sell or share mobile numbers, SMS opt-in data, or consent with
+          third parties for promotional or marketing purposes. We may share this
+          information with telecommunications carriers and service providers
+          only as necessary to deliver and support our messaging service. Reply
+          STOP to opt out or HELP for assistance.
+        </p>
+        <p>
+          Customers may opt in verbally by phone or in person. This SMS program
+          does not send promotional or marketing messages.
+        </p>
+      </DocumentSection>
+
       <DocumentSection title="Operator and contact information">
         <p>
           Hue HQ is operated by Hue Graphics &amp; Apparel, LLC (&ldquo;Hue
@@ -46,8 +63,9 @@ export default function PrivacyPage() {
 
       <DocumentSection title="1. Scope of this policy">
         <p>
-          This policy applies to information processed through Hue HQ and its
-          authorized integrations. Hue HQ is primarily a private internal
+          This policy applies to Hue Graphics &amp; Apparel customer information,
+          including SMS subscriber information, and information processed through
+          Hue HQ and its authorized integrations. Hue HQ is primarily a private internal
           business application, not a generally available consumer product.
           Separate websites and third-party services may have their own privacy
           policies.

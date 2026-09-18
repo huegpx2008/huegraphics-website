@@ -5,19 +5,43 @@ import {
 import { createSeoMetadata } from "@/lib/seo";
 
 export const metadata = createSeoMetadata({
-  title: "Hue HQ End-User License Agreement and Terms of Use",
+  title: "Hue Graphics & Apparel Terms and Conditions",
   description:
-    "Terms of use and end-user license agreement for the private Hue HQ business-management application operated by Hue Graphics & Apparel, LLC.",
+    "Terms and conditions for Hue Graphics & Apparel customers, including SMS subscribers, and the end-user license agreement for the private Hue HQ application.",
   path: "/terms",
 });
 
 export default function TermsPage() {
   return (
     <PublicDocumentLayout
-      eyebrow="Effective August 6, 2026"
-      title="Hue HQ End-User License Agreement and Terms of Use"
-      introduction="These terms govern authorized access to Hue HQ, a private business-management application operated by Hue Graphics & Apparel, LLC."
+      eyebrow="Effective September 18, 2026"
+      title="Hue Graphics & Apparel Terms and Conditions"
+      introduction="These terms apply to Hue Graphics & Apparel, LLC customers, including SMS subscribers. They also include the end-user license agreement and terms of use governing authorized access to Hue HQ, our private business-management application. Provisions specific to Hue HQ apply to authorized users of that application."
     >
+      <DocumentSection title="Hue Graphics & Apparel SMS Program">
+        <p>
+          By opting in, you agree to receive customer-care and transactional text
+          messages concerning your quotes, invoices, order status, production,
+          pickup, shipping, and delivery. Message frequency varies. Message and
+          data rates may apply. Consent is not a condition of purchase. Reply
+          STOP to unsubscribe or HELP for assistance. You may also contact Hue
+          Graphics &amp; Apparel at 770-867-3520. Mobile carriers are not
+          responsible for delayed or undelivered messages. Our Privacy Policy is
+          available at{" "}
+          <a
+            href="https://www.huegraphics.cc/privacy"
+            className="break-words font-bold text-accent underline decoration-accent/35 underline-offset-4 hover:text-[#07111f]"
+          >
+            https://www.huegraphics.cc/privacy
+          </a>
+          .
+        </p>
+        <p>
+          Customers may opt in verbally by phone or in person. This SMS program
+          does not send promotional or marketing messages.
+        </p>
+      </DocumentSection>
+
       <DocumentSection title="Operator and contact information">
         <p>
           Hue HQ is operated by Hue Graphics &amp; Apparel, LLC (&ldquo;Hue
